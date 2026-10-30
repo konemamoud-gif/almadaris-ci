@@ -93,7 +93,8 @@ footer a{color:#ffd08a}
 .ok .big{font-size:54px}
 .code{font-family:Inter,monospace;font-size:22px;font-weight:800;letter-spacing:2px;background:#f0f8f2;border:2px dashed var(--g);border-radius:12px;padding:10px 18px;display:inline-block;color:var(--g2);direction:ltr}
 .tabs{display:flex;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:18px}
-.tab{flex:1;text-align:center;padding:9px;border-radius:9px;cursor:pointer;font-weight:700;font-size:14px;color:var(--mut)}
+.tab{flex:1;text-align:center;padding:9px;border-radius:9px;cursor:pointer;font-weight:700;font-size:14px;color:var(--mut);white-space:nowrap}
+.tabs{overflow-x:auto}
 .tab.on{background:#fff;color:var(--g2);box-shadow:0 2px 6px rgba(0,0,0,.08)}
 .note{background:#eef6ff;border:1px solid #cfe2ff;color:#24527a;border-radius:10px;padding:10px 14px;font-size:14px;margin-top:14px}
 .cert{border:3px double var(--g);border-radius:14px;padding:20px;margin-top:16px;background:linear-gradient(#fff,#fbfdfb)}
@@ -103,7 +104,7 @@ footer a{color:#ffd08a}
 .cert td{padding:6px 4px;border-bottom:1px dashed var(--line)}.cert td:first-child{color:var(--mut);width:42%}
 .badge{display:inline-block;background:#e6f5ea;color:var(--g2);border-radius:99px;padding:3px 12px;font-weight:800;font-size:14px}
 .badge.bad{background:#fdecea;color:#b03a2e}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:12px}
 .stat{background:#f0f8f2;border-radius:12px;padding:12px;text-align:center}.stat b{display:block;font-size:24px;color:var(--g2)}.stat span{font-size:13px;color:var(--mut)}
 .tblw{overflow-x:auto;margin-top:10px;border:1px solid var(--line);border-radius:12px}
 .tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
@@ -256,7 +257,8 @@ footer a{color:#ffd08a}
     <button class="btn btn-g" style="width:100%" data-t="login">دخول</button>
     <div class="note" id="loginNote" hidden data-t="login_note">لوحة التحكم ستُبنى في المرحلة التالية (قاعدة البيانات Supabase). هذه الصفحة واجهة فقط حالياً.</div>
   </form>
-  <p style="text-align:center;margin-top:16px;color:var(--mut)"><span data-t="noacc">ليس لمؤسستك حساب؟</span> <a href="#register" style="color:var(--o2);font-weight:700" data-t="trial_short">تسجيل مؤسسة</a></p>
+  <p style="text-align:center;margin-top:16px"><a href="#activate" style="color:var(--g2);font-weight:700" data-t="act_link">معلّم جديد؟ فعّل حسابك برمز الدعوة</a></p>
+  <p style="text-align:center;margin-top:6px;color:var(--mut)"><span data-t="noacc">ليس لمؤسستك حساب؟</span> <a href="#register" style="color:var(--o2);font-weight:700" data-t="trial_short">تسجيل مؤسسة</a></p>
 </div></div></main>
 
 <!-- VERIFY -->
@@ -266,6 +268,20 @@ footer a{color:#ffd08a}
   <div style="display:flex;gap:8px"><input id="vcode" dir="ltr" placeholder="AMC-2026-000123"><button class="btn btn-g" onclick="doVerify()" data-t="check">تحقّق</button></div>
   <div class="note" data-t="v_demo">للتجربة: جرّب الرمز AMC-2026-000123</div>
   <div id="vres"></div>
+</div></div></main>
+
+<!-- ACTIVATE (teacher invite) -->
+<main id="activate" class="view"><div class="wrap"><div class="panel" style="max-width:480px" id="actBox">
+  <h2 data-t="act_ttl">تفعيل حساب معلّم</h2>
+  <p class="sub" data-t="act_sub">أدخل رمز الدعوة الذي أعطتك إياه إدارة مدرستك، ثم اختر بريدك وكلمة مرورك.</p>
+  <form id="actForm" novalidate>
+    <div class="fld"><label data-t="inv_code">رمز الدعوة</label><input name="code" dir="ltr" style="text-transform:uppercase;letter-spacing:2px;font-weight:800" placeholder="01BDA61D" maxlength="12"></div>
+    <div class="fld"><label data-t="lid_email">البريد الإلكتروني</label><input name="email" type="email" dir="ltr"></div>
+    <div class="two"><div class="fld"><label data-t="pw">كلمة المرور</label><input name="pw" type="password" dir="ltr"></div>
+    <div class="fld"><label data-t="pw2">تأكيد كلمة المرور</label><input name="pw2" type="password" dir="ltr"></div></div>
+    <button class="btn btn-g" style="width:100%" data-t="act_btn">تفعيل الحساب</button>
+    <div class="err" id="actErr"></div>
+  </form>
 </div></div></main>
 
 <!-- DASHBOARD -->
@@ -282,13 +298,15 @@ footer a{color:#ffd08a}
 const T={fr:{login:"Connexion",trial_short:"Inscrire un établissement",pill:"Système d'exploitation académique & scolaire",h1:"Plateforme de gestion des écoles <em>arabes et islamiques</em> en Côte d'Ivoire",lead:"Inscriptions, dossiers, notes, présence par carte QR, frais et documents officiels certifiés — de la maternelle à l'université, au même endroit.",trial:"Inscrire mon établissement — essai 14 jours",verify_btn:"Vérifier un document",p1:"Espace Direction",p1d:"Directeur et administration : établissement, classes, frais, rapports.",p2:"Personnel & Enseignants",p2d:"Saisie des notes, présence, emploi du temps et examens.",p3:"Portail Élève & Parent",p3d:"Résultats, absences, frais dus et notifications.",f_ttl:"Les piliers de la plateforme",f_sub:"Tout ce dont une école arabe et islamique ivoirienne a besoin",f1:"Enseignement multi-cycles",f1l:"<li>Maternelle, primaire, collège, lycée, université</li><li>Parcours arabe, français, bilingue et tahfîdh du Coran</li><li>Manuels de la « Collection des écoles arabes et islamiques » intégrés</li>",f2:"Présence & cartes QR",f2l:"<li>Pointage par scan de carte</li><li>Notification automatique aux parents (absence, retard)</li><li>Fonctionne hors ligne puis se synchronise</li>",f3:"Documents officiels",f3l:"<li>Bulletins et attestations instantanés</li><li>Sceau numérique et QR code sur chaque document</li><li>Vérification publique d'authenticité</li>",t_ttl:"Quatre parcours",tr1:"Arabe seul",tr2:"Français seul",tr3:"Arabe + français",tr4:"Tahfîdh du Coran",vs:"🔎 Vérifier un diplôme ou un bulletin",check:"Vérifier",trial_badge:"🎁 Essai intégral gratuit de 14 jours",r_ttl:"Inscription de votre établissement",r_sub:"Ces données figureront sur les bulletins et diplômes officiels.",st1:"Établissement",st2:"Cycles & contact",st3:"Administrateur",nm_ar:"Nom officiel en arabe",nm_fr:"Nom officiel en français",type:"Type d'établissement",ty1:"Groupe scolaire franco-arabe",ty1d:"Maternelle, primaire, collège, lycée — avec études islamiques",ty2:"École / centre de mémorisation du Coran",ty2d:"Halaqas, hizbs, tajwîd (riwâya Hafs)",ty3:"Université / faculté / institut supérieur",ty3d:"Système LMD, facultés de charia, mémoires et recherche",country:"Pays",city:"Ville / région",cycles:"Cycles",c1:"Maternelle",c2:"Primaire",c3:"Collège",c4:"Lycée",c5:"Université",tracks:"Parcours",students:"Nombre approx. d'élèves",term:"Découpage de l'année",tri:"Trimestres (3)",sem:"Semestres (2)",phone:"Téléphone de l'établissement",email:"E-mail de l'établissement",aname:"Nom complet de l'administrateur",arole:"Fonction",ro1:"Directeur",ro2:"Directeur adjoint",ro3:"Responsable administratif",aphone:"Téléphone de l'administrateur",aemail:"E-mail (identifiant de connexion)",pw:"Mot de passe",pw2:"Confirmer le mot de passe",agree:"J'accepte les conditions d'utilisation et la politique de confidentialité",back:"← Retour",next:"Continuer →",finish:"Créer mon établissement ✓",l_ttl:"Connexion",l_sub:"Choisissez votre espace",lt1:"Direction",lt2:"Enseignants",lt3:"Élève / Parent",lid_email:"E-mail",lid_mat:"Matricule de l'élève",login_note:"Le tableau de bord sera construit à l'étape suivante (base de données Supabase). Cette page n'est qu'une interface pour l'instant.",noacc:"Votre établissement n'a pas de compte ?",v_ttl:"Vérification d'un document officiel",v_sub:"Saisissez le code imprimé en bas du diplôme ou du bulletin (ou scannez le QR code).",v_demo:"Pour tester : essayez le code AMC-2026-000123",foot:"Plateforme de gestion des écoles arabes et islamiques en Côte d'Ivoire",bouake:"Bouaké",
 e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins un cycle et un parcours.",e_pw:"Les mots de passe ne correspondent pas (8 caractères min.).",
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
+tab_staff:"Personnel",tab_subj:"Matières",add_subj:"Ajouter une matière",subj_ar:"Matière (arabe)",subj_fr:"Matière (français)",def_subj:"Ajouter les matières courantes",no_subj:"Aucune matière. Cliquez sur « Ajouter les matières courantes ».",dup_subj:"Cette matière existe déjà.",sure_subj:"Supprimer cette matière ? Les affectations liées seront supprimées.",n_asg:"Affectations",new_staff:"+ Nouveau membre",f_name_ar:"Nom complet (arabe)",f_name_fr:"Nom complet (français)",f_type:"Fonction",ty_teacher:"Enseignant",ty_admin:"Administration",ty_other:"Autre",f_pos:"Titre / poste",f_pos_ph:"Ex. : Enseignant d'arabe, Surveillant…",male_a:"Homme",female_a:"Femme",phone_s:"Téléphone",st_work:"En poste",st_left2:"Parti",account:"Compte",acc_on:"Activé",copy_inv:"Copier l'invitation",copied:"Copié",asg:"Affecter",asg_of:"Classes et matières de",subject:"Matière",multi_hint:"Ctrl + clic pour en choisir plusieurs",need_cs:"Créez d'abord des classes et des matières.",no_asg:"Aucune affectation.",close:"Fermer",pick_subj:"Choisissez au moins une matière.",dup_asg:"Déjà affecté.",no_staff:"Aucun membre du personnel. Ajoutez le premier.",sure_staff:"Supprimer ce membre ? Préférez le statut « Parti » pour garder l'historique.",invite_help:"Chaque membre reçoit un code d'invitation. Il active son compte depuis Connexion → « Nouvel enseignant ? Activez votre compte ». Un enseignant ne voit que ses classes et ses élèves.",inv_msg:"Assalamou alaykoum {n},\nVotre compte enseignant sur la plateforme Al-Madaris CI ({s}) est prêt.\n1) Ouvrez : {u}\n2) Code d'invitation : {c}\n3) Choisissez votre e-mail et votre mot de passe.",my_asg:"Mes classes et matières",act_ttl:"Activer un compte enseignant",act_sub:"Saisissez le code d'invitation donné par votre école, puis choisissez votre e-mail et votre mot de passe.",inv_code:"Code d'invitation",act_btn:"Activer le compte",act_link:"Nouvel enseignant ? Activez votre compte avec le code d'invitation",bad_invite:"Code d'invitation invalide ou déjà utilisé.",act_ok:"Compte enseignant créé !",
 tab_ov:"Aperçu",tab_cls:"Classes",tab_stu:"Élèves",add_cls:"Ajouter une classe",cycle:"Cycle",level:"Niveau",track1:"Parcours",section:"Section (facultatif)",year:"Année scolaire",capacity:"Effectif max",add:"Ajouter",no_cls:"Aucune classe pour l'instant. Ajoutez la première.",dup_cls:"Cette classe existe déjà.",sure_cls:"Supprimer cette classe ? Les élèves ne seront pas supprimés mais resteront sans classe.",class:"Classe",del:"Supprimer",edit:"Modifier",new_stu:"+ Nouvel élève",search:"Rechercher (nom, matricule, téléphone)…",all_cls:"Toutes les classes",no_class:"Sans classe",n_stu:"élève(s)",s_code:"Matricule",s_name:"Nom",s_fn_ar:"Prénom (arabe)",s_ln_ar:"Nom de famille (arabe)",s_nm_fr:"Nom et prénoms (français)",gender:"Sexe",male:"Garçon",female:"Fille",bdate:"Date de naissance",bplace:"Lieu de naissance",g_name:"Nom du parent / tuteur",g_rel:"Lien de parenté",rel_f:"Père",rel_m:"Mère",rel_o:"Autre",g_phone:"Téléphone du parent",address:"Adresse",save:"Enregistrer",cancel:"Annuler",no_stu:"Aucun élève.",sure_stu:"Supprimer définitivement cet élève ?",saved:"Enregistré ✓",st_bg:"Garçons / Filles",need_cls:"Créez d'abord une classe dans l'onglet « Classes ».",st_active:"Actif",st_left:"A quitté l'école",
 d_hi:"Bienvenue",d_code:"Code de l'établissement",d_status:"Statut",d_left:"jours d'essai restants",s_trial:"Essai",s_active:"Actif",s_suspended:"Suspendu",d_logout:"Se déconnecter",d_info:"Informations",d_soon:"Prochains modules : élèves, enseignants, notes, présence QR, frais, documents officiels.",e_login:"E-mail ou mot de passe incorrect.",ok_mail:"Compte créé. Vérifiez votre e-mail pour l'activer, puis connectez-vous.",stud_soon:"Le portail élève/parent arrive dans une prochaine étape.",e_net:"Erreur de connexion au serveur :",wait:"Patientez…",
 v_ok:"✓ Document authentique",v_bad:"✗ Document introuvable",v_badd:"Vérifiez le code ou contactez l'établissement émetteur.",vk:["Type","Titulaire","Établissement","Niveau","Mention","Date d'émission"]},
 ar:{}};
 // capture Arabic defaults from DOM
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
-Object.assign(T.ar,{tab_ov:"نظرة عامة",tab_cls:"الفصول",tab_stu:"التلاميذ",add_cls:"إضافة فصل",cycle:"المرحلة",level:"المستوى",track1:"المسار",section:"الشعبة (اختياري)",year:"السنة الدراسية",capacity:"السعة القصوى",add:"إضافة",no_cls:"لا توجد فصول بعد. أضف أول فصل.",dup_cls:"هذا الفصل موجود مسبقاً.",sure_cls:"حذف هذا الفصل؟ لن يُحذف التلاميذ لكن سيصبحون بلا فصل.",class:"الفصل",del:"حذف",edit:"تعديل",new_stu:"+ تلميذ جديد",search:"بحث (الاسم، الرقم، الهاتف)…",all_cls:"كل الفصول",no_class:"بدون فصل",n_stu:"تلميذ",s_code:"الرقم التعريفي",s_name:"الاسم",s_fn_ar:"الاسم الشخصي (عربي)",s_ln_ar:"اسم العائلة (عربي)",s_nm_fr:"الاسم بالفرنسية",gender:"الجنس",male:"ذكر",female:"أنثى",bdate:"تاريخ الميلاد",bplace:"مكان الميلاد",g_name:"اسم الولي",g_rel:"صلة القرابة",rel_f:"الأب",rel_m:"الأم",rel_o:"آخر",g_phone:"هاتف الولي",address:"العنوان",save:"حفظ",cancel:"إلغاء",no_stu:"لا يوجد تلاميذ.",sure_stu:"حذف هذا التلميذ نهائياً؟",saved:"تم الحفظ ✓",st_bg:"ذكور / إناث",need_cls:"أنشئ فصلاً أولاً من تبويب «الفصول».",st_active:"يدرس",st_left:"غادر المدرسة",
+Object.assign(T.ar,{tab_staff:"الموظفون",tab_subj:"المواد",add_subj:"إضافة مادة",subj_ar:"المادة (عربي)",subj_fr:"المادة (فرنسي)",def_subj:"إضافة المواد الشائعة",no_subj:"لا توجد مواد. اضغط «إضافة المواد الشائعة».",dup_subj:"هذه المادة موجودة مسبقاً.",sure_subj:"حذف هذه المادة؟ ستُحذف الإسنادات المرتبطة بها.",n_asg:"الإسنادات",new_staff:"+ موظف جديد",f_name_ar:"الاسم الكامل (عربي)",f_name_fr:"الاسم الكامل (فرنسي)",f_type:"الوظيفة",ty_teacher:"معلّم",ty_admin:"إداري",ty_other:"آخر",f_pos:"الصفة / المنصب",f_pos_ph:"مثلاً: معلم اللغة العربية، مراقب…",male_a:"ذكر",female_a:"أنثى",phone_s:"الهاتف",st_work:"يعمل",st_left2:"غادر",account:"الحساب",acc_on:"مفعّل",copy_inv:"نسخ الدعوة",copied:"تم النسخ",asg:"إسناد",asg_of:"فصول ومواد",subject:"المادة",multi_hint:"Ctrl + نقر لاختيار أكثر من مادة",need_cs:"أنشئ الفصول والمواد أولاً.",no_asg:"لا توجد إسنادات.",close:"إغلاق",pick_subj:"اختر مادة واحدة على الأقل.",dup_asg:"مُسنَد مسبقاً.",no_staff:"لا يوجد موظفون. أضف الأول.",sure_staff:"حذف هذا الموظف؟ يُفضَّل اختيار الحالة «غادر» للاحتفاظ بالسجل.",invite_help:"يحصل كل موظف على رمز دعوة، يفعّل به حسابه من صفحة الدخول ← «معلّم جديد؟ فعّل حسابك». المعلم لا يرى إلا فصوله وتلاميذه.",inv_msg:"السلام عليكم {n}،\nحسابك في منصة Al-Madaris CI ({s}) جاهز.\n1) افتح الرابط: {u}\n2) رمز الدعوة: {c}\n3) اختر بريدك الإلكتروني وكلمة المرور.",my_asg:"فصولي وموادي",act_ttl:"تفعيل حساب معلّم",act_sub:"أدخل رمز الدعوة الذي أعطتك إياه إدارة مدرستك، ثم اختر بريدك وكلمة مرورك.",inv_code:"رمز الدعوة",act_btn:"تفعيل الحساب",act_link:"معلّم جديد؟ فعّل حسابك برمز الدعوة",bad_invite:"رمز الدعوة غير صحيح أو مستعمل من قبل.",act_ok:"تم إنشاء حساب المعلم!",
+tab_ov:"نظرة عامة",tab_cls:"الفصول",tab_stu:"التلاميذ",add_cls:"إضافة فصل",cycle:"المرحلة",level:"المستوى",track1:"المسار",section:"الشعبة (اختياري)",year:"السنة الدراسية",capacity:"السعة القصوى",add:"إضافة",no_cls:"لا توجد فصول بعد. أضف أول فصل.",dup_cls:"هذا الفصل موجود مسبقاً.",sure_cls:"حذف هذا الفصل؟ لن يُحذف التلاميذ لكن سيصبحون بلا فصل.",class:"الفصل",del:"حذف",edit:"تعديل",new_stu:"+ تلميذ جديد",search:"بحث (الاسم، الرقم، الهاتف)…",all_cls:"كل الفصول",no_class:"بدون فصل",n_stu:"تلميذ",s_code:"الرقم التعريفي",s_name:"الاسم",s_fn_ar:"الاسم الشخصي (عربي)",s_ln_ar:"اسم العائلة (عربي)",s_nm_fr:"الاسم بالفرنسية",gender:"الجنس",male:"ذكر",female:"أنثى",bdate:"تاريخ الميلاد",bplace:"مكان الميلاد",g_name:"اسم الولي",g_rel:"صلة القرابة",rel_f:"الأب",rel_m:"الأم",rel_o:"آخر",g_phone:"هاتف الولي",address:"العنوان",save:"حفظ",cancel:"إلغاء",no_stu:"لا يوجد تلاميذ.",sure_stu:"حذف هذا التلميذ نهائياً؟",saved:"تم الحفظ ✓",st_bg:"ذكور / إناث",need_cls:"أنشئ فصلاً أولاً من تبويب «الفصول».",st_active:"يدرس",st_left:"غادر المدرسة",
 d_hi:"مرحباً",d_code:"رمز المؤسسة",d_status:"الحالة",d_left:"يوماً متبقية في التجربة",s_trial:"تجربة",s_active:"مفعّل",s_suspended:"موقوف",d_logout:"تسجيل الخروج",d_info:"المعلومات",d_soon:"الأقسام القادمة: التلاميذ، المعلمون، العلامات، الحضور بـ QR، الرسوم، الوثائق الرسمية.",e_login:"البريد أو كلمة المرور غير صحيحة.",ok_mail:"تم إنشاء الحساب. افتح بريدك الإلكتروني لتفعيله، ثم سجّل الدخول.",stud_soon:"بوابة التلميذ وولي الأمر تأتي في مرحلة لاحقة.",e_net:"خطأ في الاتصال بالخادم:",wait:"انتظر…",finish:"إنشاء المؤسسة ✓",lid_mat:"الرقم التعريفي للتلميذ",e_req:"يرجى ملء الحقول الإلزامية (*).",e_cyc:"اختر مرحلة واحدة ومساراً واحداً على الأقل.",e_pw:"كلمتا المرور غير متطابقتين (8 أحرف على الأقل).",ok_t:"تم تسجيل المؤسسة!",ok_code:"رمز مؤسستك",ok_trial:"التجربة المجانية حتى",ok_note:"نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط. الحفظ الحقيقي على الخادم يأتي في المرحلة 2.",ok_go:"الذهاب إلى الدخول",v_ok:"✓ وثيقة صحيحة",v_bad:"✗ الوثيقة غير موجودة",v_badd:"تحقق من الرمز أو اتصل بالمؤسسة المُصدِرة.",vk:["النوع","صاحب الوثيقة","المؤسسة","المستوى","التقدير","تاريخ الإصدار"]});
 let L='ar';try{L=localStorage.getItem('amc_lang')||'ar'}catch(e){}
 const t=k=>T[L][k]??T.ar[k];
@@ -305,7 +323,7 @@ document.getElementById('langBtn').onclick=()=>{L=L==='ar'?'fr':'ar';try{localSt
 const C=window.AMC_CONFIG||{};
 const LIVE=!!(window.supabase&&C.SUPABASE_URL&&!/XXXX/.test(C.SUPABASE_URL));
 const sb=LIVE?window.supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY):null;
-const views=['home','register','login','verify','dash'];
+const views=['home','register','login','verify','dash','activate'];
 function route(){const h=location.hash.slice(1);views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash()}
 addEventListener('hashchange',route);
 
@@ -332,7 +350,7 @@ const LEVELS={
  uni:[['L1','السنة الأولى ليسانس','Licence 1'],['L2','السنة الثانية ليسانس','Licence 2'],['L3','السنة الثالثة ليسانس','Licence 3'],['M1','السنة الأولى ماستر','Master 1'],['M2','السنة الثانية ماستر','Master 2']]};
 const lvlName=(cy,lv)=>{const x=(LEVELS[cy]||[]).find(a=>a[0]===lv);return x?(L==='ar'?x[1]:x[2]):lv};
 const clsName=c=>c?lvlName(c.cycle,c.level)+' – '+t(TRK[c.track]||'')+(c.section?' ('+c.section+')':''):t('no_class');
-const D={user:null,p:null,i:null,classes:[],students:[],tab:'ov',edit:null,q:'',fc:''};
+const D={user:null,p:null,i:null,classes:[],students:[],subjects:[],staff:[],teaching:[],tab:'ov',edit:null,asg:null,q:'',fc:''};
 const canEdit=()=>D.p&&['admin','superadmin'].includes(D.p.role);
 const opts=(arr,sel)=>arr.map(([v,l])=>`<option value="${esc(v)}"${v===sel?' selected':''}>${esc(l)}</option>`).join('');
 
@@ -345,23 +363,24 @@ async function loadDash(){const box=document.getElementById('dashBox');
   D.i=null;if(p&&p.institution_id){const r=await sb.from('institutions').select('*').eq('id',p.institution_id).maybeSingle();D.i=r.data}
   await reloadData();renderDash()}
 async function reloadData(){
-  const iid=D.i&&D.i.id;if(!iid){D.classes=[];D.students=[];return}
-  const [c,s]=await Promise.all([sb.from('classes').select('*').eq('institution_id',iid).order('created_at'),sb.from('students').select('*').eq('institution_id',iid).order('seq')]);
-  D.classes=c.data||[];D.students=s.data||[];
+  const iid=D.i&&D.i.id;if(!iid){D.classes=[];D.students=[];D.subjects=[];D.staff=[];D.teaching=[];return}
+  const q=tb=>sb.from(tb).select('*').eq('institution_id',iid);
+  const [c,s,j,f,tc]=await Promise.all([q('classes').order('created_at'),q('students').order('seq'),q('subjects').order('created_at'),q('staff').order('created_at'),q('teaching').order('created_at')]);
+  D.classes=c.data||[];D.students=s.data||[];D.subjects=j.data||[];D.staff=f.data||[];D.teaching=tc.data||[];
   const ord={mat:0,pri:1,col:2,lyc:3,uni:4};
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section))}
 
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
-  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu']];
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu']].concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj']]:[]);
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
     <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
     <h2>${i?esc(L==='ar'?i.name_ar:i.name_fr):''}</h2></div>
     <button class="btn btn-l" id="logout">${t('d_logout')}</button></div>
   <div class="tabs" style="margin-top:14px">${tabs.map(([k,l])=>`<div class="tab${D.tab===k?' on':''}" data-dt="${k}">${t(l)}</div>`).join('')}</div>
   <div id="dtab"></div>`;
-  box.querySelectorAll('[data-dt]').forEach(e=>e.onclick=()=>{D.tab=e.dataset.dt;D.edit=null;renderDash()});
+  box.querySelectorAll('[data-dt]').forEach(e=>e.onclick=()=>{D.tab=e.dataset.dt;D.edit=null;D.asg=null;renderDash()});
   document.getElementById('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'};
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents})[D.tab]()}
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects}[D.tab]||tabOverview)()}
 
 function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -373,12 +392,12 @@ function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.
   <div class="stats">
     <div class="stat"><b>${D.classes.length}</b><span>${t('tab_cls')}</span></div>
     <div class="stat"><b>${act.length}</b><span>${t('tab_stu')}</span></div>
-    <div class="stat"><b>${act.filter(s=>s.gender==='M').length} / ${act.filter(s=>s.gender==='F').length}</b><span>${t('st_bg')}</span></div></div>
+    <div class="stat"><b>${act.filter(s=>s.gender==='M').length} / ${act.filter(s=>s.gender==='F').length}</b><span>${t('st_bg')}</span></div>${canEdit()?`<div class="stat"><b>${D.staff.filter(x=>x.status==='active').length}</b><span>${t('tab_staff')}</span></div><div class="stat"><b>${D.subjects.length}</b><span>${t('tab_subj')}</span></div>`:''}</div>
   <div class="cert"><b>${t('d_info')}</b><table>
     <tr><td>${t('cycles')}</td><td>${lab(i.cycles,CYC)}</td></tr>
     <tr><td>${t('tracks')}</td><td>${lab(i.tracks,TRK)}</td></tr>
     <tr><td>${t('city')}</td><td>${esc(i.city)}</td></tr>
-    <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`}
+    <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`+myTeaching()}
 
 function tabClasses(){const el=document.getElementById('dtab'),i=D.i||{};
   const cyc=(i.cycles&&i.cycles.length?i.cycles:Object.keys(LEVELS)),trk=(i.tracks&&i.tracks.length?i.tracks:Object.keys(TRK));
@@ -457,6 +476,110 @@ function tabStudents(){const el=document.getElementById('dtab');
     if(isNew&&r.data){const n=document.createElement('div');n.className='note';n.style.background='#e6f5ea';n.style.borderColor='#bfe3c8';n.style.color='#0F5E2A';
       n.innerHTML=`${t('saved')} — ${t('s_code')}: <b dir="ltr">${esc(r.data.code)}</b>`;document.getElementById('dtab').prepend(n)}}}
 
+// ===== staff, subjects, teaching =====
+const DEF_SUBJ=[['القرآن الكريم','Coran'],['التجويد','Tajwid'],['التوحيد','Tawhid'],['الفقه','Fiqh'],['الحديث','Hadith'],['السيرة النبوية','Sîra'],['التهذيب','Éducation islamique'],['القراءة','Lecture arabe'],['النحو','Grammaire arabe'],['الإملاء','Dictée arabe'],['الخط','Calligraphie arabe'],['التعبير','Expression arabe'],['الفرنسية','Français'],['الرياضيات','Mathématiques'],['العلوم','Sciences'],['التاريخ والجغرافيا','Histoire-Géographie'],['الإنجليزية','Anglais'],['التربية البدنية','EPS']];
+const subjName=s=>s?(L==='ar'?s.name_ar:(s.name_fr||s.name_ar)):'';
+const stfName=s=>s?(L==='ar'?s.full_name_ar:(s.full_name_fr||s.full_name_ar)):'';
+const STYPE={teacher:'ty_teacher',admin:'ty_admin',other:'ty_other'};
+
+function tabSubjects(){const el=document.getElementById('dtab');
+  const used=id=>D.teaching.filter(x=>x.subject_id===id).length;
+  el.innerHTML=`<div class="cert" style="margin-top:0"><b>${t('add_subj')}</b>
+    <div class="two" style="margin-top:10px"><div class="fld"><label>${t('subj_ar')} <span class="r">*</span></label><input id="jAr" dir="rtl"></div>
+    <div class="fld"><label>${t('subj_fr')}</label><input id="jFr" dir="ltr"></div></div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-g" id="jAdd">${t('add')}</button><button class="btn btn-l" id="jDef">${t('def_subj')}</button></div>
+    <div class="err" id="jErr"></div></div>
+  ${D.subjects.length?`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('subj_ar')}</th><th>${t('subj_fr')}</th><th>${t('n_asg')}</th><th></th></tr></thead><tbody>
+  ${D.subjects.map(s=>`<tr><td><b>${esc(s.name_ar)}</b></td><td dir="ltr">${esc(s.name_fr||'')}</td><td>${used(s.id)}</td><td><button class="btn btn-t sm red" data-delj="${s.id}">${t('del')}</button></td></tr>`).join('')}
+  </tbody></table></div>`:`<div class="note">${t('no_subj')}</div>`}`;
+  const er=document.getElementById('jErr');
+  document.getElementById('jAdd').onclick=async()=>{const ar=document.getElementById('jAr').value.trim(),fr=document.getElementById('jFr').value.trim();
+    if(!ar){er.textContent=t('e_req');return}er.textContent=t('wait');
+    const {error}=await sb.from('subjects').insert({name_ar:ar,name_fr:fr||null});
+    if(error){er.textContent=error.code==='23505'?t('dup_subj'):t('e_net')+' '+error.message;return}await reloadData();tabSubjects()};
+  document.getElementById('jDef').onclick=async()=>{const have=new Set(D.subjects.map(s=>s.name_ar));
+    const rows=DEF_SUBJ.filter(x=>!have.has(x[0])).map(x=>({name_ar:x[0],name_fr:x[1]}));if(!rows.length)return;
+    er.textContent=t('wait');const {error}=await sb.from('subjects').insert(rows);if(error){er.textContent=t('e_net')+' '+error.message;return}await reloadData();tabSubjects()};
+  el.querySelectorAll('[data-delj]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_subj')))return;
+    const {error}=await sb.from('subjects').delete().eq('id',b.dataset.delj);if(error){alert(error.message);return}await reloadData();tabSubjects()})}
+
+function staffForm(s){s=s||{};
+  return `<div class="cert" style="margin-top:0" id="fForm"><b>${s.id?t('edit')+' — '+esc(s.full_name_ar):t('new_staff').replace('+ ','')}</b>
+  <div class="two" style="margin-top:10px"><div class="fld"><label>${t('f_name_ar')} <span class="r">*</span></label><input name="full_name_ar" dir="rtl" value="${esc(s.full_name_ar||'')}" placeholder="الأستاذ …"></div>
+    <div class="fld"><label>${t('f_name_fr')}</label><input name="full_name_fr" dir="ltr" value="${esc(s.full_name_fr||'')}"></div></div>
+  <div class="two"><div class="fld"><label>${t('f_type')}</label><select name="staff_type">${opts(Object.keys(STYPE).map(k=>[k,t(STYPE[k])]),s.staff_type||'teacher')}</select></div>
+    <div class="fld"><label>${t('f_pos')}</label><input name="position" value="${esc(s.position||'')}" placeholder="${esc(t('f_pos_ph'))}"></div></div>
+  <div class="two"><div class="fld"><label>${t('gender')}</label><select name="gender">${opts([['',''],['M',t('male_a')],['F',t('female_a')]],s.gender||'')}</select></div>
+    <div class="fld"><label>${t('phone_s')}</label><input name="phone" dir="ltr" value="${esc(s.phone||'')}"></div></div>
+  <div class="two"><div class="fld"><label>${t('email')}</label><input name="email" type="email" dir="ltr" value="${esc(s.email||'')}"></div>
+    ${s.id?`<div class="fld"><label>${t('d_status')}</label><select name="status">${opts([['active',t('st_work')],['left',t('st_left2')]],s.status)}</select></div>`:'<div></div>'}</div>
+  <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="fSave">${t('save')}</button><button class="btn btn-t" id="fCancel">${t('cancel')}</button></div>
+  <div class="err" id="fErr"></div></div>`}
+
+function asgPanel(s){const mine=D.teaching.filter(x=>x.staff_id===s.id);
+  const cmap=Object.fromEntries(D.classes.map(c=>[c.id,c])),jmap=Object.fromEntries(D.subjects.map(j=>[j.id,j]));
+  return `<div class="cert" style="margin-top:0" id="aPanel"><b>${t('asg_of')} ${esc(stfName(s))}</b>
+  ${!D.classes.length||!D.subjects.length?`<div class="note">${t('need_cs')}</div>`:`
+  <div class="two" style="margin-top:10px"><div class="fld"><label>${t('class')}</label><select id="aCls">${opts(D.classes.map(c=>[c.id,clsName(c)]))}</select></div>
+    <div class="fld"><label>${t('subject')}</label><select id="aSub" multiple size="5" style="height:auto">${opts(D.subjects.map(j=>[j.id,subjName(j)]))}</select><small class="sub">${t('multi_hint')}</small></div></div>
+  <button class="btn btn-g" id="aAdd">${t('add')}</button>`}
+  <div class="err" id="aErr"></div>
+  ${mine.length?`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('class')}</th><th>${t('subject')}</th><th></th></tr></thead><tbody>
+  ${mine.map(x=>`<tr><td>${esc(clsName(cmap[x.class_id]))}</td><td>${esc(subjName(jmap[x.subject_id]))}</td><td><button class="btn btn-t sm red" data-dela="${x.id}">${t('del')}</button></td></tr>`).join('')}</tbody></table></div>`:`<p class="sub">${t('no_asg')}</p>`}
+  <div class="acts" style="justify-content:flex-start"><button class="btn btn-t" id="aClose">${t('close')}</button></div></div>`}
+
+function tabStaff(){const el=document.getElementById('dtab');
+  const editing=D.edit!==null&&D.edit!==undefined;const asg=D.asg&&D.staff.find(s=>s.id===D.asg);
+  el.innerHTML=(editing?staffForm(D.edit===true?null:D.staff.find(s=>s.id===D.edit)):'')+(asg?asgPanel(asg):'')+
+  `<div class="toolbar">${!editing&&!asg?`<button class="btn btn-o" id="fNew">${t('new_staff')}</button>`:''}</div>
+  <div class="note">${t('invite_help')}</div>
+  ${D.staff.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('s_name')}</th><th>${t('f_type')}</th><th>${t('account')}</th><th>${t('n_asg')}</th><th></th></tr></thead><tbody>
+  ${D.staff.map(s=>`<tr${s.status==='left'?' class="left"':''}><td><b>${esc(s.full_name_ar)}</b>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}${s.phone?`<br><small dir="ltr">${esc(s.phone)}</small>`:''}</td>
+    <td>${t(STYPE[s.staff_type])}${s.position?`<br><small>${esc(s.position)}</small>`:''}${s.status==='left'?` <span class="badge bad">${t('st_left2')}</span>`:''}</td>
+    <td>${s.user_id?`<span class="badge">✓ ${t('acc_on')}</span>`:`<div class="code" style="font-size:15px;padding:4px 10px">${esc(s.invite_code)}</div><br><button class="btn btn-t sm" data-copy="${s.id}">📋 ${t('copy_inv')}</button>`}</td>
+    <td>${D.teaching.filter(x=>x.staff_id===s.id).length}</td>
+    <td style="white-space:nowrap"><button class="btn btn-t sm" data-asg="${s.id}">${t('asg')}</button><button class="btn btn-t sm" data-edf="${s.id}">${t('edit')}</button><button class="btn btn-t sm red" data-delf="${s.id}">${t('del')}</button></td></tr>`).join('')}
+  </tbody></table></div>`:`<div class="note">${t('no_staff')}</div>`}`;
+  const nb=document.getElementById('fNew');if(nb)nb.onclick=()=>{D.edit=true;D.asg=null;tabStaff()};
+  el.querySelectorAll('[data-edf]').forEach(b=>b.onclick=()=>{D.edit=b.dataset.edf;D.asg=null;tabStaff();window.scrollTo(0,0)});
+  el.querySelectorAll('[data-asg]').forEach(b=>b.onclick=()=>{D.asg=b.dataset.asg;D.edit=null;tabStaff();window.scrollTo(0,0)});
+  el.querySelectorAll('[data-delf]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_staff')))return;
+    const {error}=await sb.from('staff').delete().eq('id',b.dataset.delf);if(error){alert(error.message);return}await reloadData();tabStaff()});
+  el.querySelectorAll('[data-copy]').forEach(b=>b.onclick=async()=>{const s=D.staff.find(x=>x.id===b.dataset.copy);
+    const msg=t('inv_msg').replace('{n}',s.full_name_ar).replace('{s}',L==='ar'?D.i.name_ar:D.i.name_fr).replace('{u}',location.origin+location.pathname+'#activate').replace('{c}',s.invite_code);
+    try{await navigator.clipboard.writeText(msg);b.textContent='✓ '+t('copied')}catch(e){prompt('',msg)}});
+  const ff=document.getElementById('fForm');
+  if(ff){document.getElementById('fCancel').onclick=()=>{D.edit=null;tabStaff()};
+    document.getElementById('fSave').onclick=async()=>{const er=document.getElementById('fErr'),row={};
+      ff.querySelectorAll('[name]').forEach(x=>row[x.name]=x.value.trim()===''?null:x.value.trim());
+      if(!row.full_name_ar){er.textContent=t('e_req');return}er.textContent=t('wait');
+      const r=D.edit===true?await sb.from('staff').insert(row):await sb.from('staff').update(row).eq('id',D.edit);
+      if(r.error){er.textContent=t('e_net')+' '+r.error.message;return}D.edit=null;await reloadData();tabStaff()}}
+  const ap=document.getElementById('aPanel');
+  if(ap){document.getElementById('aClose').onclick=()=>{D.asg=null;tabStaff()};
+    const add=document.getElementById('aAdd');if(add)add.onclick=async()=>{const er=document.getElementById('aErr');
+      const cls=document.getElementById('aCls').value,subs=[...document.getElementById('aSub').selectedOptions].map(o=>o.value);
+      const rows=subs.filter(j=>!D.teaching.some(x=>x.staff_id===D.asg&&x.class_id===cls&&x.subject_id===j)).map(j=>({staff_id:D.asg,class_id:cls,subject_id:j}));
+      if(!subs.length){er.textContent=t('pick_subj');return}if(!rows.length){er.textContent=t('dup_asg');return}
+      er.textContent=t('wait');const {error}=await sb.from('teaching').insert(rows);if(error){er.textContent=t('e_net')+' '+error.message;return}await reloadData();tabStaff()};
+    ap.querySelectorAll('[data-dela]').forEach(b=>b.onclick=async()=>{const {error}=await sb.from('teaching').delete().eq('id',b.dataset.dela);if(error){alert(error.message);return}await reloadData();tabStaff()})}}
+
+function myTeaching(){if(canEdit()||!D.teaching.length)return '';
+  const cmap=Object.fromEntries(D.classes.map(c=>[c.id,c])),jmap=Object.fromEntries(D.subjects.map(j=>[j.id,j]));
+  return `<div class="cert"><b>${t('my_asg')}</b><table>${D.teaching.map(x=>`<tr><td>${esc(clsName(cmap[x.class_id]))}</td><td><b>${esc(subjName(jmap[x.subject_id]))}</b></td></tr>`).join('')}</table></div>`}
+
+// activation of a teacher account by invite code
+async function doActivate(e){e.preventDefault();const f=e.target,er=document.getElementById('actErr');
+  const code=f.code.value.trim(),email=f.email.value.trim(),pw=f.pw.value;
+  if(!code||!email||pw.length<8){er.textContent=t('e_req')+' (8+)';return}
+  if(pw!==f.pw2.value){er.textContent=t('e_pw');return}
+  if(!LIVE){er.textContent=t('login_note');return}
+  er.textContent=t('wait');
+  const {data,error}=await sb.auth.signUp({email,password:pw,options:{emailRedirectTo:location.origin+location.pathname+'#login',data:{invite_code:code}}});
+  if(error){er.textContent=/database|saving/i.test(error.message)?t('bad_invite'):t('e_net')+' '+error.message;return}
+  if(!data.session){document.getElementById('actBox').innerHTML=`<div class="ok"><div class="big">📧</div><h2>${t('act_ok')}</h2><p>${t('ok_mail')}</p><p><b dir="ltr">${esc(email)}</b></p><a class="btn btn-g" href="#login">${t('ok_go')}</a></div>`;return}
+  location.hash='dash'}
+
 // registration wizard
 let step=1;const f=document.getElementById('regForm'),err=document.getElementById('err');
 function setStep(n){step=n;document.querySelectorAll('.stp').forEach(s=>s.hidden=+s.dataset.s!==n);
@@ -510,6 +633,7 @@ async function doVerify(){const c=document.getElementById('vcode').value.trim().
   <table>${v.map((x,i)=>`<tr><td>${k[i]}</td><td><b>${x}</b></td></tr>`).join('')}<tr><td>Code</td><td dir="ltr" style="text-align:start"><b>${c}</b></td></tr></table></div>`}
 document.getElementById('vcode').addEventListener('keydown',e=>{if(e.key==='Enter')doVerify()});
 
+document.getElementById('actForm').onsubmit=doActivate;
 applyLang();route();
 </script>
 </body>

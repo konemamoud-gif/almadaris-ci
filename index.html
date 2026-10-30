@@ -113,6 +113,22 @@ footer a{color:#ffd08a}
 .tbl tr.left td{opacity:.55}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.toolbar input{flex:2;min-width:160px}.toolbar select{flex:1;min-width:150px;width:auto}
 .btn.sm{padding:5px 9px;font-size:13px}.btn.red{color:#b03a2e}
+.chip.on{background:var(--g);color:#fff;border-color:var(--g)}
+#printArea{display:none}
+.bul{font-family:'Cairo','Inter',sans-serif;color:#111;padding:8mm 10mm;box-sizing:border-box}
+.bul header{display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:3px solid #1B7F3B;padding-bottom:6px}
+.bul header img{height:62px}.bul header div{text-align:center;flex:1}
+.bul h1{font-size:20px;margin:0;color:#0F5E2A}.bul h2{font-size:14px;margin:0;color:#333;direction:ltr}
+.bul h3{text-align:center;margin:10px 0;font-size:17px;background:#f0f8f2;border:1px solid #1B7F3B;border-radius:8px;padding:5px}
+.bul table{width:100%;border-collapse:collapse;margin:6px 0;font-size:13px}
+.bul td,.bul th{border:1px solid #9aa;padding:5px 7px;text-align:start}
+.bul th{background:#1B7F3B;color:#fff}.bul .info td:nth-child(odd),.bul .tot td:nth-child(odd){background:#f3f6f3;width:18%}
+.bul .marks td:not(:first-child),.bul .marks th:not(:first-child){text-align:center}
+.bul .sig{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:14px;min-height:110px}
+.bul .sig>div{flex:1;text-align:center;font-weight:700}
+.bul .qr{display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:400!important}.bul .qr small{font-size:10px}
+.bul footer{display:block;background:none;text-align:center;font-size:10px;color:#666;border-top:1px solid #ccc;margin-top:8px;padding:4px 0 0}
+@media print{body{background:#fff!important}body>*:not(#printArea){display:none!important}#printArea{display:block}.bul{page-break-after:always;break-after:page}.bul:last-child{page-break-after:auto}@page{size:A4;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 </style>
 </head>
 <body>
@@ -298,6 +314,7 @@ footer a{color:#ffd08a}
 const T={fr:{login:"Connexion",trial_short:"Inscrire un établissement",pill:"Système d'exploitation académique & scolaire",h1:"Plateforme de gestion des écoles <em>arabes et islamiques</em> en Côte d'Ivoire",lead:"Inscriptions, dossiers, notes, présence par carte QR, frais et documents officiels certifiés — de la maternelle à l'université, au même endroit.",trial:"Inscrire mon établissement — essai 14 jours",verify_btn:"Vérifier un document",p1:"Espace Direction",p1d:"Directeur et administration : établissement, classes, frais, rapports.",p2:"Personnel & Enseignants",p2d:"Saisie des notes, présence, emploi du temps et examens.",p3:"Portail Élève & Parent",p3d:"Résultats, absences, frais dus et notifications.",f_ttl:"Les piliers de la plateforme",f_sub:"Tout ce dont une école arabe et islamique ivoirienne a besoin",f1:"Enseignement multi-cycles",f1l:"<li>Maternelle, primaire, collège, lycée, université</li><li>Parcours arabe, français, bilingue et tahfîdh du Coran</li><li>Manuels de la « Collection des écoles arabes et islamiques » intégrés</li>",f2:"Présence & cartes QR",f2l:"<li>Pointage par scan de carte</li><li>Notification automatique aux parents (absence, retard)</li><li>Fonctionne hors ligne puis se synchronise</li>",f3:"Documents officiels",f3l:"<li>Bulletins et attestations instantanés</li><li>Sceau numérique et QR code sur chaque document</li><li>Vérification publique d'authenticité</li>",t_ttl:"Quatre parcours",tr1:"Arabe seul",tr2:"Français seul",tr3:"Arabe + français",tr4:"Tahfîdh du Coran",vs:"🔎 Vérifier un diplôme ou un bulletin",check:"Vérifier",trial_badge:"🎁 Essai intégral gratuit de 14 jours",r_ttl:"Inscription de votre établissement",r_sub:"Ces données figureront sur les bulletins et diplômes officiels.",st1:"Établissement",st2:"Cycles & contact",st3:"Administrateur",nm_ar:"Nom officiel en arabe",nm_fr:"Nom officiel en français",type:"Type d'établissement",ty1:"Groupe scolaire franco-arabe",ty1d:"Maternelle, primaire, collège, lycée — avec études islamiques",ty2:"École / centre de mémorisation du Coran",ty2d:"Halaqas, hizbs, tajwîd (riwâya Hafs)",ty3:"Université / faculté / institut supérieur",ty3d:"Système LMD, facultés de charia, mémoires et recherche",country:"Pays",city:"Ville / région",cycles:"Cycles",c1:"Maternelle",c2:"Primaire",c3:"Collège",c4:"Lycée",c5:"Université",tracks:"Parcours",students:"Nombre approx. d'élèves",term:"Découpage de l'année",tri:"Trimestres (3)",sem:"Semestres (2)",phone:"Téléphone de l'établissement",email:"E-mail de l'établissement",aname:"Nom complet de l'administrateur",arole:"Fonction",ro1:"Directeur",ro2:"Directeur adjoint",ro3:"Responsable administratif",aphone:"Téléphone de l'administrateur",aemail:"E-mail (identifiant de connexion)",pw:"Mot de passe",pw2:"Confirmer le mot de passe",agree:"J'accepte les conditions d'utilisation et la politique de confidentialité",back:"← Retour",next:"Continuer →",finish:"Créer mon établissement ✓",l_ttl:"Connexion",l_sub:"Choisissez votre espace",lt1:"Direction",lt2:"Enseignants",lt3:"Élève / Parent",lid_email:"E-mail",lid_mat:"Matricule de l'élève",login_note:"Le tableau de bord sera construit à l'étape suivante (base de données Supabase). Cette page n'est qu'une interface pour l'instant.",noacc:"Votre établissement n'a pas de compte ?",v_ttl:"Vérification d'un document officiel",v_sub:"Saisissez le code imprimé en bas du diplôme ou du bulletin (ou scannez le QR code).",v_demo:"Pour tester : essayez le code AMC-2026-000123",foot:"Plateforme de gestion des écoles arabes et islamiques en Côte d'Ivoire",bouake:"Bouaké",
 e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins un cycle et un parcours.",e_pw:"Les mots de passe ne correspondent pas (8 caractères min.).",
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
+tab_grd:"Notes",tab_rep:"Bulletins",k_devoir:"Devoir",k_exam:"Examen",k_oral:"Oral",k_other:"Autre",tri1:"1er trimestre",tri2:"2e trimestre",tri3:"3e trimestre",sem1:"1er semestre",sem2:"2e semestre",m_exc:"Excellent",m_tb:"Très bien",m_b:"Bien",m_ab:"Assez bien",m_p:"Passable",m_ins:"Insuffisant",pick_cls:"— Choisir la classe —",pick_subj1:"— Choisir la matière —",scale_is:"Notes de cette classe sur",evals:"Évaluations",no_evals:"Aucune évaluation pour l'instant.",k_type:"Type",e_title:"Intitulé (facultatif)",e_title_ph:"Ex. : Devoir n°1",e_max:"Noté sur",e_date:"Date",new_eval:"+ Nouvelle évaluation",on:"sur",del_eval:"Supprimer l'évaluation",sure_eval:"Supprimer cette évaluation et toutes ses notes ?",score:"Note",absent:"Absent",save_grades:"Enregistrer les notes",bad_score:"Note invalide",nothing:"Aucune note saisie.",subj_avgs:"Moyennes dans la matière",avg:"Moyenne",class_avg:"Moyenne de la classe",rank:"Rang",mention:"Appréciation",print_all:"Imprimer tous les bulletins",print_cert:"Bulletins certifiés (QR)",print_one:"Bulletin",cert_help:"« Bulletins certifiés » enregistre chaque bulletin avec un code et un QR code : n'importe qui peut vérifier son authenticité sur la page Vérification.",sure_cert:"Émettre des bulletins certifiés pour toute la classe ?",bul_title:"Bulletin de notes",gen_avg:"Moyenne générale",sig_dir:"Le Directeur",sig_par:"Le Parent",scan_verify:"Scannez pour vérifier",grading:"Barème des notes",grading_help:"Note maximale de chaque cycle (ex. : sur 10 au primaire, sur 20 au collège).",
 tab_staff:"Personnel",tab_subj:"Matières",add_subj:"Ajouter une matière",subj_ar:"Matière (arabe)",subj_fr:"Matière (français)",def_subj:"Ajouter les matières courantes",no_subj:"Aucune matière. Cliquez sur « Ajouter les matières courantes ».",dup_subj:"Cette matière existe déjà.",sure_subj:"Supprimer cette matière ? Les affectations liées seront supprimées.",n_asg:"Affectations",new_staff:"+ Nouveau membre",f_name_ar:"Nom complet (arabe)",f_name_fr:"Nom complet (français)",f_type:"Fonction",ty_teacher:"Enseignant",ty_admin:"Administration",ty_other:"Autre",f_pos:"Titre / poste",f_pos_ph:"Ex. : Enseignant d'arabe, Surveillant…",male_a:"Homme",female_a:"Femme",phone_s:"Téléphone",st_work:"En poste",st_left2:"Parti",account:"Compte",acc_on:"Activé",copy_inv:"Copier l'invitation",copied:"Copié",asg:"Affecter",asg_of:"Classes et matières de",subject:"Matière",multi_hint:"Ctrl + clic pour en choisir plusieurs",need_cs:"Créez d'abord des classes et des matières.",no_asg:"Aucune affectation.",close:"Fermer",pick_subj:"Choisissez au moins une matière.",dup_asg:"Déjà affecté.",no_staff:"Aucun membre du personnel. Ajoutez le premier.",sure_staff:"Supprimer ce membre ? Préférez le statut « Parti » pour garder l'historique.",invite_help:"Chaque membre reçoit un code d'invitation. Il active son compte depuis Connexion → « Nouvel enseignant ? Activez votre compte ». Un enseignant ne voit que ses classes et ses élèves.",inv_msg:"Assalamou alaykoum {n},\nVotre compte enseignant sur la plateforme Al-Madaris CI ({s}) est prêt.\n1) Ouvrez : {u}\n2) Code d'invitation : {c}\n3) Choisissez votre e-mail et votre mot de passe.",my_asg:"Mes classes et matières",act_ttl:"Activer un compte enseignant",act_sub:"Saisissez le code d'invitation donné par votre école, puis choisissez votre e-mail et votre mot de passe.",inv_code:"Code d'invitation",act_btn:"Activer le compte",act_link:"Nouvel enseignant ? Activez votre compte avec le code d'invitation",bad_invite:"Code d'invitation invalide ou déjà utilisé.",act_ok:"Compte enseignant créé !",
 tab_ov:"Aperçu",tab_cls:"Classes",tab_stu:"Élèves",add_cls:"Ajouter une classe",cycle:"Cycle",level:"Niveau",track1:"Parcours",section:"Section (facultatif)",year:"Année scolaire",capacity:"Effectif max",add:"Ajouter",no_cls:"Aucune classe pour l'instant. Ajoutez la première.",dup_cls:"Cette classe existe déjà.",sure_cls:"Supprimer cette classe ? Les élèves ne seront pas supprimés mais resteront sans classe.",class:"Classe",del:"Supprimer",edit:"Modifier",new_stu:"+ Nouvel élève",search:"Rechercher (nom, matricule, téléphone)…",all_cls:"Toutes les classes",no_class:"Sans classe",n_stu:"élève(s)",s_code:"Matricule",s_name:"Nom",s_fn_ar:"Prénom (arabe)",s_ln_ar:"Nom de famille (arabe)",s_nm_fr:"Nom et prénoms (français)",gender:"Sexe",male:"Garçon",female:"Fille",bdate:"Date de naissance",bplace:"Lieu de naissance",g_name:"Nom du parent / tuteur",g_rel:"Lien de parenté",rel_f:"Père",rel_m:"Mère",rel_o:"Autre",g_phone:"Téléphone du parent",address:"Adresse",save:"Enregistrer",cancel:"Annuler",no_stu:"Aucun élève.",sure_stu:"Supprimer définitivement cet élève ?",saved:"Enregistré ✓",st_bg:"Garçons / Filles",need_cls:"Créez d'abord une classe dans l'onglet « Classes ».",st_active:"Actif",st_left:"A quitté l'école",
 d_hi:"Bienvenue",d_code:"Code de l'établissement",d_status:"Statut",d_left:"jours d'essai restants",s_trial:"Essai",s_active:"Actif",s_suspended:"Suspendu",d_logout:"Se déconnecter",d_info:"Informations",d_soon:"Prochains modules : élèves, enseignants, notes, présence QR, frais, documents officiels.",e_login:"E-mail ou mot de passe incorrect.",ok_mail:"Compte créé. Vérifiez votre e-mail pour l'activer, puis connectez-vous.",stud_soon:"Le portail élève/parent arrive dans une prochaine étape.",e_net:"Erreur de connexion au serveur :",wait:"Patientez…",
@@ -305,7 +322,8 @@ v_ok:"✓ Document authentique",v_bad:"✗ Document introuvable",v_badd:"Vérifi
 ar:{}};
 // capture Arabic defaults from DOM
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
-Object.assign(T.ar,{tab_staff:"الموظفون",tab_subj:"المواد",add_subj:"إضافة مادة",subj_ar:"المادة (عربي)",subj_fr:"المادة (فرنسي)",def_subj:"إضافة المواد الشائعة",no_subj:"لا توجد مواد. اضغط «إضافة المواد الشائعة».",dup_subj:"هذه المادة موجودة مسبقاً.",sure_subj:"حذف هذه المادة؟ ستُحذف الإسنادات المرتبطة بها.",n_asg:"الإسنادات",new_staff:"+ موظف جديد",f_name_ar:"الاسم الكامل (عربي)",f_name_fr:"الاسم الكامل (فرنسي)",f_type:"الوظيفة",ty_teacher:"معلّم",ty_admin:"إداري",ty_other:"آخر",f_pos:"الصفة / المنصب",f_pos_ph:"مثلاً: معلم اللغة العربية، مراقب…",male_a:"ذكر",female_a:"أنثى",phone_s:"الهاتف",st_work:"يعمل",st_left2:"غادر",account:"الحساب",acc_on:"مفعّل",copy_inv:"نسخ الدعوة",copied:"تم النسخ",asg:"إسناد",asg_of:"فصول ومواد",subject:"المادة",multi_hint:"Ctrl + نقر لاختيار أكثر من مادة",need_cs:"أنشئ الفصول والمواد أولاً.",no_asg:"لا توجد إسنادات.",close:"إغلاق",pick_subj:"اختر مادة واحدة على الأقل.",dup_asg:"مُسنَد مسبقاً.",no_staff:"لا يوجد موظفون. أضف الأول.",sure_staff:"حذف هذا الموظف؟ يُفضَّل اختيار الحالة «غادر» للاحتفاظ بالسجل.",invite_help:"يحصل كل موظف على رمز دعوة، يفعّل به حسابه من صفحة الدخول ← «معلّم جديد؟ فعّل حسابك». المعلم لا يرى إلا فصوله وتلاميذه.",inv_msg:"السلام عليكم {n}،\nحسابك في منصة Al-Madaris CI ({s}) جاهز.\n1) افتح الرابط: {u}\n2) رمز الدعوة: {c}\n3) اختر بريدك الإلكتروني وكلمة المرور.",my_asg:"فصولي وموادي",act_ttl:"تفعيل حساب معلّم",act_sub:"أدخل رمز الدعوة الذي أعطتك إياه إدارة مدرستك، ثم اختر بريدك وكلمة مرورك.",inv_code:"رمز الدعوة",act_btn:"تفعيل الحساب",act_link:"معلّم جديد؟ فعّل حسابك برمز الدعوة",bad_invite:"رمز الدعوة غير صحيح أو مستعمل من قبل.",act_ok:"تم إنشاء حساب المعلم!",
+Object.assign(T.ar,{tab_grd:"العلامات",tab_rep:"كشوف النقاط",k_devoir:"فرض",k_exam:"امتحان",k_oral:"شفهي",k_other:"آخر",tri1:"الثلاثي الأول",tri2:"الثلاثي الثاني",tri3:"الثلاثي الثالث",sem1:"السداسي الأول",sem2:"السداسي الثاني",m_exc:"ممتاز",m_tb:"جيد جداً",m_b:"جيد",m_ab:"مستحسن",m_p:"مقبول",m_ins:"ضعيف",pick_cls:"— اختر الفصل —",pick_subj1:"— اختر المادة —",scale_is:"علامات هذا الفصل على",evals:"التقييمات",no_evals:"لا توجد تقييمات بعد.",k_type:"النوع",e_title:"العنوان (اختياري)",e_title_ph:"مثلاً: الفرض الأول",e_max:"العلامة القصوى",e_date:"التاريخ",new_eval:"+ تقييم جديد",on:"على",del_eval:"حذف التقييم",sure_eval:"حذف هذا التقييم وكل علاماته؟",score:"العلامة",absent:"غائب",save_grades:"حفظ العلامات",bad_score:"علامة غير صحيحة",nothing:"لم تُدخل أي علامة.",subj_avgs:"المعدلات في المادة",avg:"المعدل",class_avg:"معدل الفصل",rank:"الرتبة",mention:"التقدير",print_all:"طباعة كل الكشوف",print_cert:"كشوف موثّقة (QR)",print_one:"كشف",cert_help:"«الكشوف الموثّقة» تسجّل كل كشف برمز ورمز QR، فيستطيع أي أحد التحقق من صحته في صفحة التحقق.",sure_cert:"إصدار كشوف موثّقة لكل الفصل؟",bul_title:"كشف النقاط",gen_avg:"المعدل العام",sig_dir:"المدير",sig_par:"ولي الأمر",scan_verify:"امسح للتحقق",grading:"سلّم العلامات",grading_help:"العلامة القصوى لكل مرحلة (مثلاً: على 10 في الابتدائي، وعلى 20 في الإعدادي).",
+tab_staff:"الموظفون",tab_subj:"المواد",add_subj:"إضافة مادة",subj_ar:"المادة (عربي)",subj_fr:"المادة (فرنسي)",def_subj:"إضافة المواد الشائعة",no_subj:"لا توجد مواد. اضغط «إضافة المواد الشائعة».",dup_subj:"هذه المادة موجودة مسبقاً.",sure_subj:"حذف هذه المادة؟ ستُحذف الإسنادات المرتبطة بها.",n_asg:"الإسنادات",new_staff:"+ موظف جديد",f_name_ar:"الاسم الكامل (عربي)",f_name_fr:"الاسم الكامل (فرنسي)",f_type:"الوظيفة",ty_teacher:"معلّم",ty_admin:"إداري",ty_other:"آخر",f_pos:"الصفة / المنصب",f_pos_ph:"مثلاً: معلم اللغة العربية، مراقب…",male_a:"ذكر",female_a:"أنثى",phone_s:"الهاتف",st_work:"يعمل",st_left2:"غادر",account:"الحساب",acc_on:"مفعّل",copy_inv:"نسخ الدعوة",copied:"تم النسخ",asg:"إسناد",asg_of:"فصول ومواد",subject:"المادة",multi_hint:"Ctrl + نقر لاختيار أكثر من مادة",need_cs:"أنشئ الفصول والمواد أولاً.",no_asg:"لا توجد إسنادات.",close:"إغلاق",pick_subj:"اختر مادة واحدة على الأقل.",dup_asg:"مُسنَد مسبقاً.",no_staff:"لا يوجد موظفون. أضف الأول.",sure_staff:"حذف هذا الموظف؟ يُفضَّل اختيار الحالة «غادر» للاحتفاظ بالسجل.",invite_help:"يحصل كل موظف على رمز دعوة، يفعّل به حسابه من صفحة الدخول ← «معلّم جديد؟ فعّل حسابك». المعلم لا يرى إلا فصوله وتلاميذه.",inv_msg:"السلام عليكم {n}،\nحسابك في منصة Al-Madaris CI ({s}) جاهز.\n1) افتح الرابط: {u}\n2) رمز الدعوة: {c}\n3) اختر بريدك الإلكتروني وكلمة المرور.",my_asg:"فصولي وموادي",act_ttl:"تفعيل حساب معلّم",act_sub:"أدخل رمز الدعوة الذي أعطتك إياه إدارة مدرستك، ثم اختر بريدك وكلمة مرورك.",inv_code:"رمز الدعوة",act_btn:"تفعيل الحساب",act_link:"معلّم جديد؟ فعّل حسابك برمز الدعوة",bad_invite:"رمز الدعوة غير صحيح أو مستعمل من قبل.",act_ok:"تم إنشاء حساب المعلم!",
 tab_ov:"نظرة عامة",tab_cls:"الفصول",tab_stu:"التلاميذ",add_cls:"إضافة فصل",cycle:"المرحلة",level:"المستوى",track1:"المسار",section:"الشعبة (اختياري)",year:"السنة الدراسية",capacity:"السعة القصوى",add:"إضافة",no_cls:"لا توجد فصول بعد. أضف أول فصل.",dup_cls:"هذا الفصل موجود مسبقاً.",sure_cls:"حذف هذا الفصل؟ لن يُحذف التلاميذ لكن سيصبحون بلا فصل.",class:"الفصل",del:"حذف",edit:"تعديل",new_stu:"+ تلميذ جديد",search:"بحث (الاسم، الرقم، الهاتف)…",all_cls:"كل الفصول",no_class:"بدون فصل",n_stu:"تلميذ",s_code:"الرقم التعريفي",s_name:"الاسم",s_fn_ar:"الاسم الشخصي (عربي)",s_ln_ar:"اسم العائلة (عربي)",s_nm_fr:"الاسم بالفرنسية",gender:"الجنس",male:"ذكر",female:"أنثى",bdate:"تاريخ الميلاد",bplace:"مكان الميلاد",g_name:"اسم الولي",g_rel:"صلة القرابة",rel_f:"الأب",rel_m:"الأم",rel_o:"آخر",g_phone:"هاتف الولي",address:"العنوان",save:"حفظ",cancel:"إلغاء",no_stu:"لا يوجد تلاميذ.",sure_stu:"حذف هذا التلميذ نهائياً؟",saved:"تم الحفظ ✓",st_bg:"ذكور / إناث",need_cls:"أنشئ فصلاً أولاً من تبويب «الفصول».",st_active:"يدرس",st_left:"غادر المدرسة",
 d_hi:"مرحباً",d_code:"رمز المؤسسة",d_status:"الحالة",d_left:"يوماً متبقية في التجربة",s_trial:"تجربة",s_active:"مفعّل",s_suspended:"موقوف",d_logout:"تسجيل الخروج",d_info:"المعلومات",d_soon:"الأقسام القادمة: التلاميذ، المعلمون، العلامات، الحضور بـ QR، الرسوم، الوثائق الرسمية.",e_login:"البريد أو كلمة المرور غير صحيحة.",ok_mail:"تم إنشاء الحساب. افتح بريدك الإلكتروني لتفعيله، ثم سجّل الدخول.",stud_soon:"بوابة التلميذ وولي الأمر تأتي في مرحلة لاحقة.",e_net:"خطأ في الاتصال بالخادم:",wait:"انتظر…",finish:"إنشاء المؤسسة ✓",lid_mat:"الرقم التعريفي للتلميذ",e_req:"يرجى ملء الحقول الإلزامية (*).",e_cyc:"اختر مرحلة واحدة ومساراً واحداً على الأقل.",e_pw:"كلمتا المرور غير متطابقتين (8 أحرف على الأقل).",ok_t:"تم تسجيل المؤسسة!",ok_code:"رمز مؤسستك",ok_trial:"التجربة المجانية حتى",ok_note:"نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط. الحفظ الحقيقي على الخادم يأتي في المرحلة 2.",ok_go:"الذهاب إلى الدخول",v_ok:"✓ وثيقة صحيحة",v_bad:"✗ الوثيقة غير موجودة",v_badd:"تحقق من الرمز أو اتصل بالمؤسسة المُصدِرة.",vk:["النوع","صاحب الوثيقة","المؤسسة","المستوى","التقدير","تاريخ الإصدار"]});
 let L='ar';try{L=localStorage.getItem('amc_lang')||'ar'}catch(e){}
@@ -371,7 +389,7 @@ async function reloadData(){
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section))}
 
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
-  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu']].concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj']]:[]);
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['grd','tab_grd']].concat(canEdit()?[['rep','tab_rep'],['staff','tab_staff'],['subj','tab_subj']]:[]);
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
     <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
     <h2>${i?esc(L==='ar'?i.name_ar:i.name_fr):''}</h2></div>
@@ -380,7 +398,7 @@ function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
   <div id="dtab"></div>`;
   box.querySelectorAll('[data-dt]').forEach(e=>e.onclick=()=>{D.tab=e.dataset.dt;D.edit=null;D.asg=null;renderDash()});
   document.getElementById('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'};
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects}[D.tab]||tabOverview)()}
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports}[D.tab]||tabOverview)()}
 
 function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -397,7 +415,7 @@ function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.
     <tr><td>${t('cycles')}</td><td>${lab(i.cycles,CYC)}</td></tr>
     <tr><td>${t('tracks')}</td><td>${lab(i.tracks,TRK)}</td></tr>
     <tr><td>${t('city')}</td><td>${esc(i.city)}</td></tr>
-    <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`+myTeaching()}
+    <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`+myTeaching()+scaleCard();bindScale()}
 
 function tabClasses(){const el=document.getElementById('dtab'),i=D.i||{};
   const cyc=(i.cycles&&i.cycles.length?i.cycles:Object.keys(LEVELS)),trk=(i.tracks&&i.tracks.length?i.tracks:Object.keys(TRK));
@@ -580,6 +598,157 @@ async function doActivate(e){e.preventDefault();const f=e.target,er=document.get
   if(!data.session){document.getElementById('actBox').innerHTML=`<div class="ok"><div class="big">📧</div><h2>${t('act_ok')}</h2><p>${t('ok_mail')}</p><p><b dir="ltr">${esc(email)}</b></p><a class="btn btn-g" href="#login">${t('ok_go')}</a></div>`;return}
   location.hash='dash'}
 
+// ===== grades & report cards =====
+const KIND={devoir:'k_devoir',exam:'k_exam',oral:'k_oral',other:'k_other'};
+const G={term:1,cls:'',subj:'',ev:null,evals:[],grades:[],loadedFor:''};
+const nTerms=()=>D.i&&D.i.term_system==='sem'?2:3;
+const termName=n=>t((D.i&&D.i.term_system==='sem'?'sem':'tri')+n);
+const scaleOf=c=>{const gs=(D.i&&D.i.grade_scale)||{};return Number(gs[c&&c.cycle])||(c&&['mat','pri'].includes(c.cycle)?10:20)};
+const fmt=x=>x==null||isNaN(x)?'—':(Math.round(x*100)/100).toString();
+const mention=f=>f==null?'':f>=.9?t('m_exc'):f>=.8?t('m_tb'):f>=.7?t('m_b'):f>=.6?t('m_ab'):f>=.5?t('m_p'):t('m_ins');
+function gradeSubjects(clsId){
+  if(canEdit()){const ids=new Set(D.teaching.filter(x=>x.class_id===clsId).map(x=>x.subject_id));
+    return ids.size?D.subjects.filter(j=>ids.has(j.id)):D.subjects}
+  const mine=new Set(D.teaching.filter(x=>x.class_id===clsId).map(x=>x.subject_id));
+  return D.subjects.filter(j=>mine.has(j.id))}
+async function loadEvals(force){const key=G.cls+'|'+G.term;if(!G.cls){G.evals=[];G.grades=[];return}
+  if(!force&&G.loadedFor===key)return;
+  const {data:ev}=await sb.from('evaluations').select('*').eq('class_id',G.cls).eq('term',G.term).order('created_at');
+  G.evals=ev||[];const ids=G.evals.map(e=>e.id);
+  if(ids.length){const {data:gr}=await sb.from('grades').select('*').in('evaluation_id',ids);G.grades=gr||[]}else G.grades=[];
+  G.loadedFor=key}
+function computeClass(cls){
+  const studs=D.students.filter(s=>s.class_id===cls.id&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar'));
+  const scale=scaleOf(cls),subjIds=[...new Set(G.evals.map(e=>e.subject_id))];
+  const subs=D.subjects.filter(j=>subjIds.includes(j.id));
+  const gmap={};G.grades.forEach(g=>gmap[g.evaluation_id+'|'+g.student_id]=g);
+  const rows=studs.map(s=>{const per={};
+    subs.forEach(j=>{let sum=0,mx=0;G.evals.filter(e=>e.subject_id===j.id).forEach(e=>{const g=gmap[e.id+'|'+s.id];if(g&&!g.absent&&g.score!=null){sum+=Number(g.score);mx+=Number(e.max_score)}});
+      per[j.id]=mx?sum/mx*scale:null});
+    const v=Object.values(per).filter(x=>x!=null);return {s,per,avg:v.length?v.reduce((a,b)=>a+b,0)/v.length:null}});
+  const sorted=rows.filter(r=>r.avg!=null).sort((a,b)=>b.avg-a.avg);
+  sorted.forEach((r,i)=>{r.rank=i&&Math.abs(r.avg-sorted[i-1].avg)<1e-9?sorted[i-1].rank:i+1});
+  const classAvg={};subs.forEach(j=>{const v=rows.map(r=>r.per[j.id]).filter(x=>x!=null);classAvg[j.id]=v.length?v.reduce((a,b)=>a+b,0)/v.length:null});
+  const all=sorted.map(r=>r.avg);
+  return {rows,subs,scale,classAvg,ranked:sorted.length,gen:all.length?all.reduce((a,b)=>a+b,0)/all.length:null}}
+
+function pickers(withSubj){const cls=D.classes.find(c=>c.id===G.cls);
+  const subs=G.cls?gradeSubjects(G.cls):[];
+  if(withSubj&&G.subj&&!subs.some(j=>j.id===G.subj))G.subj='';
+  return `<div class="toolbar" style="margin-top:0">
+    <select id="gTerm">${opts(Array.from({length:nTerms()},(_,k)=>[String(k+1),termName(k+1)]),String(G.term))}</select>
+    <select id="gCls">${opts([['',t('pick_cls')]].concat(D.classes.map(c=>[c.id,clsName(c)])),G.cls)}</select>
+    ${withSubj?`<select id="gSub">${opts([['',t('pick_subj1')]].concat(subs.map(j=>[j.id,subjName(j)])),G.subj)}</select>`:''}</div>
+  ${cls?`<p class="sub" style="margin:6px 0">${t('scale_is')} <b>/${scaleOf(cls)}</b></p>`:''}`}
+function bindPickers(re){const tm=document.getElementById('gTerm'),cl=document.getElementById('gCls'),sb_=document.getElementById('gSub');
+  tm.onchange=async()=>{G.term=+tm.value;G.ev=null;await loadEvals(true);re()};
+  cl.onchange=async()=>{G.cls=cl.value;G.ev=null;G.subj='';await loadEvals(true);re()};
+  if(sb_)sb_.onchange=()=>{G.subj=sb_.value;G.ev=null;re()}}
+
+async function tabGrades(){const el=document.getElementById('dtab');
+  if(!G.cls&&D.classes.length===1)G.cls=D.classes[0].id;
+  el.innerHTML=t('wait');await loadEvals();
+  const cls=D.classes.find(c=>c.id===G.cls),scale=scaleOf(cls);
+  const evs=G.evals.filter(e=>e.subject_id===G.subj),ev=evs.find(e=>e.id===G.ev);
+  const studs=cls?D.students.filter(s=>s.class_id===cls.id&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar')):[];
+  let h=pickers(true);
+  if(!D.classes.length)h+=`<div class="note">${t('need_cls')}</div>`;
+  else if(cls&&!gradeSubjects(cls.id).length)h+=`<div class="note">${canEdit()?t('need_cs'):t('no_asg')}</div>`;
+  if(cls&&G.subj){
+    h+=`<div class="cert"><b>${t('evals')} — ${esc(subjName(D.subjects.find(j=>j.id===G.subj)))} — ${termName(G.term)}</b>
+      <div class="chips" style="margin:10px 0">${evs.map(e=>`<span class="chip${e.id===G.ev?' on':''}" data-ev="${e.id}">${esc(e.title||t(KIND[e.kind]))} <small>/${fmt(+e.max_score)}</small></span>`).join('')||`<span class="sub">${t('no_evals')}</span>`}</div>
+      <div class="two"><div class="fld"><label>${t('k_type')}</label><select id="eKind">${opts(Object.keys(KIND).map(k=>[k,t(KIND[k])]))}</select></div>
+        <div class="fld"><label>${t('e_title')}</label><input id="eTitle" placeholder="${esc(t('e_title_ph'))}"></div></div>
+      <div class="two"><div class="fld"><label>${t('e_max')}</label><input id="eMax" type="number" min="1" step="0.5" value="${scale}" dir="ltr"></div>
+        <div class="fld"><label>${t('e_date')}</label><input id="eDate" type="date" dir="ltr" value="${new Date().toISOString().slice(0,10)}"></div></div>
+      <button class="btn btn-g" id="eAdd">${t('new_eval')}</button><div class="err" id="eErr"></div></div>`;
+    if(ev){const gm={};G.grades.filter(g=>g.evaluation_id===ev.id).forEach(g=>gm[g.student_id]=g);
+      h+=`<div class="cert"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center"><b>${esc(ev.title||t(KIND[ev.kind]))} — ${t('on')} ${fmt(+ev.max_score)}</b>
+        <button class="btn btn-t sm red" id="eDel">${t('del_eval')}</button></div>
+        ${studs.length?`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>#</th><th>${t('s_name')}</th><th>${t('score')} /${fmt(+ev.max_score)}</th><th>${t('absent')}</th></tr></thead><tbody>
+        ${studs.map((s,i)=>{const g=gm[s.id]||{};return `<tr><td>${i+1}</td><td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}</td>
+          <td><input class="gIn" data-sid="${s.id}" type="number" min="0" max="${ev.max_score}" step="0.25" dir="ltr" style="width:90px" value="${g.score!=null?g.score:''}"${g.absent?' disabled':''}></td>
+          <td><input type="checkbox" class="gAb" data-sid="${s.id}" style="width:auto"${g.absent?' checked':''}></td></tr>`}).join('')}</tbody></table></div>
+        <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="gSave">${t('save_grades')}</button></div><div class="err" id="gErr"></div>`:`<div class="note">${t('no_stu')}</div>`}</div>`}
+    if(evs.length&&studs.length){const r=computeClass(cls);
+      h+=`<div class="cert"><b>${t('subj_avgs')}</b><div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('s_name')}</th><th>${t('avg')} /${scale}</th></tr></thead><tbody>
+      ${r.rows.map(x=>`<tr><td>${esc(x.s.last_name_ar+' '+x.s.first_name_ar)}</td><td><b>${fmt(x.per[G.subj])}</b></td></tr>`).join('')}
+      <tr><td><b>${t('class_avg')}</b></td><td><b>${fmt(r.classAvg[G.subj])}</b></td></tr></tbody></table></div></div>`}}
+  el.innerHTML=h;bindPickers(tabGrades);
+  el.querySelectorAll('[data-ev]').forEach(c=>c.onclick=()=>{G.ev=c.dataset.ev;tabGrades()});
+  const ea=document.getElementById('eAdd');if(ea)ea.onclick=async()=>{const er=document.getElementById('eErr');er.textContent=t('wait');
+    const row={class_id:G.cls,subject_id:G.subj,term:G.term,kind:document.getElementById('eKind').value,title:document.getElementById('eTitle').value.trim()||null,
+      max_score:parseFloat(document.getElementById('eMax').value)||scale,eval_date:document.getElementById('eDate').value||null};
+    const {data,error}=await sb.from('evaluations').insert(row).select().single();
+    if(error){er.textContent=t('e_net')+' '+error.message;return}await loadEvals(true);G.ev=data&&data.id;tabGrades()};
+  const ed=document.getElementById('eDel');if(ed)ed.onclick=async()=>{if(!confirm(t('sure_eval')))return;
+    const {error}=await sb.from('evaluations').delete().eq('id',G.ev);if(error){alert(error.message);return}G.ev=null;await loadEvals(true);tabGrades()};
+  el.querySelectorAll('.gAb').forEach(c=>c.onchange=()=>{const i=el.querySelector(`.gIn[data-sid="${c.dataset.sid}"]`);i.disabled=c.checked;if(c.checked)i.value=''});
+  const gs=document.getElementById('gSave');if(gs)gs.onclick=async()=>{const er=document.getElementById('gErr'),mx=+ev.max_score,rows=[];
+    for(const i of el.querySelectorAll('.gIn')){const ab=el.querySelector(`.gAb[data-sid="${i.dataset.sid}"]`).checked,v=i.value.trim();
+      if(v===''&&!ab)continue;const sc=v===''?null:parseFloat(v.replace(',','.'));
+      if(sc!=null&&(isNaN(sc)||sc<0||sc>mx)){er.textContent=t('bad_score')+' (0 – '+fmt(mx)+')';i.focus();return}
+      rows.push({evaluation_id:ev.id,student_id:i.dataset.sid,score:ab?null:sc,absent:ab})}
+    if(!rows.length){er.textContent=t('nothing');return}er.textContent=t('wait');
+    const {error}=await sb.from('grades').upsert(rows,{onConflict:'evaluation_id,student_id'});
+    if(error){er.textContent=t('e_net')+' '+error.message;return}await loadEvals(true);tabGrades();
+    setTimeout(()=>{const e2=document.getElementById('gErr');if(e2){e2.style.color='var(--g2)';e2.textContent=t('saved')}},0)}}
+
+async function tabReports(){const el=document.getElementById('dtab');
+  if(!G.cls&&D.classes.length)G.cls=D.classes[0].id;
+  el.innerHTML=t('wait');await loadEvals();
+  const cls=D.classes.find(c=>c.id===G.cls);let h=pickers(false);
+  if(cls){const r=computeClass(cls);
+    h+=`<div class="toolbar"><button class="btn btn-g" id="pAll">🖨 ${t('print_all')}</button><button class="btn btn-o" id="pCert">🔐 ${t('print_cert')}</button></div>
+    <div class="note">${t('cert_help')}</div><div class="err" id="pErr"></div>
+    ${r.rows.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('rank')}</th><th>${t('s_name')}</th><th>${t('avg')} /${r.scale}</th><th>${t('mention')}</th><th></th></tr></thead><tbody>
+    ${r.rows.slice().sort((a,b)=>(a.rank||999)-(b.rank||999)).map(x=>`<tr><td><b>${x.rank||'—'}</b></td><td><b>${esc(x.s.last_name_ar+' '+x.s.first_name_ar)}</b><br><small dir="ltr">${esc(x.s.code)}</small></td>
+      <td><b>${fmt(x.avg)}</b></td><td>${mention(x.avg!=null?x.avg/r.scale:null)}</td><td><button class="btn btn-t sm" data-pr="${x.s.id}">🖨 ${t('print_one')}</button></td></tr>`).join('')}
+    <tr><td></td><td><b>${t('class_avg')}</b></td><td><b>${fmt(r.gen)}</b></td><td></td><td></td></tr></tbody></table></div>`:`<div class="note">${t('no_stu')}</div>`}`}
+  el.innerHTML=h;bindPickers(tabReports);if(!cls)return;
+  const r=computeClass(cls);
+  el.querySelectorAll('[data-pr]').forEach(b=>b.onclick=()=>printReports(cls,r,r.rows.filter(x=>x.s.id===b.dataset.pr),false));
+  document.getElementById('pAll').onclick=()=>printReports(cls,r,r.rows,false);
+  document.getElementById('pCert').onclick=()=>{if(confirm(t('sure_cert')))printReports(cls,r,r.rows,true)}}
+
+function loadQR(){return new Promise(res=>{if(window.QRCode)return res();const s=document.createElement('script');
+  s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=res;s.onerror=res;document.head.appendChild(s)})}
+async function printReports(cls,r,rows,certified){const i=D.i,er=document.getElementById('pErr');
+  const codes={};
+  if(certified){er.style.color='';er.textContent=t('wait');await loadQR();
+    for(const x of rows){if(x.avg==null)continue;
+      const {data,error}=await sb.rpc('issue_document',{p_student:x.s.id,p_type:t('bul_title')+' — '+termName(G.term),p_level:clsName(cls)+' — '+(cls.school_year||''),
+        p_mention:fmt(x.avg)+' / '+r.scale+' — '+mention(x.avg/r.scale)+(x.rank?' — '+t('rank')+' '+x.rank+'/'+r.ranked:'')});
+      if(error){er.textContent=t('e_net')+' '+error.message;return}codes[x.s.id]=data}
+    er.textContent=''}
+  let pa=document.getElementById('printArea');if(!pa){pa=document.createElement('div');pa.id='printArea';document.body.appendChild(pa)}
+  const base=location.origin+location.pathname;
+  pa.innerHTML=rows.map(x=>{const s=x.s;return `<section class="bul" dir="${L==='ar'?'rtl':'ltr'}">
+    <header><img src="emblem.png" alt=""><div><h1>${esc(i.name_ar)}</h1><h2>${esc(i.name_fr)}</h2><small>${esc(i.city||'')} — ${esc(i.code)}</small></div><img src="emblem.png" alt="" style="visibility:hidden"></header>
+    <h3>${t('bul_title')} — ${termName(G.term)} — <span dir="ltr">${esc(cls.school_year||'')}</span></h3>
+    <table class="info"><tr><td>${t('s_name')}</td><td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?` — <span dir="ltr">${esc(s.full_name_fr)}</span>`:''}</td><td>${t('s_code')}</td><td dir="ltr"><b>${esc(s.code)}</b></td></tr>
+      <tr><td>${t('class')}</td><td>${esc(clsName(cls))}</td><td>${t('bdate')}</td><td dir="ltr">${esc(s.birth_date||'')}</td></tr></table>
+    <table class="marks"><thead><tr><th>${t('subject')}</th><th>${t('avg')} /${r.scale}</th><th>${t('class_avg')}</th><th>${t('mention')}</th></tr></thead><tbody>
+      ${r.subs.map(j=>`<tr><td>${esc(subjName(j))}</td><td><b>${fmt(x.per[j.id])}</b></td><td>${fmt(r.classAvg[j.id])}</td><td>${x.per[j.id]!=null?mention(x.per[j.id]/r.scale):''}</td></tr>`).join('')}</tbody></table>
+    <table class="tot"><tr><td>${t('gen_avg')}</td><td><b>${fmt(x.avg)} / ${r.scale}</b></td><td>${t('rank')}</td><td><b>${x.rank?x.rank+' / '+r.ranked:'—'}</b></td></tr>
+      <tr><td>${t('mention')}</td><td><b>${x.avg!=null?mention(x.avg/r.scale):''}</b></td><td>${t('class_avg')}</td><td>${fmt(r.gen)}</td></tr></table>
+    <div class="sig"><div>${t('sig_dir')}</div><div>${t('sig_par')}</div>
+      ${codes[s.id]?`<div class="qr"><div class="qrc" data-url="${esc(base+'?code='+codes[s.id]+'#verify')}"></div><small dir="ltr">${esc(codes[s.id])}</small><small>${t('scan_verify')}</small></div>`:''}</div>
+    <footer>Al-Madaris CI — ${t('foot')}</footer></section>`}).join('');
+  if(window.QRCode)pa.querySelectorAll('.qrc').forEach(d=>new QRCode(d,{text:d.dataset.url,width:96,height:96}));
+  const imgs=[...pa.querySelectorAll('img')];await Promise.all(imgs.map(im=>im.complete?0:new Promise(r2=>{im.onload=im.onerror=r2})));
+  setTimeout(()=>window.print(),300)}
+
+function scaleCard(){if(!canEdit()||!D.i)return '';const cy=D.i.cycles&&D.i.cycles.length?D.i.cycles:Object.keys(CYC);
+  return `<div class="cert"><b>${t('grading')}</b><p class="sub" style="margin:4px 0 8px">${t('grading_help')}</p>
+  <div class="chips">${cy.map(c=>`<label style="display:flex;align-items:center;gap:6px">${t(CYC[c])} /<input class="scIn" data-cy="${c}" type="number" min="1" style="width:70px" dir="ltr" value="${scaleOf({cycle:c})}"></label>`).join('')}</div>
+  <button class="btn btn-g sm" id="scSave" style="margin-top:10px">${t('save')}</button><span class="err" id="scErr" style="margin-inline-start:8px"></span></div>`}
+function bindScale(){const b=document.getElementById('scSave');if(!b)return;b.onclick=async()=>{const gs=Object.assign({},D.i.grade_scale||{});
+  document.querySelectorAll('.scIn').forEach(i=>{const v=parseFloat(i.value);if(v>0)gs[i.dataset.cy]=v});
+  const er=document.getElementById('scErr');er.textContent=t('wait');
+  const {error}=await sb.from('institutions').update({grade_scale:gs}).eq('id',D.i.id);
+  if(error){er.textContent=t('e_net')+' '+error.message;return}D.i.grade_scale=gs;er.style.color='var(--g2)';er.textContent=t('saved')}}
+
 // registration wizard
 let step=1;const f=document.getElementById('regForm'),err=document.getElementById('err');
 function setStep(n){step=n;document.querySelectorAll('.stp').forEach(s=>s.hidden=+s.dataset.s!==n);
@@ -634,6 +803,7 @@ async function doVerify(){const c=document.getElementById('vcode').value.trim().
 document.getElementById('vcode').addEventListener('keydown',e=>{if(e.key==='Enter')doVerify()});
 
 document.getElementById('actForm').onsubmit=doActivate;
+{const qc=new URLSearchParams(location.search).get('code');if(qc){document.getElementById('vcode').value=qc;if(location.hash!=='#verify')location.hash='verify';setTimeout(doVerify,400)}}
 applyLang();route();
 </script>
 </body>

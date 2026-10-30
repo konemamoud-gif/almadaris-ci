@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Al-Madaris CI — منصة إدارة المدارس العربية والإسلامية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--g:#1B7F3B;--g2:#0F5E2A;--o:#F7931E;--o2:#E07B00;--ink:#1d2b36;--mut:#5d6b78;--bg:#f6f8f5;--line:#e3e8e2;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Cairo','Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+html[dir=ltr] body{font-family:'Inter','Cairo',sans-serif}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 18px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;gap:12px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;color:var(--g)}
+.brand img{height:44px}
+.brand b{color:var(--o)}
+.nav .sp{flex:1}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:700;cursor:pointer;transition:.15s}
+.btn-g{background:var(--g);color:#fff}.btn-g:hover{background:var(--g2)}
+.btn-o{background:var(--o);color:#fff}.btn-o:hover{background:var(--o2)}
+.btn-l{background:transparent;color:var(--g);border:1.5px solid var(--g)}
+.btn-t{background:none;color:var(--mut);padding:8px 10px}
+.hide-sm{}
+.brand span{white-space:nowrap}
+@media(max-width:720px){.hide-sm{display:none}.brand span{font-size:15px}.brand img{height:36px}.nav .btn{padding:8px 11px;font-size:13px;white-space:nowrap}.nav{gap:6px}.logo-box{max-width:230px}}
+.view{display:none}.view.on{display:block}
+/* hero */
+.hero{background:linear-gradient(135deg,#0F5E2A 0%,#1B7F3B 60%,#2a9a4f 100%);color:#fff;padding:56px 0 70px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:auto -80px -120px auto;width:340px;height:340px;border-radius:50%;background:var(--o);opacity:.18}
+.hero .grid{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+@media(max-width:820px){.hero .grid{grid-template-columns:1fr}.hero .logo-box{order:-1}}
+.pill{display:inline-block;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);padding:4px 14px;border-radius:99px;font-size:14px;margin-bottom:14px}
+.hero h1{font-size:clamp(28px,4.4vw,44px);line-height:1.25;margin:0 0 14px}
+.hero h1 em{font-style:normal;color:#ffd08a}
+.hero p{font-size:17px;opacity:.92;margin:0 0 24px}
+.hero .cta{display:flex;gap:10px;flex-wrap:wrap}
+.hero .btn-l{color:#fff;border-color:#fff}
+.logo-box{background:#fff;border-radius:22px;padding:18px;box-shadow:0 20px 50px rgba(0,0,0,.25);max-width:360px;margin:auto;position:relative;z-index:1}
+.logo-box img{width:100%;display:block}
+.portals{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:-36px;position:relative;z-index:2}
+@media(max-width:720px){.portals{grid-template-columns:1fr}}
+.portal{background:#fff;border-radius:16px;padding:20px;border:1px solid var(--line);box-shadow:0 8px 24px rgba(0,0,0,.06);cursor:pointer;transition:.15s}
+.portal:hover{transform:translateY(-3px);border-color:var(--g)}
+.portal .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:22px;margin-bottom:8px}
+.portal h3{margin:0 0 4px;font-size:18px}.portal p{margin:0;color:var(--mut);font-size:14px}
+section.blk{padding:54px 0}
+.ttl{text-align:center;margin-bottom:30px}.ttl h2{font-size:28px;margin:0 0 6px;color:var(--g2)}.ttl p{margin:0;color:var(--mut)}
+.feat{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:820px){.feat{grid-template-columns:1fr}}
+.fc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;border-top:4px solid var(--g)}
+.fc:nth-child(2){border-top-color:var(--o)}
+.fc h3{margin:6px 0 8px;font-size:19px}.fc ul{margin:0;padding-inline-start:18px;color:var(--mut);font-size:15px}
+.fc .ic{font-size:30px}
+.verify-strip{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.verify-strip h3{margin:0;flex:1;min-width:220px}
+.verify-strip .row{display:flex;gap:8px;flex:2;min-width:260px}
+input,select,textarea{width:100%;font:inherit;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+input:focus,select:focus{outline:none;border-color:var(--g);box-shadow:0 0 0 3px rgba(27,127,59,.12)}
+.tracks{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:820px){.tracks{grid-template-columns:repeat(2,1fr)}}
+.tr{background:#fff;border-radius:14px;padding:16px;text-align:center;border:1px solid var(--line)}
+.tr b{display:block;font-size:17px;color:var(--g2)}.tr small{color:var(--mut)}
+footer{background:#0d3d1d;color:#cfe3d4;padding:30px 0;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:#ffd08a}
+/* forms */
+.panel{max-width:720px;margin:34px auto;background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+@media(max-width:600px){.panel{padding:18px;margin:16px auto}}
+.panel h2{margin:0 0 4px;color:var(--g2)}.panel .sub{color:var(--mut);margin:0 0 18px}
+.trial{background:#fff4e5;color:#8a4b00;border:1px solid #ffd9a8;border-radius:10px;padding:8px 14px;font-weight:700;display:inline-block;margin-bottom:14px}
+.steps{display:flex;gap:6px;margin:6px 0 22px}
+.st{flex:1;text-align:center;font-size:13px;color:var(--mut)}
+.st i{display:block;height:6px;border-radius:9px;background:var(--line);margin-bottom:6px}
+.st.on i{background:var(--g)}.st.on{color:var(--g2);font-weight:700}
+.fld{margin-bottom:14px}.fld label{display:block;font-weight:700;font-size:14px;margin-bottom:5px}
+.fld label .r{color:#c0392b}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}@media(max-width:600px){.two{grid-template-columns:1fr}}
+.opt{display:block;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:8px;cursor:pointer}
+.opt input{width:auto;margin-inline-end:8px}
+.opt small{display:block;color:var(--mut);padding-inline-start:26px}
+.opt:has(input:checked){border-color:var(--g);background:#f0f8f2}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);border-radius:99px;padding:7px 14px;cursor:pointer;font-size:14px;user-select:none}
+.chip input{display:none}
+.chip:has(input:checked){background:var(--g);color:#fff;border-color:var(--g)}
+.acts{display:flex;justify-content:space-between;gap:10px;margin-top:20px}
+.err{color:#c0392b;font-size:14px;min-height:20px;margin-top:6px}
+.ok{text-align:center}
+.ok .big{font-size:54px}
+.code{font-family:Inter,monospace;font-size:22px;font-weight:800;letter-spacing:2px;background:#f0f8f2;border:2px dashed var(--g);border-radius:12px;padding:10px 18px;display:inline-block;color:var(--g2);direction:ltr}
+.tabs{display:flex;background:var(--bg);border-radius:12px;padding:4px;margin-bottom:18px}
+.tab{flex:1;text-align:center;padding:9px;border-radius:9px;cursor:pointer;font-weight:700;font-size:14px;color:var(--mut)}
+.tab.on{background:#fff;color:var(--g2);box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.note{background:#eef6ff;border:1px solid #cfe2ff;color:#24527a;border-radius:10px;padding:10px 14px;font-size:14px;margin-top:14px}
+.cert{border:3px double var(--g);border-radius:14px;padding:20px;margin-top:16px;background:linear-gradient(#fff,#fbfdfb)}
+.cert .hd{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:10px}
+.cert .hd img{height:46px}
+.cert table{width:100%;border-collapse:collapse;font-size:15px}
+.cert td{padding:6px 4px;border-bottom:1px dashed var(--line)}.cert td:first-child{color:var(--mut);width:42%}
+.badge{display:inline-block;background:#e6f5ea;color:var(--g2);border-radius:99px;padding:3px 12px;font-weight:800;font-size:14px}
+.badge.bad{background:#fdecea;color:#b03a2e}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a class="brand" href="#home"><img src="emblem.png" alt=""><span>AL-MADARIS <b>CI</b></span></a>
+  <div class="sp"></div>
+  <button class="btn btn-t" id="langBtn">Français</button>
+  <a class="btn btn-l hide-sm" href="#login" data-t="login">دخول</a>
+  <a class="btn btn-o" href="#register" data-t="trial_short">تسجيل مؤسسة</a>
+</div></header>
+
+<!-- HOME -->
+<main id="home" class="view">
+  <div class="hero"><div class="wrap grid">
+    <div>
+      <span class="pill" data-t="pill">نظام التشغيل الأكاديمي والمدرسي</span>
+      <h1 data-t="h1">منصة إدارة المدارس <em>العربية والإسلامية</em> في ساحل العاج</h1>
+      <p data-t="lead">التسجيل، الملفات، العلامات، الحضور ببطاقات QR، الرسوم، والشهادات الرسمية الموثقة — من الروضة إلى الجامعة، في مكان واحد.</p>
+      <div class="cta">
+        <a class="btn btn-o" href="#register" data-t="trial">سجّل مؤسستك — تجربة 14 يوماً</a>
+        <a class="btn btn-l" href="#verify" data-t="verify_btn">التحقق من وثيقة</a>
+      </div>
+    </div>
+    <div class="logo-box"><img src="logo.png" alt="Al-Madaris CI"></div>
+  </div></div>
+
+  <div class="wrap">
+    <div class="portals">
+      <div class="portal" onclick="goLogin('dir')"><div class="ic" style="background:#e6f5ea">🏛️</div><h3 data-t="p1">فضاء الإدارة</h3><p data-t="p1d">المدير والمسؤول الإداري: المؤسسة، الأقسام، الرسوم، التقارير.</p></div>
+      <div class="portal" onclick="goLogin('staff')"><div class="ic" style="background:#fff1df">👨‍🏫</div><h3 data-t="p2">الموظفون والمعلّمون</h3><p data-t="p2d">إدخال العلامات، تسجيل الحضور، جدول الحصص والامتحانات.</p></div>
+      <div class="portal" onclick="goLogin('student')"><div class="ic" style="background:#e8f0fb">🎓</div><h3 data-t="p3">بوابة التلميذ وولي الأمر</h3><p data-t="p3d">النتائج، الغياب، الرسوم المستحقة، والإشعارات.</p></div>
+    </div>
+  </div>
+
+  <section class="blk"><div class="wrap">
+    <div class="ttl"><h2 data-t="f_ttl">ركائز المنصة</h2><p data-t="f_sub">كل ما تحتاجه مدرسة عربية إسلامية في ساحل العاج</p></div>
+    <div class="feat">
+      <div class="fc"><div class="ic">📚</div><h3 data-t="f1">تعليم متعدد المراحل</h3><ul data-t="f1l"><li>الروضة، الابتدائي، الإعدادي، الثانوي، الجامعة</li><li>مسار عربي، فرنسي، مزدوج، وتحفيظ القرآن</li><li>كتب «سلسلة المدارس العربية الإسلامية» مدمجة</li></ul></div>
+      <div class="fc"><div class="ic">🪪</div><h3 data-t="f2">الحضور وبطاقات QR</h3><ul data-t="f2l"><li>تسجيل الحضور بمسح البطاقة</li><li>إشعار تلقائي لولي الأمر عند الغياب أو التأخر</li><li>يعمل دون إنترنت ثم يزامن لاحقاً</li></ul></div>
+      <div class="fc"><div class="ic">📜</div><h3 data-t="f3">الوثائق الرسمية</h3><ul data-t="f3l"><li>كشوف النقاط والشهادات فوراً</li><li>ختم رقمي ورمز QR لكل وثيقة</li><li>تحقق علني من صحة الوثيقة</li></ul></div>
+    </div>
+  </div></section>
+
+  <section class="blk" style="padding-top:0"><div class="wrap">
+    <div class="ttl"><h2 data-t="t_ttl">أربعة مسارات دراسية</h2></div>
+    <div class="tracks">
+      <div class="tr"><b data-t="tr1">عربي فقط</b><small>Arabe</small></div>
+      <div class="tr"><b data-t="tr2">فرنسي فقط</b><small>Français</small></div>
+      <div class="tr"><b data-t="tr3">عربي + فرنسي</b><small>Franco-arabe</small></div>
+      <div class="tr"><b data-t="tr4">تحفيظ القرآن</b><small>Tahfîdh</small></div>
+    </div>
+  </div></section>
+
+  <section class="blk" style="padding-top:0"><div class="wrap">
+    <div class="verify-strip">
+      <h3 data-t="vs">🔎 تحقّق من صحة شهادة أو كشف نقاط</h3>
+      <div class="row"><input id="qv" placeholder="AMC-2026-000123"><button class="btn btn-g" onclick="quickVerify()" data-t="check">تحقّق</button></div>
+    </div>
+  </div></section>
+</main>
+
+<!-- REGISTER -->
+<main id="register" class="view"><div class="wrap"><div class="panel" id="regPanel">
+  <span class="trial" data-t="trial_badge">🎁 تجربة مجانية كاملة لمدة 14 يوماً</span>
+  <h2 data-t="r_ttl">تسجيل مؤسستك</h2>
+  <p class="sub" data-t="r_sub">ستظهر هذه البيانات على كشوف النقاط والشهادات الرسمية.</p>
+  <div class="steps"><div class="st on" id="s1"><i></i><span data-t="st1">المؤسسة</span></div><div class="st" id="s2"><i></i><span data-t="st2">المراحل والاتصال</span></div><div class="st" id="s3"><i></i><span data-t="st3">المسؤول</span></div></div>
+
+  <form id="regForm" novalidate>
+    <div class="stp" data-s="1">
+      <div class="fld"><label><span data-t="nm_ar">الاسم الرسمي بالعربية</span> <span class="r">*</span></label><input name="nameAr" dir="rtl" required placeholder="مدرسة صلاح الدين الأيوبي"></div>
+      <div class="fld"><label><span data-t="nm_fr">الاسم الرسمي بالفرنسية</span> <span class="r">*</span></label><input name="nameFr" dir="ltr" required placeholder="École Salahouddine Al-Ayyoubi"></div>
+      <div class="fld"><label><span data-t="type">نوع المؤسسة</span> <span class="r">*</span></label>
+        <label class="opt"><input type="radio" name="type" value="school" required><b data-t="ty1">مجموعة مدرسية عربية-فرنسية</b><small data-t="ty1d">روضة، ابتدائي، إعدادي، ثانوي — مع الدراسات الإسلامية</small></label>
+        <label class="opt"><input type="radio" name="type" value="quran"><b data-t="ty2">مدرسة / مركز تحفيظ القرآن الكريم</b><small data-t="ty2d">حلقات، أحزاب، تجويد برواية حفص</small></label>
+        <label class="opt"><input type="radio" name="type" value="univ"><b data-t="ty3">جامعة / كلية / معهد عالٍ</b><small data-t="ty3d">نظام ل م د، كليات الشريعة، الرسائل والبحوث</small></label>
+      </div>
+      <div class="two">
+        <div class="fld"><label><span data-t="country">البلد</span> <span class="r">*</span></label><select name="country" required><option value="CI">Côte d'Ivoire — ساحل العاج</option><option>Mali — مالي</option><option>Burkina Faso — بوركينا فاسو</option><option>Guinée — غينيا</option><option>Sénégal — السنغال</option></select></div>
+        <div class="fld"><label><span data-t="city">المدينة / المنطقة</span> <span class="r">*</span></label><input name="city" required placeholder="بواكي / Bouaké"></div>
+      </div>
+    </div>
+
+    <div class="stp" data-s="2" hidden>
+      <div class="fld"><label><span data-t="cycles">المراحل الدراسية</span> <span class="r">*</span></label>
+        <div class="chips" id="cyc">
+          <label class="chip"><input type="checkbox" name="cycles" value="mat"><span data-t="c1">الروضة</span></label>
+          <label class="chip"><input type="checkbox" name="cycles" value="pri"><span data-t="c2">الابتدائي</span></label>
+          <label class="chip"><input type="checkbox" name="cycles" value="col"><span data-t="c3">الإعدادي</span></label>
+          <label class="chip"><input type="checkbox" name="cycles" value="lyc"><span data-t="c4">الثانوي</span></label>
+          <label class="chip"><input type="checkbox" name="cycles" value="uni"><span data-t="c5">الجامعي</span></label>
+        </div></div>
+      <div class="fld"><label><span data-t="tracks">المسارات</span> <span class="r">*</span></label>
+        <div class="chips" id="trk">
+          <label class="chip"><input type="checkbox" name="tracks" value="ar"><span data-t="tr1">عربي فقط</span></label>
+          <label class="chip"><input type="checkbox" name="tracks" value="fr"><span data-t="tr2">فرنسي فقط</span></label>
+          <label class="chip"><input type="checkbox" name="tracks" value="arfr"><span data-t="tr3">عربي + فرنسي</span></label>
+          <label class="chip"><input type="checkbox" name="tracks" value="quran"><span data-t="tr4">تحفيظ القرآن</span></label>
+        </div></div>
+      <div class="two">
+        <div class="fld"><label><span data-t="students">عدد التلاميذ التقريبي</span></label><input name="students" type="number" min="0" placeholder="350"></div>
+        <div class="fld"><label><span data-t="term">نظام التقويم</span></label><select name="term"><option value="tri" data-t="tri">ثلاثيات (3)</option><option value="sem" data-t="sem">سداسيات (2)</option></select></div>
+      </div>
+      <div class="two">
+        <div class="fld"><label><span data-t="phone">هاتف المؤسسة</span> <span class="r">*</span></label><input name="phone" dir="ltr" required placeholder="+225 07 00 00 00 00"></div>
+        <div class="fld"><label><span data-t="email">بريد المؤسسة</span></label><input name="email" type="email" dir="ltr" placeholder="ecole@exemple.ci"></div>
+      </div>
+    </div>
+
+    <div class="stp" data-s="3" hidden>
+      <div class="two">
+        <div class="fld"><label><span data-t="aname">الاسم الكامل للمسؤول</span> <span class="r">*</span></label><input name="adminName" required></div>
+        <div class="fld"><label><span data-t="arole">الصفة</span></label><select name="adminRole"><option data-t="ro1">المدير</option><option data-t="ro2">المدير المساعد</option><option data-t="ro3">المسؤول الإداري</option></select></div>
+      </div>
+      <div class="two">
+        <div class="fld"><label><span data-t="aphone">هاتف المسؤول</span> <span class="r">*</span></label><input name="adminPhone" dir="ltr" required></div>
+        <div class="fld"><label><span data-t="aemail">بريد المسؤول (للدخول)</span> <span class="r">*</span></label><input name="adminEmail" type="email" dir="ltr" required></div>
+      </div>
+      <div class="two">
+        <div class="fld"><label><span data-t="pw">كلمة المرور</span> <span class="r">*</span></label><input name="pw" type="password" dir="ltr" required minlength="8"></div>
+        <div class="fld"><label><span data-t="pw2">تأكيد كلمة المرور</span> <span class="r">*</span></label><input name="pw2" type="password" dir="ltr" required></div>
+      </div>
+      <label class="opt"><input type="checkbox" name="agree" required><span data-t="agree">أوافق على شروط الاستخدام وسياسة الخصوصية</span></label>
+    </div>
+
+    <div class="err" id="err"></div>
+    <div class="acts">
+      <button type="button" class="btn btn-t" id="back" data-t="back">→ رجوع</button>
+      <button type="submit" class="btn btn-g" id="next" data-t="next">متابعة ←</button>
+    </div>
+  </form>
+</div></div></main>
+
+<!-- LOGIN -->
+<main id="login" class="view"><div class="wrap"><div class="panel" style="max-width:460px">
+  <h2 data-t="l_ttl">تسجيل الدخول</h2>
+  <p class="sub" data-t="l_sub">اختر فضاءك</p>
+  <div class="tabs"><div class="tab on" data-tab="dir" data-t="lt1">الإدارة</div><div class="tab" data-tab="staff" data-t="lt2">المعلّمون</div><div class="tab" data-tab="student" data-t="lt3">التلميذ / الولي</div></div>
+  <form id="loginForm">
+    <div class="fld"><label id="idLbl" data-t="lid_email">البريد الإلكتروني</label><input id="lid" dir="ltr" required></div>
+    <div class="fld"><label data-t="pw">كلمة المرور</label><input type="password" dir="ltr" required></div>
+    <button class="btn btn-g" style="width:100%" data-t="login">دخول</button>
+    <div class="note" id="loginNote" hidden data-t="login_note">لوحة التحكم ستُبنى في المرحلة التالية (قاعدة البيانات Supabase). هذه الصفحة واجهة فقط حالياً.</div>
+  </form>
+  <p style="text-align:center;margin-top:16px;color:var(--mut)"><span data-t="noacc">ليس لمؤسستك حساب؟</span> <a href="#register" style="color:var(--o2);font-weight:700" data-t="trial_short">تسجيل مؤسسة</a></p>
+</div></div></main>
+
+<!-- VERIFY -->
+<main id="verify" class="view"><div class="wrap"><div class="panel">
+  <h2 data-t="v_ttl">التحقق من وثيقة رسمية</h2>
+  <p class="sub" data-t="v_sub">أدخل الرمز المطبوع أسفل الشهادة أو كشف النقاط (أو امسح رمز QR).</p>
+  <div style="display:flex;gap:8px"><input id="vcode" dir="ltr" placeholder="AMC-2026-000123"><button class="btn btn-g" onclick="doVerify()" data-t="check">تحقّق</button></div>
+  <div class="note" data-t="v_demo">للتجربة: جرّب الرمز AMC-2026-000123</div>
+  <div id="vres"></div>
+</div></div></main>
+
+<!-- DASHBOARD -->
+<main id="dash" class="view"><div class="wrap"><div class="panel" id="dashBox" style="max-width:820px"></div></div></main>
+
+<footer><div class="wrap">
+  <div>© 2026 Al-Madaris CI — <span data-t="foot">منصة إدارة المدارس العربية والإسلامية في ساحل العاج</span></div>
+  <div>konemamoud@gmail.com · 07 47 42 34 04 · <span data-t="bouake">بواكي</span></div>
+</div></footer>
+
+<script src="config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+const T={fr:{login:"Connexion",trial_short:"Inscrire un établissement",pill:"Système d'exploitation académique & scolaire",h1:"Plateforme de gestion des écoles <em>arabes et islamiques</em> en Côte d'Ivoire",lead:"Inscriptions, dossiers, notes, présence par carte QR, frais et documents officiels certifiés — de la maternelle à l'université, au même endroit.",trial:"Inscrire mon établissement — essai 14 jours",verify_btn:"Vérifier un document",p1:"Espace Direction",p1d:"Directeur et administration : établissement, classes, frais, rapports.",p2:"Personnel & Enseignants",p2d:"Saisie des notes, présence, emploi du temps et examens.",p3:"Portail Élève & Parent",p3d:"Résultats, absences, frais dus et notifications.",f_ttl:"Les piliers de la plateforme",f_sub:"Tout ce dont une école arabe et islamique ivoirienne a besoin",f1:"Enseignement multi-cycles",f1l:"<li>Maternelle, primaire, collège, lycée, université</li><li>Parcours arabe, français, bilingue et tahfîdh du Coran</li><li>Manuels de la « Collection des écoles arabes et islamiques » intégrés</li>",f2:"Présence & cartes QR",f2l:"<li>Pointage par scan de carte</li><li>Notification automatique aux parents (absence, retard)</li><li>Fonctionne hors ligne puis se synchronise</li>",f3:"Documents officiels",f3l:"<li>Bulletins et attestations instantanés</li><li>Sceau numérique et QR code sur chaque document</li><li>Vérification publique d'authenticité</li>",t_ttl:"Quatre parcours",tr1:"Arabe seul",tr2:"Français seul",tr3:"Arabe + français",tr4:"Tahfîdh du Coran",vs:"🔎 Vérifier un diplôme ou un bulletin",check:"Vérifier",trial_badge:"🎁 Essai intégral gratuit de 14 jours",r_ttl:"Inscription de votre établissement",r_sub:"Ces données figureront sur les bulletins et diplômes officiels.",st1:"Établissement",st2:"Cycles & contact",st3:"Administrateur",nm_ar:"Nom officiel en arabe",nm_fr:"Nom officiel en français",type:"Type d'établissement",ty1:"Groupe scolaire franco-arabe",ty1d:"Maternelle, primaire, collège, lycée — avec études islamiques",ty2:"École / centre de mémorisation du Coran",ty2d:"Halaqas, hizbs, tajwîd (riwâya Hafs)",ty3:"Université / faculté / institut supérieur",ty3d:"Système LMD, facultés de charia, mémoires et recherche",country:"Pays",city:"Ville / région",cycles:"Cycles",c1:"Maternelle",c2:"Primaire",c3:"Collège",c4:"Lycée",c5:"Université",tracks:"Parcours",students:"Nombre approx. d'élèves",term:"Découpage de l'année",tri:"Trimestres (3)",sem:"Semestres (2)",phone:"Téléphone de l'établissement",email:"E-mail de l'établissement",aname:"Nom complet de l'administrateur",arole:"Fonction",ro1:"Directeur",ro2:"Directeur adjoint",ro3:"Responsable administratif",aphone:"Téléphone de l'administrateur",aemail:"E-mail (identifiant de connexion)",pw:"Mot de passe",pw2:"Confirmer le mot de passe",agree:"J'accepte les conditions d'utilisation et la politique de confidentialité",back:"← Retour",next:"Continuer →",finish:"Créer mon établissement ✓",l_ttl:"Connexion",l_sub:"Choisissez votre espace",lt1:"Direction",lt2:"Enseignants",lt3:"Élève / Parent",lid_email:"E-mail",lid_mat:"Matricule de l'élève",login_note:"Le tableau de bord sera construit à l'étape suivante (base de données Supabase). Cette page n'est qu'une interface pour l'instant.",noacc:"Votre établissement n'a pas de compte ?",v_ttl:"Vérification d'un document officiel",v_sub:"Saisissez le code imprimé en bas du diplôme ou du bulletin (ou scannez le QR code).",v_demo:"Pour tester : essayez le code AMC-2026-000123",foot:"Plateforme de gestion des écoles arabes et islamiques en Côte d'Ivoire",bouake:"Bouaké",
+e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins un cycle et un parcours.",e_pw:"Les mots de passe ne correspondent pas (8 caractères min.).",
+ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
+d_hi:"Bienvenue",d_code:"Code de l'établissement",d_status:"Statut",d_left:"jours d'essai restants",s_trial:"Essai",s_active:"Actif",s_suspended:"Suspendu",d_logout:"Se déconnecter",d_info:"Informations",d_soon:"Prochains modules : élèves, enseignants, notes, présence QR, frais, documents officiels.",e_login:"E-mail ou mot de passe incorrect.",ok_mail:"Compte créé. Vérifiez votre e-mail pour l'activer, puis connectez-vous.",stud_soon:"Le portail élève/parent arrive dans une prochaine étape.",e_net:"Erreur de connexion au serveur :",wait:"Patientez…",
+v_ok:"✓ Document authentique",v_bad:"✗ Document introuvable",v_badd:"Vérifiez le code ou contactez l'établissement émetteur.",vk:["Type","Titulaire","Établissement","Niveau","Mention","Date d'émission"]},
+ar:{}};
+// capture Arabic defaults from DOM
+document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
+Object.assign(T.ar,{d_hi:"مرحباً",d_code:"رمز المؤسسة",d_status:"الحالة",d_left:"يوماً متبقية في التجربة",s_trial:"تجربة",s_active:"مفعّل",s_suspended:"موقوف",d_logout:"تسجيل الخروج",d_info:"المعلومات",d_soon:"الأقسام القادمة: التلاميذ، المعلمون، العلامات، الحضور بـ QR، الرسوم، الوثائق الرسمية.",e_login:"البريد أو كلمة المرور غير صحيحة.",ok_mail:"تم إنشاء الحساب. افتح بريدك الإلكتروني لتفعيله، ثم سجّل الدخول.",stud_soon:"بوابة التلميذ وولي الأمر تأتي في مرحلة لاحقة.",e_net:"خطأ في الاتصال بالخادم:",wait:"انتظر…",finish:"إنشاء المؤسسة ✓",lid_mat:"الرقم التعريفي للتلميذ",e_req:"يرجى ملء الحقول الإلزامية (*).",e_cyc:"اختر مرحلة واحدة ومساراً واحداً على الأقل.",e_pw:"كلمتا المرور غير متطابقتين (8 أحرف على الأقل).",ok_t:"تم تسجيل المؤسسة!",ok_code:"رمز مؤسستك",ok_trial:"التجربة المجانية حتى",ok_note:"نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط. الحفظ الحقيقي على الخادم يأتي في المرحلة 2.",ok_go:"الذهاب إلى الدخول",v_ok:"✓ وثيقة صحيحة",v_bad:"✗ الوثيقة غير موجودة",v_badd:"تحقق من الرمز أو اتصل بالمؤسسة المُصدِرة.",vk:["النوع","صاحب الوثيقة","المؤسسة","المستوى","التقدير","تاريخ الإصدار"]});
+let L='ar';try{L=localStorage.getItem('amc_lang')||'ar'}catch(e){}
+const t=k=>T[L][k]??T.ar[k];
+function applyLang(){
+  document.documentElement.lang=L;document.documentElement.dir=L==='ar'?'rtl':'ltr';
+  document.querySelectorAll('[data-t]').forEach(e=>{const v=T[L][e.dataset.t];if(v!=null)e.innerHTML=v});
+  document.getElementById('langBtn').textContent=L==='ar'?'Français':'العربية';
+  setStep(step);setTab(tab);
+}
+document.getElementById('langBtn').onclick=()=>{L=L==='ar'?'fr':'ar';try{localStorage.setItem('amc_lang',L)}catch(e){}applyLang()};
+
+// routing
+const C=window.AMC_CONFIG||{};
+const LIVE=!!(window.supabase&&C.SUPABASE_URL&&!/XXXX/.test(C.SUPABASE_URL));
+const sb=LIVE?window.supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY):null;
+const views=['home','register','login','verify','dash'];
+function route(){const h=location.hash.slice(1);views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash()}
+addEventListener('hashchange',route);
+
+// login tabs
+let tab='dir';
+function setTab(x){tab=x;document.querySelectorAll('.tab').forEach(e=>e.classList.toggle('on',e.dataset.tab===x));const l=document.getElementById('idLbl');l.dataset.t=x==='student'?'lid_mat':'lid_email';l.innerHTML=t(l.dataset.t);document.getElementById('lid').type=x==='student'?'text':'email'}
+document.querySelectorAll('.tab').forEach(e=>e.onclick=()=>setTab(e.dataset.tab));
+function goLogin(x){location.hash='login';setTab(x)}
+document.getElementById('loginForm').onsubmit=async e=>{e.preventDefault();const n=document.getElementById('loginNote');
+  if(!LIVE){n.hidden=false;return}
+  if(tab==='student'){n.hidden=false;n.innerHTML=t('stud_soon');return}
+  n.hidden=false;n.innerHTML=t('wait');
+  const {error}=await sb.auth.signInWithPassword({email:document.getElementById('lid').value.trim(),password:e.target.querySelector('[type=password]').value});
+  if(error){n.innerHTML=t('e_login');return}
+  n.hidden=true;location.hash='dash'};
+
+// dashboard
+const CYC={mat:'c1',pri:'c2',col:'c3',lyc:'c4',uni:'c5'},TRK={ar:'tr1',fr:'tr2',arfr:'tr3',quran:'tr4'};
+async function loadDash(){const box=document.getElementById('dashBox');
+  if(!LIVE){location.hash='login';return}
+  box.innerHTML=t('wait');
+  const {data:{user}}=await sb.auth.getUser();if(!user){location.hash='login';return}
+  const {data:p}=await sb.from('profiles').select('full_name,role,role_title,institution_id').eq('id',user.id).maybeSingle();
+  let i=null;if(p&&p.institution_id){const r=await sb.from('institutions').select('*').eq('id',p.institution_id).maybeSingle();i=r.data}
+  const left=i?Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5)):0;
+  const lab=(arr,map)=>(arr||[]).map(x=>`<span class="badge" style="margin:2px">${t(map[x])||x}</span>`).join(' ');
+  box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+    <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
+    <h2>${i?esc(L==='ar'?i.name_ar:i.name_fr):''}</h2></div>
+    <button class="btn btn-l" id="logout">${t('d_logout')}</button></div>
+  ${i?`<div class="two" style="margin-top:14px">
+    <div class="fc"><small class="sub">${t('d_code')}</small><div class="code" style="font-size:18px">${esc(i.code)}</div></div>
+    <div class="fc" style="border-top-color:var(--o)"><small class="sub">${t('d_status')}</small><h3><span class="badge ${i.status==='suspended'?'bad':''}">${t('s_'+i.status)}</span></h3>${i.status==='trial'?`<b>${left}</b> ${t('d_left')}`:''}</div></div>
+    <div class="cert"><b>${t('d_info')}</b><table>
+      <tr><td>${t('cycles')}</td><td>${lab(i.cycles,CYC)}</td></tr>
+      <tr><td>${t('tracks')}</td><td>${lab(i.tracks,TRK)}</td></tr>
+      <tr><td>${t('city')}</td><td>${esc(i.city)}</td></tr>
+      <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`:''}
+  <div class="note">${t('d_soon')}</div>`;
+  document.getElementById('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'}}
+
+// registration wizard
+let step=1;const f=document.getElementById('regForm'),err=document.getElementById('err');
+function setStep(n){step=n;document.querySelectorAll('.stp').forEach(s=>s.hidden=+s.dataset.s!==n);
+  [1,2,3].forEach(i=>document.getElementById('s'+i).classList.toggle('on',i<=n));
+  const b=document.getElementById('back');b.style.visibility=n===1?'hidden':'visible';
+  const nx=document.getElementById('next');nx.dataset.t=n===3?'finish':'next';nx.innerHTML=t(nx.dataset.t);err.textContent=''}
+function valid(n){const box=f.querySelector(`.stp[data-s="${n}"]`);
+  for(const el of box.querySelectorAll('[required]')){
+    if(el.type==='radio'){if(!f.querySelector(`[name="${el.name}"]:checked`))return t('e_req')}
+    else if(el.type==='checkbox'){if(!el.checked)return t('e_req')}
+    else if(!el.value.trim()||!el.checkValidity())return t('e_req')}
+  if(n===2&&(!f.querySelector('[name=cycles]:checked')||!f.querySelector('[name=tracks]:checked')))return t('e_cyc');
+  if(n===3&&(f.pw.value.length<8||f.pw.value!==f.pw2.value))return t('e_pw');
+  return ''}
+document.getElementById('back').onclick=()=>setStep(step-1);
+f.onsubmit=e=>{e.preventDefault();const m=valid(step);if(m){err.textContent=m;return}
+  if(step<3)return setStep(step+1);
+  const pw=f.pw.value;const d=Object.fromEntries(new FormData(f));delete d.pw;delete d.pw2;
+  d.cycles=[...f.querySelectorAll('[name=cycles]:checked')].map(x=>x.value);d.tracks=[...f.querySelectorAll('[name=tracks]:checked')].map(x=>x.value);
+  if(LIVE)return liveRegister(d,pw);
+  d.code='AMC-'+new Date().getFullYear()+'-'+String(Math.floor(Math.random()*9000)+1000);
+  const end=new Date(Date.now()+14*864e5);d.trialEnd=end.toISOString().slice(0,10);
+  try{const all=JSON.parse(localStorage.getItem('amc_inst')||'[]');all.push(d);localStorage.setItem('amc_inst',JSON.stringify(all))}catch(e){}
+  document.getElementById('regPanel').innerHTML=`<div class="ok"><div class="big">🎉</div><h2>${t('ok_t')}</h2>
+  <p><b>${esc(d.nameAr)}</b><br>${esc(d.nameFr)}</p><p>${t('ok_code')}</p><div class="code">${d.code}</div>
+  <p style="margin-top:14px"><span class="trial">${t('ok_trial')} ${end.toLocaleDateString(L==='ar'?'ar-EG':'fr-FR')}</span></p>
+  <div class="note">${t('ok_note')}</div><p style="margin-top:18px"><a class="btn btn-g" href="#login">${t('ok_go')}</a></p></div>`};
+async function liveRegister(d,pw){const nx=document.getElementById('next');nx.disabled=true;err.textContent=t('wait');
+  const {data,error}=await sb.auth.signUp({email:d.adminEmail.trim(),password:pw,options:{emailRedirectTo:location.origin+location.pathname+'#login',data:{
+    name_ar:d.nameAr,name_fr:d.nameFr,type:d.type,country:d.country,city:d.city,cycles:d.cycles,tracks:d.tracks,
+    students:d.students||'',term:d.term,phone:d.phone,email:d.email||'',admin_name:d.adminName,admin_phone:d.adminPhone,admin_role:d.adminRole}}});
+  nx.disabled=false;
+  if(error){err.textContent=t('e_net')+' '+error.message;return}
+  if(!data.session){document.getElementById('regPanel').innerHTML=`<div class="ok"><div class="big">📧</div><h2>${t('ok_t')}</h2><p>${t('ok_mail')}</p><p><b dir="ltr">${esc(d.adminEmail)}</b></p><a class="btn btn-g" href="#login">${t('ok_go')}</a></div>`;return}
+  location.hash='dash'}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+// verification (demo registry)
+const DOCS={"AMC-2026-000123":{ar:["شهادة نهاية المرحلة الابتدائية","كوني عائشة","مدرسة صلاح الدين الأيوبي – بواكي","السنة السادسة","جيد جداً","2026-07-15"],fr:["Certificat de fin d'études primaires","KONE Aïcha","École Salahouddine Al-Ayyoubi – Bouaké","CM2 (6e année)","Très bien","15/07/2026"]}};
+function quickVerify(){document.getElementById('vcode').value=document.getElementById('qv').value;location.hash='verify';setTimeout(doVerify,50)}
+async function doVerify(){const c=document.getElementById('vcode').value.trim().toUpperCase(),r=document.getElementById('vres');let d=DOCS[c];
+  if(!c){r.innerHTML='';return}
+  if(LIVE){r.innerHTML=t('wait');const {data,error}=await sb.rpc('verify_document',{p_code:c});
+    if(error){r.innerHTML=`<div class="err">${t('e_net')} ${esc(error.message)}</div>`;return}
+    const x=data&&data[0];
+    d=x&&!x.revoked?{ar:[x.doc_type,x.holder_name,x.institution_ar+' – '+x.city,x.level,x.mention,x.issued_on],fr:[x.doc_type,x.holder_name,x.institution_fr+' – '+x.city,x.level,x.mention,x.issued_on]}:null;
+    if(d)d[L]=d[L].map(v=>esc(v??''))}
+  if(!d){r.innerHTML=`<div class="cert" style="border-color:#e0a39b"><span class="badge bad">${t('v_bad')}</span><p style="margin:8px 0 0;color:var(--mut)">${t('v_badd')}</p></div>`;return}
+  const v=d[L],k=t('vk');
+  r.innerHTML=`<div class="cert"><div class="hd"><img src="emblem.png" alt=""><div><b>AL-MADARIS CI</b><br><span class="badge">${t('v_ok')}</span></div></div>
+  <table>${v.map((x,i)=>`<tr><td>${k[i]}</td><td><b>${x}</b></td></tr>`).join('')}<tr><td>Code</td><td dir="ltr" style="text-align:start"><b>${c}</b></td></tr></table></div>`}
+document.getElementById('vcode').addEventListener('keydown',e=>{if(e.key==='Enter')doVerify()});
+
+applyLang();route();
+</script>
+</body>
+</html>

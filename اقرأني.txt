@@ -1,0 +1,21 @@
+Al-Madaris CI — المرحلة 2: ربط الموقع بقاعدة البيانات
+
+الملفات:
+  index.html  : الموقع
+  config.js   : ضع فيه رابط Supabase والمفتاح anon
+  schema.sql  : قاعدة البيانات (تُشغّل مرة واحدة في SQL Editor)
+  logo.png / emblem.png : الشعار
+
+الخطوات:
+1) أنشئ حساباً مجانياً على supabase.com ثم New project
+   (الاسم: almadaris-ci ، المنطقة: West EU (Paris) أو الأقرب، واحفظ كلمة مرور قاعدة البيانات).
+2) SQL Editor > New query > الصق محتوى schema.sql > Run  (يجب أن تظهر Success).
+3) Project Settings > API : انسخ Project URL و anon public key وضعهما في config.js.
+4) Authentication > Sign In / Providers > Email :
+   للتجربة يمكنك إيقاف "Confirm email" ، وأعده قبل الإطلاق للمدارس.
+5) انشر المجلد على GitHub Pages (مستودع جديد > Upload files > Settings > Pages > main).
+6) Authentication > URL Configuration : ضع رابط موقعك في Site URL.
+7) افتح الموقع وسجّل مؤسسة تجريبية، ثم ادخل لترى لوحة الإدارة.
+8) (اختياري) لجعل حسابك مشرفاً عاماً: نفّذ السطر الأخير في schema.sql بعد إزالة علامات --.
+
+اختبار التحقق: الرمز AMC-2026-000123

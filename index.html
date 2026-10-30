@@ -103,6 +103,15 @@ footer a{color:#ffd08a}
 .cert td{padding:6px 4px;border-bottom:1px dashed var(--line)}.cert td:first-child{color:var(--mut);width:42%}
 .badge{display:inline-block;background:#e6f5ea;color:var(--g2);border-radius:99px;padding:3px 12px;font-weight:800;font-size:14px}
 .badge.bad{background:#fdecea;color:#b03a2e}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.stat{background:#f0f8f2;border-radius:12px;padding:12px;text-align:center}.stat b{display:block;font-size:24px;color:var(--g2)}.stat span{font-size:13px;color:var(--mut)}
+.tblw{overflow-x:auto;margin-top:10px;border:1px solid var(--line);border-radius:12px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.tbl th{background:#f0f8f2;color:var(--g2);text-align:start;padding:9px 10px;font-weight:700}
+.tbl td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+.tbl tr.left td{opacity:.55}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.toolbar input{flex:2;min-width:160px}.toolbar select{flex:1;min-width:150px;width:auto}
+.btn.sm{padding:5px 9px;font-size:13px}.btn.red{color:#b03a2e}
 </style>
 </head>
 <body>
@@ -260,7 +269,7 @@ footer a{color:#ffd08a}
 </div></div></main>
 
 <!-- DASHBOARD -->
-<main id="dash" class="view"><div class="wrap"><div class="panel" id="dashBox" style="max-width:820px"></div></div></main>
+<main id="dash" class="view"><div class="wrap"><div class="panel" id="dashBox" style="max-width:980px"></div></div></main>
 
 <footer><div class="wrap">
   <div>© 2026 Al-Madaris CI — <span data-t="foot">منصة إدارة المدارس العربية والإسلامية في ساحل العاج</span></div>
@@ -273,12 +282,14 @@ footer a{color:#ffd08a}
 const T={fr:{login:"Connexion",trial_short:"Inscrire un établissement",pill:"Système d'exploitation académique & scolaire",h1:"Plateforme de gestion des écoles <em>arabes et islamiques</em> en Côte d'Ivoire",lead:"Inscriptions, dossiers, notes, présence par carte QR, frais et documents officiels certifiés — de la maternelle à l'université, au même endroit.",trial:"Inscrire mon établissement — essai 14 jours",verify_btn:"Vérifier un document",p1:"Espace Direction",p1d:"Directeur et administration : établissement, classes, frais, rapports.",p2:"Personnel & Enseignants",p2d:"Saisie des notes, présence, emploi du temps et examens.",p3:"Portail Élève & Parent",p3d:"Résultats, absences, frais dus et notifications.",f_ttl:"Les piliers de la plateforme",f_sub:"Tout ce dont une école arabe et islamique ivoirienne a besoin",f1:"Enseignement multi-cycles",f1l:"<li>Maternelle, primaire, collège, lycée, université</li><li>Parcours arabe, français, bilingue et tahfîdh du Coran</li><li>Manuels de la « Collection des écoles arabes et islamiques » intégrés</li>",f2:"Présence & cartes QR",f2l:"<li>Pointage par scan de carte</li><li>Notification automatique aux parents (absence, retard)</li><li>Fonctionne hors ligne puis se synchronise</li>",f3:"Documents officiels",f3l:"<li>Bulletins et attestations instantanés</li><li>Sceau numérique et QR code sur chaque document</li><li>Vérification publique d'authenticité</li>",t_ttl:"Quatre parcours",tr1:"Arabe seul",tr2:"Français seul",tr3:"Arabe + français",tr4:"Tahfîdh du Coran",vs:"🔎 Vérifier un diplôme ou un bulletin",check:"Vérifier",trial_badge:"🎁 Essai intégral gratuit de 14 jours",r_ttl:"Inscription de votre établissement",r_sub:"Ces données figureront sur les bulletins et diplômes officiels.",st1:"Établissement",st2:"Cycles & contact",st3:"Administrateur",nm_ar:"Nom officiel en arabe",nm_fr:"Nom officiel en français",type:"Type d'établissement",ty1:"Groupe scolaire franco-arabe",ty1d:"Maternelle, primaire, collège, lycée — avec études islamiques",ty2:"École / centre de mémorisation du Coran",ty2d:"Halaqas, hizbs, tajwîd (riwâya Hafs)",ty3:"Université / faculté / institut supérieur",ty3d:"Système LMD, facultés de charia, mémoires et recherche",country:"Pays",city:"Ville / région",cycles:"Cycles",c1:"Maternelle",c2:"Primaire",c3:"Collège",c4:"Lycée",c5:"Université",tracks:"Parcours",students:"Nombre approx. d'élèves",term:"Découpage de l'année",tri:"Trimestres (3)",sem:"Semestres (2)",phone:"Téléphone de l'établissement",email:"E-mail de l'établissement",aname:"Nom complet de l'administrateur",arole:"Fonction",ro1:"Directeur",ro2:"Directeur adjoint",ro3:"Responsable administratif",aphone:"Téléphone de l'administrateur",aemail:"E-mail (identifiant de connexion)",pw:"Mot de passe",pw2:"Confirmer le mot de passe",agree:"J'accepte les conditions d'utilisation et la politique de confidentialité",back:"← Retour",next:"Continuer →",finish:"Créer mon établissement ✓",l_ttl:"Connexion",l_sub:"Choisissez votre espace",lt1:"Direction",lt2:"Enseignants",lt3:"Élève / Parent",lid_email:"E-mail",lid_mat:"Matricule de l'élève",login_note:"Le tableau de bord sera construit à l'étape suivante (base de données Supabase). Cette page n'est qu'une interface pour l'instant.",noacc:"Votre établissement n'a pas de compte ?",v_ttl:"Vérification d'un document officiel",v_sub:"Saisissez le code imprimé en bas du diplôme ou du bulletin (ou scannez le QR code).",v_demo:"Pour tester : essayez le code AMC-2026-000123",foot:"Plateforme de gestion des écoles arabes et islamiques en Côte d'Ivoire",bouake:"Bouaké",
 e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins un cycle et un parcours.",e_pw:"Les mots de passe ne correspondent pas (8 caractères min.).",
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
+tab_ov:"Aperçu",tab_cls:"Classes",tab_stu:"Élèves",add_cls:"Ajouter une classe",cycle:"Cycle",level:"Niveau",track1:"Parcours",section:"Section (facultatif)",year:"Année scolaire",capacity:"Effectif max",add:"Ajouter",no_cls:"Aucune classe pour l'instant. Ajoutez la première.",dup_cls:"Cette classe existe déjà.",sure_cls:"Supprimer cette classe ? Les élèves ne seront pas supprimés mais resteront sans classe.",class:"Classe",del:"Supprimer",edit:"Modifier",new_stu:"+ Nouvel élève",search:"Rechercher (nom, matricule, téléphone)…",all_cls:"Toutes les classes",no_class:"Sans classe",n_stu:"élève(s)",s_code:"Matricule",s_name:"Nom",s_fn_ar:"Prénom (arabe)",s_ln_ar:"Nom de famille (arabe)",s_nm_fr:"Nom et prénoms (français)",gender:"Sexe",male:"Garçon",female:"Fille",bdate:"Date de naissance",bplace:"Lieu de naissance",g_name:"Nom du parent / tuteur",g_rel:"Lien de parenté",rel_f:"Père",rel_m:"Mère",rel_o:"Autre",g_phone:"Téléphone du parent",address:"Adresse",save:"Enregistrer",cancel:"Annuler",no_stu:"Aucun élève.",sure_stu:"Supprimer définitivement cet élève ?",saved:"Enregistré ✓",st_bg:"Garçons / Filles",need_cls:"Créez d'abord une classe dans l'onglet « Classes ».",st_active:"Actif",st_left:"A quitté l'école",
 d_hi:"Bienvenue",d_code:"Code de l'établissement",d_status:"Statut",d_left:"jours d'essai restants",s_trial:"Essai",s_active:"Actif",s_suspended:"Suspendu",d_logout:"Se déconnecter",d_info:"Informations",d_soon:"Prochains modules : élèves, enseignants, notes, présence QR, frais, documents officiels.",e_login:"E-mail ou mot de passe incorrect.",ok_mail:"Compte créé. Vérifiez votre e-mail pour l'activer, puis connectez-vous.",stud_soon:"Le portail élève/parent arrive dans une prochaine étape.",e_net:"Erreur de connexion au serveur :",wait:"Patientez…",
 v_ok:"✓ Document authentique",v_bad:"✗ Document introuvable",v_badd:"Vérifiez le code ou contactez l'établissement émetteur.",vk:["Type","Titulaire","Établissement","Niveau","Mention","Date d'émission"]},
 ar:{}};
 // capture Arabic defaults from DOM
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
-Object.assign(T.ar,{d_hi:"مرحباً",d_code:"رمز المؤسسة",d_status:"الحالة",d_left:"يوماً متبقية في التجربة",s_trial:"تجربة",s_active:"مفعّل",s_suspended:"موقوف",d_logout:"تسجيل الخروج",d_info:"المعلومات",d_soon:"الأقسام القادمة: التلاميذ، المعلمون، العلامات، الحضور بـ QR، الرسوم، الوثائق الرسمية.",e_login:"البريد أو كلمة المرور غير صحيحة.",ok_mail:"تم إنشاء الحساب. افتح بريدك الإلكتروني لتفعيله، ثم سجّل الدخول.",stud_soon:"بوابة التلميذ وولي الأمر تأتي في مرحلة لاحقة.",e_net:"خطأ في الاتصال بالخادم:",wait:"انتظر…",finish:"إنشاء المؤسسة ✓",lid_mat:"الرقم التعريفي للتلميذ",e_req:"يرجى ملء الحقول الإلزامية (*).",e_cyc:"اختر مرحلة واحدة ومساراً واحداً على الأقل.",e_pw:"كلمتا المرور غير متطابقتين (8 أحرف على الأقل).",ok_t:"تم تسجيل المؤسسة!",ok_code:"رمز مؤسستك",ok_trial:"التجربة المجانية حتى",ok_note:"نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط. الحفظ الحقيقي على الخادم يأتي في المرحلة 2.",ok_go:"الذهاب إلى الدخول",v_ok:"✓ وثيقة صحيحة",v_bad:"✗ الوثيقة غير موجودة",v_badd:"تحقق من الرمز أو اتصل بالمؤسسة المُصدِرة.",vk:["النوع","صاحب الوثيقة","المؤسسة","المستوى","التقدير","تاريخ الإصدار"]});
+Object.assign(T.ar,{tab_ov:"نظرة عامة",tab_cls:"الفصول",tab_stu:"التلاميذ",add_cls:"إضافة فصل",cycle:"المرحلة",level:"المستوى",track1:"المسار",section:"الشعبة (اختياري)",year:"السنة الدراسية",capacity:"السعة القصوى",add:"إضافة",no_cls:"لا توجد فصول بعد. أضف أول فصل.",dup_cls:"هذا الفصل موجود مسبقاً.",sure_cls:"حذف هذا الفصل؟ لن يُحذف التلاميذ لكن سيصبحون بلا فصل.",class:"الفصل",del:"حذف",edit:"تعديل",new_stu:"+ تلميذ جديد",search:"بحث (الاسم، الرقم، الهاتف)…",all_cls:"كل الفصول",no_class:"بدون فصل",n_stu:"تلميذ",s_code:"الرقم التعريفي",s_name:"الاسم",s_fn_ar:"الاسم الشخصي (عربي)",s_ln_ar:"اسم العائلة (عربي)",s_nm_fr:"الاسم بالفرنسية",gender:"الجنس",male:"ذكر",female:"أنثى",bdate:"تاريخ الميلاد",bplace:"مكان الميلاد",g_name:"اسم الولي",g_rel:"صلة القرابة",rel_f:"الأب",rel_m:"الأم",rel_o:"آخر",g_phone:"هاتف الولي",address:"العنوان",save:"حفظ",cancel:"إلغاء",no_stu:"لا يوجد تلاميذ.",sure_stu:"حذف هذا التلميذ نهائياً؟",saved:"تم الحفظ ✓",st_bg:"ذكور / إناث",need_cls:"أنشئ فصلاً أولاً من تبويب «الفصول».",st_active:"يدرس",st_left:"غادر المدرسة",
+d_hi:"مرحباً",d_code:"رمز المؤسسة",d_status:"الحالة",d_left:"يوماً متبقية في التجربة",s_trial:"تجربة",s_active:"مفعّل",s_suspended:"موقوف",d_logout:"تسجيل الخروج",d_info:"المعلومات",d_soon:"الأقسام القادمة: التلاميذ، المعلمون، العلامات، الحضور بـ QR، الرسوم، الوثائق الرسمية.",e_login:"البريد أو كلمة المرور غير صحيحة.",ok_mail:"تم إنشاء الحساب. افتح بريدك الإلكتروني لتفعيله، ثم سجّل الدخول.",stud_soon:"بوابة التلميذ وولي الأمر تأتي في مرحلة لاحقة.",e_net:"خطأ في الاتصال بالخادم:",wait:"انتظر…",finish:"إنشاء المؤسسة ✓",lid_mat:"الرقم التعريفي للتلميذ",e_req:"يرجى ملء الحقول الإلزامية (*).",e_cyc:"اختر مرحلة واحدة ومساراً واحداً على الأقل.",e_pw:"كلمتا المرور غير متطابقتين (8 أحرف على الأقل).",ok_t:"تم تسجيل المؤسسة!",ok_code:"رمز مؤسستك",ok_trial:"التجربة المجانية حتى",ok_note:"نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط. الحفظ الحقيقي على الخادم يأتي في المرحلة 2.",ok_go:"الذهاب إلى الدخول",v_ok:"✓ وثيقة صحيحة",v_bad:"✗ الوثيقة غير موجودة",v_badd:"تحقق من الرمز أو اتصل بالمؤسسة المُصدِرة.",vk:["النوع","صاحب الوثيقة","المؤسسة","المستوى","التقدير","تاريخ الإصدار"]});
 let L='ar';try{L=localStorage.getItem('amc_lang')||'ar'}catch(e){}
 const t=k=>T[L][k]??T.ar[k];
 function applyLang(){
@@ -286,6 +297,7 @@ function applyLang(){
   document.querySelectorAll('[data-t]').forEach(e=>{const v=T[L][e.dataset.t];if(v!=null)e.innerHTML=v});
   document.getElementById('langBtn').textContent=L==='ar'?'Français':'العربية';
   setStep(step);setTab(tab);
+  if(location.hash==='#dash'&&D.p)renderDash();
 }
 document.getElementById('langBtn').onclick=()=>{L=L==='ar'?'fr':'ar';try{localStorage.setItem('amc_lang',L)}catch(e){}applyLang()};
 
@@ -310,30 +322,140 @@ document.getElementById('loginForm').onsubmit=async e=>{e.preventDefault();const
   if(error){n.innerHTML=t('e_login');return}
   n.hidden=true;location.hash='dash'};
 
-// dashboard
+// ===== dashboard (classes & students) =====
 const CYC={mat:'c1',pri:'c2',col:'c3',lyc:'c4',uni:'c5'},TRK={ar:'tr1',fr:'tr2',arfr:'tr3',quran:'tr4'};
+const LEVELS={
+ mat:[['PS','الروضة الأولى','Petite section'],['MS','الروضة الثانية','Moyenne section'],['GS','الروضة الثالثة','Grande section']],
+ pri:[['CP1','السنة الأولى ابتدائي','CP1'],['CP2','السنة الثانية ابتدائي','CP2'],['CE1','السنة الثالثة ابتدائي','CE1'],['CE2','السنة الرابعة ابتدائي','CE2'],['CM1','السنة الخامسة ابتدائي','CM1'],['CM2','السنة السادسة ابتدائي','CM2']],
+ col:[['6e','السنة الأولى إعدادي','6e'],['5e','السنة الثانية إعدادي','5e'],['4e','السنة الثالثة إعدادي','4e'],['3e','السنة الرابعة إعدادي','3e']],
+ lyc:[['2nde','السنة الأولى ثانوي','Seconde'],['1ere','السنة الثانية ثانوي','Première'],['Tle','السنة الثالثة ثانوي','Terminale']],
+ uni:[['L1','السنة الأولى ليسانس','Licence 1'],['L2','السنة الثانية ليسانس','Licence 2'],['L3','السنة الثالثة ليسانس','Licence 3'],['M1','السنة الأولى ماستر','Master 1'],['M2','السنة الثانية ماستر','Master 2']]};
+const lvlName=(cy,lv)=>{const x=(LEVELS[cy]||[]).find(a=>a[0]===lv);return x?(L==='ar'?x[1]:x[2]):lv};
+const clsName=c=>c?lvlName(c.cycle,c.level)+' – '+t(TRK[c.track]||'')+(c.section?' ('+c.section+')':''):t('no_class');
+const D={user:null,p:null,i:null,classes:[],students:[],tab:'ov',edit:null,q:'',fc:''};
+const canEdit=()=>D.p&&['admin','superadmin'].includes(D.p.role);
+const opts=(arr,sel)=>arr.map(([v,l])=>`<option value="${esc(v)}"${v===sel?' selected':''}>${esc(l)}</option>`).join('');
+
 async function loadDash(){const box=document.getElementById('dashBox');
   if(!LIVE){location.hash='login';return}
   box.innerHTML=t('wait');
   const {data:{user}}=await sb.auth.getUser();if(!user){location.hash='login';return}
-  const {data:p}=await sb.from('profiles').select('full_name,role,role_title,institution_id').eq('id',user.id).maybeSingle();
-  let i=null;if(p&&p.institution_id){const r=await sb.from('institutions').select('*').eq('id',p.institution_id).maybeSingle();i=r.data}
-  const left=i?Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5)):0;
-  const lab=(arr,map)=>(arr||[]).map(x=>`<span class="badge" style="margin:2px">${t(map[x])||x}</span>`).join(' ');
+  D.user=user;
+  const {data:p}=await sb.from('profiles').select('full_name,role,role_title,institution_id').eq('id',user.id).maybeSingle();D.p=p;
+  D.i=null;if(p&&p.institution_id){const r=await sb.from('institutions').select('*').eq('id',p.institution_id).maybeSingle();D.i=r.data}
+  await reloadData();renderDash()}
+async function reloadData(){
+  const iid=D.i&&D.i.id;if(!iid){D.classes=[];D.students=[];return}
+  const [c,s]=await Promise.all([sb.from('classes').select('*').eq('institution_id',iid).order('created_at'),sb.from('students').select('*').eq('institution_id',iid).order('seq')]);
+  D.classes=c.data||[];D.students=s.data||[];
+  const ord={mat:0,pri:1,col:2,lyc:3,uni:4};
+  D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section))}
+
+function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu']];
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
-    <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
+    <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
     <h2>${i?esc(L==='ar'?i.name_ar:i.name_fr):''}</h2></div>
     <button class="btn btn-l" id="logout">${t('d_logout')}</button></div>
-  ${i?`<div class="two" style="margin-top:14px">
+  <div class="tabs" style="margin-top:14px">${tabs.map(([k,l])=>`<div class="tab${D.tab===k?' on':''}" data-dt="${k}">${t(l)}</div>`).join('')}</div>
+  <div id="dtab"></div>`;
+  box.querySelectorAll('[data-dt]').forEach(e=>e.onclick=()=>{D.tab=e.dataset.dt;D.edit=null;renderDash()});
+  document.getElementById('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'};
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents})[D.tab]()}
+
+function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
+  const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
+  const act=D.students.filter(s=>s.status==='active');
+  const lab=(arr,map)=>(arr||[]).map(x=>`<span class="badge" style="margin:2px">${t(map[x])||esc(x)}</span>`).join(' ');
+  el.innerHTML=`<div class="two">
     <div class="fc"><small class="sub">${t('d_code')}</small><div class="code" style="font-size:18px">${esc(i.code)}</div></div>
     <div class="fc" style="border-top-color:var(--o)"><small class="sub">${t('d_status')}</small><h3><span class="badge ${i.status==='suspended'?'bad':''}">${t('s_'+i.status)}</span></h3>${i.status==='trial'?`<b>${left}</b> ${t('d_left')}`:''}</div></div>
-    <div class="cert"><b>${t('d_info')}</b><table>
-      <tr><td>${t('cycles')}</td><td>${lab(i.cycles,CYC)}</td></tr>
-      <tr><td>${t('tracks')}</td><td>${lab(i.tracks,TRK)}</td></tr>
-      <tr><td>${t('city')}</td><td>${esc(i.city)}</td></tr>
-      <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`:''}
-  <div class="note">${t('d_soon')}</div>`;
-  document.getElementById('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'}}
+  <div class="stats">
+    <div class="stat"><b>${D.classes.length}</b><span>${t('tab_cls')}</span></div>
+    <div class="stat"><b>${act.length}</b><span>${t('tab_stu')}</span></div>
+    <div class="stat"><b>${act.filter(s=>s.gender==='M').length} / ${act.filter(s=>s.gender==='F').length}</b><span>${t('st_bg')}</span></div></div>
+  <div class="cert"><b>${t('d_info')}</b><table>
+    <tr><td>${t('cycles')}</td><td>${lab(i.cycles,CYC)}</td></tr>
+    <tr><td>${t('tracks')}</td><td>${lab(i.tracks,TRK)}</td></tr>
+    <tr><td>${t('city')}</td><td>${esc(i.city)}</td></tr>
+    <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`}
+
+function tabClasses(){const el=document.getElementById('dtab'),i=D.i||{};
+  const cyc=(i.cycles&&i.cycles.length?i.cycles:Object.keys(LEVELS)),trk=(i.tracks&&i.tracks.length?i.tracks:Object.keys(TRK));
+  const cnt=id=>D.students.filter(s=>s.class_id===id&&s.status==='active').length;
+  el.innerHTML=(canEdit()?`<div class="cert" style="margin-top:0"><b>${t('add_cls')}</b>
+    <div class="two" style="margin-top:10px"><div class="fld"><label>${t('cycle')}</label><select id="cCyc">${opts(cyc.map(c=>[c,t(CYC[c])]))}</select></div>
+      <div class="fld"><label>${t('level')}</label><select id="cLvl"></select></div></div>
+    <div class="two"><div class="fld"><label>${t('track1')}</label><select id="cTrk">${opts(trk.map(x=>[x,t(TRK[x])]))}</select></div>
+      <div class="fld"><label>${t('section')}</label><input id="cSec" maxlength="10" placeholder="أ / A"></div></div>
+    <div class="two"><div class="fld"><label>${t('year')}</label><input id="cYear" value="2026-2027" dir="ltr"></div>
+      <div class="fld"><label>${t('capacity')}</label><input id="cCap" type="number" min="0" placeholder="40"></div></div>
+    <button class="btn btn-g" id="cAdd">${t('add')}</button><div class="err" id="cErr"></div></div>`:'')+
+  (D.classes.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('class')}</th><th>${t('year')}</th><th>${t('tab_stu')}</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>
+    ${D.classes.map(c=>`<tr><td><b>${esc(clsName(c))}</b></td><td dir="ltr">${esc(c.school_year)}</td><td>${cnt(c.id)}${c.capacity?' / '+c.capacity:''}</td>${canEdit()?`<td><button class="btn btn-t sm" data-goc="${c.id}">${t('tab_stu')}</button><button class="btn btn-t sm red" data-delc="${c.id}">${t('del')}</button></td>`:''}</tr>`).join('')}
+  </tbody></table></div>`:`<div class="note">${t('no_cls')}</div>`);
+  if(canEdit()){const cy=document.getElementById('cCyc'),lv=document.getElementById('cLvl');
+    const fill=()=>{lv.innerHTML=opts((LEVELS[cy.value]||[]).map(x=>[x[0],L==='ar'?x[1]:x[2]]))};cy.onchange=fill;fill();
+    document.getElementById('cAdd').onclick=async()=>{const er=document.getElementById('cErr');er.textContent=t('wait');
+      const row={cycle:cy.value,level:lv.value,track:document.getElementById('cTrk').value,section:document.getElementById('cSec').value.trim(),
+        school_year:document.getElementById('cYear').value.trim()||'2026-2027',capacity:parseInt(document.getElementById('cCap').value)||null};
+      const {error}=await sb.from('classes').insert(row);
+      if(error){er.textContent=error.code==='23505'?t('dup_cls'):t('e_net')+' '+error.message;return}
+      await reloadData();tabClasses()}}
+  el.querySelectorAll('[data-delc]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_cls')))return;
+    const {error}=await sb.from('classes').delete().eq('id',b.dataset.delc);if(error){alert(error.message);return}await reloadData();tabClasses()});
+  el.querySelectorAll('[data-goc]').forEach(b=>b.onclick=()=>{D.fc=b.dataset.goc;D.tab='stu';renderDash()})}
+
+function stuForm(s){s=s||{};const rel=[['father',t('rel_f')],['mother',t('rel_m')],['other',t('rel_o')]];
+  return `<div class="cert" style="margin-top:0" id="sForm"><b>${s.id?t('edit')+' — '+esc(s.code):t('new_stu').replace('+ ','')}</b>
+  <div class="two" style="margin-top:10px"><div class="fld"><label>${t('s_fn_ar')} <span class="r">*</span></label><input name="first_name_ar" dir="rtl" value="${esc(s.first_name_ar||'')}"></div>
+    <div class="fld"><label>${t('s_ln_ar')} <span class="r">*</span></label><input name="last_name_ar" dir="rtl" value="${esc(s.last_name_ar||'')}"></div></div>
+  <div class="fld"><label>${t('s_nm_fr')}</label><input name="full_name_fr" dir="ltr" value="${esc(s.full_name_fr||'')}" placeholder="KONE Aïcha"></div>
+  <div class="two"><div class="fld"><label>${t('gender')}</label><select name="gender">${opts([['',''],['M',t('male')],['F',t('female')]],s.gender||'')}</select></div>
+    <div class="fld"><label>${t('class')}</label><select name="class_id">${opts([['',t('no_class')]].concat(D.classes.map(c=>[c.id,clsName(c)])),s.class_id||D.fc||'')}</select></div></div>
+  <div class="two"><div class="fld"><label>${t('bdate')}</label><input name="birth_date" type="date" dir="ltr" value="${esc(s.birth_date||'')}"></div>
+    <div class="fld"><label>${t('bplace')}</label><input name="birth_place" value="${esc(s.birth_place||'')}"></div></div>
+  <div class="two"><div class="fld"><label>${t('g_name')}</label><input name="guardian_name" value="${esc(s.guardian_name||'')}"></div>
+    <div class="fld"><label>${t('g_rel')}</label><select name="guardian_relation">${opts([['','']].concat(rel),s.guardian_relation||'')}</select></div></div>
+  <div class="two"><div class="fld"><label>${t('g_phone')}</label><input name="guardian_phone" dir="ltr" value="${esc(s.guardian_phone||'')}" placeholder="+225 07 ..."></div>
+    <div class="fld"><label>${t('address')}</label><input name="address" value="${esc(s.address||'')}"></div></div>
+  ${s.id?`<div class="fld"><label>${t('d_status')}</label><select name="status">${opts([['active',t('st_active')],['left',t('st_left')]],s.status)}</select></div>`:''}
+  <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="sSave">${t('save')}</button><button class="btn btn-t" id="sCancel">${t('cancel')}</button></div>
+  <div class="err" id="sErr"></div></div>`}
+
+function tabStudents(){const el=document.getElementById('dtab');
+  const q=D.q.trim().toLowerCase();
+  const list=D.students.filter(s=>(!D.fc||(D.fc==='none'?!s.class_id:s.class_id===D.fc))&&(!q||[s.code,s.first_name_ar,s.last_name_ar,s.full_name_fr,s.guardian_phone].join(' ').toLowerCase().includes(q)));
+  const cmap=Object.fromEntries(D.classes.map(c=>[c.id,c]));
+  el.innerHTML=(D.edit!==null?stuForm(D.edit===true?null:D.students.find(s=>s.id===D.edit)):'')+
+  `<div class="toolbar"><input id="sQ" placeholder="${t('search')}" value="${esc(D.q)}">
+    <select id="sFc">${opts([['',t('all_cls')],['none',t('no_class')]].concat(D.classes.map(c=>[c.id,clsName(c)])),D.fc)}</select>
+    ${canEdit()&&D.edit===null?`<button class="btn btn-o" id="sNew">${t('new_stu')}</button>`:''}</div>
+  ${!D.classes.length&&canEdit()?`<div class="note">${t('need_cls')}</div>`:''}
+  <p class="sub" style="margin:6px 0">${list.length} ${t('n_stu')}</p>
+  ${list.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('s_code')}</th><th>${t('s_name')}</th><th>${t('class')}</th><th>${t('g_phone')}</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>
+  ${list.map(s=>`<tr${s.status==='left'?' class="left"':''}><td dir="ltr" style="white-space:nowrap"><b>${esc(s.code)}</b></td>
+    <td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}${s.status==='left'?` <span class="badge bad">${t('st_left')}</span>`:''}</td>
+    <td>${esc(s.class_id?clsName(cmap[s.class_id]):t('no_class'))}</td><td dir="ltr">${esc(s.guardian_phone||'')}</td>
+    ${canEdit()?`<td style="white-space:nowrap"><button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button><button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button></td>`:''}</tr>`).join('')}
+  </tbody></table></div>`:`<div class="note">${t('no_stu')}</div>`}`;
+  const sq=document.getElementById('sQ');sq.oninput=()=>{D.q=sq.value;const pos=sq.selectionStart;tabStudents();const n=document.getElementById('sQ');n.focus();n.setSelectionRange(pos,pos)};
+  document.getElementById('sFc').onchange=e=>{D.fc=e.target.value;tabStudents()};
+  const nb=document.getElementById('sNew');if(nb)nb.onclick=()=>{D.edit=true;tabStudents();window.scrollTo(0,0)};
+  el.querySelectorAll('[data-eds]').forEach(b=>b.onclick=()=>{D.edit=b.dataset.eds;tabStudents();window.scrollTo(0,0)});
+  el.querySelectorAll('[data-dels]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_stu')))return;
+    const {error}=await sb.from('students').delete().eq('id',b.dataset.dels);if(error){alert(error.message);return}await reloadData();tabStudents()});
+  const sf=document.getElementById('sForm');if(!sf)return;
+  document.getElementById('sCancel').onclick=()=>{D.edit=null;tabStudents()};
+  document.getElementById('sSave').onclick=async()=>{const er=document.getElementById('sErr'),row={};
+    sf.querySelectorAll('[name]').forEach(x=>row[x.name]=x.value.trim()===''?null:x.value.trim());
+    if(!row.first_name_ar||!row.last_name_ar){er.textContent=t('e_req');return}
+    er.textContent=t('wait');
+    const r=D.edit===true?await sb.from('students').insert(row).select().single():await sb.from('students').update(row).eq('id',D.edit).select().single();
+    if(r.error){er.textContent=t('e_net')+' '+r.error.message;return}
+    const isNew=D.edit===true;D.edit=null;await reloadData();tabStudents();
+    if(isNew&&r.data){const n=document.createElement('div');n.className='note';n.style.background='#e6f5ea';n.style.borderColor='#bfe3c8';n.style.color='#0F5E2A';
+      n.innerHTML=`${t('saved')} — ${t('s_code')}: <b dir="ltr">${esc(r.data.code)}</b>`;document.getElementById('dtab').prepend(n)}}}
 
 // registration wizard
 let step=1;const f=document.getElementById('regForm'),err=document.getElementById('err');

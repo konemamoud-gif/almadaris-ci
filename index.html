@@ -129,6 +129,9 @@ footer a{color:#ffd08a}
 .bul .qr{display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:400!important}.bul .qr small{font-size:10px}
 .bul footer{display:block;background:none;text-align:center;font-size:10px;color:#666;border-top:1px solid #ccc;margin-top:8px;padding:4px 0 0}
 @media print{body{background:#fff!important}body>*:not(#printArea){display:none!important}#printArea{display:block}.bul{page-break-after:always;break-after:page}.bul:last-child{page-break-after:auto}@page{size:A4;margin:0}*{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.cut{text-align:center;color:#999;font-size:12px;margin:2mm 0;letter-spacing:2px}
+.bul.rcp{padding:5mm 10mm}.bul.rcp header img{height:48px}.bul.rcp h3{margin:6px 0}.bul.rcp table{font-size:12px;margin:4px 0}
+@media print{.bul.rcp{page-break-after:auto!important;break-after:auto!important}}
 </style>
 </head>
 <body>
@@ -314,6 +317,7 @@ footer a{color:#ffd08a}
 const T={fr:{login:"Connexion",trial_short:"Inscrire un établissement",pill:"Système d'exploitation académique & scolaire",h1:"Plateforme de gestion des écoles <em>arabes et islamiques</em> en Côte d'Ivoire",lead:"Inscriptions, dossiers, notes, présence par carte QR, frais et documents officiels certifiés — de la maternelle à l'université, au même endroit.",trial:"Inscrire mon établissement — essai 14 jours",verify_btn:"Vérifier un document",p1:"Espace Direction",p1d:"Directeur et administration : établissement, classes, frais, rapports.",p2:"Personnel & Enseignants",p2d:"Saisie des notes, présence, emploi du temps et examens.",p3:"Portail Élève & Parent",p3d:"Résultats, absences, frais dus et notifications.",f_ttl:"Les piliers de la plateforme",f_sub:"Tout ce dont une école arabe et islamique ivoirienne a besoin",f1:"Enseignement multi-cycles",f1l:"<li>Maternelle, primaire, collège, lycée, université</li><li>Parcours arabe, français, bilingue et tahfîdh du Coran</li><li>Manuels de la « Collection des écoles arabes et islamiques » intégrés</li>",f2:"Présence & cartes QR",f2l:"<li>Pointage par scan de carte</li><li>Notification automatique aux parents (absence, retard)</li><li>Fonctionne hors ligne puis se synchronise</li>",f3:"Documents officiels",f3l:"<li>Bulletins et attestations instantanés</li><li>Sceau numérique et QR code sur chaque document</li><li>Vérification publique d'authenticité</li>",t_ttl:"Quatre parcours",tr1:"Arabe seul",tr2:"Français seul",tr3:"Arabe + français",tr4:"Tahfîdh du Coran",vs:"🔎 Vérifier un diplôme ou un bulletin",check:"Vérifier",trial_badge:"🎁 Essai intégral gratuit de 14 jours",r_ttl:"Inscription de votre établissement",r_sub:"Ces données figureront sur les bulletins et diplômes officiels.",st1:"Établissement",st2:"Cycles & contact",st3:"Administrateur",nm_ar:"Nom officiel en arabe",nm_fr:"Nom officiel en français",type:"Type d'établissement",ty1:"Groupe scolaire franco-arabe",ty1d:"Maternelle, primaire, collège, lycée — avec études islamiques",ty2:"École / centre de mémorisation du Coran",ty2d:"Halaqas, hizbs, tajwîd (riwâya Hafs)",ty3:"Université / faculté / institut supérieur",ty3d:"Système LMD, facultés de charia, mémoires et recherche",country:"Pays",city:"Ville / région",cycles:"Cycles",c1:"Maternelle",c2:"Primaire",c3:"Collège",c4:"Lycée",c5:"Université",tracks:"Parcours",students:"Nombre approx. d'élèves",term:"Découpage de l'année",tri:"Trimestres (3)",sem:"Semestres (2)",phone:"Téléphone de l'établissement",email:"E-mail de l'établissement",aname:"Nom complet de l'administrateur",arole:"Fonction",ro1:"Directeur",ro2:"Directeur adjoint",ro3:"Responsable administratif",aphone:"Téléphone de l'administrateur",aemail:"E-mail (identifiant de connexion)",pw:"Mot de passe",pw2:"Confirmer le mot de passe",agree:"J'accepte les conditions d'utilisation et la politique de confidentialité",back:"← Retour",next:"Continuer →",finish:"Créer mon établissement ✓",l_ttl:"Connexion",l_sub:"Choisissez votre espace",lt1:"Direction",lt2:"Enseignants",lt3:"Élève / Parent",lid_email:"E-mail",lid_mat:"Matricule de l'élève",login_note:"Le tableau de bord sera construit à l'étape suivante (base de données Supabase). Cette page n'est qu'une interface pour l'instant.",noacc:"Votre établissement n'a pas de compte ?",v_ttl:"Vérification d'un document officiel",v_sub:"Saisissez le code imprimé en bas du diplôme ou du bulletin (ou scannez le QR code).",v_demo:"Pour tester : essayez le code AMC-2026-000123",foot:"Plateforme de gestion des écoles arabes et islamiques en Côte d'Ivoire",bouake:"Bouaké",
 e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins un cycle et un parcours.",e_pw:"Les mots de passe ne correspondent pas (8 caractères min.).",
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
+tab_fee:"Frais",fv_sum:"Situation",fv_pay:"Journal de caisse",fv_items:"Types de frais",fv_disc:"Réductions",pm_cash:"Espèces",pm_orange:"Orange Money",pm_mtn:"MTN MoMo",pm_moov:"Moov Money",pm_wave:"Wave",pm_bank:"Banque",pm_other:"Autre",dk_staff:"Enfant du personnel",dk_orphan:"Orphelin",dk_sibling:"Fratrie",dk_schol:"Bourse",dk_other:"Autre",dk_type:"Motif",gen_pay:"Versement général",no_items:"Aucun type de frais. Commencez par « Types de frais ».",f_expected:"Attendu",f_collected:"Encaissé",f_rest:"Reste à payer",f_rate:"Taux de recouvrement",f_overdue:"En retard",debtors:"Élèves avec un reste à payer",f_open:"Ouvrir",f_remind:"Rappel",no_debt:"Aucun reste à payer. 🎉",rem_msg:"Assalamou alaykoum,\n{s} vous informe que la scolarité de votre enfant {n} présente un reste à payer de {r} (dont {o} en retard).\nMerci de régulariser. Contact : {p}",discount:"Réduction",f_due:"Dû",f_paid:"Payé",f_credit:"Avance",f_item:"Frais",no_items_stu:"Aucun frais ne s'applique à cet élève (vérifiez sa classe et les types de frais).",new_pay:"Nouveau paiement",f_amount:"Montant",f_method:"Mode de paiement",f_ref:"Référence",f_ref_ph:"N° de transaction (Mobile Money)",f_note:"Remarque",f_save_print:"Enregistrer et imprimer le reçu",f_bad_amt:"Montant invalide.",f_history:"Historique des paiements",f_receipt:"Reçu",f_cancelled:"Annulé",f_cancel:"Annuler",f_none:"Aucun paiement.",f_why:"Motif de l'annulation (le reçu deviendra invalide) :",f_receipt_t:"Reçu de paiement N°",f_rest_after:"Reste à payer",f_cashier:"Le caissier",copy_school:"Souche école",copy_parent:"Copie parent",j_total:"Total encaissé",j_none:"Aucun paiement ce jour.",j_help:"Les reçus annulés ne sont pas comptés dans le total.",f_all:"Tous",add_item:"Ajouter un type de frais",f_duedate:"Échéance",gen_months:"Générer des mensualités",gen_help:"Saisissez le montant ci-dessus et la portée, puis générez une mensualité par mois avec son échéance.",f_first_month:"Premier mois",f_n_months:"Nombre de mois",f_due_day:"Jour d'échéance",gen_btn:"Générer les mensualités",gen_need_amt:"Saisissez d'abord le montant mensuel.",f_scope:"S'applique à",sure_item:"Supprimer ce type de frais ? Les paiements liés deviendront des versements généraux.",f_total_scope:"Chaque élève paie les frais de sa classe (cycle, niveau, parcours), moins sa réduction.",add_disc:"Ajouter une réduction",disc_help:"La réduction (%) s'applique à tous les frais de l'élève pour l'année.",sure_disc:"Supprimer cette réduction ?",has_pay:"Impossible de supprimer : cet élève a des paiements. Mettez plutôt son statut à « A quitté l'école ».",
 tab_grd:"Notes",tab_rep:"Bulletins",k_devoir:"Devoir",k_exam:"Examen",k_oral:"Oral",k_other:"Autre",tri1:"1er trimestre",tri2:"2e trimestre",tri3:"3e trimestre",sem1:"1er semestre",sem2:"2e semestre",m_exc:"Excellent",m_tb:"Très bien",m_b:"Bien",m_ab:"Assez bien",m_p:"Passable",m_ins:"Insuffisant",pick_cls:"— Choisir la classe —",pick_subj1:"— Choisir la matière —",scale_is:"Notes de cette classe sur",evals:"Évaluations",no_evals:"Aucune évaluation pour l'instant.",k_type:"Type",e_title:"Intitulé (facultatif)",e_title_ph:"Ex. : Devoir n°1",e_max:"Noté sur",e_date:"Date",new_eval:"+ Nouvelle évaluation",on:"sur",del_eval:"Supprimer l'évaluation",sure_eval:"Supprimer cette évaluation et toutes ses notes ?",score:"Note",absent:"Absent",save_grades:"Enregistrer les notes",bad_score:"Note invalide",nothing:"Aucune note saisie.",subj_avgs:"Moyennes dans la matière",avg:"Moyenne",class_avg:"Moyenne de la classe",rank:"Rang",mention:"Appréciation",print_all:"Imprimer tous les bulletins",print_cert:"Bulletins certifiés (QR)",print_one:"Bulletin",cert_help:"« Bulletins certifiés » enregistre chaque bulletin avec un code et un QR code : n'importe qui peut vérifier son authenticité sur la page Vérification.",sure_cert:"Émettre des bulletins certifiés pour toute la classe ?",bul_title:"Bulletin de notes",gen_avg:"Moyenne générale",sig_dir:"Le Directeur",sig_par:"Le Parent",scan_verify:"Scannez pour vérifier",grading:"Barème des notes",grading_help:"Note maximale de chaque cycle (ex. : sur 10 au primaire, sur 20 au collège).",
 tab_staff:"Personnel",tab_subj:"Matières",add_subj:"Ajouter une matière",subj_ar:"Matière (arabe)",subj_fr:"Matière (français)",def_subj:"Ajouter les matières courantes",no_subj:"Aucune matière. Cliquez sur « Ajouter les matières courantes ».",dup_subj:"Cette matière existe déjà.",sure_subj:"Supprimer cette matière ? Les affectations liées seront supprimées.",n_asg:"Affectations",new_staff:"+ Nouveau membre",f_name_ar:"Nom complet (arabe)",f_name_fr:"Nom complet (français)",f_type:"Fonction",ty_teacher:"Enseignant",ty_admin:"Administration",ty_other:"Autre",f_pos:"Titre / poste",f_pos_ph:"Ex. : Enseignant d'arabe, Surveillant…",male_a:"Homme",female_a:"Femme",phone_s:"Téléphone",st_work:"En poste",st_left2:"Parti",account:"Compte",acc_on:"Activé",copy_inv:"Copier l'invitation",copied:"Copié",asg:"Affecter",asg_of:"Classes et matières de",subject:"Matière",multi_hint:"Ctrl + clic pour en choisir plusieurs",need_cs:"Créez d'abord des classes et des matières.",no_asg:"Aucune affectation.",close:"Fermer",pick_subj:"Choisissez au moins une matière.",dup_asg:"Déjà affecté.",no_staff:"Aucun membre du personnel. Ajoutez le premier.",sure_staff:"Supprimer ce membre ? Préférez le statut « Parti » pour garder l'historique.",invite_help:"Chaque membre reçoit un code d'invitation. Il active son compte depuis Connexion → « Nouvel enseignant ? Activez votre compte ». Un enseignant ne voit que ses classes et ses élèves.",inv_msg:"Assalamou alaykoum {n},\nVotre compte enseignant sur la plateforme Al-Madaris CI ({s}) est prêt.\n1) Ouvrez : {u}\n2) Code d'invitation : {c}\n3) Choisissez votre e-mail et votre mot de passe.",my_asg:"Mes classes et matières",act_ttl:"Activer un compte enseignant",act_sub:"Saisissez le code d'invitation donné par votre école, puis choisissez votre e-mail et votre mot de passe.",inv_code:"Code d'invitation",act_btn:"Activer le compte",act_link:"Nouvel enseignant ? Activez votre compte avec le code d'invitation",bad_invite:"Code d'invitation invalide ou déjà utilisé.",act_ok:"Compte enseignant créé !",
 tab_ov:"Aperçu",tab_cls:"Classes",tab_stu:"Élèves",add_cls:"Ajouter une classe",cycle:"Cycle",level:"Niveau",track1:"Parcours",section:"Section (facultatif)",year:"Année scolaire",capacity:"Effectif max",add:"Ajouter",no_cls:"Aucune classe pour l'instant. Ajoutez la première.",dup_cls:"Cette classe existe déjà.",sure_cls:"Supprimer cette classe ? Les élèves ne seront pas supprimés mais resteront sans classe.",class:"Classe",del:"Supprimer",edit:"Modifier",new_stu:"+ Nouvel élève",search:"Rechercher (nom, matricule, téléphone)…",all_cls:"Toutes les classes",no_class:"Sans classe",n_stu:"élève(s)",s_code:"Matricule",s_name:"Nom",s_fn_ar:"Prénom (arabe)",s_ln_ar:"Nom de famille (arabe)",s_nm_fr:"Nom et prénoms (français)",gender:"Sexe",male:"Garçon",female:"Fille",bdate:"Date de naissance",bplace:"Lieu de naissance",g_name:"Nom du parent / tuteur",g_rel:"Lien de parenté",rel_f:"Père",rel_m:"Mère",rel_o:"Autre",g_phone:"Téléphone du parent",address:"Adresse",save:"Enregistrer",cancel:"Annuler",no_stu:"Aucun élève.",sure_stu:"Supprimer définitivement cet élève ?",saved:"Enregistré ✓",st_bg:"Garçons / Filles",need_cls:"Créez d'abord une classe dans l'onglet « Classes ».",st_active:"Actif",st_left:"A quitté l'école",
@@ -322,7 +326,8 @@ v_ok:"✓ Document authentique",v_bad:"✗ Document introuvable",v_badd:"Vérifi
 ar:{}};
 // capture Arabic defaults from DOM
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
-Object.assign(T.ar,{tab_grd:"العلامات",tab_rep:"كشوف النقاط",k_devoir:"فرض",k_exam:"امتحان",k_oral:"شفهي",k_other:"آخر",tri1:"الثلاثي الأول",tri2:"الثلاثي الثاني",tri3:"الثلاثي الثالث",sem1:"السداسي الأول",sem2:"السداسي الثاني",m_exc:"ممتاز",m_tb:"جيد جداً",m_b:"جيد",m_ab:"مستحسن",m_p:"مقبول",m_ins:"ضعيف",pick_cls:"— اختر الفصل —",pick_subj1:"— اختر المادة —",scale_is:"علامات هذا الفصل على",evals:"التقييمات",no_evals:"لا توجد تقييمات بعد.",k_type:"النوع",e_title:"العنوان (اختياري)",e_title_ph:"مثلاً: الفرض الأول",e_max:"العلامة القصوى",e_date:"التاريخ",new_eval:"+ تقييم جديد",on:"على",del_eval:"حذف التقييم",sure_eval:"حذف هذا التقييم وكل علاماته؟",score:"العلامة",absent:"غائب",save_grades:"حفظ العلامات",bad_score:"علامة غير صحيحة",nothing:"لم تُدخل أي علامة.",subj_avgs:"المعدلات في المادة",avg:"المعدل",class_avg:"معدل الفصل",rank:"الرتبة",mention:"التقدير",print_all:"طباعة كل الكشوف",print_cert:"كشوف موثّقة (QR)",print_one:"كشف",cert_help:"«الكشوف الموثّقة» تسجّل كل كشف برمز ورمز QR، فيستطيع أي أحد التحقق من صحته في صفحة التحقق.",sure_cert:"إصدار كشوف موثّقة لكل الفصل؟",bul_title:"كشف النقاط",gen_avg:"المعدل العام",sig_dir:"المدير",sig_par:"ولي الأمر",scan_verify:"امسح للتحقق",grading:"سلّم العلامات",grading_help:"العلامة القصوى لكل مرحلة (مثلاً: على 10 في الابتدائي، وعلى 20 في الإعدادي).",
+Object.assign(T.ar,{tab_fee:"الرسوم",fv_sum:"الوضعية",fv_pay:"سجل الصندوق",fv_items:"أنواع الرسوم",fv_disc:"التخفيضات",pm_cash:"نقداً",pm_orange:"Orange Money",pm_mtn:"MTN MoMo",pm_moov:"Moov Money",pm_wave:"Wave",pm_bank:"بنك",pm_other:"أخرى",dk_staff:"ابن/ابنة موظف",dk_orphan:"يتيم",dk_sibling:"إخوة",dk_schol:"منحة",dk_other:"آخر",dk_type:"السبب",gen_pay:"دفعة عامة",no_items:"لا توجد أنواع رسوم. ابدأ من «أنواع الرسوم».",f_expected:"المتوقع",f_collected:"المحصّل",f_rest:"الباقي",f_rate:"نسبة التحصيل",f_overdue:"متأخر",debtors:"تلاميذ عليهم مبالغ",f_open:"فتح",f_remind:"تذكير",no_debt:"لا توجد مبالغ متبقية. 🎉",rem_msg:"السلام عليكم،\nتُعلمكم {s} أن على ابنكم/ابنتكم {n} مبلغاً متبقياً من الرسوم قدره {r} (منه {o} متأخر).\nنرجو التسديد في أقرب وقت. للتواصل: {p}",discount:"تخفيض",f_due:"المستحق",f_paid:"المدفوع",f_credit:"دفعة مسبقة",f_item:"البند",no_items_stu:"لا تنطبق أي رسوم على هذا التلميذ (تحقق من فصله ومن أنواع الرسوم).",new_pay:"دفعة جديدة",f_amount:"المبلغ",f_method:"طريقة الدفع",f_ref:"المرجع",f_ref_ph:"رقم العملية (Mobile Money)",f_note:"ملاحظة",f_save_print:"حفظ وطباعة الإيصال",f_bad_amt:"مبلغ غير صحيح.",f_history:"سجل الدفعات",f_receipt:"الإيصال",f_cancelled:"ملغى",f_cancel:"إلغاء",f_none:"لا توجد دفعات.",f_why:"سبب الإلغاء (سيصبح الإيصال غير صالح):",f_receipt_t:"إيصال دفع رقم",f_rest_after:"الباقي بعد الدفع",f_cashier:"أمين الصندوق",copy_school:"نسخة المدرسة",copy_parent:"نسخة الولي",j_total:"مجموع المحصّل",j_none:"لا توجد دفعات في هذا اليوم.",j_help:"الإيصالات الملغاة لا تُحسب في المجموع.",f_all:"الكل",add_item:"إضافة نوع رسوم",f_duedate:"تاريخ الاستحقاق",gen_months:"إنشاء أقساط شهرية",gen_help:"أدخل المبلغ في الأعلى وحدد لمن يُطبَّق، ثم أنشئ قسطاً لكل شهر بتاريخ استحقاقه.",f_first_month:"الشهر الأول",f_n_months:"عدد الأشهر",f_due_day:"يوم الاستحقاق",gen_btn:"إنشاء الأقساط",gen_need_amt:"أدخل أولاً المبلغ الشهري.",f_scope:"يُطبَّق على",sure_item:"حذف هذا النوع؟ الدفعات المرتبطة به تصبح دفعات عامة.",f_total_scope:"يدفع كل تلميذ رسوم فصله (المرحلة، المستوى، المسار) بعد خصم تخفيضه.",add_disc:"إضافة تخفيض",disc_help:"التخفيض (%) يُطبَّق على كل رسوم التلميذ في السنة.",sure_disc:"حذف هذا التخفيض؟",has_pay:"لا يمكن الحذف: لهذا التلميذ دفعات. اجعل حالته «غادر المدرسة» بدلاً من ذلك.",
+tab_grd:"العلامات",tab_rep:"كشوف النقاط",k_devoir:"فرض",k_exam:"امتحان",k_oral:"شفهي",k_other:"آخر",tri1:"الثلاثي الأول",tri2:"الثلاثي الثاني",tri3:"الثلاثي الثالث",sem1:"السداسي الأول",sem2:"السداسي الثاني",m_exc:"ممتاز",m_tb:"جيد جداً",m_b:"جيد",m_ab:"مستحسن",m_p:"مقبول",m_ins:"ضعيف",pick_cls:"— اختر الفصل —",pick_subj1:"— اختر المادة —",scale_is:"علامات هذا الفصل على",evals:"التقييمات",no_evals:"لا توجد تقييمات بعد.",k_type:"النوع",e_title:"العنوان (اختياري)",e_title_ph:"مثلاً: الفرض الأول",e_max:"العلامة القصوى",e_date:"التاريخ",new_eval:"+ تقييم جديد",on:"على",del_eval:"حذف التقييم",sure_eval:"حذف هذا التقييم وكل علاماته؟",score:"العلامة",absent:"غائب",save_grades:"حفظ العلامات",bad_score:"علامة غير صحيحة",nothing:"لم تُدخل أي علامة.",subj_avgs:"المعدلات في المادة",avg:"المعدل",class_avg:"معدل الفصل",rank:"الرتبة",mention:"التقدير",print_all:"طباعة كل الكشوف",print_cert:"كشوف موثّقة (QR)",print_one:"كشف",cert_help:"«الكشوف الموثّقة» تسجّل كل كشف برمز ورمز QR، فيستطيع أي أحد التحقق من صحته في صفحة التحقق.",sure_cert:"إصدار كشوف موثّقة لكل الفصل؟",bul_title:"كشف النقاط",gen_avg:"المعدل العام",sig_dir:"المدير",sig_par:"ولي الأمر",scan_verify:"امسح للتحقق",grading:"سلّم العلامات",grading_help:"العلامة القصوى لكل مرحلة (مثلاً: على 10 في الابتدائي، وعلى 20 في الإعدادي).",
 tab_staff:"الموظفون",tab_subj:"المواد",add_subj:"إضافة مادة",subj_ar:"المادة (عربي)",subj_fr:"المادة (فرنسي)",def_subj:"إضافة المواد الشائعة",no_subj:"لا توجد مواد. اضغط «إضافة المواد الشائعة».",dup_subj:"هذه المادة موجودة مسبقاً.",sure_subj:"حذف هذه المادة؟ ستُحذف الإسنادات المرتبطة بها.",n_asg:"الإسنادات",new_staff:"+ موظف جديد",f_name_ar:"الاسم الكامل (عربي)",f_name_fr:"الاسم الكامل (فرنسي)",f_type:"الوظيفة",ty_teacher:"معلّم",ty_admin:"إداري",ty_other:"آخر",f_pos:"الصفة / المنصب",f_pos_ph:"مثلاً: معلم اللغة العربية، مراقب…",male_a:"ذكر",female_a:"أنثى",phone_s:"الهاتف",st_work:"يعمل",st_left2:"غادر",account:"الحساب",acc_on:"مفعّل",copy_inv:"نسخ الدعوة",copied:"تم النسخ",asg:"إسناد",asg_of:"فصول ومواد",subject:"المادة",multi_hint:"Ctrl + نقر لاختيار أكثر من مادة",need_cs:"أنشئ الفصول والمواد أولاً.",no_asg:"لا توجد إسنادات.",close:"إغلاق",pick_subj:"اختر مادة واحدة على الأقل.",dup_asg:"مُسنَد مسبقاً.",no_staff:"لا يوجد موظفون. أضف الأول.",sure_staff:"حذف هذا الموظف؟ يُفضَّل اختيار الحالة «غادر» للاحتفاظ بالسجل.",invite_help:"يحصل كل موظف على رمز دعوة، يفعّل به حسابه من صفحة الدخول ← «معلّم جديد؟ فعّل حسابك». المعلم لا يرى إلا فصوله وتلاميذه.",inv_msg:"السلام عليكم {n}،\nحسابك في منصة Al-Madaris CI ({s}) جاهز.\n1) افتح الرابط: {u}\n2) رمز الدعوة: {c}\n3) اختر بريدك الإلكتروني وكلمة المرور.",my_asg:"فصولي وموادي",act_ttl:"تفعيل حساب معلّم",act_sub:"أدخل رمز الدعوة الذي أعطتك إياه إدارة مدرستك، ثم اختر بريدك وكلمة مرورك.",inv_code:"رمز الدعوة",act_btn:"تفعيل الحساب",act_link:"معلّم جديد؟ فعّل حسابك برمز الدعوة",bad_invite:"رمز الدعوة غير صحيح أو مستعمل من قبل.",act_ok:"تم إنشاء حساب المعلم!",
 tab_ov:"نظرة عامة",tab_cls:"الفصول",tab_stu:"التلاميذ",add_cls:"إضافة فصل",cycle:"المرحلة",level:"المستوى",track1:"المسار",section:"الشعبة (اختياري)",year:"السنة الدراسية",capacity:"السعة القصوى",add:"إضافة",no_cls:"لا توجد فصول بعد. أضف أول فصل.",dup_cls:"هذا الفصل موجود مسبقاً.",sure_cls:"حذف هذا الفصل؟ لن يُحذف التلاميذ لكن سيصبحون بلا فصل.",class:"الفصل",del:"حذف",edit:"تعديل",new_stu:"+ تلميذ جديد",search:"بحث (الاسم، الرقم، الهاتف)…",all_cls:"كل الفصول",no_class:"بدون فصل",n_stu:"تلميذ",s_code:"الرقم التعريفي",s_name:"الاسم",s_fn_ar:"الاسم الشخصي (عربي)",s_ln_ar:"اسم العائلة (عربي)",s_nm_fr:"الاسم بالفرنسية",gender:"الجنس",male:"ذكر",female:"أنثى",bdate:"تاريخ الميلاد",bplace:"مكان الميلاد",g_name:"اسم الولي",g_rel:"صلة القرابة",rel_f:"الأب",rel_m:"الأم",rel_o:"آخر",g_phone:"هاتف الولي",address:"العنوان",save:"حفظ",cancel:"إلغاء",no_stu:"لا يوجد تلاميذ.",sure_stu:"حذف هذا التلميذ نهائياً؟",saved:"تم الحفظ ✓",st_bg:"ذكور / إناث",need_cls:"أنشئ فصلاً أولاً من تبويب «الفصول».",st_active:"يدرس",st_left:"غادر المدرسة",
 d_hi:"مرحباً",d_code:"رمز المؤسسة",d_status:"الحالة",d_left:"يوماً متبقية في التجربة",s_trial:"تجربة",s_active:"مفعّل",s_suspended:"موقوف",d_logout:"تسجيل الخروج",d_info:"المعلومات",d_soon:"الأقسام القادمة: التلاميذ، المعلمون، العلامات، الحضور بـ QR، الرسوم، الوثائق الرسمية.",e_login:"البريد أو كلمة المرور غير صحيحة.",ok_mail:"تم إنشاء الحساب. افتح بريدك الإلكتروني لتفعيله، ثم سجّل الدخول.",stud_soon:"بوابة التلميذ وولي الأمر تأتي في مرحلة لاحقة.",e_net:"خطأ في الاتصال بالخادم:",wait:"انتظر…",finish:"إنشاء المؤسسة ✓",lid_mat:"الرقم التعريفي للتلميذ",e_req:"يرجى ملء الحقول الإلزامية (*).",e_cyc:"اختر مرحلة واحدة ومساراً واحداً على الأقل.",e_pw:"كلمتا المرور غير متطابقتين (8 أحرف على الأقل).",ok_t:"تم تسجيل المؤسسة!",ok_code:"رمز مؤسستك",ok_trial:"التجربة المجانية حتى",ok_note:"نسخة تجريبية: البيانات محفوظة في هذا المتصفح فقط. الحفظ الحقيقي على الخادم يأتي في المرحلة 2.",ok_go:"الذهاب إلى الدخول",v_ok:"✓ وثيقة صحيحة",v_bad:"✗ الوثيقة غير موجودة",v_badd:"تحقق من الرمز أو اتصل بالمؤسسة المُصدِرة.",vk:["النوع","صاحب الوثيقة","المؤسسة","المستوى","التقدير","تاريخ الإصدار"]});
@@ -389,16 +394,16 @@ async function reloadData(){
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section))}
 
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
-  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['grd','tab_grd']].concat(canEdit()?[['rep','tab_rep'],['staff','tab_staff'],['subj','tab_subj']]:[]);
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['grd','tab_grd']].concat(canEdit()?[['rep','tab_rep'],['fee','tab_fee'],['staff','tab_staff'],['subj','tab_subj']]:[]);
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
     <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
     <h2>${i?esc(L==='ar'?i.name_ar:i.name_fr):''}</h2></div>
     <button class="btn btn-l" id="logout">${t('d_logout')}</button></div>
   <div class="tabs" style="margin-top:14px">${tabs.map(([k,l])=>`<div class="tab${D.tab===k?' on':''}" data-dt="${k}">${t(l)}</div>`).join('')}</div>
   <div id="dtab"></div>`;
-  box.querySelectorAll('[data-dt]').forEach(e=>e.onclick=()=>{D.tab=e.dataset.dt;D.edit=null;D.asg=null;renderDash()});
+  box.querySelectorAll('[data-dt]').forEach(e=>e.onclick=()=>{D.tab=e.dataset.dt;D.edit=null;D.asg=null;if(F.view==='stu')F.view='sum';renderDash()});
   document.getElementById('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'};
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports}[D.tab]||tabOverview)()}
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees}[D.tab]||tabOverview)()}
 
 function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -474,14 +479,15 @@ function tabStudents(){const el=document.getElementById('dtab');
   ${list.map(s=>`<tr${s.status==='left'?' class="left"':''}><td dir="ltr" style="white-space:nowrap"><b>${esc(s.code)}</b></td>
     <td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}${s.status==='left'?` <span class="badge bad">${t('st_left')}</span>`:''}</td>
     <td>${esc(s.class_id?clsName(cmap[s.class_id]):t('no_class'))}</td><td dir="ltr">${esc(s.guardian_phone||'')}</td>
-    ${canEdit()?`<td style="white-space:nowrap"><button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button><button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button></td>`:''}</tr>`).join('')}
+    ${canEdit()?`<td style="white-space:nowrap"><button class="btn btn-t sm" data-fee="${s.id}" title="${t('tab_fee')}">💰</button><button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button><button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button></td>`:''}</tr>`).join('')}
   </tbody></table></div>`:`<div class="note">${t('no_stu')}</div>`}`;
   const sq=document.getElementById('sQ');sq.oninput=()=>{D.q=sq.value;const pos=sq.selectionStart;tabStudents();const n=document.getElementById('sQ');n.focus();n.setSelectionRange(pos,pos)};
   document.getElementById('sFc').onchange=e=>{D.fc=e.target.value;tabStudents()};
   const nb=document.getElementById('sNew');if(nb)nb.onclick=()=>{D.edit=true;tabStudents();window.scrollTo(0,0)};
   el.querySelectorAll('[data-eds]').forEach(b=>b.onclick=()=>{D.edit=b.dataset.eds;tabStudents();window.scrollTo(0,0)});
   el.querySelectorAll('[data-dels]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_stu')))return;
-    const {error}=await sb.from('students').delete().eq('id',b.dataset.dels);if(error){alert(error.message);return}await reloadData();tabStudents()});
+    const {error}=await sb.from('students').delete().eq('id',b.dataset.dels);if(error){alert(error.code==='23503'?t('has_pay'):error.message);return}await reloadData();tabStudents()});
+  el.querySelectorAll('[data-fee]').forEach(b=>b.onclick=()=>openStudentFee(b.dataset.fee));
   const sf=document.getElementById('sForm');if(!sf)return;
   document.getElementById('sCancel').onclick=()=>{D.edit=null;tabStudents()};
   document.getElementById('sSave').onclick=async()=>{const er=document.getElementById('sErr'),row={};
@@ -748,6 +754,189 @@ function bindScale(){const b=document.getElementById('scSave');if(!b)return;b.on
   const er=document.getElementById('scErr');er.textContent=t('wait');
   const {error}=await sb.from('institutions').update({grade_scale:gs}).eq('id',D.i.id);
   if(error){er.textContent=t('e_net')+' '+error.message;return}D.i.grade_scale=gs;er.style.color='var(--g2)';er.textContent=t('saved')}}
+
+// ===== fees, discounts, payments =====
+const F={view:'sum',year:'2026-2027',items:[],disc:[],pays:[],loaded:'',sid:'',fcls:'',jdate:new Date().toISOString().slice(0,10)};
+const METH={cash:'pm_cash',orange:'pm_orange',mtn:'pm_mtn',moov:'pm_moov',wave:'pm_wave',bank:'pm_bank',other:'pm_other'};
+const DKIND={staff_child:'dk_staff',orphan:'dk_orphan',sibling:'dk_sibling',scholarship:'dk_schol',other:'dk_other'};
+const MONTHS=[['سبتمبر','Septembre'],['أكتوبر','Octobre'],['نوفمبر','Novembre'],['ديسمبر','Décembre'],['يناير','Janvier'],['فبراير','Février'],['مارس','Mars'],['أبريل','Avril'],['مايو','Mai'],['يونيو','Juin'],['يوليو','Juillet'],['أغسطس','Août']];
+const money=n=>'\u2066'+(Math.round(n||0)).toLocaleString('fr-FR').replace(/[\u202f\u00a0]/g,' ')+' F\u2069';
+const itemName=it=>it?(L==='ar'?it.name_ar:(it.name_fr||it.name_ar)):t('gen_pay');
+async function loadFees(force){if(!force&&F.loaded===F.year)return;
+  const iid=D.i.id,q=tb=>sb.from(tb).select('*').eq('institution_id',iid).eq('school_year',F.year);
+  const [a,b,c]=await Promise.all([q('fee_items').order('sort'),q('discounts'),q('payments').order('seq')]);
+  F.items=a.data||[];F.disc=b.data||[];F.pays=c.data||[];F.loaded=F.year}
+function itemApplies(it,s){const c=D.classes.find(x=>x.id===s.class_id);
+  if(!c)return !it.cycle&&!it.level&&!it.track;
+  return (!it.cycle||it.cycle===c.cycle)&&(!it.level||it.level===c.level)&&(!it.track||it.track===c.track)}
+function statement(s){const d=F.disc.find(x=>x.student_id===s.id),pct=d?+d.percent:0;
+  const items=F.items.filter(it=>itemApplies(it,s)).slice().sort((a,b)=>(a.sort-b.sort)||String(a.due_date||'').localeCompare(String(b.due_date||'')))
+    .map(it=>({it,due:Math.round(+it.amount*(1-pct/100)),paid:0}));
+  const pays=F.pays.filter(p=>p.student_id===s.id&&!p.cancelled);let pool=0;
+  pays.forEach(p=>{const row=items.find(r=>r.it.id===p.fee_item_id);if(row){const take=Math.min(+p.amount,row.due-row.paid);row.paid+=take;pool+=+p.amount-take}else pool+=+p.amount});
+  items.forEach(r=>{const take=Math.min(pool,r.due-r.paid);if(take>0){r.paid+=take;pool-=take}});
+  const today=new Date().toISOString().slice(0,10);
+  const due=items.reduce((a,r)=>a+r.due,0),paid=pays.reduce((a,p)=>a+(+p.amount),0);
+  const overdue=items.filter(r=>r.it.due_date&&r.it.due_date<today).reduce((a,r)=>a+(r.due-r.paid),0);
+  return {items,pct,disc:d,due,paid,rest:Math.max(0,due-paid),credit:Math.max(0,paid-due),overdue,pays}}
+
+async function tabFees(){const el=document.getElementById('dtab');el.innerHTML=t('wait');await loadFees();
+  const views=[['sum','fv_sum'],['pay','fv_pay'],['items','fv_items'],['disc','fv_disc']];
+  let h=`<div class="toolbar" style="margin-top:0;align-items:center"><div class="chips">${views.map(([k,l])=>`<span class="chip${F.view===k?' on':''}" data-fv="${k}">${t(l)}</span>`).join('')}</div>
+    <span class="sub" style="margin-inline-start:auto">${t('year')}</span><input id="fYear" value="${esc(F.year)}" dir="ltr" style="width:110px;flex:0"></div>`;
+  if(F.view==='stu'&&F.sid)h+=feeStudent();else h+=({sum:feeSummary,pay:feeJournal,items:feeItems,disc:feeDiscounts}[F.view]||feeSummary)();
+  el.innerHTML=h;
+  el.querySelectorAll('[data-fv]').forEach(c=>c.onclick=()=>{F.view=c.dataset.fv;tabFees()});
+  const fy=document.getElementById('fYear');fy.onchange=async()=>{F.year=fy.value.trim()||'2026-2027';await loadFees(true);tabFees()};
+  ({sum:bindSummary,pay:bindJournal,items:bindItems,disc:bindDiscounts,stu:bindStudentFee}[F.view]||(()=>{}))()}
+
+function feeSummary(){const studs=D.students.filter(s=>s.status==='active'&&(!F.fcls||s.class_id===F.fcls));
+  const rows=studs.map(s=>({s,st:statement(s)}));
+  const due=rows.reduce((a,r)=>a+r.st.due,0),paid=rows.reduce((a,r)=>a+Math.min(r.st.paid,r.st.due),0),rest=rows.reduce((a,r)=>a+r.st.rest,0),over=rows.reduce((a,r)=>a+Math.max(0,r.st.overdue),0);
+  const debt=rows.filter(r=>r.st.rest>0).sort((a,b)=>b.st.overdue-a.st.overdue||b.st.rest-a.st.rest);
+  const cmap=Object.fromEntries(D.classes.map(c=>[c.id,c]));
+  return `${!F.items.length?`<div class="note">${t('no_items')}</div>`:''}
+  <div class="toolbar"><select id="fCls">${opts([['',t('all_cls')]].concat(D.classes.map(c=>[c.id,clsName(c)])),F.fcls)}</select><input id="fFind" placeholder="${t('search')}"></div>
+  <div class="stats"><div class="stat"><b>${money(due)}</b><span>${t('f_expected')}</span></div><div class="stat"><b>${money(paid)}</b><span>${t('f_collected')}</span></div>
+    <div class="stat"><b>${money(rest)}</b><span>${t('f_rest')}</span></div><div class="stat"><b>${due?Math.round(paid/due*100):0}%</b><span>${t('f_rate')}</span></div>
+    <div class="stat" style="background:#fdecea"><b style="color:#b03a2e">${money(over)}</b><span>${t('f_overdue')}</span></div></div>
+  <div id="fFound"></div>
+  <p class="sub" style="margin:12px 0 4px"><b>${t('debtors')}</b> (${debt.length})</p>
+  ${debt.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('s_name')}</th><th>${t('class')}</th><th>${t('f_rest')}</th><th>${t('f_overdue')}</th><th>${t('g_phone')}</th><th></th></tr></thead><tbody>
+  ${debt.map(r=>`<tr><td><b>${esc(r.s.last_name_ar+' '+r.s.first_name_ar)}</b><br><small dir="ltr">${esc(r.s.code)}</small></td><td>${esc(r.s.class_id?clsName(cmap[r.s.class_id]):t('no_class'))}</td>
+    <td><b>${money(r.st.rest)}</b></td><td style="color:#b03a2e">${r.st.overdue>0?money(r.st.overdue):'—'}</td><td dir="ltr">${esc(r.s.guardian_phone||'')}</td>
+    <td style="white-space:nowrap"><button class="btn btn-t sm" data-fst="${r.s.id}">💰 ${t('f_open')}</button><button class="btn btn-t sm" data-rem="${r.s.id}">📋 ${t('f_remind')}</button></td></tr>`).join('')}
+  </tbody></table></div>`:`<div class="note">${t('no_debt')}</div>`}`}
+function bindSummary(){const el=document.getElementById('dtab');
+  document.getElementById('fCls').onchange=e=>{F.fcls=e.target.value;tabFees()};
+  const ff=document.getElementById('fFind');ff.oninput=()=>{const q=ff.value.trim().toLowerCase(),box=document.getElementById('fFound');
+    if(q.length<2){box.innerHTML='';return}
+    const res=D.students.filter(s=>[s.code,s.first_name_ar,s.last_name_ar,s.full_name_fr,s.guardian_phone].join(' ').toLowerCase().includes(q)).slice(0,8);
+    box.innerHTML=res.map(s=>`<span class="chip" data-fst="${s.id}" style="margin:3px">${esc(s.last_name_ar+' '+s.first_name_ar)} <small dir="ltr">${esc(s.code)}</small></span>`).join('')||`<span class="sub">${t('no_stu')}</span>`;
+    box.querySelectorAll('[data-fst]').forEach(b=>b.onclick=()=>openStudentFee(b.dataset.fst))};
+  el.querySelectorAll('[data-fst]').forEach(b=>b.onclick=()=>openStudentFee(b.dataset.fst));
+  el.querySelectorAll('[data-rem]').forEach(b=>b.onclick=async()=>{const s=D.students.find(x=>x.id===b.dataset.rem),st=statement(s);
+    const msg=t('rem_msg').replace('{s}',L==='ar'?D.i.name_ar:D.i.name_fr).replace('{n}',s.last_name_ar+' '+s.first_name_ar+(s.full_name_fr?' ('+s.full_name_fr+')':'')).replace('{r}',money(st.rest)).replace('{o}',money(Math.max(0,st.overdue))).replace('{p}',D.i.phone||'');
+    try{await navigator.clipboard.writeText(msg);b.textContent='✓ '+t('copied')}catch(e){prompt('',msg)}})}
+function openStudentFee(id){F.sid=id;F.view='stu';D.tab='fee';renderDash()}
+
+function feeStudent(){const s=D.students.find(x=>x.id===F.sid);if(!s)return '';const st=statement(s),c=D.classes.find(x=>x.id===s.class_id);
+  const items=st.items;
+  return `<div class="cert" style="margin-top:0"><div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px"><div><b style="font-size:18px">${esc(s.last_name_ar+' '+s.first_name_ar)}</b> <small dir="ltr">${esc(s.code)}</small><br><small>${esc(c?clsName(c):t('no_class'))}${st.pct?` — <span class="badge">${t('discount')} ${st.pct}% · ${t(DKIND[st.disc.kind])}</span>`:''}</small></div>
+    <button class="btn btn-t sm" data-fv="sum">← ${t('fv_sum')}</button></div>
+  <div class="stats"><div class="stat"><b>${money(st.due)}</b><span>${t('f_due')}</span></div><div class="stat"><b>${money(st.paid)}</b><span>${t('f_paid')}</span></div>
+    <div class="stat" style="${st.rest?'background:#fdecea':''}"><b>${money(st.rest)}</b><span>${t('f_rest')}</span></div>${st.credit?`<div class="stat"><b>${money(st.credit)}</b><span>${t('f_credit')}</span></div>`:''}</div>
+  ${items.length?`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('f_item')}</th><th>${t('f_due')}</th><th>${t('f_paid')}</th><th>${t('f_rest')}</th></tr></thead><tbody>
+  ${items.map(r=>{const late=r.it.due_date&&r.it.due_date<new Date().toISOString().slice(0,10)&&r.due>r.paid;return `<tr><td>${esc(itemName(r.it))}${r.it.due_date?`<br><small dir="ltr" style="${late?'color:#b03a2e':''}">${esc(r.it.due_date)}</small>`:''}</td><td>${money(r.due)}</td><td>${money(r.paid)}</td><td><b style="${r.due>r.paid?'color:#b03a2e':'color:var(--g2)'}">${r.due>r.paid?money(r.due-r.paid):'✓'}</b></td></tr>`}).join('')}</tbody></table></div>`:`<div class="note">${t('no_items_stu')}</div>`}</div>
+  <div class="cert"><b>${t('new_pay')}</b>
+    <div class="two" style="margin-top:10px"><div class="fld"><label>${t('f_amount')} (FCFA) <span class="r">*</span></label><input id="pAmt" type="number" min="1" dir="ltr" value="${st.rest||''}"></div>
+      <div class="fld"><label>${t('f_item')}</label><select id="pItem">${opts([['',t('gen_pay')]].concat(items.filter(r=>r.due>r.paid).map(r=>[r.it.id,itemName(r.it)+' — '+money(r.due-r.paid)])))}</select></div></div>
+    <div class="two"><div class="fld"><label>${t('f_method')}</label><select id="pMeth">${opts(Object.keys(METH).map(k=>[k,t(METH[k])]))}</select></div>
+      <div class="fld"><label>${t('f_ref')}</label><input id="pRef" dir="ltr" placeholder="${esc(t('f_ref_ph'))}"></div></div>
+    <div class="two"><div class="fld"><label>${t('e_date')}</label><input id="pDate" type="date" dir="ltr" value="${new Date().toISOString().slice(0,10)}"></div>
+      <div class="fld"><label>${t('f_note')}</label><input id="pNote"></div></div>
+    <button class="btn btn-g" id="pSave">${t('f_save_print')}</button><div class="err" id="pErr"></div></div>
+  <div class="cert"><b>${t('f_history')}</b>${st.pays.length||F.pays.some(p=>p.student_id===s.id)?`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('f_receipt')}</th><th>${t('e_date')}</th><th>${t('f_amount')}</th><th>${t('f_item')}</th><th></th></tr></thead><tbody>
+  ${F.pays.filter(p=>p.student_id===s.id).slice().reverse().map(p=>`<tr${p.cancelled?' class="left"':''}><td dir="ltr"><b>${esc(p.receipt_code)}</b></td><td dir="ltr">${esc(p.paid_on)}</td><td><b>${money(p.amount)}</b><br><small>${t(METH[p.method])}</small></td>
+    <td>${esc(itemName(F.items.find(i=>i.id===p.fee_item_id)))}${p.cancelled?`<br><span class="badge bad">${t('f_cancelled')}</span> <small>${esc(p.cancelled_reason||'')}</small>`:''}</td>
+    <td style="white-space:nowrap">${p.cancelled?'':`<button class="btn btn-t sm" data-prc="${p.id}">🖨</button><button class="btn btn-t sm red" data-can="${p.id}">${t('f_cancel')}</button>`}</td></tr>`).join('')}</tbody></table></div>`:`<p class="sub">${t('f_none')}</p>`}</div>`}
+function bindStudentFee(){const el=document.getElementById('dtab'),s=D.students.find(x=>x.id===F.sid);if(!s)return;
+  document.getElementById('pSave').onclick=async()=>{const er=document.getElementById('pErr'),amt=parseFloat(document.getElementById('pAmt').value);
+    if(!(amt>0)){er.textContent=t('f_bad_amt');return}er.textContent=t('wait');
+    const row={student_id:s.id,school_year:F.year,amount:amt,fee_item_id:document.getElementById('pItem').value||null,method:document.getElementById('pMeth').value,
+      reference:document.getElementById('pRef').value.trim()||null,paid_on:document.getElementById('pDate').value||null,note:document.getElementById('pNote').value.trim()||null};
+    const {data,error}=await sb.from('payments').insert(row).select().single();
+    if(error){er.textContent=t('e_net')+' '+error.message;return}
+    await loadFees(true);tabFees();if(data)printReceipt(data)};
+  el.querySelectorAll('[data-prc]').forEach(b=>b.onclick=()=>printReceipt(F.pays.find(p=>p.id===b.dataset.prc)));
+  el.querySelectorAll('[data-can]').forEach(b=>b.onclick=async()=>{const why=prompt(t('f_why'));if(why===null)return;
+    const {error}=await sb.from('payments').update({cancelled:true,cancelled_reason:why||null}).eq('id',b.dataset.can);
+    if(error){alert(error.message);return}await loadFees(true);tabFees()})}
+
+async function printReceipt(p){if(!p)return;const s=D.students.find(x=>x.id===p.student_id),i=D.i,c=D.classes.find(x=>x.id===s.class_id),st=statement(s);
+  await loadQR();let pa=document.getElementById('printArea');if(!pa){pa=document.createElement('div');pa.id='printArea';document.body.appendChild(pa)}
+  const url=location.origin+location.pathname+'?code='+p.receipt_code+'#verify';
+  const copy=lbl=>`<section class="bul rcp" dir="${L==='ar'?'rtl':'ltr'}"><header><img src="emblem.png" alt=""><div><h1>${esc(i.name_ar)}</h1><h2>${esc(i.name_fr)}</h2><small>${esc(i.city||'')} — ${esc(i.phone||'')}</small></div><small style="width:70px;text-align:center">${lbl}</small></header>
+    <h3>${t('f_receipt_t')} <span dir="ltr">${esc(p.receipt_code)}</span></h3>
+    <table class="info"><tr><td>${t('s_name')}</td><td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?` — <span dir="ltr">${esc(s.full_name_fr)}</span>`:''}</td><td>${t('s_code')}</td><td dir="ltr">${esc(s.code)}</td></tr>
+      <tr><td>${t('class')}</td><td>${esc(c?clsName(c):'')}</td><td>${t('e_date')}</td><td dir="ltr">${esc(p.paid_on)}</td></tr>
+      <tr><td>${t('f_item')}</td><td>${esc(itemName(F.items.find(x=>x.id===p.fee_item_id)))} — <span dir="ltr">${esc(p.school_year)}</span></td><td>${t('f_method')}</td><td>${t(METH[p.method])}${p.reference?` <small dir="ltr">${esc(p.reference)}</small>`:''}</td></tr></table>
+    <table class="tot"><tr><td>${t('f_amount')}</td><td style="font-size:18px"><b>${money(p.amount)}</b></td><td>${t('f_rest_after')}</td><td><b>${money(st.rest)}</b></td></tr></table>
+    <div class="sig" style="min-height:90px"><div>${t('f_cashier')}<br><small style="font-weight:400">${esc(D.p&&D.p.full_name||'')}</small></div><div>${t('sig_par')}</div>
+      <div class="qr"><div class="qrc" data-url="${esc(url)}"></div><small>${t('scan_verify')}</small></div></div></section>`;
+  pa.innerHTML=copy(t('copy_school'))+'<div class="cut">✂ - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</div>'+copy(t('copy_parent'));
+  if(window.QRCode)pa.querySelectorAll('.qrc').forEach(d=>new QRCode(d,{text:d.dataset.url,width:80,height:80}));
+  await Promise.all([...pa.querySelectorAll('img')].map(im=>im.complete?0:new Promise(r=>{im.onload=im.onerror=r})));
+  setTimeout(()=>window.print(),300)}
+
+function feeJournal(){const day=F.pays.filter(p=>p.paid_on===F.jdate);const ok=day.filter(p=>!p.cancelled);
+  const by={};ok.forEach(p=>by[p.method]=(by[p.method]||0)+(+p.amount));
+  return `<div class="toolbar"><label class="sub" style="align-self:center">${t('e_date')}</label><input id="jDate" type="date" dir="ltr" value="${F.jdate}" style="flex:0;width:170px"></div>
+  <div class="stats"><div class="stat"><b>${money(ok.reduce((a,p)=>a+(+p.amount),0))}</b><span>${t('j_total')} (${ok.length})</span></div>
+   ${Object.keys(by).map(k=>`<div class="stat"><b>${money(by[k])}</b><span>${t(METH[k])}</span></div>`).join('')}</div>
+  ${day.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('f_receipt')}</th><th>${t('s_name')}</th><th>${t('f_amount')}</th><th>${t('f_method')}</th><th>${t('f_item')}</th></tr></thead><tbody>
+  ${day.slice().reverse().map(p=>{const s=D.students.find(x=>x.id===p.student_id)||{};return `<tr${p.cancelled?' class="left"':''}><td dir="ltr"><b>${esc(p.receipt_code)}</b></td><td><a href="javascript:void 0" data-fst="${p.student_id}" style="color:var(--g2);font-weight:700">${esc((s.last_name_ar||'')+' '+(s.first_name_ar||''))}</a></td>
+   <td><b>${money(p.amount)}</b>${p.cancelled?` <span class="badge bad">${t('f_cancelled')}</span>`:''}</td><td>${t(METH[p.method])}</td><td>${esc(itemName(F.items.find(i=>i.id===p.fee_item_id)))}</td></tr>`}).join('')}</tbody></table></div>`:`<div class="note">${t('j_none')}</div>`}
+  <p class="sub" style="margin-top:12px">${t('j_help')}</p>`}
+function bindJournal(){document.getElementById('jDate').onchange=e=>{F.jdate=e.target.value;tabFees()};
+  document.querySelectorAll('#dtab [data-fst]').forEach(b=>b.onclick=()=>openStudentFee(b.dataset.fst))}
+
+function scopeName(it){const p=[];if(it.cycle)p.push(t(CYC[it.cycle]));if(it.level)p.push(lvlName(it.cycle,it.level));if(it.track)p.push(t(TRK[it.track]));return p.length?p.join(' · '):t('f_all')}
+function feeItems(){const cyc=D.i.cycles&&D.i.cycles.length?D.i.cycles:Object.keys(CYC),trk=D.i.tracks&&D.i.tracks.length?D.i.tracks:Object.keys(TRK);
+  const scope=`<div class="two"><div class="fld"><label>${t('cycle')}</label><select id="iCyc">${opts([['',t('f_all')]].concat(cyc.map(c=>[c,t(CYC[c])])))}</select></div>
+    <div class="fld"><label>${t('level')}</label><select id="iLvl"><option value="">${t('f_all')}</option></select></div></div>
+    <div class="fld"><label>${t('track1')}</label><select id="iTrk">${opts([['',t('f_all')]].concat(trk.map(x=>[x,t(TRK[x])])))}</select></div>`;
+  return `<div class="cert" style="margin-top:0"><b>${t('add_item')}</b>
+    <div class="two" style="margin-top:10px"><div class="fld"><label>${t('subj_ar').replace(/المادة|Matière/,t('f_item'))} <span class="r">*</span></label><input id="iAr" dir="rtl" placeholder="رسوم التسجيل"></div>
+      <div class="fld"><label>${t('subj_fr').replace(/المادة|Matière/,t('f_item'))}</label><input id="iFr" dir="ltr" placeholder="Frais d'inscription"></div></div>
+    <div class="two"><div class="fld"><label>${t('f_amount')} (FCFA) <span class="r">*</span></label><input id="iAmt" type="number" min="0" dir="ltr"></div>
+      <div class="fld"><label>${t('f_duedate')}</label><input id="iDue" type="date" dir="ltr"></div></div>
+    ${scope}
+    <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-g" id="iAdd">${t('add')}</button></div>
+    <details style="margin-top:12px"><summary style="cursor:pointer;font-weight:700;color:var(--g2)">📅 ${t('gen_months')}</summary>
+      <p class="sub">${t('gen_help')}</p>
+      <div class="two"><div class="fld"><label>${t('f_first_month')}</label><select id="mStart">${opts(MONTHS.map((m,k)=>[String(k),L==='ar'?m[0]:m[1]]),'1')}</select></div>
+        <div class="fld"><label>${t('f_n_months')}</label><input id="mN" type="number" min="1" max="12" value="9" dir="ltr"></div></div>
+      <div class="fld"><label>${t('f_due_day')}</label><input id="mDay" type="number" min="1" max="28" value="5" dir="ltr" style="width:90px"></div>
+      <button class="btn btn-l" id="mGen">${t('gen_btn')}</button></details>
+    <div class="err" id="iErr"></div></div>
+  ${F.items.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('f_item')}</th><th>${t('f_amount')}</th><th>${t('f_scope')}</th><th>${t('f_duedate')}</th><th></th></tr></thead><tbody>
+  ${F.items.map(it=>`<tr><td><b>${esc(it.name_ar)}</b>${it.name_fr?`<br><small dir="ltr">${esc(it.name_fr)}</small>`:''}</td><td><b>${money(it.amount)}</b></td><td>${esc(scopeName(it))}</td><td dir="ltr">${esc(it.due_date||'—')}</td>
+   <td><button class="btn btn-t sm red" data-deli="${it.id}">${t('del')}</button></td></tr>`).join('')}</tbody></table></div>
+   <p class="sub">${t('f_total_scope')}</p>`:''}`}
+function bindItems(){const el=document.getElementById('dtab'),cy=document.getElementById('iCyc'),lv=document.getElementById('iLvl'),er=document.getElementById('iErr');
+  cy.onchange=()=>{lv.innerHTML=opts([['',t('f_all')]].concat((LEVELS[cy.value]||[]).map(x=>[x[0],L==='ar'?x[1]:x[2]])))};
+  const scope=()=>({cycle:cy.value||null,level:lv.value||null,track:document.getElementById('iTrk').value||null,school_year:F.year});
+  document.getElementById('iAdd').onclick=async()=>{const ar=document.getElementById('iAr').value.trim(),amt=parseFloat(document.getElementById('iAmt').value);
+    if(!ar||!(amt>=0)){er.textContent=t('e_req');return}er.textContent=t('wait');
+    const {error}=await sb.from('fee_items').insert(Object.assign({name_ar:ar,name_fr:document.getElementById('iFr').value.trim()||null,amount:amt,due_date:document.getElementById('iDue').value||null,sort:F.items.length},scope()));
+    if(error){er.textContent=t('e_net')+' '+error.message;return}await loadFees(true);tabFees()};
+  document.getElementById('mGen').onclick=async()=>{const amt=parseFloat(document.getElementById('iAmt').value),n=Math.min(12,parseInt(document.getElementById('mN').value)||9),st=+document.getElementById('mStart').value,day=Math.min(28,parseInt(document.getElementById('mDay').value)||5);
+    if(!(amt>0)){er.textContent=t('gen_need_amt');return}
+    const y0=parseInt(F.year)||new Date().getFullYear(),rows=[];
+    for(let k=0;k<n;k++){const mi=(st+k)%12,cal=(mi+8)%12,yr=y0+((st+k)>=4?1:0);
+      rows.push(Object.assign({name_ar:'قسط '+MONTHS[mi][0],name_fr:'Mensualité '+MONTHS[mi][1],amount:amt,due_date:`${yr}-${String(cal+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`,sort:F.items.length+k+1},scope()))}
+    er.textContent=t('wait');const {error}=await sb.from('fee_items').insert(rows);if(error){er.textContent=t('e_net')+' '+error.message;return}await loadFees(true);tabFees()};
+  el.querySelectorAll('[data-deli]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_item')))return;
+    const {error}=await sb.from('fee_items').delete().eq('id',b.dataset.deli);if(error){alert(error.message);return}await loadFees(true);tabFees()})}
+
+function feeDiscounts(){const act=D.students.filter(s=>s.status==='active');
+  return `<div class="cert" style="margin-top:0"><b>${t('add_disc')}</b>
+    <div class="fld" style="margin-top:10px"><label>${t('tab_stu')}</label><select id="dStu">${opts([['','—']].concat(act.filter(s=>!F.disc.some(d=>d.student_id===s.id)).map(s=>[s.id,s.last_name_ar+' '+s.first_name_ar+' — '+s.code])))}</select></div>
+    <div class="two"><div class="fld"><label>${t('dk_type')}</label><select id="dKind">${opts(Object.keys(DKIND).map(k=>[k,t(DKIND[k])]))}</select></div>
+      <div class="fld"><label>${t('discount')} %</label><input id="dPct" type="number" min="1" max="100" dir="ltr" placeholder="50"></div></div>
+    <div class="fld"><label>${t('f_note')}</label><input id="dNote"></div>
+    <button class="btn btn-g" id="dAdd">${t('add')}</button><div class="err" id="dErr"></div><p class="sub">${t('disc_help')}</p></div>
+  ${F.disc.length?`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('s_name')}</th><th>${t('dk_type')}</th><th>%</th><th></th></tr></thead><tbody>
+  ${F.disc.map(d=>{const s=D.students.find(x=>x.id===d.student_id)||{};return `<tr><td><b>${esc((s.last_name_ar||'')+' '+(s.first_name_ar||''))}</b><br><small dir="ltr">${esc(s.code||'')}</small></td><td>${t(DKIND[d.kind])}${d.note?`<br><small>${esc(d.note)}</small>`:''}</td><td><b>${+d.percent}%</b></td>
+   <td><button class="btn btn-t sm red" data-deld="${d.id}">${t('del')}</button></td></tr>`}).join('')}</tbody></table></div>`:''}`}
+function bindDiscounts(){const el=document.getElementById('dtab');
+  document.getElementById('dAdd').onclick=async()=>{const er=document.getElementById('dErr'),sid=document.getElementById('dStu').value,pct=parseFloat(document.getElementById('dPct').value);
+    if(!sid||!(pct>0&&pct<=100)){er.textContent=t('e_req');return}er.textContent=t('wait');
+    const {error}=await sb.from('discounts').insert({student_id:sid,school_year:F.year,kind:document.getElementById('dKind').value,percent:pct,note:document.getElementById('dNote').value.trim()||null});
+    if(error){er.textContent=t('e_net')+' '+error.message;return}await loadFees(true);tabFees()};
+  el.querySelectorAll('[data-deld]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_disc')))return;
+    const {error}=await sb.from('discounts').delete().eq('id',b.dataset.deld);if(error){alert(error.message);return}await loadFees(true);tabFees()})}
 
 // registration wizard
 let step=1;const f=document.getElementById('regForm'),err=document.getElementById('err');

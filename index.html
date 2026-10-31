@@ -439,6 +439,12 @@ e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
 cm_r:"Recto (une face)",cm_rv:"Recto-verso (deux faces)",cm_help:"Recto-verso : imprimez en mode « Recto-verso / Impression sur les deux côtés — retourner sur le bord long ». Sans imprimante recto-verso : imprimez les pages impaires, remettez les feuilles dans le bac, puis imprimez les pages paires.",valid_year:"Valable pour l'année",card_rules:"Cette carte est personnelle et doit être présentée à l'entrée de l'établissement.",card_found:"En cas de perte, merci de la rapporter à l'école :",
 inactive_msg:"Lecture seule : l'abonnement de l'école est suspendu ou la période d'essai est terminée.",not_allowed:"Opération non autorisée.",has_grades:"Impossible : des notes existent pour cette classe ou matière. Supprimez d'abord les évaluations concernées.",net_down:"Pas de connexion Internet. Vérifiez votre réseau et réessayez.",v_revoked:"✗ Document annulé",v_revoked_d:"Ce document a été annulé par l'établissement et n'est plus valable.",ban_susp:"Le compte de l'école est suspendu.",ban_trial:"La période d'essai gratuite est terminée.",ban_help:"Vos données sont conservées et consultables, mais aucune modification n'est possible. Pour activer l'abonnement :",
+tab_plat:"🛡 Plateforme",vyear:"Année affichée",past_note:"Archives de l'année {y} : consultation et impression ; les fiches des élèves ne sont pas modifiables.",paid_until:"Abonnement jusqu'au",ban_paid:"L'abonnement annuel a expiré.",
+ro_ttl:"Passage à la nouvelle année",ro_help:"En fin d'année {a} : chaque élève passe en classe supérieure, redouble ou quitte l'établissement, et l'année {b} commence. Les notes et paiements de {a} restent consultables.",ro_btn:"Préparer le passage en",ro_calc:"(calcul des moyennes annuelles)",
+ro_how:"La décision proposée suit la moyenne annuelle (seuil des Paramètres DRENA). Modifiez-la élève par élève ou pour toute la classe.",ro_last:"Dernier niveau",ro_all:"Appliquer à toute la classe…",ro_prom:"Passe",ro_rep:"Redouble",ro_grad:"Fin de cycle",ro_left:"Quitte l'école",
+ro_nocls:"{n} élève(s) sans classe ne seront pas modifiés.",ro_warn:"Opération importante : téléchargez d'abord une sauvegarde.",ro_go:"Lancer le passage en",ro_sure:"Confirmer le passage en {y} ? L'année en cours deviendra {y}.",ro_badyear:"L'année a déjà été changée ; actualisez la page.",ro_done:"Année {y} commencée : {p} passent, {r} redoublent, {l} sortent. Pensez à mettre à jour les frais de {y}.",
+pl_schools:"Établissements",pl_act:"Actifs",pl_trial:"En essai",pl_stop:"Arrêtés",pl_soon:"Expirent sous 7 jours",pl_texp:"Essai terminé",pl_pexp:"Abonnement expiré",pl_susp:"Suspendus",pl_tend:"Fin d'essai",pl_nolimit:"Sans date limite",pl_last:"Dernière activité",pl_since:"Inscrit le",
+pl_year:"Activer 1 an",pl_days:"jours d'essai",pl_resume:"Réactiver",pl_suspend:"Suspendre",pl_empty:"vide = sans limite",pl_note:"Note privée",pl_none:"Aucun établissement.",pl_sure_susp:"Suspendre « {n} » ? L'école passera en lecture seule.",pl_sure_year:"Activer « {n} » jusqu'au {d} ?",all:"Tous",
 perms:"Autorisations supplémentaires",perm_fees:"💰 Comptabilité (frais et reçus)",perm_reg:"🗂 Secrétariat (inscriptions et documents)",perms_help:"Le membre du personnel les utilise après activation de son compte. L'enseignant garde ses classes en plus.",
 imp_btn:"Importer Excel",imp_ttl:"Importer des élèves depuis Excel",imp_s1:"Téléchargez le modèle et remplissez une ligne par élève (nom et prénom en arabe obligatoires).",imp_s2:"Pour la classe, copiez son nom depuis la feuille « Classes », ou choisissez une classe par défaut ci-dessous.",imp_s3:"Choisissez le fichier, vérifiez l'aperçu, puis confirmez. Les élèves déjà inscrits sont ignorés.",
 imp_tpl:"Télécharger le modèle",imp_pick:"Choisir le fichier",imp_def:"Classe par défaut (si vide dans le fichier)",imp_rows:"lignes",imp_ok:"prêts",imp_dup:"doublons",imp_bad:"à corriger",imp_exist:"Déjà inscrit",imp_twice:"Répété dans le fichier",
@@ -459,6 +465,12 @@ ar:{}};
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
 Object.assign(T.ar,{cm_r:"وجه واحد (Recto)",cm_rv:"وجهان (Recto-verso)",cm_help:"الوجهان: اختر في نافذة الطباعة «طباعة على الوجهين — القلب على الحافة الطويلة». وإن كانت الطابعة لا تطبع على الوجهين: اطبع الصفحات الفردية، ثم أعد الأوراق إلى الطابعة واطبع الصفحات الزوجية.",valid_year:"صالحة للسنة",card_rules:"هذه البطاقة شخصية، ويجب إظهارها عند الدخول إلى المدرسة.",card_found:"في حال العثور عليها يُرجى إعادتها إلى المدرسة:",
 inactive_msg:"قراءة فقط: اشتراك المدرسة موقوف أو انتهت الفترة التجريبية.",not_allowed:"عملية غير مسموح بها.",has_grades:"لا يمكن: توجد علامات لهذا الفصل أو هذه المادة. احذف التقييمات المعنية أولاً.",net_down:"لا يوجد اتصال بالإنترنت. تحقق من الشبكة وأعد المحاولة.",v_revoked:"✗ وثيقة ملغاة",v_revoked_d:"ألغت المؤسسة هذه الوثيقة، فلم تعد صالحة.",ban_susp:"حساب المدرسة موقوف.",ban_trial:"انتهت الفترة التجريبية المجانية.",ban_help:"بياناتكم محفوظة ويمكن الاطلاع عليها، لكن لا يمكن التعديل. لتفعيل الاشتراك:",
+tab_plat:"🛡 المنصة",vyear:"السنة المعروضة",past_note:"أرشيف سنة {y}: للاطلاع والطباعة فقط، ولا يمكن تعديل بيانات التلاميذ.",paid_until:"الاشتراك إلى غاية",ban_paid:"انتهى الاشتراك السنوي.",
+ro_ttl:"الانتقال إلى السنة الجديدة",ro_help:"في نهاية سنة {a}: ينتقل كل تلميذ إلى القسم الأعلى أو يعيد أو يغادر، وتبدأ سنة {b}. تبقى علامات {a} ودفعاتها محفوظة للاطلاع.",ro_btn:"تحضير الانتقال إلى",ro_calc:"(حساب المعدلات السنوية)",
+ro_how:"القرار المقترح حسب المعدل السنوي (عتبة النجاح في إعدادات DRENA). يمكنك تغييره لكل تلميذ أو للفصل كاملاً.",ro_last:"آخر مستوى",ro_all:"تطبيق على الفصل كله…",ro_prom:"ينتقل",ro_rep:"يعيد",ro_grad:"أنهى المرحلة",ro_left:"يغادر المدرسة",
+ro_nocls:"{n} تلميذ بلا فصل لن يتغيروا.",ro_warn:"عملية مهمة: نزّل نسخة احتياطية أولاً.",ro_go:"تنفيذ الانتقال إلى",ro_sure:"تأكيد الانتقال إلى {y}؟ ستصبح السنة الحالية {y}.",ro_badyear:"تم تغيير السنة من قبل؛ حدّث الصفحة.",ro_done:"بدأت سنة {y}: {p} انتقلوا، {r} يعيدون، {l} غادروا. لا تنس تحديث رسوم {y}.",
+pl_schools:"المدارس",pl_act:"مفعّلة",pl_trial:"في التجربة",pl_stop:"متوقفة",pl_soon:"تنتهي خلال 7 أيام",pl_texp:"انتهت التجربة",pl_pexp:"انتهى الاشتراك",pl_susp:"موقوفة",pl_tend:"نهاية التجربة",pl_nolimit:"دون تاريخ نهاية",pl_last:"آخر نشاط",pl_since:"سُجلت في",
+pl_year:"تفعيل سنة",pl_days:"يوماً تجربة",pl_resume:"إعادة التفعيل",pl_suspend:"إيقاف",pl_empty:"فارغ = دون حد",pl_note:"ملاحظة خاصة",pl_none:"لا توجد مدارس.",pl_sure_susp:"إيقاف «{n}»؟ ستصبح المدرسة للقراءة فقط.",pl_sure_year:"تفعيل «{n}» إلى غاية {d}؟",all:"الكل",
 perms:"صلاحيات إضافية",perm_fees:"💰 المحاسبة (الرسوم والوصولات)",perm_reg:"🗂 السكرتارية (التسجيل والوثائق)",perms_help:"يستعملها الموظف بعد تفعيل حسابه. والمعلم يحتفظ بفصوله إضافةً إليها.",
 imp_btn:"استيراد Excel",imp_ttl:"استيراد التلاميذ من ملف Excel",imp_s1:"حمّل النموذج واملأ سطراً لكل تلميذ (اللقب والاسم بالعربية إجباريان).",imp_s2:"في خانة الفصل انسخ اسمه من ورقة «Classes»، أو اختر فصلاً افتراضياً من الأسفل.",imp_s3:"اختر الملف وراجع المعاينة ثم أكّد. التلاميذ المسجلون من قبل يُتجاوزون تلقائياً.",
 imp_tpl:"تحميل النموذج",imp_pick:"اختيار الملف",imp_def:"الفصل الافتراضي (إن كانت الخانة فارغة)",imp_rows:"سطراً",imp_ok:"جاهز",imp_dup:"مكرر",imp_bad:"يحتاج تصحيحاً",imp_exist:"مسجل من قبل",imp_twice:"مكرر في الملف",
@@ -518,7 +530,9 @@ const clsName=c=>c?lvlName(c.cycle,c.level)+' – '+t(TRK[c.track]||'')+(c.secti
 const D={user:null,p:null,i:null,classes:[],students:[],subjects:[],staff:[],teaching:[],tab:'ov',edit:null,asg:null,q:'',fc:''};
 const canEdit=()=>D.p&&['admin','superadmin'].includes(D.p.role);
 const myStaff=()=>D.user&&D.staff.find(x=>x.user_id===D.user.id);
-const can=k=>{if(canEdit())return true;const m=myStaff();return !!(m&&m.status==='active'&&(m.perms||[]).includes(k))};
+const past=()=>!!(D.vy&&D.i&&D.vy!==D.i.current_year);
+const hasPerm=k=>{if(canEdit())return true;const m=myStaff();return !!(m&&m.status==='active'&&(m.perms||[]).includes(k))};
+const can=k=>!(k==='registry'&&past())&&hasPerm(k);
 const SF=()=>canEdit()?D.staff:(D.ostaff||D.staff),TC=()=>canEdit()?D.teaching:(D.oteach||D.teaching);
 const opts=(arr,sel)=>arr.map(([v,l])=>`<option value="${esc(v)}"${v===sel?' selected':''}>${esc(l)}</option>`).join('');
 
@@ -536,34 +550,45 @@ async function loadDash(){const box=document.getElementById('dashBox');
     document.getElementById('clGo').onclick=async()=>{const er=document.getElementById('clErr');er.textContent=t('wait');const {error}=await sb.rpc('claim_invite',{p_code:document.getElementById('clCode').value});
       if(error){er.textContent=/INVALID_INVITE/.test(error.message)?t('bad_invite'):/HAS_SCHOOL/.test(error.message)?t('not_allowed'):em(error);return}loadDash()};return}
   await reloadData();renderDash()}
+function yearsList(){return [...new Set((D.allClasses||[]).map(c=>c.school_year).concat([D.i&&D.i.current_year||'2026-2027']))].sort().reverse()}
+function applyYear(){const cur=(D.i&&D.i.current_year)||'2026-2027';if(D.vy&&!yearsList().includes(D.vy))D.vy=null;const y=D.vy||cur;
+  const all=D.allClasses||[];D.classes=all.filter(c=>c.school_year===y);if(!D.classes.length&&y===cur&&!all.some(c=>c.school_year>cur))D.classes=all.filter(c=>c.school_year<=cur);
+  if(y===cur)D.students=D.allStudents||[];
+  else{const em2={};(D.enr||[]).filter(e=>e.school_year===y).forEach(e=>em2[e.student_id]=e);
+    D.students=(D.allStudents||[]).filter(s=>em2[s.id]).map(s=>({...s,class_id:em2[s.id].class_id,status:'active',is_repeater:em2[s.id].was_repeater,_dec:em2[s.id].decision,_avg:em2[s.id].average}))}}
 async function reloadData(){
-  const iid=D.i&&D.i.id;if(!iid){D.classes=[];D.students=[];D.subjects=[];D.staff=[];D.teaching=[];return}
+  const iid=D.i&&D.i.id;if(!iid){D.classes=[];D.students=[];D.allClasses=[];D.allStudents=[];D.subjects=[];D.staff=[];D.teaching=[];return}
   const q=tb=>sb.from(tb).select('*').eq('institution_id',iid);
   const [c,s,j,f,tc]=await Promise.all([q('classes').order('created_at'),q('students').order('seq'),q('subjects').order('created_at'),q('staff').order('created_at'),q('teaching').order('created_at')]);
-  D.classes=c.data||[];D.students=s.data||[];D.subjects=j.data||[];D.staff=f.data||[];D.teaching=tc.data||[];
+  D.allClasses=c.data||[];D.allStudents=s.data||[];D.subjects=j.data||[];D.staff=f.data||[];D.teaching=tc.data||[];
+  try{const r=await q('enrollments');D.enr=r.error?[]:(r.data||[])}catch(e){D.enr=[]}applyYear();
   D.ostaff=null;D.oteach=null;if(!canEdit()&&can('registry')){const r=await sb.rpc('office_staff');if(!r.error&&r.data){D.ostaff=r.data.staff||[];D.oteach=r.data.teaching||[]}}
   await signPaths(D.students.map(x=>x.photo_path).concat(D.staff.map(x=>x.photo_path),[D.i.logo_path,D.i.signature_path,D.i.stamp_path]));
   const ord={mat:0,pri:1,col:2,lyc:3,uni:4};
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section))}
 
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
-  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd']].concat(can('registry')?[['rep','tab_rep'],['doc','tab_doc']]:[]).concat(can('fees')?[['fee','tab_fee']]:[]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set']]:[]);
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set']]:[]);if(p&&p.role==='superadmin')tabs.splice(1,0,['plat','tab_plat']);
+  const yl=yearsList();
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
     <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
     <h2 style="display:flex;align-items:center;gap:8px">${i?`<img src="${esc(schoolLogo())}" class="dlogo" alt="">`+esc(L==='ar'?i.name_ar:i.name_fr):''}</h2></div>
     <div style="display:flex;gap:6px"><button class="btn btn-t" id="chpw" title="${t('ch_pw')}">🔑</button><button class="btn btn-l" id="logout">${t('d_logout')}</button></div></div>
   <div id="pwBox" class="cert" style="display:none"><b>${t('ch_pw')}</b><div class="two" style="margin-top:8px"><input id="cp1" type="password" dir="ltr" placeholder="${t('pw')}"><input id="cp2" type="password" dir="ltr" placeholder="${t('pw2')}"></div>
     <button class="btn btn-g sm" id="cpGo" style="margin-top:8px">${t('save')}</button><span class="err" id="cpErr" style="margin-inline-start:8px"></span></div>
-  ${i&&(i.status==='suspended'||(i.status==='trial'&&i.trial_end<new Date().toISOString().slice(0,10)))?`<div class="note" style="background:#fdecea;border-color:#f3c1bb;color:#b03a2e;margin-top:12px">⛔ <b>${t(i.status==='suspended'?'ban_susp':'ban_trial')}</b><br>${t('ban_help')} <b dir="ltr">07 47 42 34 04</b> — konemamoud@gmail.com</div>`:''}
+  ${i&&(i.status==='suspended'||(i.status==='trial'&&i.trial_end<new Date().toISOString().slice(0,10))||(i.status==='active'&&i.paid_until&&i.paid_until<new Date().toISOString().slice(0,10)))?`<div class="note" style="background:#fdecea;border-color:#f3c1bb;color:#b03a2e;margin-top:12px">⛔ <b>${t(i.status==='suspended'?'ban_susp':i.status==='active'?'ban_paid':'ban_trial')}</b><br>${t('ban_help')} <b dir="ltr">07 47 42 34 04</b> — konemamoud@gmail.com</div>`:''}
   <div class="tabs" style="margin-top:14px">${tabs.map(([k,l])=>`<div class="tab${D.tab===k?' on':''}" data-dt="${k}">${t(l)}</div>`).join('')}</div>
+  ${yl.length>1&&D.tab!=='plat'?`<div class="toolbar" style="margin:8px 0 0;align-items:center"><span class="sub">📅 ${t('vyear')}</span><select id="vYear" dir="ltr" style="width:140px;flex:0">${opts(yl.map(y=>[y,y+(y===(i&&i.current_year)?' ✓':'')]),curYear())}</select></div>`:''}
+  ${past()&&D.tab!=='plat'?`<div class="note" style="background:#fff4e0;border-color:#f3d9a8;color:#7a4a00">🗄 ${t('past_note').replace('{y}',curYear())}</div>`:''}
   <div id="dtab"></div>`;
+  {const vy=document.getElementById('vYear');if(vy)vy.onchange=()=>{D.vy=vy.value===(D.i&&D.i.current_year)?null:vy.value;D.fc='';D.edit=null;G.cls=null;G.loadedFor=null;A.cls=null;applyYear();renderDash()}}
   box.querySelectorAll('[data-dt]').forEach(e=>e.onclick=()=>{stopScan();D.tab=e.dataset.dt;D.edit=null;D.asg=null;if(F.view==='stu')F.view='sum';renderDash()});
   document.getElementById('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'};
   document.getElementById('chpw').onclick=()=>{const b2=document.getElementById('pwBox');b2.style.display=b2.style.display==='none'?'':'none'};
   document.getElementById('cpGo').onclick=async()=>{const er=document.getElementById('cpErr'),a=document.getElementById('cp1').value;er.style.color='';
     if(a.length<8||a!==document.getElementById('cp2').value){er.textContent=t('e_pw');return}er.textContent=t('wait');const {error}=await sb.auth.updateUser({password:a});
     if(error){er.textContent=em(error);return}er.style.color='var(--g2)';er.textContent=t('np_ok')};
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs}[D.tab]||tabOverview)()}
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform}[D.tab]||tabOverview)()}
 
 function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -571,7 +596,7 @@ function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.
   const lab=(arr,map)=>(arr||[]).map(x=>`<span class="badge" style="margin:2px">${t(map[x])||esc(x)}</span>`).join(' ');
   el.innerHTML=`<div class="two">
     <div class="fc"><small class="sub">${t('d_code')}</small><div class="code" style="font-size:18px">${esc(i.code)}</div></div>
-    <div class="fc" style="border-top-color:var(--o)"><small class="sub">${t('d_status')}</small><h3><span class="badge ${i.status==='suspended'?'bad':''}">${t('s_'+i.status)}</span></h3>${i.status==='trial'?`<b>${left}</b> ${t('d_left')}`:''}</div></div>
+    <div class="fc" style="border-top-color:var(--o)"><small class="sub">${t('d_status')}</small><h3><span class="badge ${i.status==='suspended'?'bad':''}">${t('s_'+i.status)}</span></h3>${i.status==='trial'?`<b>${left}</b> ${t('d_left')}`:''}${i.status==='active'&&i.paid_until?`${t('paid_until')} <b dir="ltr">${esc(i.paid_until)}</b>`:''}</div></div>
   <div class="stats">
     <div class="stat"><b>${D.classes.length}</b><span>${t('tab_cls')}</span></div>
     <div class="stat"><b>${act.length}</b><span>${t('tab_stu')}</span></div>
@@ -583,20 +608,23 @@ function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.
     <tr><td>${t('phone')}</td><td dir="ltr" style="text-align:start">${esc(i.phone||'')}</td></tr></table></div>`+myTeaching()}
 
 function tabClasses(){const el=document.getElementById('dtab'),i=D.i||{};
+  if(D.roll){el.innerHTML=rollPanel();bindRoll();return}
   const cyc=(i.cycles&&i.cycles.length?i.cycles:Object.keys(LEVELS)),trk=(i.tracks&&i.tracks.length?i.tracks:Object.keys(TRK));
   const cnt=id=>D.students.filter(s=>s.class_id===id&&s.status==='active').length;
-  el.innerHTML=(canEdit()?`<div class="cert" style="margin-top:0"><b>${t('add_cls')}</b>
+  el.innerHTML=(canEdit()&&!past()?`<div class="cert" style="margin-top:0"><b>${t('add_cls')}</b>
     <div class="two" style="margin-top:10px"><div class="fld"><label>${t('cycle')}</label><select id="cCyc">${opts(cyc.map(c=>[c,t(CYC[c])]))}</select></div>
       <div class="fld"><label>${t('level')}</label><select id="cLvl"></select></div></div>
     <div class="two"><div class="fld"><label>${t('track1')}</label><select id="cTrk">${opts(trk.map(x=>[x,t(TRK[x])]))}</select></div>
       <div class="fld"><label>${t('section')}</label><input id="cSec" list="dl_sec" maxlength="10"></div></div>
-    <div class="two"><div class="fld"><label>${t('year')}</label><select id="cYear" dir="ltr">${opts(YEARS.map(y=>[y,y]),(D.i&&D.i.current_year)||'2026-2027')}</select></div>
+    <div class="two"><div class="fld"><label>${t('year')}</label><select id="cYear" dir="ltr">${opts(YEARS.map(y=>[y,y]),curYear())}</select></div>
       <div class="fld"><label>${t('capacity')}</label><input id="cCap" type="number" min="0" list="dl_cap"></div></div>
     <button class="btn btn-g" id="cAdd">${t('add')}</button><div class="err" id="cErr"></div></div>`:'')+
   (D.classes.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('class')}</th><th>${t('year')}</th><th>${t('tab_stu')}</th>${canEdit()?'<th></th>':''}</tr></thead><tbody>
-    ${D.classes.map(c=>`<tr><td><b>${esc(clsName(c))}</b></td><td dir="ltr">${esc(c.school_year)}</td><td>${cnt(c.id)}${c.capacity?' / '+c.capacity:''}</td>${canEdit()?`<td><button class="btn btn-t sm" data-goc="${c.id}">${t('tab_stu')}</button><button class="btn btn-t sm red" data-delc="${c.id}">${t('del')}</button></td>`:''}</tr>`).join('')}
-  </tbody></table></div>`:`<div class="note">${t('no_cls')}</div>`);
-  if(canEdit()){const cy=document.getElementById('cCyc'),lv=document.getElementById('cLvl');
+    ${D.classes.map(c=>`<tr><td><b>${esc(clsName(c))}</b></td><td dir="ltr">${esc(c.school_year)}</td><td>${cnt(c.id)}${c.capacity?' / '+c.capacity:''}</td>${canEdit()?`<td><button class="btn btn-t sm" data-goc="${c.id}">${t('tab_stu')}</button>${past()?'':`<button class="btn btn-t sm red" data-delc="${c.id}">${t('del')}</button>`}</td>`:''}</tr>`).join('')}
+  </tbody></table></div>`:`<div class="note">${t('no_cls')}</div>`)+
+  (canEdit()&&!past()&&D.classes.length?`<div class="cert"><b>🎓 ${t('ro_ttl')}</b><p class="sub" style="margin:4px 0 8px">${t('ro_help').replace('{a}',curYear()).replace('{b}',nextYear(curYear()))}</p><button class="btn btn-o" id="roOpen">🎓 ${t('ro_btn')} ${nextYear(curYear())}</button></div>`:'');
+  {const ro=document.getElementById('roOpen');if(ro)ro.onclick=openRoll}
+  if(canEdit()&&!past()){const cy=document.getElementById('cCyc'),lv=document.getElementById('cLvl');
     const fill=()=>{lv.innerHTML=opts((LEVELS[cy.value]||[]).map(x=>[x[0],L==='ar'?x[1]:x[2]]))};cy.onchange=fill;fill();
     document.getElementById('cAdd').onclick=async()=>{const er=document.getElementById('cErr');er.textContent=t('wait');
       const row={cycle:cy.value,level:lv.value,track:document.getElementById('cTrk').value,section:document.getElementById('cSec').value.trim(),
@@ -652,7 +680,7 @@ function tabStudents(){const el=document.getElementById('dtab');
   ${list.map(s=>`<tr${s.status==='left'?' class="left"':''}><td dir="ltr" style="white-space:nowrap"><b>${esc(s.code)}</b></td>
     <td><div class="nm">${thumb(s.photo_path,s.first_name_ar)}<div><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}</div></div>${s.status==='left'?` <span class="badge bad">${t('st_left')}</span>`:''}</td>
     <td>${esc(s.class_id?clsName(cmap[s.class_id]):t('no_class'))}</td><td dir="ltr">${esc(s.guardian_phone||'')}</td>
-    ${can('registry')||can('fees')?`<td style="white-space:nowrap">${can('fees')?`<button class="btn btn-t sm" data-fee="${s.id}" title="${t('tab_fee')}">💰</button>`:''}${can('registry')?`<button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button>`:''}${canEdit()?`<button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button>`:''}</td>`:''}</tr>`).join('')}
+    ${can('registry')||can('fees')?`<td style="white-space:nowrap">${can('fees')?`<button class="btn btn-t sm" data-fee="${s.id}" title="${t('tab_fee')}">💰</button>`:''}${can('registry')?`<button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button>`:''}${canEdit()&&!past()?`<button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button>`:''}</td>`:''}</tr>`).join('')}
   </tbody></table></div>`:`<div class="note">${t('no_stu')}</div>`}`;
   const sq=document.getElementById('sQ');sq.oninput=()=>{D.q=sq.value;const pos=sq.selectionStart;tabStudents();const n=document.getElementById('sQ');n.focus();n.setSelectionRange(pos,pos)};
   document.getElementById('sFc').onchange=e=>{D.fc=e.target.value;tabStudents()};
@@ -991,7 +1019,8 @@ function bindCityPicker(prefix,onChange){const sel=document.getElementById(prefi
 
 const FN_MAP={"محمد": "Mohamed", "محمود": "Mamoud", "أحمد": "Ahmed", "إبراهيم": "Ibrahim", "عبد الله": "Abdoulaye", "عبد الرحمن": "Abdourahamane", "عبد القادر": "Abdoulkader", "أبو بكر": "Aboubacar", "عمر": "Oumar", "عثمان": "Ousmane", "علي": "Ali", "حسن": "Hassane", "حسين": "Housseini", "يوسف": "Youssouf", "موسى": "Moussa", "عيسى": "Issa", "إسماعيل": "Ismaël", "إدريس": "Idrissa", "سليمان": "Souleymane", "يعقوب": "Yacouba", "آدم": "Adama", "شيخ": "Cheick", "سعيد": "Saïd", "صلاح الدين": "Salahoudine", "ياسين": "Yacine", "زكريا": "Zakaria", "بكاري": "Bakary", "لاسينا": "Lassina", "مامادو": "Mamadou", "سيدو": "Seydou", "فاطمة": "Fatoumata", "عائشة": "Aïcha", "آمنة": "Aminata", "مريم": "Mariam", "خديجة": "Kadiatou", "زينب": "Zénab", "حواء": "Awa", "صفية": "Safiatou", "رقية": "Rokia", "أم كلثوم": "Oumou", "حليمة": "Halimata", "آسيا": "Assiata", "سلمى": "Salimata", "ماسيتا": "Massita", "نافيسة": "Nafissatou", "هاجر": "Hadja", "ميمونة": "Maïmouna", "جنابو": "Djénéba"};
 const LN_MAP={"كوني": "KONE", "واتارا": "OUATTARA", "توري": "TOURE", "سيسي": "CISSE", "كوليبالي": "COULIBALY", "تراوري": "TRAORE", "ديابي": "DIABY", "دياباتي": "DIABATE", "دمبيلي": "DEMBELE", "سانوغو": "SANOGO", "بامبا": "BAMBA", "فوفانا": "FOFANA", "دياكيتي": "DIAKITE", "كمارا": "CAMARA", "سيلا": "SYLLA", "سيديبي": "SIDIBE", "كوناتي": "KONATE", "ديارا": "DIARRA", "كيتا": "KEITA", "سوماهورو": "SOUMAHORO", "دوكوري": "DOUKOURE", "دومبيا": "DOUMBIA", "فاديغا": "FADIGA", "واغي": "WAGUE", "ديالو": "DIALLO", "باري": "BARRY", "سو": "SOW", "سماكي": "SAMAKE", "كانتي": "KANTE", "دياوارا": "DIAWARA", "سوماري": "SOUMARE", "كاباجي": "KABADJI", "غيندو": "GUINDO", "تيندو": "TINDO"};
-const YEARS=["2025-2026", "2026-2027", "2027-2028", "2028-2029"];
+const YEARS=(()=>{const y=new Date().getFullYear(),o=[];for(let a=2024;a<=y+2;a++)o.push(a+'-'+(a+1));return o})();
+const nextYear=y=>{const a=parseInt(y)+1;return a+'-'+(a+1)};
 const FEE_PRESETS=[['رسوم التسجيل',"Frais d'inscription"],['رسوم إعادة التسجيل','Frais de réinscription'],['الرسوم الدراسية السنوية','Scolarité annuelle'],['القسط الشهري','Mensualité',1],['الزي المدرسي','Tenue scolaire'],['الكتب المدرسية','Manuels scolaires'],['الأدوات واللوازم','Fournitures scolaires'],['النقل المدرسي','Transport scolaire'],['المطعم المدرسي','Cantine'],['التأمين المدرسي','Assurance scolaire'],['بطاقة التلميذ','Carte scolaire'],['الأنشطة والرحلات','Activités et sorties'],['رسوم الامتحانات','Frais d\'examen'],['رسوم الشهادة','Frais de diplôme'],['رسوم تحفيظ القرآن','Frais de Tahfîdh'],['الحفلة / الختمة','Fête de fin d\'année / Khatm']];
 const MONTHS=[['سبتمبر','Septembre'],['أكتوبر','Octobre'],['نوفمبر','Novembre'],['ديسمبر','Décembre'],['يناير','Janvier'],['فبراير','Février'],['مارس','Mars'],['أبريل','Avril'],['مايو','Mai'],['يونيو','Juin'],['يوليو','Juillet'],['أغسطس','Août']];
 const money=n=>'\u2066'+(Math.round(n||0)).toLocaleString('fr-FR').replace(/[\u202f\u00a0]/g,' ')+' F\u2069';
@@ -1461,7 +1490,7 @@ const clsFr=c=>c?lvlRow(c)[2]+(c.section?' '+c.section:''):'';
 const clsAr=c=>c?lvlRow(c)[1]+(c.section?' ('+c.section+')':''):'';
 const nameFr=s=>s.full_name_fr||'';
 const fem=s=>s.gender==='F';
-const curYear=()=>(D.i&&D.i.current_year)||'2026-2027';
+const curYear=()=>D.vy||(D.i&&D.i.current_year)||'2026-2027';
 function officialHead(titleFr,titleAr){const i=D.i,ci=(i.country||'CI')==='CI';
   return `<div class="ofh"><div class="ofl">${ci?`<b>RÉPUBLIQUE DE CÔTE D'IVOIRE</b><small>Union – Discipline – Travail</small><i class="ofsep"></i>`:''}
     ${ci||i.ministry?`<b class="ofmin">${esc(i.ministry||"MINISTÈRE DE L'ÉDUCATION NATIONALE, DE L'ALPHABÉTISATION ET DE L'ENSEIGNEMENT TECHNIQUE")}</b>`:''}${i.drena?`<span>${esc(i.drena)}</span>`:''}${i.iep?`<span>IEP : ${esc(i.iep)}</span>`:''}</div>
@@ -1647,6 +1676,92 @@ async function sheetOf(k){const head=[[D.i.ministry||''],[D.i.drena||''],[D.i.na
   if(k==='res'){const R=await yearResults(),A=resAgg(R);
     return ['Résultats',head.concat([['Niveau','المستوى','Inscrits','Évalués','Admis G','Admis F','Non admis','Taux %']],A.map(o=>[o.g.fr,o.g.ar,o.ins,o.ev,o.adG,o.adF,o.ko,o.ev?Math.round((o.adG+o.adF)/o.ev*1000)/10:'']),[[]],
       R.flatMap(x=>[[clsFr(x.c)+' — '+clsAr(x.c)],['N°','Nom','الاسم','Moyenne /'+x.scale,'Décision']].concat(x.st.map((r,n)=>[n+1,nameFr(r.s),sName(r.s),r.avg==null?'':Math.round(r.avg*100)/100,r.avg==null?'Non évalué':r.ok?'Admis':'Redouble']),[[]])))]}}
+
+// ===== year rollover =====
+function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
+  const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}
+async function openRoll(){D.roll={wait:1};tabClasses();let R=[];try{R=await yearResults()}catch(e){}
+  const avg={};R.forEach(x=>x.st.forEach(r=>{if(r.avg!=null)avg[r.s.id]={avg:r.avg,ok:r.ok,scale:x.scale}}));
+  const dec={};sortedClasses().forEach(c=>{const nl=nextLevel(c);classStuds(c).forEach(s=>{const a=avg[s.id];dec[s.id]=a&&!a.ok?'repeat':nl?'promoted':'graduated'})});
+  D.roll={to:nextYear(curYear()),avg,dec};tabClasses()}
+const RO_LBL={promoted:'ro_prom',repeat:'ro_rep',graduated:'ro_grad',left:'ro_left'};
+function rollPanel(){const R=D.roll;if(R.wait)return `<div class="note">${t('wait')} ${t('ro_calc')}</div>`;
+  const cls=sortedClasses(),cnt={promoted:0,repeat:0,graduated:0,left:0};Object.values(R.dec).forEach(d=>cnt[d]++);
+  const noCls=D.students.filter(s=>s.status==='active'&&!cls.some(c=>c.id===s.class_id)).length;
+  return `<div class="cert" style="margin-top:0"><b>🎓 ${t('ro_ttl')}: <span dir="ltr">${esc(curYear())} → ${esc(R.to)}</span></b>
+  <p class="sub">${t('ro_how')}</p>
+  ${cls.map(c=>{const nl=nextLevel(c),st=classStuds(c);if(!st.length)return '';const tgt=nl?clsName({...c,...nl}):'';
+    return `<div style="margin-top:14px;border-top:1px solid var(--line);padding-top:10px"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><b>${esc(clsName(c))} <small class="sub">(${st.length})</small></b>
+      <span class="sub">${nl?'→ '+esc(tgt):t('ro_last')}</span><select data-rall="${c.id}" style="width:auto;flex:0"><option value="">${t('ro_all')}</option>${opts(Object.keys(RO_LBL).filter(k=>k!=='promoted'||nl).map(k=>[k,t(RO_LBL[k])]))}</select></div>
+    <div class="tblw"><table class="tbl" style="min-width:0"><tbody>${st.map(s=>{const a=R.avg[s.id];return `<tr><td>${esc(sName(s))}</td><td dir="ltr" style="white-space:nowrap">${a?(Math.round(a.avg*100)/100)+' / '+a.scale:'—'}</td>
+      <td><select data-rd="${s.id}" style="min-width:130px">${opts(Object.keys(RO_LBL).filter(k=>k!=='promoted'||nl).map(k=>[k,t(RO_LBL[k])]),R.dec[s.id])}</select></td></tr>`}).join('')}</tbody></table></div></div>`}).join('')}
+  ${noCls?`<div class="note">${t('ro_nocls').replace('{n}',noCls)}</div>`:''}
+  <div class="note" style="background:#fff4e0;border-color:#f3d9a8;color:#7a4a00">✓ ${cnt.promoted} ${t('ro_prom')} · ↻ ${cnt.repeat} ${t('ro_rep')} · 🎓 ${cnt.graduated} ${t('ro_grad')} · ✗ ${cnt.left} ${t('ro_left')}<br>${t('ro_warn')}</div>
+  <div class="acts" style="justify-content:flex-start;flex-wrap:wrap"><button class="btn btn-l" onclick="doBackup(this)">💾 ${t('bk_btn')}</button><button class="btn btn-g" id="roGo">🎓 ${t('ro_go')} ${esc(R.to)}</button><button class="btn btn-t" id="roClose">${t('cancel')}</button></div>
+  <div class="err" id="bkErr"></div><div class="err" id="roErr"></div></div>`}
+function bindRoll(){if(D.roll.wait)return;const el=document.getElementById('dtab');
+  document.getElementById('roClose').onclick=()=>{D.roll=null;tabClasses()};
+  el.querySelectorAll('[data-rd]').forEach(x=>x.onchange=()=>{D.roll.dec[x.dataset.rd]=x.value;const y=window.scrollY;tabClasses();window.scrollTo(0,y)});
+  el.querySelectorAll('[data-rall]').forEach(x=>x.onchange=()=>{if(!x.value)return;const c=D.classes.find(k=>k.id===x.dataset.rall);classStuds(c).forEach(s=>D.roll.dec[s.id]=x.value);const y=window.scrollY;tabClasses();window.scrollTo(0,y)});
+  document.getElementById('roGo').onclick=async()=>{const R=D.roll,er=document.getElementById('roErr');
+    if(!confirm(t('ro_sure').replaceAll('{y}',R.to)))return;
+    const moves=[];sortedClasses().forEach(c=>{const nl=nextLevel(c);classStuds(c).forEach(s=>{const d=R.dec[s.id];if(!d)return;const a=R.avg[s.id],m={s:s.id,d,avg:a?Math.round(a.avg*100)/100:null};
+      if(d==='promoted'&&nl)Object.assign(m,{cy:nl.cycle,lv:nl.level,tr:c.track,sec:c.section});if(d==='repeat')Object.assign(m,{cy:c.cycle,lv:c.level,tr:c.track,sec:c.section});moves.push(m)})});
+    er.textContent=t('wait');const {data,error}=await sb.rpc('rollover_year',{p_from:curYear(),p_to:R.to,p_moves:moves});
+    if(error){er.textContent=/BAD_YEAR/.test(error.message)?t('ro_badyear'):em(error);return}
+    D.roll=null;D.vy=null;F.year=R.to;await loadDash();
+    alert('✓ '+t('ro_done').replaceAll('{y}',R.to).replace('{p}',data.promoted).replace('{r}',data.repeat).replace('{l}',data.left))}}
+
+// ===== platform (superadmin) =====
+const P={q:'',f:'',open:null};
+async function tabPlatform(){const el=document.getElementById('dtab');el.innerHTML=t('wait');
+  const {data,error}=await sb.rpc('platform_list');if(error){el.innerHTML=`<div class="err">${esc(em(error))}</div>`;return}
+  P.list=data||[];renderPlatform()}
+function platState(x){const td=new Date().toISOString().slice(0,10);
+  if(x.status==='suspended')return ['susp','bad'];if(x.status==='trial')return x.trial_end>=td?['trial','']:['texp','bad'];
+  return x.paid_until&&x.paid_until<td?['pexp','bad']:['act','']}
+const addDays=(d,n)=>{const td=new Date().toISOString().slice(0,10),b=new Date((d&&d>td?d:td)+'T00:00:00Z');b.setUTCDate(b.getUTCDate()+n);return b.toISOString().slice(0,10)};
+const waNum=p=>{let d=String(p||'').replace(/\D/g,'');if(d.length===10&&d[0]==='0')d='225'+d;return d};
+function renderPlatform(){const el=document.getElementById('dtab'),L2=P.list,q=nz(P.q);
+  const st=L2.map(x=>platState(x)[0]),c=k=>st.filter(v=>v===k).length,td=new Date().toISOString().slice(0,10);
+  const soon=x=>{const e=x.status==='trial'?x.trial_end:x.paid_until;return e&&e>=td&&(new Date(e)-new Date(td))/864e5<=7};
+  const list=L2.filter(x=>(!q||nz([x.code,x.name_ar,x.name_fr,x.city,x.admin&&x.admin.name,x.admin&&x.admin.phone,x.admin&&x.admin.email].join(' ')).includes(q))&&(!P.f||(P.f==='soon'?soon(x):platState(x)[0]===P.f)));
+  el.innerHTML=`<div class="stats" style="margin-top:0"><div class="stat"><b>${L2.length}</b><span>${t('pl_schools')}</span></div><div class="stat"><b>${c('act')}</b><span>${t('pl_act')}</span></div>
+    <div class="stat"><b>${c('trial')}</b><span>${t('pl_trial')}</span></div><div class="stat"><b>${c('texp')+c('pexp')+c('susp')}</b><span>${t('pl_stop')}</span></div>
+    <div class="stat"><b>${L2.reduce((a,x)=>a+Number(x.n_students||0),0)}</b><span>${t('tab_stu')}</span></div></div>
+  <div class="toolbar"><input id="plQ" placeholder="${t('search')}" value="${esc(P.q)}"><select id="plF" style="flex:0;width:auto">${opts([['',t('all')],['soon',t('pl_soon')],['act',t('pl_act')],['trial',t('pl_trial')],['texp',t('pl_texp')],['pexp',t('pl_pexp')],['susp',t('pl_susp')]],P.f)}</select></div>
+  ${list.map(x=>{const [k,b]=platState(x),a=x.admin||{};return `<div class="cert"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:flex-start">
+    <div><b>${esc(x.name_ar)}</b><br><small dir="ltr">${esc(x.name_fr)}</small><br><span class="code" style="font-size:13px;padding:2px 8px">${esc(x.code)}</span> <small class="sub">${esc(x.city||'')}</small></div>
+    <div style="text-align:end"><span class="badge ${b}">${t('pl_'+k)}</span>${soon(x)?' <span class="badge" style="background:#fff4e0;color:#a35c00">⏳</span>':''}<br><small class="sub">${x.status==='trial'?t('pl_tend')+' <b dir="ltr">'+esc(x.trial_end)+'</b>':x.paid_until?t('paid_until')+' <b dir="ltr">'+esc(x.paid_until)+'</b>':x.status==='active'?t('pl_nolimit'):''}</small></div></div>
+    <p class="sub" style="margin:8px 0">👨‍🎓 ${x.n_students} · 👨‍🏫 ${x.n_staff} · 🏫 ${x.n_classes} · ${t('pl_last')}: <span dir="ltr">${x.last_activity?esc(String(x.last_activity).slice(0,10)):'—'}</span> · ${t('pl_since')} <span dir="ltr">${esc(String(x.created_at).slice(0,10))}</span></p>
+    <p style="margin:4px 0">👤 ${esc(a.name||'—')}${a.title?' — '+esc(a.title):''} ${a.phone?`· <a href="https://wa.me/${waNum(a.phone)}" target="_blank" dir="ltr">💬 ${esc(a.phone)}</a>`:''} ${a.email?`· <a href="mailto:${esc(a.email)}" dir="ltr">${esc(a.email)}</a>`:''}</p>
+    ${x.admin_note?`<p class="sub" style="margin:4px 0">📝 ${esc(x.admin_note)}</p>`:''}
+    <div class="acts" style="justify-content:flex-start;flex-wrap:wrap;margin-top:6px">
+      <button class="btn btn-g sm" data-pq="year" data-pi="${x.id}">✓ ${t('pl_year')}</button><button class="btn btn-l sm" data-pq="trial" data-pi="${x.id}">+14 ${t('pl_days')}</button>
+      ${x.status==='suspended'?`<button class="btn btn-l sm" data-pq="resume" data-pi="${x.id}">▶ ${t('pl_resume')}</button>`:`<button class="btn btn-t sm red" data-pq="susp" data-pi="${x.id}">⏸ ${t('pl_suspend')}</button>`}
+      <button class="btn btn-t sm" data-po="${x.id}">✎ ${t('edit')}</button></div>
+    ${P.open===x.id?`<div class="two" style="margin-top:10px"><div class="fld"><label>${t('d_status')}</label><select id="peS">${opts([['trial',t('pl_trial')],['active',t('pl_act')],['suspended',t('pl_susp')]],x.status)}</select></div>
+      <div class="fld"><label>${t('pl_tend')}</label><input id="peT" type="date" dir="ltr" value="${esc(x.trial_end||'')}"></div></div>
+      <div class="two"><div class="fld"><label>${t('paid_until')} <small class="sub">(${t('pl_empty')})</small></label><input id="peP" type="date" dir="ltr" value="${esc(x.paid_until||'')}"></div>
+      <div class="fld"><label>📝 ${t('pl_note')}</label><input id="peN" value="${esc(x.admin_note||'')}"></div></div>
+      <button class="btn btn-g sm" data-ps="${x.id}">${t('save')}</button>`:''}
+    <div class="err" id="pe_${x.id}"></div></div>`}).join('')||`<div class="note">${t('pl_none')}</div>`}`;
+  const pq=document.getElementById('plQ');pq.oninput=()=>{P.q=pq.value;const pos=pq.selectionStart;renderPlatform();const n=document.getElementById('plQ');n.focus();n.setSelectionRange(pos,pos)};
+  document.getElementById('plF').onchange=e=>{P.f=e.target.value;renderPlatform()};
+  const save=async(x,o)=>{const er=document.getElementById('pe_'+x.id);er.textContent=t('wait');
+    const {error}=await sb.rpc('platform_set',{p_inst:x.id,p_status:o.status,p_trial_end:o.trial_end||null,p_paid_until:o.paid_until||null,p_note:o.note==null?(x.admin_note||''):o.note});
+    if(error){er.textContent=em(error);return}P.open=null;await tabPlatform();if(D.i&&x.id===D.i.id)loadDash()};
+  el.querySelectorAll('[data-po]').forEach(b=>b.onclick=()=>{P.open=P.open===b.dataset.po?null:b.dataset.po;renderPlatform()});
+  el.querySelectorAll('[data-pq]').forEach(b=>b.onclick=()=>{const x=P.list.find(y=>y.id===b.dataset.pi),k=b.dataset.pq;
+    const o={status:x.status,trial_end:x.trial_end,paid_until:x.paid_until};
+    if(k==='year'){o.status='active';o.paid_until=addDays(x.status==='active'?x.paid_until:null,365)}
+    if(k==='trial'){o.status='trial';o.trial_end=addDays(x.trial_end,14)}
+    if(k==='susp'){if(!confirm(t('pl_sure_susp').replace('{n}',x.name_ar)))return;o.status='suspended'}
+    if(k==='resume')o.status=x.paid_until||x.trial_end<new Date().toISOString().slice(0,10)?'active':'trial';
+    if(k==='year'&&!confirm(t('pl_sure_year').replace('{n}',x.name_ar).replace('{d}',o.paid_until)))return;
+    save(x,o)});
+  el.querySelectorAll('[data-ps]').forEach(b=>b.onclick=()=>{const x=P.list.find(y=>y.id===b.dataset.ps);
+    save(x,{status:document.getElementById('peS').value,trial_end:document.getElementById('peT').value,paid_until:document.getElementById('peP').value,note:document.getElementById('peN').value})})}
 
 // ===== Excel import of students =====
 const IMP_COLS=[['last_name_ar','اللقب (بالعربية) *','Nom (arabe) *'],['first_name_ar','الاسم (بالعربية) *','Prénom (arabe) *'],['full_name_fr','الاسم الكامل بالفرنسية','Nom et prénoms (FR)'],

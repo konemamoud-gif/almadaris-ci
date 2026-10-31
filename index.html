@@ -15,7 +15,7 @@
 <meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Al-Madaris CI">
 <link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+NKo&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Inter:wght@400;600;700;800&family=Noto+Sans+NKo&family=Amiri:wght@400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 .mods{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.mod{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px}
 .mod .mi,.appx .mi{font-size:26px;width:46px;height:46px;flex:none;display:grid;place-items:center;background:#eef7f0;border-radius:12px}.mod b{display:block;font-size:16px}.mod small{color:var(--mut);font-size:13.5px;line-height:1.5;display:block}
@@ -301,6 +301,55 @@ footer a{color:#ffd08a}
 .tdph img{width:10mm;height:13mm;object-fit:cover;border-radius:1mm}
 @media print{.ofdoc{min-height:0;height:auto}}
 
+
+/* ===== diplomas ===== */
+.dzs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}.dz{border:2px solid var(--line);background:#fff;border-radius:14px;padding:6px;width:120px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:6px;align-items:center}
+.dz i{display:block;width:100%;height:62px;border-radius:8px}.dz span{font-weight:700;font-size:13px}.dz.on{border-color:var(--g);box-shadow:0 6px 16px -6px #1B7F3B}
+.dz-gold i{background:radial-gradient(circle,#fffdf6,#f3e3bb);box-shadow:inset 0 0 0 3px #b8892b,inset 0 0 0 6px #fffaf0,inset 0 0 0 7px #d8b765}
+.dz-modern i{background:linear-gradient(90deg,#fff 70%,#1B7F3B 70%);box-shadow:inset 0 0 0 1px #dde6df}
+.dz-islamic i{background:#0b4a21;box-shadow:inset 0 0 0 7px #0b4a21,inset 0 0 0 9px #c9a24a,inset 0 0 0 40px #fffaf0}
+.dip{width:297mm;height:210mm;position:relative;overflow:hidden;page-break-after:always;break-after:page;box-sizing:border-box;padding:9mm;font-family:'Amiri','Cairo',serif;color:#1d2b36;background:#fff;direction:ltr}
+.dip:last-child{page-break-after:auto;break-after:auto}
+.dfr{position:relative;height:100%;box-sizing:border-box;padding:9mm 27mm 8mm;display:flex;flex-direction:column;align-items:center;text-align:center;z-index:1}
+.dorn{position:absolute;width:19mm;height:19mm;color:#b8892b}.dorn svg{width:100%;height:100%;display:block}.dorn.c1{top:2.5mm;left:2.5mm}.dorn.c2{top:2.5mm;right:2.5mm}.dorn.c3{bottom:2.5mm;left:2.5mm}.dorn.c4{bottom:2.5mm;right:2.5mm}
+.dtop{width:100%;display:flex;justify-content:space-between;align-items:flex-start;gap:6mm}
+.dsch{flex:1;text-align:left;display:flex;flex-direction:column;font-family:'Inter',sans-serif;font-size:9pt;line-height:1.35}.dsch b{font-family:'Amiri',serif;font-size:14pt}.dsch small{font-size:7.5pt;color:#666}
+.dlogo{height:27mm}.dph{flex:1;display:flex;justify-content:flex-end}.dph img{width:21mm;height:26mm;object-fit:cover;border-radius:2mm;border:.6mm solid #c9a24a}
+.dbsm{font-family:'Amiri',serif;font-size:15pt;color:#7a5a12;margin-top:-2mm}
+.dtA{font-family:'Amiri',serif;font-weight:700;font-size:34pt;line-height:1.25;margin:1mm 0 0;color:#7a5a12}
+.dtF{font-family:'Playfair Display',Georgia,serif;font-size:12.5pt;letter-spacing:1.6px;margin:0;color:#5b4a1e;font-weight:600}
+.dname{margin:4mm 0 1mm;display:flex;flex-direction:column;align-items:center}.dname b{font-family:'Amiri',serif;font-size:33pt;color:#0F5E2A;line-height:1.2}.dname span{font-family:'Playfair Display',Georgia,serif;font-size:15pt;color:#0F5E2A}
+.dpA{font-family:'Amiri',serif;font-size:15.5pt;line-height:1.8;max-width:225mm;margin:4mm 0 2mm}.dpA b{color:#0b3d1c}.dpA .dnA{color:#0F5E2A}
+.dpF{font-family:'Inter',sans-serif;font-size:10pt;color:#444;max-width:225mm;margin:0;line-height:1.5}
+.dua{font-family:'Amiri',serif;font-size:12.5pt;color:#9a7420;margin:2mm 0 0}
+.dfoot{margin-top:auto;width:100%;display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:6mm}
+.dsg{display:flex;flex-direction:column;align-items:center;font-family:'Inter',sans-serif;font-size:8.5pt;color:#555}.dsg b{font-family:'Amiri',serif;font-size:12pt;color:#1d2b36}.dsi{height:17mm;display:flex;align-items:center;justify-content:center}.dsi em{font-family:'Amiri',serif;font-size:12pt;font-style:normal;color:#0F5E2A}
+.dsgi{max-height:16mm;max-width:45mm}.dmid{display:flex;flex-direction:column;align-items:center;position:relative;min-width:40mm}
+.dst{position:absolute;bottom:4mm;height:26mm;opacity:.85;transform:rotate(-8deg);left:-30mm}
+.dqr{display:flex;flex-direction:column;align-items:center;background:#fff;padding:1mm;border-radius:1.5mm}.dqr .qrc img,.dqr .qrc canvas{width:20mm!important;height:20mm!important}.dqr small{font-family:Inter;font-size:6.5pt;color:#555}
+.qrph{width:20mm;height:20mm;border:.4mm dashed #aaa;display:grid;place-items:center;font:8pt Inter;color:#999}
+.dloc{font-family:'Inter',sans-serif;font-size:8.5pt;color:#555;margin-top:1mm}
+/* gold */
+.dip-gold{background:radial-gradient(ellipse at 50% 42%,#fffef9 0%,#fbf3df 70%,#f3e3bb 100%)}
+.dip-gold .dfr{border:1.1mm solid #b8892b;box-shadow:inset 0 0 0 1.6mm #fffaf0,inset 0 0 0 2mm #d8b765}
+.dip-gold:before{content:"";position:absolute;inset:4mm;border:.3mm solid #d8b765}
+.dip-gold .dfr:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;background:url(emblem.png) center 58%/95mm no-repeat}
+/* modern */
+.dip-modern{padding:0}.dip-modern .dfr{margin-inline-end:0;width:calc(100% - 46mm);padding:14mm 18mm 10mm}
+.dband{position:absolute;top:0;bottom:0;right:0;width:46mm;background:linear-gradient(180deg,#0b4a21,#1B7F3B 70%,#2a9a4f);display:flex;flex-direction:column;align-items:center;justify-content:space-between;padding:12mm 0;color:#fff;overflow:hidden}
+.dband:before{content:"";position:absolute;inset:0;opacity:.14;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M20 3l5 12 12 5-12 5-5 12-5-12-12-5 12-5z' fill='none' stroke='%23fff'/%3E%3C/svg%3E")}
+.dband img{width:28mm;background:#fff;border-radius:50%;padding:2.5mm;position:relative}.dband b{font:800 15pt Inter,sans-serif;writing-mode:vertical-rl;transform:rotate(180deg);letter-spacing:3px;position:relative}
+.dband:after{content:"";position:absolute;left:0;top:0;bottom:0;width:2.2mm;background:#F7931E}
+.dip-modern .dtA{color:#0b3d1c}.dip-modern .dtF{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:2.5px;color:#1B7F3B}.dip-modern .dtF:after{content:"";display:block;width:36mm;height:1.1mm;background:#F7931E;margin:2.5mm auto 0;border-radius:1mm}
+.dip-modern .dname b{color:#1d2b36}.dip-modern .dname span{color:#1B7F3B}.dip-modern .dph img{border-color:#1B7F3B}.dip-modern .dbsm,.dip-modern .dua{color:#1B7F3B}
+.dip-modern .dfr:before{content:"";position:absolute;top:7mm;left:7mm;width:22mm;height:22mm;border-top:.8mm solid #F7931E;border-left:.8mm solid #F7931E}
+.dip-modern .dfr:after{content:"";position:absolute;bottom:7mm;left:7mm;width:22mm;height:22mm;border-bottom:.8mm solid #1B7F3B;border-left:.8mm solid #1B7F3B}
+/* islamic */
+.dip-islamic{background:#0b4a21;padding:10mm}
+.dpat{position:absolute;inset:0;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23c9a24a' stroke-width='1.1'%3E%3Cpath d='M28 4l7 17 17 7-17 7-7 17-7-17-17-7 17-7z'/%3E%3Crect x='16' y='16' width='24' height='24' transform='rotate(45 28 28)'/%3E%3Ccircle cx='28' cy='28' r='4'/%3E%3C/g%3E%3C/svg%3E")}
+.dip-islamic .dfr{background:radial-gradient(ellipse at 50% 40%,#fffef8,#f8efd8);border-radius:70mm 70mm 3mm 3mm/22mm 22mm 3mm 3mm;box-shadow:0 0 0 .9mm #c9a24a,0 0 0 2.2mm #0b4a21,0 0 0 2.6mm #c9a24a;padding-top:10mm}
+.dip-islamic .dorn{color:#c9a24a}.dip-islamic .dorn.c1,.dip-islamic .dorn.c2{top:14mm}
+@media print{.dip{-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 /* ===== design refresh 2026 ===== */
 :root{--sh1:0 1px 2px rgba(16,40,24,.06),0 4px 14px rgba(16,40,24,.06);--sh2:0 12px 40px rgba(16,40,24,.12);--r:16px}
 body{background:#f4f7f3;-webkit-font-smoothing:antialiased}
@@ -763,6 +812,7 @@ Object.assign(T.ar,{"sub_left": "باقٍ {n} يوماً"});Object.assign(T.fr,{
 Object.assign(T.ar,{"ab_ttl": "النسخ التلقائية على الخادم", "ab_help": "تُحفظ نسخة كاملة من بيانات مدرستك كل أحد تلقائياً، ونحتفظ بآخر 4 نسخ. يمكنك تنزيل أي نسخة أو الاستعادة منها مباشرة.", "ab_now": "نسخة الآن على الخادم", "ab_soon": "أُنشئت نسخة قبل أقل من ساعة. حاول لاحقاً.", "ab_auto": "تلقائية", "ab_manual": "يدوية", "ab_rows": "سجل", "ab_dl": "تنزيل", "ab_restore": "استعادة", "ab_none": "لا توجد نسخ على الخادم بعد. أول نسخة تلقائية يوم الأحد.", "ab_need": "النسخ التلقائية غير مفعّلة بعد (schema27.sql)."});Object.assign(T.fr,{"ab_ttl": "Sauvegardes automatiques sur le serveur", "ab_help": "Une copie complète des données de l'école est faite chaque dimanche ; les 4 dernières sont conservées. Vous pouvez les télécharger ou restaurer directement.", "ab_now": "Sauvegarder maintenant sur le serveur", "ab_soon": "Une sauvegarde a été faite il y a moins d'une heure.", "ab_auto": "Automatique", "ab_manual": "Manuelle", "ab_rows": "enregistrements", "ab_dl": "Télécharger", "ab_restore": "Restaurer", "ab_none": "Aucune sauvegarde serveur pour l'instant. La première sera faite dimanche.", "ab_need": "Sauvegardes automatiques non activées (schema27.sql)."});Object.assign(T.en,{"ab_ttl": "Automatic server backups", "ab_help": "A full copy of your school's data is made every Sunday; the last 4 are kept. You can download or restore any of them.", "ab_now": "Back up now on the server", "ab_soon": "A backup was made less than an hour ago.", "ab_auto": "Automatic", "ab_manual": "Manual", "ab_rows": "records", "ab_dl": "Download", "ab_restore": "Restore", "ab_none": "No server backups yet. The first one runs on Sunday.", "ab_need": "Automatic backups not enabled yet (schema27.sql)."});
 Object.assign(T.ar,{"cv_ttl": "استدعاء ولي الأمر", "cv_reasons": "سبب الاستدعاء", "cv_r_fees": "تأخر في دفع الرسوم", "cv_r_abs": "غياب متكرر", "cv_r_late": "تأخر متكرر", "cv_r_res": "نتائج ضعيفة", "cv_r_cond": "السلوك والانضباط", "cv_r_meet": "لقاء لمتابعة التلميذ", "cv_date": "تاريخ الحضور", "cv_time": "الساعة", "cv_with": "المقابلة مع", "cv_with_def": "المدير", "cv_note_ph": "ملاحظة تظهر في الاستدعاء (اختياري)", "cv_portal": "إرسال نسخة إلى بوابة ولي الأمر (الرسائل)", "cv_print": "طباعة الاستدعاء", "cv_avg": "المعدل العام", "cv_rank": "الرتبة", "cv_nophone": "لا يوجد رقم هاتف لولي الأمر. نُسخت الرسالة، الصقها حيث تشاء.", "cv_wa": "السلام عليكم السيد(ة) {p}،\nتدعوكم {s} للحضور بخصوص ابنكم/ابنتكم {n}\n📅 يوم {d} على الساعة {h}\n👤 لمقابلة: {w}\nالأسباب:\n{r}\nنرجو الحضور، وجزاكم الله خيراً."});Object.assign(T.fr,{"cv_ttl": "Convocation des parents", "cv_reasons": "Motif(s)", "cv_r_fees": "Retard de paiement", "cv_r_abs": "Absences répétées", "cv_r_late": "Retards répétés", "cv_r_res": "Résultats insuffisants", "cv_r_cond": "Comportement / discipline", "cv_r_meet": "Entretien de suivi", "cv_date": "Date du rendez-vous", "cv_time": "Heure", "cv_with": "Avec", "cv_with_def": "Le Directeur", "cv_note_ph": "Note figurant sur la convocation (facultatif)", "cv_portal": "Envoyer aussi dans l'Espace parents (messages)", "cv_print": "Imprimer la convocation", "cv_avg": "Moyenne générale", "cv_rank": "Rang", "cv_nophone": "Pas de numéro pour le parent. Le message a été copié.", "cv_wa": "Assalamou alaykoum M./Mme {p},\n{s} vous convoque au sujet de votre enfant {n}\n📅 le {d} à {h}\n👤 avec : {w}\nMotif(s) :\n{r}\nMerci de votre présence."});Object.assign(T.en,{"cv_ttl": "Parent summons", "cv_reasons": "Reason(s)", "cv_r_fees": "Late fee payment", "cv_r_abs": "Repeated absences", "cv_r_late": "Repeated lateness", "cv_r_res": "Poor results", "cv_r_cond": "Behaviour / discipline", "cv_r_meet": "Follow-up meeting", "cv_date": "Meeting date", "cv_time": "Time", "cv_with": "With", "cv_with_def": "The Principal", "cv_note_ph": "Note shown on the summons (optional)", "cv_portal": "Also send to the parent portal (messages)", "cv_print": "Print summons", "cv_avg": "Overall average", "cv_rank": "Rank", "cv_nophone": "No parent phone number. The message was copied.", "cv_wa": "Hello {p},\n{s} invites you to come regarding your child {n}\n📅 on {d} at {h}\n👤 with: {w}\nReason(s):\n{r}\nThank you."});
 Object.assign(T.ar,{"mk_sch": "مدرسة النور — بواكي", "mk_today": "لوحة اليوم", "mk_stu": "تلميذ", "mk_att": "حضور اليوم", "mk_fee": "المحصّل", "mk_scan": "📷 مسح البطاقات صباح اليوم", "mk_n1": "آمنة كوني", "mk_n2": "يوسف تراوري", "mk_n3": "مريم سيسي", "mk_bar": "نسبة تحصيل الرسوم 78%", "mk_card": "بطاقة مدرسية", "mk_cls": "السنة الثالثة ابتدائي", "tb1": "4 لغات", "tb2": "من الروضة إلى الجامعة", "tb3": "يعمل دون إنترنت", "tb4": "وثائق موثقة بـ QR", "eb_feat": "الميزات", "eb_how": "البداية", "eb_trk": "المسارات", "eb_faq": "أسئلة", "fo_plat": "المنصة", "fo_contact": "تواصل معنا", "fo_legal": "معلومات"});Object.assign(T.fr,{"mk_sch": "École En-Nour — Bouaké", "mk_today": "Tableau du jour", "mk_stu": "élèves", "mk_att": "présence", "mk_fee": "encaissé", "mk_scan": "📷 Scans de ce matin", "mk_n1": "Aminata Koné", "mk_n2": "Youssouf Traoré", "mk_n3": "Mariam Cissé", "mk_bar": "Recouvrement des frais : 78 %", "mk_card": "CARTE SCOLAIRE", "mk_cls": "CE1", "tb1": "4 langues", "tb2": "De la maternelle à l'université", "tb3": "Marche hors ligne", "tb4": "Documents certifiés QR", "eb_feat": "Fonctionnalités", "eb_how": "Démarrage", "eb_trk": "Parcours", "eb_faq": "FAQ", "fo_plat": "Plateforme", "fo_contact": "Contact", "fo_legal": "Informations"});Object.assign(T.en,{"mk_sch": "En-Nour School — Bouaké", "mk_today": "Today's dashboard", "mk_stu": "students", "mk_att": "attendance", "mk_fee": "collected", "mk_scan": "📷 This morning's scans", "mk_n1": "Aminata Koné", "mk_n2": "Youssouf Traoré", "mk_n3": "Mariam Cissé", "mk_bar": "Fees collected: 78%", "mk_card": "STUDENT CARD", "mk_cls": "Grade 3", "tb1": "4 languages", "tb2": "Nursery to university", "tb3": "Works offline", "tb4": "QR-certified documents", "eb_feat": "Features", "eb_how": "Getting started", "eb_trk": "Tracks", "eb_faq": "FAQ", "fo_plat": "Platform", "fo_contact": "Contact", "fo_legal": "Information"});
+Object.assign(T.ar,{"blood": "فصيلة الدم", "need_schema28": "نفّذ schema28.sql في Supabase لإضافة فصيلة الدم.", "dv_dip": "🎓 الشهادات", "dp_type": "نوع الشهادة", "dp_style": "التصميم", "dp_pri": "الابتدائية", "dp_col": "الإعدادية", "dp_lyc": "الثانوية", "dp_uni": "الجامعية", "dp_quran": "حفظ القرآن الكريم", "dp_mutun": "حفظ المتون العلمية", "dp_mutun_l": "المتون المحفوظة", "dz_gold": "كلاسيكي ذهبي", "dz_modern": "عصري", "dz_islamic": "زخرفة إسلامية", "dp_year": "السنة الدراسية", "dp_date": "تاريخ الإصدار", "dp_place": "مكان الإصدار", "dp_degree": "اسم الشهادة", "dp_spec": "التخصص", "dp_amount": "مقدار الحفظ", "dp_all": "القرآن كاملاً (30 جزءاً)", "dp_juz": "جزءاً", "dp_riwaya": "الرواية", "dp_mutun_x": "متون أخرى (افصل بينها بفاصلة)", "dp_exam": "اسم الشيخ المُجيز / المختبِر", "dp_exam_ph": "مثال: الشيخ محمد كوني", "dp_photo": "صورة الطالب", "dp_qr": "رمز QR للتحقق", "dp_none": "إلغاء التحديد", "dp_print": "طباعة الشهادات", "dp_preview": "معاينة دون تسجيل", "dp_e_mutun": "اختر متناً واحداً على الأقل."});Object.assign(T.fr,{"blood": "Groupe sanguin", "need_schema28": "Exécutez schema28.sql dans Supabase pour ajouter le groupe sanguin.", "dv_dip": "🎓 Diplômes", "dp_type": "Type de diplôme", "dp_style": "Modèle", "dp_pri": "Primaire", "dp_col": "Collège", "dp_lyc": "Lycée", "dp_uni": "Universitaire", "dp_quran": "Mémorisation du Coran", "dp_mutun": "Mémorisation des mutūn", "dp_mutun_l": "Textes mémorisés", "dz_gold": "Classique doré", "dz_modern": "Moderne", "dz_islamic": "Arabesque", "dp_year": "Année scolaire", "dp_date": "Date de délivrance", "dp_place": "Lieu", "dp_degree": "Intitulé du diplôme", "dp_spec": "Spécialité", "dp_amount": "Partie mémorisée", "dp_all": "Coran entier (30 juz')", "dp_juz": "juz'", "dp_riwaya": "Lecture (riwāya)", "dp_mutun_x": "Autres textes (séparés par des virgules)", "dp_exam": "Nom du cheikh examinateur", "dp_exam_ph": "ex. : Cheikh Mohamed Koné", "dp_photo": "Photo de l'élève", "dp_qr": "QR code de vérification", "dp_none": "Aucun", "dp_print": "Imprimer les diplômes", "dp_preview": "Aperçu (sans enregistrer)", "dp_e_mutun": "Choisissez au moins un texte."});Object.assign(T.en,{"blood": "Blood group", "need_schema28": "Run schema28.sql in Supabase to add the blood group.", "dv_dip": "🎓 Diplomas", "dp_type": "Diploma type", "dp_style": "Design", "dp_pri": "Primary", "dp_col": "Middle school", "dp_lyc": "Secondary", "dp_uni": "University", "dp_quran": "Quran memorisation", "dp_mutun": "Mutun memorisation", "dp_mutun_l": "Memorised texts", "dz_gold": "Classic gold", "dz_modern": "Modern", "dz_islamic": "Islamic arabesque", "dp_year": "School year", "dp_date": "Issue date", "dp_place": "Place", "dp_degree": "Degree", "dp_spec": "Speciality", "dp_amount": "Amount memorised", "dp_all": "Whole Quran (30 juz')", "dp_juz": "juz'", "dp_riwaya": "Riwaya", "dp_mutun_x": "Other texts (comma-separated)", "dp_exam": "Examiner's name", "dp_exam_ph": "e.g. Sheikh Mohamed Koné", "dp_photo": "Student photo", "dp_qr": "Verification QR", "dp_none": "None", "dp_print": "Print diplomas", "dp_preview": "Preview (not recorded)", "dp_e_mutun": "Choose at least one text."});
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -959,6 +1009,7 @@ function stuForm(s){s=s||{};const rel=[['father',t('rel_f')],['mother',t('rel_m'
   <div class="two"><div class="fld"><label>${t('nation')}</label><select name="nationality" id="sNat">${opts(Object.keys(GEO).map(k=>[k,geoName(k)]),s.nationality||'CI')}</select></div>
     <div class="fld"><label>${t('bplace')}</label><div id="sBpBox">${cityPicker('sBp',s.nationality||'CI',s.birth_place||'','birth_place')}</div></div></div>
   <div class="two"><div class="fld"><label>${t('bdate')}</label><input name="birth_date" type="date" dir="ltr" value="${esc(s.birth_date||'')}"></div><div class="fld"><label>${t('prev_school')}</label><input name="prev_school" value="${esc(s.prev_school||'')}"></div></div>
+  <div class="two"><div class="fld"><label>🩸 ${t('blood')}</label><select name="blood_group" dir="ltr">${opts([['','—'],['A+','A+'],['A-','A−'],['B+','B+'],['B-','B−'],['AB+','AB+'],['AB-','AB−'],['O+','O+'],['O-','O−']],s.blood_group||'')}</select></div><div></div></div>
   <label class="opt"><input type="checkbox" name="is_repeater"${s.is_repeater?' checked':''}>${t('repeater')}</label>
   <div class="two"><div class="fld"><label>${t('g_name')}</label><input name="guardian_name" value="${esc(s.guardian_name||'')}"></div>
     <div class="fld"><label>${t('g_rel')}</label><select name="guardian_relation">${opts([['','']].concat(rel),s.guardian_relation||'')}</select></div></div>
@@ -1010,7 +1061,9 @@ function tabStudents(){const el=document.getElementById('dtab');
     sf.querySelectorAll('[name]').forEach(x=>row[x.name]=x.type==='checkbox'?x.checked:(x.value.trim()===''?null:x.value.trim()));
     if(!row.first_name_ar||!row.last_name_ar){er.textContent=t('e_req');return}
     er.textContent=t('wait');
+    if(row.blood_group===null&&!('blood_group' in (D.students.find(x=>x.id===D.edit)||{})))delete row.blood_group;
     const r=D.edit===true?await sb.from('students').insert(row).select().single():await sb.from('students').update(row).eq('id',D.edit).select().single();
+    if(r.error&&/blood_group/.test(r.error.message||'')){er.textContent=t('need_schema28');return}
     if(r.error){er.textContent=em(r.error);return}
     try{await savePhoto('students',r.data)}catch(e){alert(t('ph_fail')+' '+(e.message||e))}
     const isNew=D.edit===true;D.edit=null;await reloadData();tabStudents();
@@ -1060,7 +1113,7 @@ function staffForm(s){s=s||{};
     <div class="fld"><label>${t('hire_date')}</label><input name="hire_date" type="date" dir="ltr" value="${esc(s.hire_date||'')}"></div></div>
   <div class="two"><div class="fld"><label>${t('bdate')}</label><input name="birth_date" type="date" dir="ltr" value="${esc(s.birth_date||'')}"></div>
     <div class="fld"><label>${t('nation')}</label><select name="nationality">${opts(Object.keys(GEO).map(k=>[k,geoName(k)]),s.nationality||'CI')}</select></div></div>
-  <div class="fld"><label>${t('staff_no')}</label><input name="staff_number" dir="ltr" value="${esc(s.staff_number||'')}"></div>
+  <div class="two"><div class="fld"><label>${t('staff_no')}</label><input name="staff_number" dir="ltr" value="${esc(s.staff_number||'')}"></div><div class="fld"><label>🩸 ${t('blood')}</label><select name="blood_group" dir="ltr">${opts([['','—'],['A+','A+'],['A-','A−'],['B+','B+'],['B-','B−'],['AB+','AB+'],['AB-','AB−'],['O+','O+'],['O-','O−']],s.blood_group||'')}</select></div></div>
   <div class="fld"><label>${t('perms')}</label><div class="chips">${[['fees','perm_fees'],['registry','perm_reg'],['payroll','perm_pay']].map(([k,l])=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="perm" value="${k}"${(s.perms||[]).includes(k)?' checked':''}> ${t(l)}</label>`).join('')}</div><small class="sub">${t('perms_help')}</small></div>
   <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="fSave">${t('save')}</button><button class="btn btn-t" id="fCancel">${t('cancel')}</button></div>
   <div class="err" id="fErr"></div></div>`}
@@ -1108,7 +1161,9 @@ function tabStaff(){const el=document.getElementById('dtab');
       ff.querySelectorAll('[name]').forEach(x=>row[x.name]=x.type==='checkbox'?x.checked:(x.value.trim()===''?null:x.value.trim()));
       row.perms=[...ff.querySelectorAll('.perm:checked')].map(x=>x.value);
       if(!row.full_name_ar){er.textContent=t('e_req');return}er.textContent=t('wait');
+      if(row.blood_group===null&&!('blood_group' in (D.staff.find(x=>x.id===D.edit)||{})))delete row.blood_group;
       const r=D.edit===true?await sb.from('staff').insert(row).select().single():await sb.from('staff').update(row).eq('id',D.edit).select().single();
+      if(r.error&&/blood_group/.test(r.error.message||'')){er.textContent=t('need_schema28');return}
       if(r.error){er.textContent=em(r.error);return}
       try{await savePhoto('staff',r.data)}catch(e){alert(t('ph_fail')+' '+(e.message||e))}D.edit=null;await reloadData();tabStaff()}}
   const ap=document.getElementById('aPanel');
@@ -1872,7 +1927,7 @@ function studentCardBack(s){const i=D.i,c=D.classes.find(x=>x.id===s.class_id),r
   <div class="xb2"><div class="xi">
     ${kv('ولي الأمر','Parent',(s.guardian_name||'')+(s.guardian_relation?' — '+rel[s.guardian_relation].split(' · ')[0]:''))}
     ${kv('هاتف الولي','Tél.',s.guardian_phone,1)}${kv('العنوان','Adresse',half(s.address,true))}
-    ${kv('تاريخ الميلاد','Né(e) le',[s.birth_date,half(s.birth_place,true)].filter(Boolean).join(' — '))}
+    ${kv('تاريخ الميلاد','Né(e) le',[s.birth_date,half(s.birth_place,true)].filter(Boolean).join(' — '))}${s.blood_group?kv('فصيلة الدم','Groupe sanguin',s.blood_group):''}
     <div class="xr">هذه البطاقة شخصية، وتُظهَر عند الدخول إلى المدرسة. في حال العثور عليها يُرجى إعادتها.<br><span dir="ltr">Carte personnelle à présenter à l'entrée. Si trouvée, merci de la rapporter à l'école.</span></div></div>
     ${xSign()}</div>
   ${xFoot(`${i.address||i.city?`<span>📍 ${esc(half([i.address,i.city].filter(Boolean).join('، '),true))}</span>`:''}${i.phone?`<span dir="ltr">☎ ${esc(i.phone)}</span>`:''}`,true)}</div>`}
@@ -1950,10 +2005,10 @@ function officialSign(code){const i=D.i;
     <div class="ofdir"><span>Fait à ${esc(half(i.city,false)||'……')}, le ${fdate(todayISO())}</span><b>Le Directeur — المدير</b>
     <div class="sigimgs" style="height:80px">${murl(i.stamp_path)?`<img class="stampimg" style="height:86px" src="${esc(murl(i.stamp_path))}">`:''}${murl(i.signature_path)?`<img class="sigimg" style="height:62px" src="${esc(murl(i.signature_path))}">`:''}</div>
     <b>${esc(i.director_name||'')}</b></div></div>`}
-async function printPages(html,landscape){await loadQR();
+async function printPages(html,landscape,opts){await loadQR();
   let pa=document.getElementById('printArea');if(!pa){pa=document.createElement('div');pa.id='printArea';document.body.appendChild(pa)}
   pa.innerHTML=html;document.getElementById('pageStyle')?.remove();
-  const st=document.createElement('style');st.id='pageStyle';st.textContent=`@media print{@page{size:A4 ${landscape?'landscape':'portrait'};margin:${landscape?'8mm':'0'}}}`;document.head.appendChild(st);window.addEventListener('afterprint',()=>{const x=document.getElementById('pageStyle');if(x)x.remove()},{once:true});
+  const st=document.createElement('style');st.id='pageStyle';st.textContent=`@media print{@page{size:A4 ${landscape?'landscape':'portrait'};margin:${opts&&opts.m!=null?opts.m:(landscape?'8mm':'0')}}}`;document.head.appendChild(st);window.addEventListener('afterprint',()=>{const x=document.getElementById('pageStyle');if(x)x.remove()},{once:true});
   if(window.QRCode)pa.querySelectorAll('.qrc').forEach(d=>new QRCode(d,{text:d.dataset.url,width:92,height:92}));
   await Promise.all([...pa.querySelectorAll('img')].map(im=>im.complete?0:new Promise(r=>{im.onload=im.onerror=r})));
   const fits=[...pa.querySelectorAll('.fit1')];if(fits.length){const mm=96/25.4,W=(landscape?281:194)*mm,Hm=(landscape?190:279)*mm,old=pa.style.cssText;
@@ -1963,11 +2018,11 @@ async function printPages(html,landscape){await loadQR();
 
 // ---- tab
 async function tabDocs(){const el=document.getElementById('dtab');
-  const views=[['stu','dv_stu'],['lists','dv_lists'],['drena','dv_drena']];
+  const views=[['stu','dv_stu'],['dip','dv_dip'],['lists','dv_lists'],['drena','dv_drena']];
   el.innerHTML=`<div class="chips" style="margin-bottom:10px">${views.map(([k,l])=>`<span class="chip${DOC.view===k?' on':''}" data-dv="${k}">${t(l)}</span>`).join('')}</div>
   ${!D.i.drena||!D.i.director_name?`<div class="note">${t('docs_cfg')}</div>`:''}<div id="dvBox"></div>`;
   el.querySelectorAll('[data-dv]').forEach(c=>c.onclick=()=>{DOC.view=c.dataset.dv;tabDocs()});
-  const box=document.getElementById('dvBox');({stu:docsStudent,lists:docsLists,drena:docsDrena}[DOC.view])(box)}
+  const box=document.getElementById('dvBox');({stu:docsStudent,dip:docsDip,lists:docsLists,drena:docsDrena}[DOC.view])(box)}
 
 // ---- student documents
 async function docsStudent(box){if(!DOC.cls&&D.classes.length)DOC.cls=D.classes[0].id;
@@ -2492,7 +2547,7 @@ function cardData(kind,s){const i=D.i,y=curYear(),a=parseInt(y)||new Date().getF
     return {kind,photo:s.photo_path,ar:sName(s),fr:s.full_name_fr||'',code:s.code,qr:s.card_token?cardUrl(s.card_token):'',token:s.card_token||'',tAr:'بطاقة مدرسية',tFr:'CARTE SCOLAIRE',year:y,valid,
       role:c?clsAr(c):'',roleFr:c?clsFr(c):'',
       main:[['الفصل','Classe',c?clsAr(c)+(c.section?'':''):''],['المسار','Parcours',c?t(TRK[c.track]):''],['الرقم','Matricule',s.code,1],
-        ['الميلاد','Né(e) le',[fdate(s.birth_date).replace(/…+/,''),half(s.birth_place,true)].filter(Boolean).join(' — ')],['الجنسية','Nationalité',s.nationality?natAr(s.nationality,f):''],['الجنس','Sexe',s.gender?(f?'أنثى · F':'ذكر · M'):'']],
+        ['الميلاد','Né(e) le',[fdate(s.birth_date).replace(/…+/,''),half(s.birth_place,true)].filter(Boolean).join(' — ')],['الجنسية','Nationalité',s.nationality?natAr(s.nationality,f):''],['الجنس','Sexe',s.gender?(f?'أنثى · F':'ذكر · M'):''],['فصيلة الدم','Gr. sanguin',s.blood_group,1]],
       more:[['ولي الأمر','Parent',(s.guardian_name||'')+(s.guardian_relation&&rel[s.guardian_relation]&&s.guardian_name?' — '+rel[s.guardian_relation]:'')],['هاتف الولي','Tél. parent',s.guardian_phone,1],
         ['العنوان','Adresse',half(s.address,true)],['السنة','Année',y,1],['صالحة إلى','Valable au',valid,1]],
       rule:'هذه البطاقة شخصية، وتُظهَر عند الدخول إلى المدرسة. في حال العثور عليها يُرجى إعادتها.',ruleFr:"Carte personnelle à présenter à l'entrée. Si trouvée, merci de la rapporter à l'école."}}
@@ -2500,7 +2555,7 @@ function cardData(kind,s){const i=D.i,y=curYear(),a=parseInt(y)||new Date().getF
   return {kind,photo:s.photo_path,ar:s.full_name_ar,fr:s.full_name_fr||'',code:s.staff_number||'',qr:s.card_token?cardUrl(s.card_token):'',token:s.card_token||'',tAr:'بطاقة مهنية',tFr:'CARTE PROFESSIONNELLE',year:y,valid,
     role:s.position||t(STYPE[s.staff_type]),roleFr:'',
     main:[['الوظيفة','Fonction',s.position||t(STYPE[s.staff_type])],['رقم التسجيل','Matricule',s.staff_number,1],['الهاتف','Tél.',s.phone,1],
-      ['الميلاد','Né(e) le',fdate(s.birth_date).replace(/…+/,'')],['الجنسية','Nationalité',s.nationality?natAr(s.nationality,f):'']],
+      ['الميلاد','Né(e) le',fdate(s.birth_date).replace(/…+/,'')],['الجنسية','Nationalité',s.nationality?natAr(s.nationality,f):''],['فصيلة الدم','Gr. sanguin',s.blood_group,1]],
     more:[['البريد','E-mail',s.email,1],['المؤهل','Diplôme',s.qualification],['تاريخ التوظيف','Prise de service',s.hire_date?fdate(s.hire_date):'',1],['السنة','Année',y,1],['صالحة إلى','Valable au',valid,1]],
     rule:'هذه البطاقة شخصية وتبقى ملكاً للمدرسة، وتُعاد عند انتهاء العمل.',ruleFr:"Carte personnelle, propriété de l'établissement, à restituer en fin de fonction."}}
 const kvs=rows=>rows.filter(r=>r[2]).map(r=>kv(r[0],r[1],r[2],r[3])).join('');
@@ -3237,6 +3292,100 @@ function cvPrint(s,X,rs,m){const i=D.i,c=X.c,st=X.st,a=X.abs,an=X.ann,mn=n=>mone
     Je soussigné(e) ………………………………, parent de <b>${esc(s.full_name_fr||sName(s))}</b>, atteste avoir reçu la convocation du ${fdate(m.date)} à ${esc(m.time)}.
     <div style="display:flex;justify-content:space-between;margin-top:3mm"><span>Date : ……………………</span><span>Signature du parent / توقيع الولي : ……………………</span></div></div>
    <footer class="off">Al-Madaris CI — ${t('foot')}</footer></section>`)}
+
+// ===== diplomas / الشهادات =====
+const DIPT=[['pri','🎒','dp_pri'],['col','📘','dp_col'],['lyc','🎓','dp_lyc'],['uni','🏛','dp_uni'],['quran','📖','dp_quran'],['mutun','📜','dp_mutun']];
+const DIPS=[['gold','dz_gold'],['modern','dz_modern'],['islamic','dz_islamic']];
+const DIPM=[['ex','ممتاز','Excellent'],['tb','جيد جداً','Très bien'],['b','جيد','Bien'],['ab','مستحسن','Assez bien'],['p','مقبول','Passable']];
+const MUTUN=['الأجرومية','ملحة الإعراب','ألفية ابن مالك','تحفة الأطفال','المقدمة الجزرية','الشاطبية','الأربعون النووية','عمدة الأحكام','بلوغ المرام','الرحبية','الورقات','العقيدة الطحاوية','ثلاثة الأصول','الأخضري','العشماوية','المرشد المعين (ابن عاشر)','الرسالة (ابن أبي زيد)','البيقونية'];
+const RIWAYA=[['hafs','حفص عن عاصم','Hafs ʿan ʿĀsim'],['warsh','ورش عن نافع','Warsh ʿan Nāfiʿ'],['qalun','قالون عن نافع','Qālūn ʿan Nāfiʿ'],['duri','الدوري عن أبي عمرو','Ad-Dūrī ʿan Abī ʿAmr']];
+const DP={type:'pri',style:'gold',cls:'',sel:{},men:{},avg:{},o:{}};
+try{const x=JSON.parse(localStorage.getItem('amc_dip')||'{}');if(x.style)DP.style=x.style;if(x.o)DP.o=x.o}catch(e){}
+const dpMen=r=>r==null?'':r>=.9?'ex':r>=.8?'tb':r>=.7?'b':r>=.6?'ab':r>=.5?'p':'';
+async function docsDip(box){if(!DP.cls&&D.classes.length)DP.cls=D.classes[0].id;const o=DP.o;
+  const studs=D.students.filter(s=>s.class_id===DP.cls&&s.status==='active').sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
+  const acad=['pri','col','lyc','uni'].includes(DP.type);
+  if(acad&&DP.avgFor!==DP.cls){DP.avg={};DP.avgFor=DP.cls;try{const c=D.classes.find(x=>x.id===DP.cls);if(c){const A=await computeAnnual(c);A.rows.forEach(r=>{DP.avg[r.s.id]=r.avg==null?null:{v:r.avg,sc:A.scale}})}}catch(e){}}
+  studs.forEach(s=>{if(DP.men[s.id]==null){const a=DP.avg[s.id];DP.men[s.id]=acad&&a?dpMen(a.v/a.sc):(acad?'':'ex')}});
+  const ch=(id,arr,cur,attr)=>arr.map(([k,ic,l])=>`<span class="chip${cur===k?' on':''}" data-${attr}="${k}">${ic?ic+' ':''}${t(l||ic)}</span>`).join('');
+  box.innerHTML=`<div class="cert" style="margin-top:0"><b>🎓 ${t('dp_type')}</b><div class="chips" style="margin:8px 0 12px">${ch('',DIPT,DP.type,'dpt')}</div>
+    <b>🎨 ${t('dp_style')}</b><div class="dzs">${DIPS.map(([k,l])=>`<button class="dz dz-${k}${DP.style===k?' on':''}" data-dps="${k}"><i></i><span>${t(l)}</span></button>`).join('')}</div></div>
+  <div class="cert"><div class="two"><div class="fld"><label>${t('class')}</label><select id="dpC">${opts(D.classes.map(c=>[c.id,clsName(c)]),DP.cls)}</select></div>
+      <div class="fld"><label>${t('dp_year')}</label><input id="dpY" dir="ltr" value="${esc(o.year||curYear())}"></div></div>
+    <div class="two"><div class="fld"><label>${t('dp_date')}</label><input id="dpD" type="date" dir="ltr" value="${esc(o.date||todayISO())}"></div><div class="fld"><label>${t('dp_place')}</label><input id="dpP" value="${esc(o.place||half(D.i.city,false)||'')}"></div></div>
+    ${DP.type==='uni'?`<div class="two"><div class="fld"><label>${t('dp_degree')}</label><input id="dpG" value="${esc(o.degree||'')}" placeholder="الإجازة (ليسانس) / Licence"></div><div class="fld"><label>${t('dp_spec')}</label><input id="dpS" value="${esc(o.spec||'')}" placeholder="الدراسات الإسلامية / Études islamiques"></div></div>`:''}
+    ${DP.type==='quran'?`<div class="two"><div class="fld"><label>${t('dp_amount')}</label><select id="dpA">${opts([['all',t('dp_all')]].concat(Array.from({length:29},(_,k)=>[String(29-k),(29-k)+' '+t('dp_juz')])),o.amount||'all')}</select></div>
+      <div class="fld"><label>${t('dp_riwaya')}</label><select id="dpR">${opts(RIWAYA.map(([k,a,f])=>[k,a+' — '+f]),o.riwaya||'hafs')}</select></div></div>`:''}
+    ${DP.type==='mutun'?`<div class="fld"><label>${t('dp_mutun_l')}</label><div class="chips">${MUTUN.map(m=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="dpMt" value="${esc(m)}"${(o.mutun||[]).includes(m)?' checked':''}> ${esc(m)}</label>`).join('')}</div>
+      <input id="dpMx" style="margin-top:6px" value="${esc(o.mx||'')}" placeholder="${esc(t('dp_mutun_x'))}"></div>`:''}
+    ${['quran','mutun'].includes(DP.type)?`<div class="fld"><label>${t('dp_exam')}</label><input id="dpE" value="${esc(o.exam||'')}" placeholder="${esc(t('dp_exam_ph'))}"></div>`:''}
+    <div class="chips"><label class="chip" style="cursor:pointer"><input type="checkbox" id="dpPh"${o.photo===false?'':' checked'}> ${t('dp_photo')}</label><label class="chip" style="cursor:pointer"><input type="checkbox" id="dpQ"${o.qr===false?'':' checked'}> ${t('dp_qr')}</label></div></div>
+  ${studs.length?`<div class="toolbar"><button class="btn btn-t sm" id="dpAll">${t('cr_all')}</button><button class="btn btn-t sm" id="dpNone">${t('dp_none')}</button><span class="sub" id="dpN"></span></div>
+   <div class="tblw"><table class="tbl" style="min-width:0"><tbody>${studs.map(s=>{const a=DP.avg[s.id];return `<tr><td style="width:30px"><input type="checkbox" class="dpS" value="${s.id}"${DP.sel[s.id]?' checked':''}></td>
+     <td><b>${esc(sName(s))}</b><br><small class="sub" dir="ltr">${esc(s.full_name_fr||'')}${acad&&a?` · ${fmt(a.v)}/${a.sc}`:''}</small></td>
+     <td><select class="dpM" data-sid="${s.id}" style="min-width:120px">${opts([['','—']].concat(DIPM.map(([k,ar,fr])=>[k,ar+' · '+fr])),DP.men[s.id]||'')}</select></td></tr>`}).join('')}</tbody></table></div>
+   <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="dpGo">🖨 ${t('dp_print')}</button><button class="btn btn-l" id="dpPrev">👁 ${t('dp_preview')}</button></div><div class="err" id="dpErr"></div>`:`<div class="note">${t('no_stu')}</div>`}`;
+  const cnt=()=>{const n=box.querySelectorAll('.dpS:checked').length,e=document.getElementById('dpN');if(e)e.textContent=n+' / '+studs.length};cnt();
+  box.querySelectorAll('[data-dpt]').forEach(c=>c.onclick=()=>{DP.type=c.dataset.dpt;DP.men={};docsDip(box)});
+  box.querySelectorAll('[data-dps]').forEach(c=>c.onclick=()=>{DP.style=c.dataset.dps;dpSave();box.querySelectorAll('[data-dps]').forEach(x=>x.classList.toggle('on',x===c))});
+  document.getElementById('dpC').onchange=e=>{DP.cls=e.target.value;DP.sel={};DP.men={};docsDip(box)};
+  box.querySelectorAll('.dpS').forEach(x=>x.onchange=()=>{DP.sel[x.value]=x.checked;cnt()});
+  box.querySelectorAll('.dpM').forEach(x=>x.onchange=()=>{DP.men[x.dataset.sid]=x.value});
+  const all=document.getElementById('dpAll');if(all){all.onclick=()=>{box.querySelectorAll('.dpS').forEach(x=>{const ok=!acad||DP.men[x.value];x.checked=!!ok;DP.sel[x.value]=!!ok});cnt()};
+    document.getElementById('dpNone').onclick=()=>{box.querySelectorAll('.dpS').forEach(x=>{x.checked=false;DP.sel[x.value]=false});cnt()}}
+  const read=()=>{const g=id=>{const e=document.getElementById(id);return e?e.value.trim():''};Object.assign(DP.o,{year:g('dpY'),date:g('dpD'),place:g('dpP'),photo:document.getElementById('dpPh').checked,qr:document.getElementById('dpQ').checked});
+    if(DP.type==='uni')Object.assign(DP.o,{degree:g('dpG'),spec:g('dpS')});if(DP.type==='quran')Object.assign(DP.o,{amount:g('dpA'),riwaya:g('dpR')});
+    if(DP.type==='mutun')Object.assign(DP.o,{mutun:[...box.querySelectorAll('.dpMt:checked')].map(x=>x.value),mx:g('dpMx')});if(['quran','mutun'].includes(DP.type))DP.o.exam=g('dpE');dpSave()};
+  const go=async prev=>{read();const er=document.getElementById('dpErr');let ids=studs.filter(s=>DP.sel[s.id]).map(s=>s.id);
+    if(prev&&!ids.length&&studs.length)ids=[studs[0].id];if(!ids.length){er.textContent=t('bk_pick');return}
+    if(DP.type==='mutun'&&!(DP.o.mutun||[]).length&&!DP.o.mx){er.textContent=t('dp_e_mutun');return}
+    er.style.color='';er.textContent=t('wait');const list=ids.map(id=>D.students.find(s=>s.id===id));const codes={};
+    if(DP.o.qr&&!prev&&LIVE){for(const s of list){const T2=dpTitle(DP.type),c=D.classes.find(x=>x.id===s.class_id),m=DIPM.find(x=>x[0]===DP.men[s.id]);
+      const {data,error}=await sb.rpc('issue_document',{p_student:s.id,p_type:T2[0]+' / '+T2[1],p_level:(c?clsAr(c)+' / '+clsFr(c)+' — ':'')+DP.o.year,p_mention:m?m[1]+' / '+m[2]:''});
+      if(error){er.textContent=em(error);return}codes[s.id]=data}}
+    er.textContent='';await dipPrint(list,codes,prev)};
+  const g1=document.getElementById('dpGo');if(g1)g1.onclick=()=>go(false);const g2=document.getElementById('dpPrev');if(g2)g2.onclick=()=>go(true)}
+function dpSave(){try{localStorage.setItem('amc_dip',JSON.stringify({style:DP.style,o:DP.o}))}catch(e){}}
+function dpTitle(k){return {pri:['شهادة إتمام المرحلة الابتدائية',"CERTIFICAT DE FIN D'ÉTUDES PRIMAIRES"],col:['شهادة إتمام المرحلة الإعدادية',"DIPLÔME DE FIN D'ÉTUDES DU PREMIER CYCLE"],
+  lyc:['شهادة إتمام المرحلة الثانوية',"DIPLÔME DE FIN D'ÉTUDES SECONDAIRES"],uni:['شهادة جامعية','DIPLÔME UNIVERSITAIRE'],quran:['شهادة حفظ القرآن الكريم','CERTIFICAT DE MÉMORISATION DU SAINT CORAN'],
+  mutun:['شهادة حفظ المتون العلمية','CERTIFICAT DE MÉMORISATION DES TEXTES SAVANTS (MUTŪN)']}[k]}
+function dipText(s,o,type,men){const f=fem(s),i=D.i,c=D.classes.find(x=>x.id===s.class_id),m=DIPM.find(x=>x[0]===men);
+  const nmA=esc(sName(s)),nmF=esc(s.full_name_fr||''),bA=s.birth_date?`${f?'المولودة':'المولود'} بتاريخ ${fdate(s.birth_date)}${s.birth_place?' في '+esc(half(s.birth_place,true)):''}`:'',
+    bF=s.birth_date?`${f?'née':'né'} le ${fdate(s.birth_date)}${s.birth_place?' à '+esc(half(s.birth_place,false)):''}`:'',
+    who=f?'الطالبة':'الطالب',mA=m?`، وذلك بتقدير <b>${m[1]}</b>`:'',mF=m?`, avec la mention <b>${m[2]}</b>`:'';
+  const cyc={pri:['المرحلة الابتدائية','le cycle primaire'],col:['المرحلة الإعدادية','le premier cycle (collège)'],lyc:['المرحلة الثانوية','le second cycle (lycée)']};
+  let ar,fr,extra='';
+  if(cyc[type]){ar=`تشهد إدارة <b>${esc(i.name_ar)}</b> بأنّ ${who} <b class="dnA">${nmA}</b> ${bA}، قد ${f?'أتمّت':'أتمّ'} بنجاح الدراسة في <b>${cyc[type][0]}</b> خلال السنة الدراسية <b dir="ltr">${esc(o.year)}</b>${mA}.`;
+    fr=`La direction de <b>${esc(i.name_fr)}</b> certifie que ${f?"l'élève":"l'élève"} <b>${nmF||nmA}</b>${bF?', '+bF:''}, a achevé avec succès ${cyc[type][1]} au titre de l'année scolaire <b>${esc(o.year)}</b>${mF}.`}
+  else if(type==='uni'){ar=`تشهد إدارة <b>${esc(i.name_ar)}</b> بأنّ ${who} <b class="dnA">${nmA}</b> ${bA}، قد ${f?'نالت':'نال'} <b>${esc(o.degree||'الشهادة الجامعية')}</b>${o.spec?' في تخصص <b>'+esc(o.spec)+'</b>':''} للسنة الجامعية <b dir="ltr">${esc(o.year)}</b>${mA}.`;
+    fr=`La direction de <b>${esc(i.name_fr)}</b> certifie que <b>${nmF||nmA}</b>${bF?', '+bF:''}, a obtenu le diplôme de <b>${esc(o.degree||'—')}</b>${o.spec?', spécialité <b>'+esc(o.spec)+'</b>':''}, année universitaire <b>${esc(o.year)}</b>${mF}.`}
+  else if(type==='quran'){const r=RIWAYA.find(x=>x[0]===o.riwaya)||RIWAYA[0],all=!o.amount||o.amount==='all';
+    ar=`الحمد لله الذي أنزل الكتاب، والصلاة والسلام على رسول الله. تشهد إدارة <b>${esc(i.name_ar)}</b> بأنّ ${who} <b class="dnA">${nmA}</b> ${bA}، قد ${f?'أتمّت':'أتمّ'} حفظ ${all?'<b>كتاب الله تعالى كاملاً</b>':`<b>${esc(o.amount)} جزءاً</b> من كتاب الله تعالى`} برواية <b>${r[1]}</b>${o.exam?`، بعد ${f?'اختبارها':'اختباره'} على يد <b>${esc(o.exam)}</b>`:''}${mA}.`;
+    fr=`La direction de <b>${esc(i.name_fr)}</b> atteste que <b>${nmF||nmA}</b>${bF?', '+bF:''}, a mémorisé ${all?'<b>l\'intégralité du Saint Coran</b>':`<b>${esc(o.amount)} juz'</b> du Saint Coran`} selon la lecture de <b>${r[2]}</b>${mF}.`;
+    extra=`<p class="dua">نسأل الله أن ${f?'يجعلها':'يجعله'} من أهل القرآن الذين هم أهل الله وخاصّته</p>`}
+  else{const L2=(o.mutun||[]).concat(String(o.mx||'').split(/[،,]/).map(x=>x.trim()).filter(Boolean));
+    ar=`تشهد إدارة <b>${esc(i.name_ar)}</b> بأنّ ${who} <b class="dnA">${nmA}</b> ${bA}، قد ${f?'أتمّت':'أتمّ'} حفظ المتون العلمية الآتية: <b>${L2.map(esc).join('، ')}</b>${o.exam?`، بعد ${f?'عرضها':'عرضه'} إياها على <b>${esc(o.exam)}</b>`:''}${mA}.`;
+    fr=`La direction de <b>${esc(i.name_fr)}</b> atteste que <b>${nmF||nmA}</b>${bF?', '+bF:''}, a mémorisé les textes savants suivants : <b>${L2.map(esc).join(', ')}</b>${mF}.`;
+    extra=`<p class="dua">نسأل الله أن ${f?'ينفعها':'ينفعه'} بما ${f?'حفظت':'حفظ'} وأن ${f?'يجعلها':'يجعله'} من العلماء العاملين</p>`}
+  return {ar,fr,extra}}
+const DIP_ORN=`<svg viewBox="0 0 100 100"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M50 6l11 28 28 11-28 11-11 28-11-28-28-11 28-11z"/><rect x="26" y="26" width="48" height="48" transform="rotate(45 50 50)"/><circle cx="50" cy="50" r="9"/><circle cx="50" cy="50" r="40" stroke-dasharray="3 5"/></g></svg>`;
+async function dipPrint(list,codes,prev){await loadQR();const o=DP.o,i=D.i,T2=dpTitle(DP.type),st=DP.style;
+  const sig=(ttl,ar,img)=>`<div class="dsg"><span>${ttl}</span><b dir="rtl">${ar}</b><div class="dsi">${img||''}</div></div>`;
+  const pages=list.map(s=>{const tx=dipText(s,o,DP.type,DP.men[s.id]),code=codes[s.id]||'',ph=o.photo&&murl(s.photo_path);
+    const stamp=murl(i.stamp_path)?`<img class="dst" src="${esc(murl(i.stamp_path))}">`:'',sg=murl(i.signature_path)?`<img class="dsgi" src="${esc(murl(i.signature_path))}">`:'';
+    return `<section class="dip dip-${st}">${st==='islamic'?'<div class="dpat"></div>':''}${st==='modern'?`<aside class="dband"><img src="${esc(schoolLogo())}"><b dir="ltr">${esc(o.year)}</b></aside>`:''}
+     <div class="dfr">${st!=='modern'?['c1','c2','c3','c4'].map(k=>`<i class="dorn ${k}">${DIP_ORN}</i>`).join(''):''}
+      <div class="dtop"><div class="dsch"><b dir="rtl">${esc(i.name_ar)}</b><span>${esc(i.name_fr)}</span>${(i.country||'CI')==='CI'?`<small>République de Côte d'Ivoire${i.drena?' — '+esc(i.drena):''}</small>`:''}</div>
+        ${st!=='modern'?`<img class="dlogo" src="${esc(schoolLogo())}">`:''}<div class="dph">${ph?`<img src="${esc(ph)}">`:''}</div></div>
+      ${DP.type==='quran'?'<div class="dbsm">بسم الله الرحمن الرحيم</div>':''}
+      <h1 class="dtA">${T2[0]}</h1><h2 class="dtF">${T2[1]}</h2>
+      <div class="dname"><b>${esc(sName(s))}</b>${s.full_name_fr?`<span dir="ltr">${esc(s.full_name_fr)}</span>`:''}</div>
+      <p class="dpA" dir="rtl">${tx.ar}</p><p class="dpF" dir="ltr">${tx.fr}</p>${tx.extra}
+      <div class="dfoot">${sig('Le Directeur','المدير',sg)}
+        <div class="dmid">${o.qr&&(code||prev)?`<div class="dqr">${code?`<div class="qrc" data-url="${esc(location.origin+location.pathname+'?code='+code+'#verify')}"></div>`:'<div class="qrph">QR</div>'}<small dir="ltr">${esc(code||'AMC-…')}</small></div>`:''}${stamp}
+          <small class="dloc">${esc(o.place||'')} — ${fdate(o.date)}</small></div>
+        ${['quran','mutun'].includes(DP.type)?sig(DP.type==='quran'?"L'examinateur":'Le Cheikh','المُجيز / المختبِر',o.exam?`<em>${esc(o.exam)}</em>`:''):sig('Le Président du jury','رئيس اللجنة','')}</div></div></section>`});
+  await printPages(pages.join(''),true,{m:'0'})}
 
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

@@ -126,6 +126,11 @@ footer a{color:#ffd08a}
 .bul th{background:#1B7F3B;color:#fff}.bul .info td:nth-child(odd),.bul .tot td:nth-child(odd){background:#f3f6f3;width:18%}
 .bul .marks td:not(:first-child),.bul .marks th:not(:first-child){text-align:center}
 .bul .marks td.rm{text-align:start!important;font-size:12px}.bul .ann td,.bul .ann th{font-size:12px;padding:4px}
+.ppage{width:210mm;height:297mm;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:4mm;padding:6mm;box-sizing:border-box;page-break-after:always;break-after:page;font-family:'Cairo','Inter',sans-serif;background:#fff;color:#111}
+.ppslip{border:1.5px dashed #1B7F3B;border-radius:4mm;padding:4mm;display:flex;flex-direction:column;gap:2mm;font-size:9pt;overflow:hidden}
+.ppslip .pph{display:flex;align-items:center;gap:3mm}.ppslip .pph img{height:13mm}.ppslip .ppt{text-align:center;background:#f0f8f2;border-radius:2mm;padding:1mm;color:#0F5E2A}
+.ppslip table{border-collapse:collapse;width:100%}.ppslip td{border:1px solid #ccc;padding:1mm 1.5mm}.ppslip .ppc{font-size:12pt;letter-spacing:1px}
+.ppslip .ppq{display:flex;gap:3mm;align-items:center}.ppslip .ppq .qrc img,.ppslip .ppq .qrc canvas{width:36mm!important;height:36mm!important}.ppslip .ppq{margin-top:3mm}.ppslip .ppw{color:#b03a2e;text-align:center}
 .bul .sig{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:14px;min-height:110px}
 .bul .sig>div{flex:1;text-align:center;font-weight:700}
 .bul .qr{display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:400!important}.bul .qr small{font-size:10px}
@@ -362,7 +367,7 @@ footer a{color:#ffd08a}
   <div class="tabs"><div class="tab on" data-tab="dir" data-t="lt1">الإدارة</div><div class="tab" data-tab="staff" data-t="lt2">المعلّمون</div><div class="tab" data-tab="student" data-t="lt3">التلميذ / الولي</div></div>
   <form id="loginForm">
     <div class="fld"><label id="idLbl" data-t="lid_email">البريد الإلكتروني</label><input id="lid" dir="ltr" required></div>
-    <div class="fld"><label data-t="pw">كلمة المرور</label><input type="password" dir="ltr" required></div>
+    <div class="fld"><label id="pwLbl" data-t="pw">كلمة المرور</label><input type="password" dir="ltr" required></div>
     <button class="btn btn-g" style="width:100%" data-t="login">دخول</button>
     <div class="note" id="loginNote" hidden data-t="login_note">لوحة التحكم ستُبنى في المرحلة التالية (قاعدة البيانات Supabase). هذه الصفحة واجهة فقط حالياً.</div>
   </form>
@@ -402,6 +407,7 @@ footer a{color:#ffd08a}
   <p style="text-align:center;margin-top:14px"><a href="#login" style="color:var(--g2);font-weight:700" data-t="back_login">← العودة إلى الدخول</a></p>
 </div></div></main>
 <!-- NEW PASSWORD (after email link) -->
+<main id="parent" class="view"><div class="wrap"><div class="panel" id="parentBox" style="max-width:820px"></div></div></main>
 <main id="newpw" class="view"><div class="wrap"><div class="panel" style="max-width:460px">
   <h2 data-t="np_ttl">كلمة مرور جديدة</h2><p class="sub" data-t="np_sub">اختر كلمة مرور جديدة لحسابك (8 أحرف على الأقل).</p>
   <form id="npForm"><div class="fld"><label data-t="pw">كلمة المرور</label><input id="np1" type="password" dir="ltr" minlength="8" required></div>
@@ -440,6 +446,15 @@ e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
 cm_r:"Recto (une face)",cm_rv:"Recto-verso (deux faces)",cm_help:"Recto-verso : imprimez en mode « Recto-verso / Impression sur les deux côtés — retourner sur le bord long ». Sans imprimante recto-verso : imprimez les pages impaires, remettez les feuilles dans le bac, puis imprimez les pages paires.",valid_year:"Valable pour l'année",card_rules:"Cette carte est personnelle et doit être présentée à l'entrée de l'établissement.",card_found:"En cas de perte, merci de la rapporter à l'école :",
 inactive_msg:"Lecture seule : l'abonnement de l'école est suspendu ou la période d'essai est terminée.",not_allowed:"Opération non autorisée.",has_grades:"Impossible : des notes existent pour cette classe ou matière. Supprimez d'abord les évaluations concernées.",net_down:"Pas de connexion Internet. Vérifiez votre réseau et réessayez.",v_revoked:"✗ Document annulé",v_revoked_d:"Ce document a été annulé par l'établissement et n'est plus valable.",ban_susp:"Le compte de l'école est suspendu.",ban_trial:"La période d'essai gratuite est terminée.",ban_help:"Vos données sont conservées et consultables, mais aucune modification n'est possible. Pour activer l'abonnement :",
+pp_ttl:"Espace parents",pp_copy:"Copier le message",pp_add:"Autre enfant",pp_remove:"Retirer cet enfant",pp_bad:"Matricule ou code secret incorrect.",pp_locked:"Trop d'essais : réessayez dans 15 minutes.",pp_off:"L'espace parents de cette école n'est pas disponible pour le moment.",
+pp_pin:"Code secret du parent",pp_login_h:"Saisissez le matricule de l'élève et le code secret remis par l'école (sur la fiche « Espace parents »).",pp_rest:"Reste à payer",pp_s_grd:"📊 Notes",pp_s_att:"🕒 Présence",pp_s_fee:"💰 Frais",pp_s_exm:"📅 Examens",
+pp_no_grd:"Les résultats n'ont pas encore été publiés par l'école.",pp_exc:"Justifiées",pp_no_abs:"Aucune absence ni retard. Bravo !",pp_disc:"Réduction appliquée :",pp_pays:"Paiements",pp_no_fee:"Aucun frais enregistré pour cette année.",pp_no_exm:"Aucun examen programmé prochainement.",
+pp_contact:"Contacter l'école :",pp_sure_out:"Se déconnecter et retirer tous les enfants de ce téléphone ?",pp_codes:"Codes parents",pp_letter:"Fiche à imprimer",pp_letters:"Codes parents",pp_sure_letters:"Imprimer les fiches « Espace parents » de {n} élève(s) ?",pp_sure_regen:"Créer un nouveau code ? L'ancien ne fonctionnera plus.",
+pp_msg:"Assalamou alaykoum,\n{s} : suivez la scolarité de {n} (notes, absences, frais) sur l'Espace parents.\nLien : {u}\nMatricule : {c}\nCode secret : {p}\nGardez ce code confidentiel.",
+pp_set_help:"Les parents consultent notes, absences, frais et examens avec le matricule et un code secret (onglet Élèves → 🔑). Les notes d'un trimestre ne sont visibles qu'après publication.",pp_on:"Activer l'espace parents",pp_pub:"Trimestres publiés",
+fv_exp:"Dépenses",fv_bal:"Bilan",ex_new_exp:"Nouvelle dépense",xp_cat:"Catégorie",xp_desc:"Libellé",xp_payee:"Bénéficiaire",xp_all_m:"Tous les mois",xp_total:"Total des dépenses",xp_print:"Journal des dépenses",xp_voucher:"N° bon",xp_none:"Aucune dépense.",xp_cancel_r:"Motif de l'annulation :",
+xc_salary:"Salaires",xc_rent:"Loyer",xc_utilities:"Eau / électricité / internet",xc_supplies:"Fournitures",xc_books:"Livres et manuels",xc_maintenance:"Entretien et réparations",xc_transport:"Transport",xc_food:"Cantine",xc_events:"Fêtes et activités",xc_taxes:"Impôts et taxes",xc_equipment:"Équipement",xc_other:"Autre",
+bl_inc:"Recettes",bl_exp:"Dépenses",bl_net:"Solde",bl_cum:"Cumul",bl_recv:"Reste à recouvrer",bl_month:"Mois",bl_bycat:"Dépenses par catégorie",bl_print:"Bilan financier",bl_help:"Recettes = paiements des frais encaissés (hors annulés). Dépenses = bons de dépense (hors annulés).",f_deadline:"Échéance",f_total:"Total",
 tab_exm:"Examens",ex_new:"+ Nouvelle session d'examens",ex_title:"Intitulé",ex_open:"Ouvrir",ex_none:"Aucune session d'examens pour cette année.",ex_sure_del:"Supprimer cette session et tout son calendrier ?",ex_list:"Sessions",ex_mine:"Mes surveillances",
 ex_add_slot:"+ Épreuve",ex_gen:"Générer automatiquement",ex_p_cls:"Calendrier par classe",ex_p_grid:"Tableau général",ex_p_sup:"Surveillances",ex_mk_ev:"Créer les évaluations dans les notes",ex_sure_ev:"Créer {n} évaluation(s) dans l'onglet Notes (une par épreuve) ?",ex_ev_done:"{n} évaluation(s) créée(s) : les enseignants peuvent saisir les notes.",
 ex_cf_n:"{n} épreuve(s) en conflit (en rouge).",ex_cf_cls:"classe déjà occupée",ex_cf_room:"salle déjà occupée",ex_cf_sup:"surveillant déjà occupé",ex_cf_out:"hors des dates de la session",ex_no_slot:"Aucune épreuve. Ajoutez-en ou utilisez la génération automatique.",ex_sure_slot:"Supprimer cette épreuve ?",
@@ -477,6 +492,15 @@ ar:{}};
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
 Object.assign(T.ar,{cm_r:"وجه واحد (Recto)",cm_rv:"وجهان (Recto-verso)",cm_help:"الوجهان: اختر في نافذة الطباعة «طباعة على الوجهين — القلب على الحافة الطويلة». وإن كانت الطابعة لا تطبع على الوجهين: اطبع الصفحات الفردية، ثم أعد الأوراق إلى الطابعة واطبع الصفحات الزوجية.",valid_year:"صالحة للسنة",card_rules:"هذه البطاقة شخصية، ويجب إظهارها عند الدخول إلى المدرسة.",card_found:"في حال العثور عليها يُرجى إعادتها إلى المدرسة:",
 inactive_msg:"قراءة فقط: اشتراك المدرسة موقوف أو انتهت الفترة التجريبية.",not_allowed:"عملية غير مسموح بها.",has_grades:"لا يمكن: توجد علامات لهذا الفصل أو هذه المادة. احذف التقييمات المعنية أولاً.",net_down:"لا يوجد اتصال بالإنترنت. تحقق من الشبكة وأعد المحاولة.",v_revoked:"✗ وثيقة ملغاة",v_revoked_d:"ألغت المؤسسة هذه الوثيقة، فلم تعد صالحة.",ban_susp:"حساب المدرسة موقوف.",ban_trial:"انتهت الفترة التجريبية المجانية.",ban_help:"بياناتكم محفوظة ويمكن الاطلاع عليها، لكن لا يمكن التعديل. لتفعيل الاشتراك:",
+pp_ttl:"بوابة الأولياء",pp_copy:"نسخ الرسالة",pp_add:"طفل آخر",pp_remove:"حذف هذا الطفل",pp_bad:"الرقم التعريفي أو الرمز السري غير صحيح.",pp_locked:"محاولات كثيرة: أعد المحاولة بعد 15 دقيقة.",pp_off:"بوابة الأولياء لهذه المدرسة غير متاحة حالياً.",
+pp_pin:"الرمز السري للولي",pp_login_h:"اكتب الرقم التعريفي للتلميذ والرمز السري الذي سلمته المدرسة (في ورقة «بوابة الأولياء»).",pp_rest:"المتبقي للدفع",pp_s_grd:"📊 النتائج",pp_s_att:"🕒 الحضور",pp_s_fee:"💰 الرسوم",pp_s_exm:"📅 الامتحانات",
+pp_no_grd:"لم تنشر المدرسة النتائج بعد.",pp_exc:"المبررة",pp_no_abs:"لا غياب ولا تأخر. أحسنت!",pp_disc:"التخفيض المطبق:",pp_pays:"الدفعات",pp_no_fee:"لا رسوم مسجلة لهذه السنة.",pp_no_exm:"لا امتحانات مبرمجة قريباً.",
+pp_contact:"للتواصل مع المدرسة:",pp_sure_out:"الخروج وحذف كل الأطفال من هذا الهاتف؟",pp_codes:"رموز الولي",pp_letter:"ورقة للطباعة",pp_letters:"رموز الأولياء",pp_sure_letters:"طباعة أوراق «بوابة الأولياء» لـ {n} تلميذ؟",pp_sure_regen:"إنشاء رمز جديد؟ لن يعمل الرمز القديم بعد ذلك.",
+pp_msg:"السلام عليكم،\n{s}: تابعوا دراسة {n} (النتائج، الغياب، الرسوم) في بوابة الأولياء.\nالرابط: {u}\nالرقم التعريفي: {c}\nالرمز السري: {p}\nاحتفظوا بالرمز ولا تعطوه لأحد.",
+pp_set_help:"يطلع الأولياء على النتائج والغياب والرسوم والامتحانات بالرقم التعريفي ورمز سري (تبويب التلاميذ ← 🔑). نتائج الفصل الدراسي لا تظهر إلا بعد نشرها.",pp_on:"تفعيل بوابة الأولياء",pp_pub:"الفصول الدراسية المنشورة",
+fv_exp:"المصاريف",fv_bal:"الحصيلة",ex_new_exp:"مصروف جديد",xp_cat:"الصنف",xp_desc:"البيان",xp_payee:"المستفيد",xp_all_m:"كل الأشهر",xp_total:"مجموع المصاريف",xp_print:"سجل المصاريف",xp_voucher:"رقم السند",xp_none:"لا توجد مصاريف.",xp_cancel_r:"سبب الإلغاء:",
+xc_salary:"الأجور",xc_rent:"الكراء",xc_utilities:"الماء / الكهرباء / الإنترنت",xc_supplies:"اللوازم",xc_books:"الكتب والمقررات",xc_maintenance:"الصيانة والإصلاح",xc_transport:"النقل",xc_food:"المطعم",xc_events:"الحفلات والأنشطة",xc_taxes:"الضرائب والرسوم",xc_equipment:"التجهيزات",xc_other:"أخرى",
+bl_inc:"المداخيل",bl_exp:"المصاريف",bl_net:"الرصيد",bl_cum:"التراكمي",bl_recv:"المتبقي على الأولياء",bl_month:"الشهر",bl_bycat:"المصاريف حسب الصنف",bl_print:"الحصيلة المالية",bl_help:"المداخيل = دفعات الرسوم المحصلة (دون الملغاة). المصاريف = سندات الصرف (دون الملغاة).",f_deadline:"آخر أجل",f_total:"المجموع",
 tab_exm:"الامتحانات",ex_new:"+ دورة امتحانات جديدة",ex_title:"العنوان",ex_open:"فتح",ex_none:"لا توجد دورات امتحانات لهذه السنة.",ex_sure_del:"حذف هذه الدورة وكل جدولها؟",ex_list:"الدورات",ex_mine:"مراقباتي",
 ex_add_slot:"+ حصة امتحان",ex_gen:"توليد تلقائي",ex_p_cls:"جدول كل فصل",ex_p_grid:"الجدول العام",ex_p_sup:"جدول المراقبة",ex_mk_ev:"إنشاء التقييمات في العلامات",ex_sure_ev:"إنشاء {n} تقييم في تبويب العلامات (واحد لكل حصة)؟",ex_ev_done:"تم إنشاء {n} تقييم: يمكن للمعلمين إدخال العلامات.",
 ex_cf_n:"{n} حصة فيها تعارض (باللون الأحمر).",ex_cf_cls:"الفصل مشغول",ex_cf_room:"القاعة مشغولة",ex_cf_sup:"المراقب مشغول",ex_cf_out:"خارج تواريخ الدورة",ex_no_slot:"لا توجد حصص. أضف حصة أو استعمل التوليد التلقائي.",ex_sure_slot:"حذف هذه الحصة؟",
@@ -516,6 +540,7 @@ function applyLang(){
   document.getElementById('langBtn').textContent=L==='ar'?'Français':'العربية';
   setStep(step);setTab(tab);
   if(location.hash==='#dash'&&D.p)renderDash();
+  if(location.hash==='#parent'&&typeof renderParent==='function')renderParent();
 }
 document.getElementById('langBtn').onclick=()=>{L=L==='ar'?'fr':'ar';try{localStorage.setItem('amc_lang',L)}catch(e){}applyLang()};
 
@@ -523,18 +548,22 @@ document.getElementById('langBtn').onclick=()=>{L=L==='ar'?'fr':'ar';try{localSt
 const C=window.AMC_CONFIG||{};
 const LIVE=!!(window.supabase&&C.SUPABASE_URL&&!/XXXX/.test(C.SUPABASE_URL));
 const sb=LIVE?window.supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY):null;
-const views=['home','register','login','verify','dash','activate','forgot','newpw'];
-function route(){const h=location.hash.slice(1);if(h!=='dash'&&typeof stopScan==='function')stopScan();views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash()}
+const views=['home','register','login','verify','dash','activate','forgot','newpw','parent'];
+function route(){const h=location.hash.slice(1);if(h!=='dash'&&typeof stopScan==='function')stopScan();views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash();if(h==='parent'&&LIVE)loadParent()}
 addEventListener('hashchange',route);
 
 // login tabs
 let tab='dir';
-function setTab(x){tab=x;document.querySelectorAll('.tab').forEach(e=>e.classList.toggle('on',e.dataset.tab===x));const l=document.getElementById('idLbl');l.dataset.t=x==='student'?'lid_mat':'lid_email';l.innerHTML=t(l.dataset.t);document.getElementById('lid').type=x==='student'?'text':'email'}
+function setTab(x){tab=x;document.querySelectorAll('.tab').forEach(e=>e.classList.toggle('on',e.dataset.tab===x));const l=document.getElementById('idLbl');l.dataset.t=x==='student'?'lid_mat':'lid_email';l.innerHTML=t(l.dataset.t);document.getElementById('lid').type=x==='student'?'text':'email';
+  const pl=document.getElementById('pwLbl');pl.dataset.t=x==='student'?'pp_pin':'pw';pl.innerHTML=t(pl.dataset.t);
+  const lf=document.getElementById('lid');lf.style.textTransform=x==='student'?'uppercase':'';document.querySelector('#loginForm [type=password]').style.textTransform=x==='student'?'uppercase':'';
+  const ln=document.getElementById('loginNote');if(ln){ln.hidden=x!=='student';if(x==='student')ln.innerHTML=t('pp_login_h')}}
 document.querySelectorAll('.tab').forEach(e=>e.onclick=()=>setTab(e.dataset.tab));
 function goLogin(x){location.hash='login';setTab(x)}
 document.getElementById('loginForm').onsubmit=async e=>{e.preventDefault();const n=document.getElementById('loginNote');
   if(!LIVE){n.hidden=false;return}
-  if(tab==='student'){n.hidden=false;n.innerHTML=t('stud_soon');return}
+  if(tab==='student'){n.hidden=false;n.innerHTML=t('wait');const r=await ppLogin(document.getElementById('lid').value,e.target.querySelector('[type=password]').value);
+    if(r){n.innerHTML=r;return}e.target.querySelector('[type=password]').value='';n.hidden=true;location.hash='parent';if(location.hash==='#parent')loadParent();return}
   n.hidden=false;n.innerHTML=t('wait');
   const {error}=await sb.auth.signInWithPassword({email:document.getElementById('lid').value.trim(),password:e.target.querySelector('[type=password]').value});
   if(error){n.innerHTML=t('e_login');return}
@@ -696,20 +725,23 @@ function tabStudents(){const el=document.getElementById('dtab');
   el.innerHTML=(D.edit!==null?stuForm(D.edit===true?null:D.students.find(s=>s.id===D.edit)):'')+
   `<div class="toolbar"><input id="sQ" placeholder="${t('search')}" value="${esc(D.q)}">
     <select id="sFc">${opts([['',t('all_cls')],['none',t('no_class')]].concat(D.classes.map(c=>[c.id,clsName(c)])),D.fc)}</select>
-    ${can('registry')&&D.edit===null?`<button class="btn btn-o" id="sNew">${t('new_stu')}</button><button class="btn btn-l" id="sImp">📥 ${t('imp_btn')}</button>`:''}</div>${D.imp?impPanel():''}
+    ${can('registry')&&D.edit===null?`<button class="btn btn-o" id="sNew">${t('new_stu')}</button><button class="btn btn-l" id="sImp">📥 ${t('imp_btn')}</button><button class="btn btn-l" id="sPins">🔑 ${t('pp_letters')}</button>`:''}</div>${D.imp?impPanel():''}<div id="pinBox"></div>
   ${!D.classes.length&&can('registry')?`<div class="note">${t('need_cls')}</div>`:''}
   <p class="sub" style="margin:6px 0">${list.length} ${t('n_stu')}</p>
   ${list.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('s_code')}</th><th>${t('s_name')}</th><th>${t('class')}</th><th>${t('g_phone')}</th>${can('registry')||can('fees')?'<th></th>':''}</tr></thead><tbody>
   ${list.map(s=>`<tr${s.status==='left'?' class="left"':''}><td dir="ltr" style="white-space:nowrap"><b>${esc(s.code)}</b></td>
     <td><div class="nm">${thumb(s.photo_path,s.first_name_ar)}<div><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}</div></div>${s.status==='left'?` <span class="badge bad">${t('st_left')}</span>`:''}</td>
     <td>${esc(s.class_id?clsName(cmap[s.class_id]):t('no_class'))}</td><td dir="ltr">${esc(s.guardian_phone||'')}</td>
-    ${can('registry')||can('fees')?`<td style="white-space:nowrap">${can('fees')?`<button class="btn btn-t sm" data-fee="${s.id}" title="${t('tab_fee')}">💰</button>`:''}${can('registry')?`<button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button>`:''}${canEdit()&&!past()?`<button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button>`:''}</td>`:''}</tr>`).join('')}
+    ${can('registry')||can('fees')?`<td style="white-space:nowrap">${can('fees')?`<button class="btn btn-t sm" data-fee="${s.id}" title="${t('tab_fee')}">💰</button>`:''}${can('registry')?`<button class="btn btn-t sm" data-pin="${s.id}" title="${t('pp_codes')}">🔑</button><button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button>`:''}${canEdit()&&!past()?`<button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button>`:''}</td>`:''}</tr>`).join('')}
   </tbody></table></div>`:`<div class="note">${t('no_stu')}</div>`}`;
   const sq=document.getElementById('sQ');sq.oninput=()=>{D.q=sq.value;const pos=sq.selectionStart;tabStudents();const n=document.getElementById('sQ');n.focus();n.setSelectionRange(pos,pos)};
   document.getElementById('sFc').onchange=e=>{D.fc=e.target.value;tabStudents()};
   const nb=document.getElementById('sNew');if(nb)nb.onclick=()=>{D.edit=true;D.imp=null;tabStudents();window.scrollTo(0,0)};
   const ib=document.getElementById('sImp');if(ib)ib.onclick=()=>{D.imp=D.imp?null:{rows:null};D.edit=null;tabStudents()};
   if(D.imp)bindImp();
+  el.querySelectorAll('[data-pin]').forEach(b=>b.onclick=()=>{showPin(D.students.find(x=>x.id===b.dataset.pin));window.scrollTo(0,0)});
+  const sp=document.getElementById('sPins');if(sp)sp.onclick=async()=>{const st=list.filter(x=>x.status==='active');if(!st.length)return;if(!confirm(t('pp_sure_letters').replace('{n}',st.length)))return;
+    try{await printParentLetters(st)}catch(e){alert(em(e))}};
   el.querySelectorAll('[data-eds]').forEach(b=>b.onclick=()=>{D.edit=b.dataset.eds;tabStudents();window.scrollTo(0,0)});
   el.querySelectorAll('[data-dels]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sure_stu')))return;
     const {error}=await sb.from('students').delete().eq('id',b.dataset.dels);if(error){alert(error.code==='23503'?t('has_pay'):error.message);return}await reloadData();tabStudents()});
@@ -1140,7 +1172,8 @@ const itemName=it=>it?(L==='ar'?it.name_ar:(it.name_fr||it.name_ar)):t('gen_pay'
 async function loadFees(force){if(!force&&F.loaded===F.year)return;
   const iid=D.i.id,q=tb=>sb.from(tb).select('*').eq('institution_id',iid).eq('school_year',F.year);
   const [a,b,c]=await Promise.all([q('fee_items').order('sort'),q('discounts'),q('payments').order('seq')]);
-  F.items=a.data||[];F.disc=b.data||[];F.pays=c.data||[];F.loaded=F.year}
+  F.items=a.data||[];F.disc=b.data||[];F.pays=c.data||[];
+  try{const r=await q('expenses').order('exp_date');F.exps=r.error?[]:(r.data||[])}catch(e){F.exps=[]}F.loaded=F.year}
 function itemApplies(it,s){const c=D.classes.find(x=>x.id===s.class_id);
   if(!c)return !it.cycle&&!it.level&&!it.track;
   return (!it.cycle||it.cycle===c.cycle)&&(!it.level||it.level===c.level)&&(!it.track||it.track===c.track)}
@@ -1156,14 +1189,14 @@ function statement(s){const d=F.disc.find(x=>x.student_id===s.id),pct=d?+d.perce
   return {items,pct,disc:d,due,paid,rest:Math.max(0,due-paid),credit:Math.max(0,paid-due),overdue,pays}}
 
 async function tabFees(){const el=document.getElementById('dtab');el.innerHTML=t('wait');await loadFees();
-  const views=[['sum','fv_sum'],['pay','fv_pay'],['items','fv_items'],['disc','fv_disc']];
+  const views=[['sum','fv_sum'],['pay','fv_pay'],['items','fv_items'],['disc','fv_disc'],['exp','fv_exp'],['bal','fv_bal']];
   let h=`<div class="toolbar" style="margin-top:0;align-items:center"><div class="chips">${views.map(([k,l])=>`<span class="chip${F.view===k?' on':''}" data-fv="${k}">${t(l)}</span>`).join('')}</div>
     <span class="sub" style="margin-inline-start:auto">${t('year')}</span><select id="fYear" dir="ltr" style="width:130px;flex:0">${opts(YEARS.map(y=>[y,y]),F.year)}</select></div>`;
-  if(F.view==='stu'&&F.sid)h+=feeStudent();else h+=({sum:feeSummary,pay:feeJournal,items:feeItems,disc:feeDiscounts}[F.view]||feeSummary)();
+  if(F.view==='stu'&&F.sid)h+=feeStudent();else h+=({sum:feeSummary,pay:feeJournal,items:feeItems,disc:feeDiscounts,exp:feeExpenses,bal:feeBalance}[F.view]||feeSummary)();
   el.innerHTML=h;
   el.querySelectorAll('[data-fv]').forEach(c=>c.onclick=()=>{F.view=c.dataset.fv;tabFees()});
   const fy=document.getElementById('fYear');fy.onchange=async()=>{F.year=fy.value.trim()||'2026-2027';await loadFees(true);tabFees()};
-  ({sum:bindSummary,pay:bindJournal,items:bindItems,disc:bindDiscounts,stu:bindStudentFee}[F.view]||(()=>{}))()}
+  ({sum:bindSummary,pay:bindJournal,items:bindItems,disc:bindDiscounts,stu:bindStudentFee,exp:bindExpenses,bal:bindBalance}[F.view]||(()=>{}))()}
 
 function feeSummary(){const studs=D.students.filter(s=>s.status==='active'&&(!F.fcls||s.class_id===F.fcls));
   const rows=studs.map(s=>({s,st:statement(s)}));
@@ -1488,6 +1521,7 @@ function tabSettings(){const el=document.getElementById('dtab'),i=D.i;
     <div class="fld"><label>${t('bul_note')}</label><input id="xNote" value="${esc(i.bulletin_note||'')}" list="dl_bnote"></div>
     <datalist id="dl_bnote"><option value="${esc(t('bn1'))}"><option value="${esc(t('bn2'))}"><option value="${esc(t('bn3'))}"></datalist>
     <button class="btn btn-g" id="xSave">${t('save')}</button><div class="err" id="xErr"></div></div>
+  ${portalCard()}
   <div class="cert"><b>📆 ${t('td_ttl')} — <span dir="ltr">${esc(curYear())}</span></b><p class="sub" style="margin:4px 0 8px">${t('td_help')}</p>
     ${termRanges().map((r,k)=>`<div class="two"><div class="fld"><label>${termName(k+1)} — ${t('td_from')}</label><input class="tdIn" data-k="${k}" data-e="0" type="date" dir="ltr" value="${r[0]}"></div><div class="fld"><label>${t('td_to')}</label><input class="tdIn" data-k="${k}" data-e="1" type="date" dir="ltr" value="${r[1]}"></div></div>`).join('')}
     <button class="btn btn-g sm" onclick="saveTerms(this)">${t('save')}</button><span class="err" id="tdErr" style="margin-inline-start:8px"></span></div>
@@ -1972,6 +2006,175 @@ async function printExSup(){const {e,cmap,jmap}=exPrintBase();const list=X.slots
     ${sups.map(p=>list.filter(s=>s.supervisor_id===p.id).map((s,k)=>{const c=cmap[s.class_id];return `<tr>${k?'<td></td>':`<td><b>${esc(p.n)}</b></td>`}<td>${DAYN.fr[dow(s.exam_date)].slice(0,3)}. ${fdate(s.exam_date)}</td><td>${hm(s.start_time)}–${hm(s.end_time)}</td>
       <td>${c?esc(clsFr(c))+' <span dir="rtl">'+esc(clsAr(c))+'</span>':''}</td><td>${jBoth(jmap[s.subject_id])}</td><td>${esc(s.room||'')}</td><td style="min-width:22mm"></td></tr>`}).join('')).join('')}</tbody></table>${officialSign('')}</section>`)}
 
+// ===== parent portal =====
+const PP={kids:[],data:{},cur:''};
+function ppLoad(){try{PP.kids=JSON.parse(localStorage.getItem('amc_kids')||'[]').filter(k=>k&&k.c&&k.p)}catch(e){PP.kids=[]}}
+function ppSave(){try{localStorage.setItem('amc_kids',JSON.stringify(PP.kids))}catch(e){}}
+const ppErr=e=>t(e==='LOCKED'?'pp_locked':e==='OFF'?'pp_off':'pp_bad');
+async function ppLogin(code,pin){code=String(code||'').trim().toUpperCase();pin=String(pin||'').trim().toUpperCase();
+  const {data,error}=await sb.rpc('parent_portal',{p_code:code,p_pin:pin});if(error)return em(error);if(!data||!data.ok)return ppErr(data&&data.err);
+  ppLoad();PP.kids=PP.kids.filter(k=>k.c!==code).concat([{c:code,p:pin}]);ppSave();PP.data[code]=data;PP.cur=code;return null}
+async function loadParent(){const box=document.getElementById('parentBox');ppLoad();
+  if(!PP.kids.length){goLogin('student');return}
+  box.innerHTML=t('wait');
+  await Promise.all(PP.kids.map(async k=>{try{const {data,error}=await sb.rpc('parent_portal',{p_code:k.c,p_pin:k.p});PP.data[k.c]=error?{ok:false,err:em(error)}:data}catch(e){PP.data[k.c]={ok:false,err:em(e)}}}));
+  if(!PP.kids.some(k=>k.c===PP.cur))PP.cur=PP.kids[0].c;renderParent()}
+const ppTerm=(n,ts)=>t((ts==='sem'?'sem':'tri')+n);
+function renderParent(){const box=document.getElementById('parentBox');if(!box||!PP.kids.length)return;
+  const d=PP.data[PP.cur]||{},kidName=k=>{const x=PP.data[k.c];return x&&x.ok?x.student.last_name_ar+' '+x.student.first_name_ar:k.c};
+  let h=`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h2 style="margin:0">👨‍👩‍👧 ${t('pp_ttl')}</h2>
+    <div style="display:flex;gap:6px"><button class="btn btn-l sm" id="ppAdd">+ ${t('pp_add')}</button><button class="btn btn-t sm" id="ppOut">${t('d_logout')}</button></div></div>
+    ${PP.kids.length>1?`<div class="chips" style="margin:12px 0">${PP.kids.map(k=>`<span class="chip${k.c===PP.cur?' on':''}" data-pk="${esc(k.c)}">${esc(kidName(k))}</span>`).join('')}</div>`:''}`;
+  if(!d.ok){h+=`<div class="note" style="background:#fdecea;border-color:#f3c1bb;color:#b03a2e;margin-top:12px">${esc(PP.cur)} — ${esc(d.err&&d.err.length>12?d.err:ppErr(d.err))}</div><button class="btn btn-t sm red" id="ppRm">${t('pp_remove')}</button>`}
+  else{const S=d.school,st=d.student,c=d.class,sc=S.scale,ts=S.term_system;
+    const ab=d.attendance||{},last=(d.grades||[]).slice(-1)[0];
+    // fees through the dashboard statement() logic
+    const sv=[F.items,F.disc,F.pays,D.classes];let stmt=null;
+    try{F.items=d.fees.items||[];F.disc=d.fees.discount?[{student_id:st.id,percent:d.fees.discount.percent,kind:d.fees.discount.kind}]:[];F.pays=(d.fees.payments||[]).map(p=>({...p,student_id:st.id}));D.classes=c?[c]:[];
+      stmt=statement({id:st.id,class_id:c&&c.id})}finally{[F.items,F.disc,F.pays,D.classes]=sv}
+    h+=`<div class="cert" style="margin-top:12px"><div style="display:flex;gap:12px;align-items:center"><img src="emblem.png" alt="" style="height:54px">
+      <div><b style="font-size:19px">${esc(st.last_name_ar+' '+st.first_name_ar)}</b>${st.full_name_fr?`<br><span dir="ltr">${esc(st.full_name_fr)}</span>`:''}
+      <br><small class="sub">${esc(c?clsName(c):t('no_class'))} · <span dir="ltr">${esc(st.code)}</span> · <span dir="ltr">${esc(S.year)}</span></small><br><small><b>${esc(L==='ar'?S.name_ar:S.name_fr)}</b></small></div></div></div>
+    <div class="stats"><div class="stat"><b>${last&&last.avg!=null?fmt(+last.avg)+'/'+sc:'—'}</b><span>${last?ppTerm(last.term,ts):t('avg')}</span></div>
+      <div class="stat"${ab.absent?' style="border-color:#f3c1bb"':''}><b>${ab.absent||0}</b><span>${t('b_abs')}</span></div><div class="stat"><b>${ab.late||0}</b><span>${t('b_late')}</span></div>
+      <div class="stat"${stmt&&stmt.rest?' style="border-color:#f3d9a8"':''}><b>${stmt?money(stmt.rest):'—'}</b><span>${t('pp_rest')}</span></div></div>
+    <div class="chips" style="margin:14px 0 4px">${[['grd','pp_s_grd'],['att','pp_s_att'],['fee','pp_s_fee'],['exm','pp_s_exm']].map(([k,l])=>`<span class="chip${(PP.sec||'grd')===k?' on':''}" data-ps="${k}">${t(l)}</span>`).join('')}</div>`;
+    const sec=PP.sec||'grd';
+    if(sec==='grd'){h+=(d.grades||[]).length?d.grades.slice().reverse().map(g=>`<div class="cert"><b>${ppTerm(g.term,ts)}</b>
+      <div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('subject')}</th><th>${t('avg')} /${sc}</th><th>${t('class_avg')}</th><th>${t('t_rem')}</th></tr></thead><tbody>
+      ${g.subjects.map(j=>`<tr><td>${esc(L==='ar'?j.ar:(j.fr||j.ar))}</td><td><b>${fmt(j.avg==null?null:+j.avg)}</b>${j.avg!=null?`<br><small class="sub">${mention(j.avg/sc)}</small>`:''}</td><td>${fmt(j.class_avg==null?null:+j.class_avg)}</td><td><small>${esc(j.remark||'')}</small></td></tr>`).join('')}
+      <tr style="background:#f0f8f2"><td><b>${t('gen_avg')}</b></td><td><b>${fmt(g.avg==null?null:+g.avg)}</b>${g.avg!=null?`<br><small>${mention(g.avg/sc)}</small>`:''}</td><td>${fmt(g.class_avg==null?null:+g.class_avg)}</td><td>${g.rank?`${t('rank')} <b>${g.rank} / ${g.n}</b>`:''}</td></tr></tbody></table></div>
+      ${g.conduct||g.remark?`<p style="margin:8px 0 0">${g.conduct?`${t('conduct')}: <b>${esc(g.conduct)}</b>`:''}${g.conduct&&g.remark?' · ':''}${g.remark?`${t('gen_rem')}: <b>${esc(g.remark)}</b>`:''}</p>`:''}</div>`).join('')
+      :`<div class="note">${t('pp_no_grd')}</div>`}
+    if(sec==='att'){const SL={absent:['✗','#b03a2e','a_absent'],late:['⏰','#a35c00','a_late'],excused:['✓','#1a4fb0','a_excused']};
+      h+=`<div class="cert"><p style="margin:0 0 8px">${t('b_abs')}: <b>${ab.absent||0}</b> · ${t('b_late')}: <b>${ab.late||0}</b> · ${t('pp_exc')}: <b>${ab.excused||0}</b></p>
+      ${(ab.recent||[]).length?`<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${ab.recent.map(r=>{const z=SL[r.status]||['','',''];return `<tr><td>${DAYN[L][dow(r.att_date)]} <span dir="ltr">${fdate(r.att_date)}</span></td><td style="color:${z[1]};font-weight:700">${z[0]} ${t(z[2])}${r.arrived_at?` <span dir="ltr">${hm(r.arrived_at)}</span>`:''}</td></tr>`}).join('')}</tbody></table></div>`:`<p class="sub">${t('pp_no_abs')}</p>`}</div>`}
+    if(sec==='fee'){h+=stmt&&stmt.items.length?`<div class="cert"><div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('f_item')}</th><th>${t('f_due')}</th><th>${t('f_paid')}</th><th>${t('f_rest')}</th></tr></thead><tbody>
+      ${stmt.items.map(r=>`<tr><td>${esc(itemName(r.it))}${r.it.due_date?`<br><small class="sub">${t('f_deadline')} <span dir="ltr">${fdate(r.it.due_date)}</span></small>`:''}</td><td>${money(r.due)}</td><td>${money(r.paid)}</td><td><b style="color:${r.due-r.paid>0?'#b03a2e':'var(--g2)'}">${money(r.due-r.paid)}</b></td></tr>`).join('')}
+      <tr style="background:#f0f8f2"><td><b>${t('f_total')}</b></td><td><b>${money(stmt.due)}</b></td><td><b>${money(stmt.paid)}</b></td><td><b>${money(stmt.rest)}</b></td></tr></tbody></table></div>
+      ${stmt.pct?`<p class="sub">${t('pp_disc')} ${stmt.pct}%</p>`:''}</div>
+      <div class="cert"><b>${t('pp_pays')}</b>${(d.fees.payments||[]).length?`<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${d.fees.payments.map(p=>`<tr><td dir="ltr">${fdate(p.paid_on)}</td><td><b>${money(p.amount)}</b></td><td>${t(METH[p.method]||'pm_other')}</td><td dir="ltr"><small>${esc(p.receipt_code||'')}</small></td></tr>`).join('')}</tbody></table></div>`:`<p class="sub">—</p>`}</div>`
+      :`<div class="note">${t('pp_no_fee')}</div>`}
+    if(sec==='exm'){h+=(d.exams||[]).length?`<div class="cert"><div class="tblw"><table class="tbl" style="min-width:0"><tbody>${d.exams.map(x=>`<tr><td>${DAYN[L][dow(x.exam_date)]}<br><span dir="ltr">${fdate(x.exam_date)}</span></td><td dir="ltr"><b>${hm(x.start_time)}–${hm(x.end_time)}</b></td>
+      <td><b>${esc(L==='ar'?x.name_ar:(x.name_fr||x.name_ar))}</b>${x.kind==='oral'?` <span class="badge" style="background:#e8f0fe;color:#1a4fb0">${t('ex_oral')}</span>`:''}<br><small class="sub">${esc(x.title)}${x.room?' · '+esc(x.room):''}</small></td></tr>`).join('')}</tbody></table></div></div>`
+      :`<div class="note">${t('pp_no_exm')}</div>`}
+    h+=`<p class="sub" style="margin-top:14px">${t('pp_contact')} ${S.phone?`<a href="https://wa.me/${waNum(S.phone)}" target="_blank" dir="ltr">💬 ${esc(S.phone)}</a> · <a href="tel:${esc(S.phone)}" dir="ltr">📞</a>`:''} ${S.email?`<a href="mailto:${esc(S.email)}" dir="ltr">${esc(S.email)}</a>`:''}</p>`}
+  box.innerHTML=h;
+  box.querySelectorAll('[data-pk]').forEach(c=>c.onclick=()=>{PP.cur=c.dataset.pk;renderParent()});
+  box.querySelectorAll('[data-ps]').forEach(c=>c.onclick=()=>{PP.sec=c.dataset.ps;renderParent()});
+  document.getElementById('ppAdd').onclick=()=>goLogin('student');
+  document.getElementById('ppOut').onclick=()=>{if(!confirm(t('pp_sure_out')))return;PP.kids=[];PP.data={};ppSave();location.hash='home'};
+  const rm=document.getElementById('ppRm');if(rm)rm.onclick=()=>{PP.kids=PP.kids.filter(k=>k.c!==PP.cur);ppSave();PP.cur='';PP.kids.length?loadParent():(location.hash='home')}}
+// ---- school side: parent codes
+async function getPins(ids,regen){const {data,error}=await sb.rpc('parent_pins',{p_students:ids,p_regen:!!regen});if(error)throw error;return data||{}}
+const ppUrl=(c,p)=>location.origin+location.pathname+'?pc='+encodeURIComponent(c)+'&pp='+encodeURIComponent(p)+'#parent';
+async function printParentLetters(studs){const pins=await getPins(studs.map(s=>s.id),false),i=D.i,cm=Object.fromEntries(D.classes.map(c=>[c.id,c]));
+  const slips=studs.map(s=>`<div class="ppslip"><div class="pph"><img src="${esc(schoolLogo())}"><div><b>${esc(i.name_ar)}</b><br><small>${esc(i.name_fr)}</small></div></div>
+    <b class="ppt">بوابة الأولياء — Espace parents</b>
+    <table><tr><td>التلميذ / Élève</td><td><b>${esc(sName(s))}</b>${s.full_name_fr?`<br><small>${esc(s.full_name_fr)}</small>`:''}</td></tr><tr><td>الفصل / Classe</td><td>${esc(clsAr(cm[s.class_id]))} — ${esc(clsFr(cm[s.class_id]))}</td></tr>
+      <tr><td>الرقم التعريفي / Matricule</td><td dir="ltr"><b class="ppc">${esc(s.code)}</b></td></tr><tr><td>الرمز السري / Code secret</td><td dir="ltr"><b class="ppc">${esc(pins[s.id]||'')}</b></td></tr></table>
+    <div class="ppq"><div class="qrc" data-url="${esc(ppUrl(s.code,pins[s.id]||''))}"></div><small>امسح الرمز بالهاتف أو افتح الرابط ثم «التلميذ / الولي»<br>Scannez ou ouvrez le lien puis « Élève / Parent »<br><b dir="ltr">${esc(location.origin+location.pathname)}</b></small></div>
+    <small class="ppw">احتفظوا بهذا الرمز ولا تعطوه لأحد — Gardez ce code confidentiel.</small></div>`);
+  const pages=[];for(let k=0;k<slips.length;k+=4)pages.push(`<section class="ppage">${slips.slice(k,k+4).join('')}</section>`);
+  await printPages(pages.join(''))}
+async function showPin(s,regen){const el=document.getElementById('pinBox');if(!el)return;el.innerHTML=t('wait');
+  try{const pin=(await getPins([s.id],regen))[s.id];const msg=t('pp_msg').replace('{n}',sName(s)).replace('{s}',L==='ar'?D.i.name_ar:D.i.name_fr).replace('{c}',s.code).replace('{p}',pin).replace('{u}',ppUrl(s.code,pin));
+    el.innerHTML=`<div class="cert" style="margin-top:0"><b>🔑 ${t('pp_codes')} — ${esc(sName(s))}</b><p style="margin:8px 0">${t('lid_mat')}: <b dir="ltr" class="code" style="font-size:15px;padding:2px 8px">${esc(s.code)}</b> · ${t('pp_pin')}: <b dir="ltr" class="code" style="font-size:15px;padding:2px 8px">${esc(pin)}</b></p>
+      <div class="acts" style="justify-content:flex-start;flex-wrap:wrap">${s.guardian_phone?`<a class="btn btn-g sm" target="_blank" href="https://wa.me/${waNum(s.guardian_phone)}?text=${encodeURIComponent(msg)}">💬 WhatsApp</a>`:''}
+      <button class="btn btn-l sm" id="pinCp">📋 ${t('pp_copy')}</button><button class="btn btn-l sm" id="pinPr">🖨 ${t('pp_letter')}</button><button class="btn btn-t sm" id="pinRg">🔄 ${t('regen')}</button><button class="btn btn-t sm" id="pinX">${t('close')}</button></div></div>`;
+    document.getElementById('pinCp').onclick=async e=>{try{await navigator.clipboard.writeText(msg);e.target.textContent='✓ '+t('copied')}catch(x){prompt('',msg)}};
+    document.getElementById('pinPr').onclick=()=>printParentLetters([s]);
+    document.getElementById('pinRg').onclick=()=>{if(confirm(t('pp_sure_regen')))showPin(s,true)};
+    document.getElementById('pinX').onclick=()=>{el.innerHTML=''}}catch(e){el.innerHTML=`<div class="err">${esc(em(e))}</div>`}}
+function portalCard(){const i=D.i,y=curYear(),pub=(i.portal_pub&&i.portal_pub[y])||[];
+  return `<div class="cert"><b>👨‍👩‍👧 ${t('pp_ttl')}</b><p class="sub" style="margin:4px 0 8px">${t('pp_set_help')}</p>
+    <label class="opt"><input type="checkbox" id="ppOn"${i.portal_on!==false?' checked':''}>${t('pp_on')}</label>
+    <div class="fld"><label>${t('pp_pub')} — <span dir="ltr">${esc(y)}</span></label><div class="chips">${Array.from({length:nTerms()},(_,k)=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="ppPub" value="${k+1}"${pub.includes(k+1)?' checked':''}> ${termName(k+1)}</label>`).join('')}</div></div>
+    <button class="btn btn-g sm" onclick="savePortal(this)">${t('save')}</button><span class="err" id="ppErr" style="margin-inline-start:8px"></span></div>`}
+async function savePortal(){const er=document.getElementById('ppErr'),y=curYear();er.style.color='';
+  const pp=Object.assign({},D.i.portal_pub||{},{[y]:[...document.querySelectorAll('.ppPub:checked')].map(x=>+x.value)}),on=document.getElementById('ppOn').checked;
+  er.textContent=t('wait');const {error}=await sb.from('institutions').update({portal_on:on,portal_pub:pp}).eq('id',D.i.id);if(error){er.textContent=em(error);return}
+  D.i.portal_on=on;D.i.portal_pub=pp;er.style.color='var(--g2)';er.textContent=t('saved')}
+
+// ===== expenses & balance =====
+const EXP_CATS=['salary','rent','utilities','supplies','books','maintenance','transport','food','events','taxes','equipment','other'];
+const MONN={ar:['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'],fr:['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre']};
+const yearMonths=y=>{const a=parseInt(y);return Array.from({length:12},(_,k)=>{const m=(8+k)%12,yy=a+(8+k>=12?1:0);return yy+'-'+String(m+1).padStart(2,'0')})};
+const monName=ym=>MONN[L][+ym.slice(5,7)-1]+' '+ym.slice(0,4);
+function feeExpenses(){const ok=F.exps.filter(x=>!x.cancelled),mon=F.emon||'',cat=F.ecat||'';
+  const list=F.exps.filter(x=>(!mon||x.exp_date.slice(0,7)===mon)&&(!cat||x.category===cat));const okl=list.filter(x=>!x.cancelled);
+  const by={};okl.forEach(x=>by[x.category]=(by[x.category]||0)+(+x.amount));
+  const payees=[...new Set(D.staff.map(s=>stfName(s)).concat(F.exps.map(x=>x.payee).filter(Boolean)))];
+  return `<div class="cert" style="margin-top:0"><b>${t('ex_new_exp')}</b>
+    <div class="two" style="margin-top:10px"><div class="fld"><label>${t('e_date')}</label><input id="xpD" type="date" dir="ltr" value="${todayISO()}"></div>
+      <div class="fld"><label>${t('xp_cat')}</label><select id="xpC">${opts(EXP_CATS.map(k=>[k,t('xc_'+k)]))}</select></div></div>
+    <div class="two"><div class="fld"><label>${t('f_amount')} (F CFA) <span class="r">*</span></label><input id="xpA" type="number" min="1" dir="ltr" inputmode="numeric"></div>
+      <div class="fld"><label>${t('f_method')}</label><select id="xpM">${opts(Object.keys(METH).map(k=>[k,t(METH[k])]))}</select></div></div>
+    <datalist id="dl_payee">${payees.map(x=>`<option value="${esc(x)}">`).join('')}</datalist>
+    <div class="two"><div class="fld"><label>${t('xp_desc')}</label><input id="xpS" maxlength="200"></div><div class="fld"><label>${t('xp_payee')}</label><input id="xpP" list="dl_payee" maxlength="120"></div></div>
+    <div class="fld"><label>${t('f_ref')}</label><input id="xpR" dir="ltr" maxlength="60"></div>
+    <button class="btn btn-g" id="xpSave">${t('save')}</button><div class="err" id="xpErr"></div></div>
+  <div class="toolbar"><select id="xpMon">${opts([['',t('xp_all_m')]].concat(yearMonths(F.year).map(m=>[m,monName(m)])),mon)}</select><select id="xpCat">${opts([['',t('all')]].concat(EXP_CATS.map(k=>[k,t('xc_'+k)])),cat)}</select></div>
+  <div class="stats"><div class="stat"><b>${money(okl.reduce((a,x)=>a+(+x.amount),0))}</b><span>${t('xp_total')} (${okl.length})</span></div>${Object.keys(by).sort((a,b)=>by[b]-by[a]).slice(0,5).map(k=>`<div class="stat"><b>${money(by[k])}</b><span>${t('xc_'+k)}</span></div>`).join('')}</div>
+  <div class="toolbar"><button class="btn btn-l sm" id="xpPr">🖨 ${t('xp_print')}</button><button class="btn btn-l sm" id="xpXl">📊 Excel</button></div>
+  ${list.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('xp_voucher')}</th><th>${t('e_date')}</th><th>${t('xp_cat')}</th><th>${t('f_amount')}</th><th></th></tr></thead><tbody>
+  ${list.slice().sort((a,b)=>b.exp_date.localeCompare(a.exp_date)||b.seq-a.seq).map(x=>`<tr${x.cancelled?' class="left"':''}><td dir="ltr"><b>${esc(x.voucher||'')}</b></td><td dir="ltr">${fdate(x.exp_date)}</td>
+    <td>${t('xc_'+x.category)}${x.description?`<br><small>${esc(x.description)}</small>`:''}${x.payee?`<br><small class="sub">→ ${esc(x.payee)}</small>`:''}${x.cancelled?`<br><span class="badge bad">${t('f_cancelled')}</span> <small>${esc(x.cancelled_reason||'')}</small>`:''}</td>
+    <td><b>${money(x.amount)}</b><br><small class="sub">${t(METH[x.method])}</small></td>
+    <td style="white-space:nowrap"><button class="btn btn-t sm" data-xv="${x.id}">🖨</button>${x.cancelled?'':`<button class="btn btn-t sm red" data-xc="${x.id}">✕</button>`}</td></tr>`).join('')}</tbody></table></div>`:`<div class="note">${t('xp_none')}</div>`}`}
+function bindExpenses(){const v=id=>document.getElementById(id).value.trim();
+  document.getElementById('xpMon').onchange=e=>{F.emon=e.target.value;tabFees()};document.getElementById('xpCat').onchange=e=>{F.ecat=e.target.value;tabFees()};
+  document.getElementById('xpSave').onclick=async()=>{const er=document.getElementById('xpErr'),amt=parseFloat(v('xpA'));
+    if(!(amt>0)){er.textContent=t('e_req');return}const payee=v('xpP')||null,stf=payee&&D.staff.find(s=>stfName(s)===payee);
+    er.textContent=t('wait');const {error}=await sb.from('expenses').insert({school_year:F.year,exp_date:v('xpD')||todayISO(),category:v('xpC'),amount:amt,method:v('xpM'),description:v('xpS')||null,payee,staff_id:stf?stf.id:null,reference:v('xpR')||null});
+    if(error){er.textContent=em(error);return}await loadFees(true);tabFees();const m=document.getElementById('xpErr');if(m){m.style.color='var(--g2)';m.textContent=t('saved')}};
+  document.querySelectorAll('#dtab [data-xc]').forEach(b=>b.onclick=async()=>{const r=prompt(t('xp_cancel_r'));if(r==null)return;if(!r.trim()){alert(t('e_req'));return}
+    const {error}=await sb.from('expenses').update({cancelled:true,cancelled_reason:r.trim()}).eq('id',b.dataset.xc);if(error){alert(em(error));return}await loadFees(true);tabFees()});
+  document.querySelectorAll('#dtab [data-xv]').forEach(b=>b.onclick=()=>printVoucher(F.exps.find(x=>x.id===b.dataset.xv)));
+  const list=()=>F.exps.filter(x=>(!F.emon||x.exp_date.slice(0,7)===F.emon)&&(!F.ecat||x.category===F.ecat)).sort((a,b)=>a.exp_date.localeCompare(b.exp_date)||a.seq-b.seq);
+  const fr=k=>T.fr['xc_'+k],ar=k=>T.ar['xc_'+k],pm=k=>T.fr[METH[k]];
+  document.getElementById('xpXl').onclick=()=>xlsExport('depenses_'+F.year,[['Dépenses',[['N° bon','Date','Catégorie','الصنف','Libellé','Bénéficiaire','Mode','Référence','Montant','Statut']].concat(list().map(x=>[x.voucher,fdate(x.exp_date),fr(x.category),ar(x.category),x.description||'',x.payee||'',pm(x.method),x.reference||'',+x.amount,x.cancelled?'Annulé: '+(x.cancelled_reason||''):'']))]]).catch(e=>alert(em(e)));
+  document.getElementById('xpPr').onclick=()=>{const l=list(),ok=l.filter(x=>!x.cancelled);printPages(`<section class="ofdoc">${officialHead('JOURNAL DES DÉPENSES','سجل المصاريف')}
+    <p style="text-align:center;margin:0 0 3mm">${F.emon?monName(F.emon):'Année '+esc(F.year)}${F.ecat?' — '+esc(fr(F.ecat))+' / '+esc(ar(F.ecat)):''}</p>
+    <table class="oftab"><thead><tr><th>N° bon</th><th>Date</th><th>Catégorie / الصنف</th><th>Libellé / البيان</th><th>Bénéficiaire</th><th>Mode</th><th>Montant</th></tr></thead><tbody>
+    ${l.map(x=>`<tr${x.cancelled?' style="text-decoration:line-through;color:#999"':''}><td>${esc(x.voucher||'')}</td><td>${fdate(x.exp_date)}</td><td>${esc(fr(x.category))} <span dir="rtl">${esc(ar(x.category))}</span></td><td>${esc(x.description||'')}</td><td>${esc(x.payee||'')}</td><td>${esc(pm(x.method))}</td><td style="text-align:end">${money(x.amount)}</td></tr>`).join('')}
+    <tr class="tot"><td colspan="6">TOTAL (${ok.length})</td><td style="text-align:end">${money(ok.reduce((a,x)=>a+(+x.amount),0))}</td></tr></tbody></table>${officialSign('')}</section>`)}}
+function printVoucher(x){if(!x)return;const fr=T.fr['xc_'+x.category],ar=T.ar['xc_'+x.category];
+  printPages(`<section class="ofdoc" style="min-height:0">${officialHead('BON DE DÉPENSE','سند صرف')}
+    <table class="oftab" style="font-size:11pt"><tbody><tr><td style="width:35%">N° / الرقم</td><td><b>${esc(x.voucher||'')}</b>${x.cancelled?' — <b style="color:#b03a2e">ANNULÉ / ملغى</b>':''}</td></tr>
+      <tr><td>Date / التاريخ</td><td>${fdate(x.exp_date)}</td></tr><tr><td>Catégorie / الصنف</td><td>${esc(fr)} — <span dir="rtl">${esc(ar)}</span></td></tr>
+      <tr><td>Libellé / البيان</td><td>${esc(x.description||'')}</td></tr><tr><td>Bénéficiaire / المستفيد</td><td><b>${esc(x.payee||'')}</b></td></tr>
+      <tr><td>Mode / طريقة الدفع</td><td>${esc(T.fr[METH[x.method]])}${x.reference?' — '+esc(x.reference):''}</td></tr>
+      <tr><td>Montant / المبلغ</td><td><b style="font-size:14pt">${money(x.amount)}</b></td></tr></tbody></table>
+    <div style="display:flex;justify-content:space-between;margin-top:10mm;font-weight:700"><span>Le bénéficiaire — المستفيد</span><span>Le comptable — المحاسب</span></div>${officialSign('')}</section>`)}
+function feeBalance(){const ms=yearMonths(F.year),inc={},exp={};
+  F.pays.filter(p=>!p.cancelled).forEach(p=>{const m=p.paid_on.slice(0,7);inc[m]=(inc[m]||0)+(+p.amount)});
+  F.exps.filter(x=>!x.cancelled).forEach(x=>{const m=x.exp_date.slice(0,7);exp[m]=(exp[m]||0)+(+x.amount)});
+  const extra=[...new Set(Object.keys(inc).concat(Object.keys(exp)))].filter(m=>!ms.includes(m)).sort(),all=extra.filter(m=>m<ms[0]).concat(ms,extra.filter(m=>m>ms[11]));
+  let cum=0;const rows=all.map(m=>{const a=inc[m]||0,b=exp[m]||0;cum+=a-b;return {m,a,b,n:a-b,c:cum}}).filter(r=>r.a||r.b||ms.includes(r.m));
+  const TI=rows.reduce((s,r)=>s+r.a,0),TE=rows.reduce((s,r)=>s+r.b,0);
+  const by={};F.exps.filter(x=>!x.cancelled).forEach(x=>by[x.category]=(by[x.category]||0)+(+x.amount));
+  const recv=D.students.filter(s=>s.status==='active').reduce((s,st)=>s+statement(st).rest,0);
+  F.bal={rows,TI,TE,by,recv};
+  return `<div class="stats" style="margin-top:0"><div class="stat"><b style="color:var(--g2)">${money(TI)}</b><span>${t('bl_inc')}</span></div><div class="stat"><b style="color:#b03a2e">${money(TE)}</b><span>${t('bl_exp')}</span></div>
+    <div class="stat"><b>${money(TI-TE)}</b><span>${t('bl_net')}</span></div><div class="stat"><b style="color:#a35c00">${money(recv)}</b><span>${t('bl_recv')}</span></div></div>
+  <div class="toolbar"><button class="btn btn-l sm" id="blPr">🖨 ${t('bl_print')}</button><button class="btn btn-l sm" id="blXl">📊 Excel</button></div>
+  <div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('bl_month')}</th><th>${t('bl_inc')}</th><th>${t('bl_exp')}</th><th>${t('bl_net')}</th><th>${t('bl_cum')}</th></tr></thead><tbody>
+  ${rows.map(r=>`<tr><td>${monName(r.m)}</td><td>${money(r.a)}</td><td>${money(r.b)}</td><td style="color:${r.n<0?'#b03a2e':'inherit'}"><b>${money(r.n)}</b></td><td>${money(r.c)}</td></tr>`).join('')}
+  <tr style="background:#f0f8f2"><td><b>${t('f_total')}</b></td><td><b>${money(TI)}</b></td><td><b>${money(TE)}</b></td><td><b>${money(TI-TE)}</b></td><td></td></tr></tbody></table></div>
+  ${TE?`<div class="cert"><b>${t('bl_bycat')}</b>${Object.keys(by).sort((a,b)=>by[b]-by[a]).map(k=>`<div style="margin-top:8px"><div style="display:flex;justify-content:space-between"><span>${t('xc_'+k)}</span><b>${money(by[k])} <small class="sub">(${Math.round(by[k]/TE*100)}%)</small></b></div><div style="height:8px;background:#eef3ef;border-radius:9px"><div style="height:8px;border-radius:9px;background:var(--o);width:${by[k]/TE*100}%"></div></div></div>`).join('')}</div>`:''}
+  <p class="sub">${t('bl_help')}</p>`}
+function bindBalance(){const B=F.bal,fr=k=>T.fr['xc_'+k],ar=k=>T.ar['xc_'+k],mf=m=>MONN.fr[+m.slice(5,7)-1]+' '+m.slice(0,4);
+  document.getElementById('blXl').onclick=()=>xlsExport('bilan_'+F.year,[['Bilan',[['Mois','Recettes','Dépenses','Solde du mois','Cumul']].concat(B.rows.map(r=>[mf(r.m),r.a,r.b,r.n,r.c]),[['TOTAL',B.TI,B.TE,B.TI-B.TE,''],[],['Reste à recouvrer (parents)',B.recv]])],
+    ['Par catégorie',[['Catégorie','الصنف','Montant','%']].concat(Object.keys(B.by).map(k=>[fr(k),ar(k),B.by[k],B.TE?Math.round(B.by[k]/B.TE*1000)/10:'']))]]).catch(e=>alert(em(e)));
+  document.getElementById('blPr').onclick=()=>printPages(`<section class="ofdoc">${officialHead('BILAN FINANCIER','الحصيلة المالية')}
+    <table class="oftab"><thead><tr><th>Mois / الشهر</th><th>Recettes / المداخيل</th><th>Dépenses / المصاريف</th><th>Solde / الرصيد</th><th>Cumul / التراكمي</th></tr></thead><tbody>
+    ${B.rows.map(r=>`<tr><td>${mf(r.m)} <span dir="rtl">${MONN.ar[+r.m.slice(5,7)-1]}</span></td><td style="text-align:end">${money(r.a)}</td><td style="text-align:end">${money(r.b)}</td><td style="text-align:end">${money(r.n)}</td><td style="text-align:end">${money(r.c)}</td></tr>`).join('')}
+    <tr class="tot"><td>TOTAL</td><td style="text-align:end">${money(B.TI)}</td><td style="text-align:end">${money(B.TE)}</td><td style="text-align:end">${money(B.TI-B.TE)}</td><td></td></tr></tbody></table>
+    <table class="oftab" style="margin-top:5mm"><thead><tr><th>Dépenses par catégorie / المصاريف حسب الصنف</th><th>Montant</th><th>%</th></tr></thead><tbody>
+    ${Object.keys(B.by).sort((a,b)=>B.by[b]-B.by[a]).map(k=>`<tr><td>${esc(fr(k))} — <span dir="rtl">${esc(ar(k))}</span></td><td style="text-align:end">${money(B.by[k])}</td><td>${B.TE?Math.round(B.by[k]/B.TE*100):0}%</td></tr>`).join('')}</tbody></table>
+    <p style="margin-top:4mm"><b>Reste à recouvrer auprès des parents / المتبقي على الأولياء : ${money(B.recv)}</b></p>${officialSign('')}</section>`)}
+
 // ===== year rollover =====
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}
@@ -2212,6 +2415,7 @@ document.getElementById('npForm').onsubmit=async e=>{e.preventDefault();const er
 function fillRegGeo(keep){const rc=document.getElementById('rCountry'),v=keep||rc.value||'CI';rc.innerHTML=opts(Object.keys(GEO).filter(k=>k!=='OT').map(k=>[k,GEO[k][0]+' — '+GEO[k][1]]),v);
   const cur=(document.getElementById('rCityIn')||{}).value||'';document.getElementById('rCityBox').innerHTML=cityPicker('rCity',v,keep?cur:'','city',true);bindCityPicker('rCity')}
 fillRegGeo('CI');document.getElementById('rCountry').onchange=()=>fillRegGeo();
+{const qs=new URLSearchParams(location.search),pc=qs.get('pc'),ppn=qs.get('pp');if(pc&&ppn&&LIVE){history.replaceState(null,'',location.pathname+'#parent');ppLogin(pc,ppn).then(r=>{if(r){goLogin('student');document.getElementById('lid').value=pc;const n=document.getElementById('loginNote');n.hidden=false;n.innerHTML=r}else{location.hash='parent';loadParent()}})}}
 {const qc=new URLSearchParams(location.search).get('code');if(qc){document.getElementById('vcode').value=qc;if(location.hash!=='#verify')location.hash='verify';setTimeout(doVerify,400)}}
 if(LIVE){try{sb.auth.getSession().then(r=>updateHeader(r&&r.data&&r.data.session));sb.auth.onAuthStateChange((ev,ss)=>{updateHeader(ss);if(ev==='PASSWORD_RECOVERY')location.hash='newpw'})}catch(e){}}
 if(/type=recovery/.test(location.hash))setTimeout(()=>{if(!/newpw/.test(location.hash))location.hash='newpw'},800);

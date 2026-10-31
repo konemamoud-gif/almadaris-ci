@@ -440,6 +440,13 @@ e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
 cm_r:"Recto (une face)",cm_rv:"Recto-verso (deux faces)",cm_help:"Recto-verso : imprimez en mode « Recto-verso / Impression sur les deux côtés — retourner sur le bord long ». Sans imprimante recto-verso : imprimez les pages impaires, remettez les feuilles dans le bac, puis imprimez les pages paires.",valid_year:"Valable pour l'année",card_rules:"Cette carte est personnelle et doit être présentée à l'entrée de l'établissement.",card_found:"En cas de perte, merci de la rapporter à l'école :",
 inactive_msg:"Lecture seule : l'abonnement de l'école est suspendu ou la période d'essai est terminée.",not_allowed:"Opération non autorisée.",has_grades:"Impossible : des notes existent pour cette classe ou matière. Supprimez d'abord les évaluations concernées.",net_down:"Pas de connexion Internet. Vérifiez votre réseau et réessayez.",v_revoked:"✗ Document annulé",v_revoked_d:"Ce document a été annulé par l'établissement et n'est plus valable.",ban_susp:"Le compte de l'école est suspendu.",ban_trial:"La période d'essai gratuite est terminée.",ban_help:"Vos données sont conservées et consultables, mais aucune modification n'est possible. Pour activer l'abonnement :",
+tab_exm:"Examens",ex_new:"+ Nouvelle session d'examens",ex_title:"Intitulé",ex_open:"Ouvrir",ex_none:"Aucune session d'examens pour cette année.",ex_sure_del:"Supprimer cette session et tout son calendrier ?",ex_list:"Sessions",ex_mine:"Mes surveillances",
+ex_add_slot:"+ Épreuve",ex_gen:"Générer automatiquement",ex_p_cls:"Calendrier par classe",ex_p_grid:"Tableau général",ex_p_sup:"Surveillances",ex_mk_ev:"Créer les évaluations dans les notes",ex_sure_ev:"Créer {n} évaluation(s) dans l'onglet Notes (une par épreuve) ?",ex_ev_done:"{n} évaluation(s) créée(s) : les enseignants peuvent saisir les notes.",
+ex_cf_n:"{n} épreuve(s) en conflit (en rouge).",ex_cf_cls:"classe déjà occupée",ex_cf_room:"salle déjà occupée",ex_cf_sup:"surveillant déjà occupé",ex_cf_out:"hors des dates de la session",ex_no_slot:"Aucune épreuve. Ajoutez-en ou utilisez la génération automatique.",ex_sure_slot:"Supprimer cette épreuve ?",
+ex_oral:"Oral",ex_written:"Écrit",ex_kind:"Type d'épreuve",ex_start:"Début",ex_end:"Fin",ex_room:"Salle",ex_sup:"Surveillant",ex_bad_time:"Vérifiez les horaires (début avant fin, ex. 08:00-10:00).",ex_save_any:"Enregistrer quand même ?",
+ex_gen_help:"Répartit les matières de chaque classe (selon les affectations des enseignants) sur les créneaux choisis, jour après jour. Vous pourrez ensuite modifier chaque épreuve.",ex_times:"Créneaux de chaque jour",ex_times_h:"Séparés par des virgules, ex. 08:00-10:00, 10:30-12:30, 15:00-17:00",
+ex_skip:"Jours sans examen",ex_only_new:"Uniquement les matières pas encore programmées",ex_auto_sup:"Désigner automatiquement les surveillants (pas l'enseignant de la matière, sans chevauchement)",ex_gen_go:"Générer",ex_gen_none:"Rien à générer : toutes les matières sont déjà programmées.",
+ex_gen_sure:"Créer {n} épreuve(s) ? Dernier jour : {d}.",ex_gen_done:"{n} épreuve(s) créée(s). Vérifiez et ajustez si besoin.",ex_rules:"Les candidats doivent être présents 15 minutes avant le début de chaque épreuve, munis de leur carte scolaire. Tout retard ou fraude sera sanctionné. — يجب حضور التلاميذ قبل بداية كل امتحان بربع ساعة مع البطاقة المدرسية، وكل تأخر أو غش يعرض صاحبه للعقوبة.",
 rm_ttl:"Appréciations de l'enseignant",rm_help:"Une appréciation par élève pour cette matière ; elle apparaît sur le bulletin. Choisissez dans la liste ou écrivez librement.",rm_auto:"Proposer selon la moyenne",
 gen_ttl:"Conduite et décision du conseil",gen_help:"Conduite et appréciation générale (conseil de classe / direction) pour ce trimestre ; elles apparaissent sur le bulletin.",conduct:"Conduite",gen_rem:"Appréciation du conseil",t_rem:"Appréciation",
 b_abs:"Absences (jours)",b_exc:"justifiées",b_late:"Retards",ann_title:"Bulletin annuel",ann_all:"Bulletins annuels",ann_cert:"Annuels certifiés",ann_avg:"Moyenne annuelle",decision:"Décision",dec_ok:"Admis(e) en classe supérieure",dec_ko:"Redouble",
@@ -470,6 +477,13 @@ ar:{}};
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
 Object.assign(T.ar,{cm_r:"وجه واحد (Recto)",cm_rv:"وجهان (Recto-verso)",cm_help:"الوجهان: اختر في نافذة الطباعة «طباعة على الوجهين — القلب على الحافة الطويلة». وإن كانت الطابعة لا تطبع على الوجهين: اطبع الصفحات الفردية، ثم أعد الأوراق إلى الطابعة واطبع الصفحات الزوجية.",valid_year:"صالحة للسنة",card_rules:"هذه البطاقة شخصية، ويجب إظهارها عند الدخول إلى المدرسة.",card_found:"في حال العثور عليها يُرجى إعادتها إلى المدرسة:",
 inactive_msg:"قراءة فقط: اشتراك المدرسة موقوف أو انتهت الفترة التجريبية.",not_allowed:"عملية غير مسموح بها.",has_grades:"لا يمكن: توجد علامات لهذا الفصل أو هذه المادة. احذف التقييمات المعنية أولاً.",net_down:"لا يوجد اتصال بالإنترنت. تحقق من الشبكة وأعد المحاولة.",v_revoked:"✗ وثيقة ملغاة",v_revoked_d:"ألغت المؤسسة هذه الوثيقة، فلم تعد صالحة.",ban_susp:"حساب المدرسة موقوف.",ban_trial:"انتهت الفترة التجريبية المجانية.",ban_help:"بياناتكم محفوظة ويمكن الاطلاع عليها، لكن لا يمكن التعديل. لتفعيل الاشتراك:",
+tab_exm:"الامتحانات",ex_new:"+ دورة امتحانات جديدة",ex_title:"العنوان",ex_open:"فتح",ex_none:"لا توجد دورات امتحانات لهذه السنة.",ex_sure_del:"حذف هذه الدورة وكل جدولها؟",ex_list:"الدورات",ex_mine:"مراقباتي",
+ex_add_slot:"+ حصة امتحان",ex_gen:"توليد تلقائي",ex_p_cls:"جدول كل فصل",ex_p_grid:"الجدول العام",ex_p_sup:"جدول المراقبة",ex_mk_ev:"إنشاء التقييمات في العلامات",ex_sure_ev:"إنشاء {n} تقييم في تبويب العلامات (واحد لكل حصة)؟",ex_ev_done:"تم إنشاء {n} تقييم: يمكن للمعلمين إدخال العلامات.",
+ex_cf_n:"{n} حصة فيها تعارض (باللون الأحمر).",ex_cf_cls:"الفصل مشغول",ex_cf_room:"القاعة مشغولة",ex_cf_sup:"المراقب مشغول",ex_cf_out:"خارج تواريخ الدورة",ex_no_slot:"لا توجد حصص. أضف حصة أو استعمل التوليد التلقائي.",ex_sure_slot:"حذف هذه الحصة؟",
+ex_oral:"شفهي",ex_written:"كتابي",ex_kind:"نوع الامتحان",ex_start:"البداية",ex_end:"النهاية",ex_room:"القاعة",ex_sup:"المراقب",ex_bad_time:"تحقق من التوقيت (البداية قبل النهاية، مثل 08:00-10:00).",ex_save_any:"الحفظ رغم ذلك؟",
+ex_gen_help:"يوزع مواد كل فصل (حسب إسناد المعلمين) على الحصص المختارة يوماً بعد يوم، ثم يمكنك تعديل أي حصة.",ex_times:"حصص كل يوم",ex_times_h:"مفصولة بفواصل، مثل 08:00-10:00, 10:30-12:30, 15:00-17:00",
+ex_skip:"أيام بلا امتحان",ex_only_new:"المواد غير المبرمجة بعد فقط",ex_auto_sup:"تعيين المراقبين تلقائياً (غير معلم المادة، ودون تداخل)",ex_gen_go:"توليد",ex_gen_none:"لا شيء للتوليد: كل المواد مبرمجة.",
+ex_gen_sure:"إنشاء {n} حصة؟ آخر يوم: {d}.",ex_gen_done:"تم إنشاء {n} حصة. راجعها وعدّل ما يلزم.",ex_rules:"Les candidats doivent être présents 15 minutes avant le début de chaque épreuve, munis de leur carte scolaire. Tout retard ou fraude sera sanctionné. — يجب حضور التلاميذ قبل بداية كل امتحان بربع ساعة مع البطاقة المدرسية، وكل تأخر أو غش يعرض صاحبه للعقوبة.",
 rm_ttl:"ملاحظات المعلم",rm_help:"ملاحظة لكل تلميذ في هذه المادة، تظهر في كشف النقاط. اختر من القائمة أو اكتب بحرية.",rm_auto:"اقتراح حسب المعدل",
 gen_ttl:"السلوك وقرار المجلس",gen_help:"السلوك والملاحظة العامة (مجلس القسم / الإدارة) لهذا الفصل الدراسي، وتظهر في كشف النقاط.",conduct:"السلوك",gen_rem:"ملاحظة المجلس",t_rem:"ملاحظة المعلم",
 b_abs:"الغيابات (أيام)",b_exc:"مبررة",b_late:"التأخرات",ann_title:"كشف النقاط السنوي",ann_all:"الكشوف السنوية",ann_cert:"السنوية الموثقة",ann_avg:"المعدل السنوي",decision:"القرار",dec_ok:"ينتقل إلى القسم الأعلى",dec_ko:"يعيد السنة",
@@ -577,7 +591,7 @@ async function reloadData(){
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section))}
 
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
-  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set']]:[]);if(p&&p.role==='superadmin')tabs.splice(1,0,['plat','tab_plat']);
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set']]:[]);if(p&&p.role==='superadmin')tabs.splice(1,0,['plat','tab_plat']);
   const yl=yearsList();
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
     <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
@@ -597,7 +611,7 @@ function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
   document.getElementById('cpGo').onclick=async()=>{const er=document.getElementById('cpErr'),a=document.getElementById('cp1').value;er.style.color='';
     if(a.length<8||a!==document.getElementById('cp2').value){er.textContent=t('e_pw');return}er.textContent=t('wait');const {error}=await sb.auth.updateUser({password:a});
     if(error){er.textContent=em(error);return}er.style.color='var(--g2)';er.textContent=t('np_ok')};
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform}[D.tab]||tabOverview)()}
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams}[D.tab]||tabOverview)()}
 
 function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -1784,6 +1798,180 @@ async function saveTerms(btn){const er=document.getElementById('tdErr'),rs=termR
   const td=Object.assign({},D.i.term_dates||{},{[curYear()]:rs});er.textContent=t('wait');
   const {error}=await sb.from('institutions').update({term_dates:td}).eq('id',D.i.id);if(error){er.textContent=em(error);return}
   D.i.term_dates=td;er.style.color='var(--g2)';er.textContent=t('saved')}
+// ===== exam timetable =====
+const X={ex:null,cls:'',newOpen:false,form:null,gen:false,exams:[],slots:[]};
+const EX_TITLES={ar:['امتحانات الثلاثي الأول','امتحانات الثلاثي الثاني','امتحانات الثلاثي الثالث','امتحانات السداسي الأول','امتحانات السداسي الثاني','الامتحان التجريبي','الامتحانات الشفهية'],
+  fr:['Compositions du 1er trimestre','Compositions du 2e trimestre','Compositions du 3e trimestre','Examens du 1er semestre','Examens du 2e semestre','Examen blanc','Examens oraux']};
+const DAYN={ar:['الأحد','الإثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'],fr:['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi']};
+const dow=d=>new Date(d+'T00:00:00Z').getUTCDay();
+const hm=x=>String(x||'').slice(0,5);
+const mins=x=>{const [h,m]=hm(x).split(':').map(Number);return h*60+(m||0)};
+const durTxt=(a,b)=>{const d=mins(b)-mins(a),h=Math.floor(d/60),m=d%60;return h+'h'+(m?String(m).padStart(2,'0'):'')};
+const addDay=(d,n)=>{const x=new Date(d+'T00:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
+const exOf=()=>X.exams.find(e=>e.id===X.ex);
+const exStaff=()=>(canEdit()?D.staff:(D.ostaff||D.staff)).filter(s=>s.status==='active');
+function slotClasses(){const me=myStaff();return X.slots.filter(s=>(D.classes.some(c=>c.id===s.class_id)||(me&&s.supervisor_id===me.id))&&(!X.cls||(X.cls==='mine'?me&&s.supervisor_id===me.id:s.class_id===X.cls)))}
+function exConflicts(list){const out={},add=(s,k)=>{(out[s.id]=out[s.id]||new Set()).add(k)},e=exOf()||{};
+  list.forEach(s=>{if((e.start_date&&s.exam_date<e.start_date)||(e.end_date&&s.exam_date>e.end_date))add(s,'out')});
+  for(let a=0;a<list.length;a++)for(let b=a+1;b<list.length;b++){const x=list[a],y=list[b];
+    if(x.exam_date!==y.exam_date||!(mins(x.start_time)<mins(y.end_time)&&mins(y.start_time)<mins(x.end_time)))continue;
+    if(x.class_id===y.class_id){add(x,'cls');add(y,'cls')}
+    if(x.room&&nz(x.room)===nz(y.room)&&x.class_id!==y.class_id){add(x,'room');add(y,'room')}
+    if(x.supervisor_id&&x.supervisor_id===y.supervisor_id){add(x,'sup');add(y,'sup')}}
+  return out}
+async function tabExams(){const el=document.getElementById('dtab');el.innerHTML=t('wait');
+  const r=await sb.from('exams').select('*').eq('institution_id',D.i.id).eq('school_year',curYear()).order('start_date');
+  if(r.error){el.innerHTML=`<div class="err">${esc(em(r.error))}</div>`;return}
+  X.exams=r.data||[];if(X.ex&&!X.exams.some(e=>e.id===X.ex))X.ex=null;
+  if(X.ex){const s=await sb.from('exam_slots').select('*').eq('exam_id',X.ex).order('exam_date');X.slots=(s.data||[]).sort((a,b)=>a.exam_date.localeCompare(b.exam_date)||hm(a.start_time).localeCompare(hm(b.start_time)))}
+  renderExams()}
+function renderExams(){const el=document.getElementById('dtab'),W=can('registry');
+  if(!X.ex){el.innerHTML=(W?`<div class="toolbar" style="margin-top:0"><button class="btn btn-o" id="xNew">${t('ex_new')}</button></div>
+    ${X.newOpen?`<div class="cert" style="margin-top:0"><b>${t('ex_new').replace('+ ','')}</b>
+      <datalist id="dl_ext">${EX_TITLES[L].map(x=>`<option value="${esc(x)}">`).join('')}</datalist>
+      <div class="two" style="margin-top:10px"><div class="fld"><label>${t('ex_title')} <span class="r">*</span></label><input id="xT" list="dl_ext" value="${esc(EX_TITLES[L][0])}"></div>
+        <div class="fld"><label>${t('term')}</label><select id="xTm">${opts(Array.from({length:nTerms()},(_,k)=>[String(k+1),termName(k+1)]))}</select></div></div>
+      <div class="two"><div class="fld"><label>${t('td_from')}</label><input id="xS" type="date" dir="ltr"></div><div class="fld"><label>${t('td_to')}</label><input id="xE" type="date" dir="ltr"></div></div>
+      <button class="btn btn-g" id="xAdd">${t('save')}</button><div class="err" id="xErr"></div></div>`:''}`:'')+
+    (X.exams.length?X.exams.map(e=>`<div class="cert"><div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center">
+      <div><b>📅 ${esc(e.title)}</b><br><small class="sub">${termName(e.term)} · <bdi dir="ltr">${fdate(e.start_date)} – ${fdate(e.end_date)}</bdi></small></div>
+      <div style="display:flex;gap:6px"><button class="btn btn-g sm" data-xo="${e.id}">${t('ex_open')}</button>${W?`<button class="btn btn-t sm red" data-xd="${e.id}">${t('del')}</button>`:''}</div></div></div>`).join('')
+    :`<div class="note">${t('ex_none')}</div>`);
+    const nb=document.getElementById('xNew');if(nb)nb.onclick=()=>{X.newOpen=!X.newOpen;renderExams()};
+    const ab=document.getElementById('xAdd');if(ab)ab.onclick=async()=>{const er=document.getElementById('xErr'),row={school_year:curYear(),term:+document.getElementById('xTm').value,
+        title:document.getElementById('xT').value.trim(),start_date:document.getElementById('xS').value||null,end_date:document.getElementById('xE').value||null};
+      if(!row.title){er.textContent=t('e_req');return}if(row.start_date&&row.end_date&&row.start_date>row.end_date){er.textContent=t('td_bad');return}
+      er.textContent=t('wait');const {data,error}=await sb.from('exams').insert(row).select().single();if(error){er.textContent=em(error);return}X.newOpen=false;X.ex=data.id;X.cls='';tabExams()};
+    el.querySelectorAll('[data-xo]').forEach(b=>b.onclick=()=>{X.ex=b.dataset.xo;X.cls='';X.form=null;X.gen=false;tabExams()});
+    el.querySelectorAll('[data-xd]').forEach(b=>b.onclick=async()=>{if(!confirm(t('ex_sure_del')))return;const {error}=await sb.from('exams').delete().eq('id',b.dataset.xd);if(error){alert(em(error));return}tabExams()});
+    return}
+  const e=exOf(),list=slotClasses(),cf=exConflicts(X.slots),me=myStaff();
+  const cmap=Object.fromEntries((D.allClasses||D.classes).map(c=>[c.id,c])),jmap=Object.fromEntries(D.subjects.map(j=>[j.id,j]));
+  const days=[...new Set(list.map(s=>s.exam_date))];const nCf=list.filter(s=>cf[s.id]).length;
+  el.innerHTML=`<div class="toolbar" style="margin-top:0;align-items:center"><button class="btn btn-t sm" id="xBack">← ${t('ex_list')}</button>
+      <div style="flex:1"><b>📅 ${esc(e.title)}</b> <small class="sub">${termName(e.term)} · <bdi dir="ltr">${fdate(e.start_date)} – ${fdate(e.end_date)}</bdi></small></div></div>
+    <div class="toolbar"><select id="xCls">${opts([['',t('all_cls')]].concat(me?[['mine','👁 '+t('ex_mine')]]:[]).concat(D.classes.map(c=>[c.id,clsName(c)])),X.cls)}</select></div>
+    <div class="toolbar" style="flex-wrap:wrap">${W?`<button class="btn btn-o" id="xSlot">${t('ex_add_slot')}</button><button class="btn btn-l" id="xGen">⚡ ${t('ex_gen')}</button>`:''}
+      <button class="btn btn-g" id="xPc">🖨 ${t('ex_p_cls')}</button><button class="btn btn-l" id="xPg">🗓 ${t('ex_p_grid')}</button>${X.slots.some(s=>s.supervisor_id)?`<button class="btn btn-l" id="xPs">👁 ${t('ex_p_sup')}</button>`:''}<button class="btn btn-l" id="xXl">📊 Excel</button>
+      ${canEdit()&&!past()&&X.slots.some(s=>!s.evaluation_id)?`<button class="btn btn-t" id="xEv">📝 ${t('ex_mk_ev')}</button>`:''}</div>
+    <div class="err" id="xMsg"></div>
+    ${X.gen&&W?genExPanel(e):''}${X.form&&W?slotForm(X.form):''}
+    ${nCf?`<div class="note" style="background:#fdecea;border-color:#f3c1bb;color:#b03a2e">⚠ ${t('ex_cf_n').replace('{n}',nCf)}</div>`:''}
+    ${days.length?days.map(d=>`<div class="cert"><b>${DAYN[L][dow(d)]} <span dir="ltr">${fdate(d)}</span></b>
+      <div class="tblw"><table class="tbl" style="min-width:0"><tbody>${list.filter(s=>s.exam_date===d).map(s=>`<tr${cf[s.id]?' style="background:#fdecea"':''}>
+        <td dir="ltr" style="white-space:nowrap"><b>${hm(s.start_time)}–${hm(s.end_time)}</b><br><small class="sub">${durTxt(s.start_time,s.end_time)}</small></td>
+        <td><b>${esc(subjName(jmap[s.subject_id]))}</b> ${s.kind==='oral'?`<span class="badge" style="background:#e8f0fe;color:#1a4fb0">${t('ex_oral')}</span>`:''}<br><small>${esc(cmap[s.class_id]?clsName(cmap[s.class_id]):'—')}</small></td>
+        <td><small>${s.room?'🚪 '+esc(s.room):''}${s.supervisor_name?'<br>👁 '+esc(s.supervisor_name):''}${s.max_score?'<br>/'+fmt(+s.max_score):''}${s.evaluation_id?' 📝':''}</small>
+          ${cf[s.id]?`<br><small style="color:#b03a2e">⚠ ${[...cf[s.id]].map(k=>t('ex_cf_'+k)).join('، ')}</small>`:''}</td>
+        ${W?`<td style="white-space:nowrap"><button class="btn btn-t sm" data-se="${s.id}">${t('edit')}</button><button class="btn btn-t sm red" data-sd="${s.id}">✕</button></td>`:''}</tr>`).join('')}</tbody></table></div></div>`).join('')
+      :`<div class="note">${t('ex_no_slot')}</div>`}`;
+  document.getElementById('xBack').onclick=()=>{X.ex=null;tabExams()};
+  document.getElementById('xCls').onchange=ev=>{X.cls=ev.target.value;renderExams()};
+  const msg=(m,ok)=>{const x=document.getElementById('xMsg');x.style.color=ok?'var(--g2)':'';x.textContent=m};
+  const sl=document.getElementById('xSlot');if(sl)sl.onclick=()=>{X.form=X.form?null:{};X.gen=false;renderExams()};
+  const gn=document.getElementById('xGen');if(gn)gn.onclick=()=>{X.gen=!X.gen;X.form=null;renderExams()};
+  el.querySelectorAll('[data-se]').forEach(b=>b.onclick=()=>{X.form=X.slots.find(s=>s.id===b.dataset.se);X.gen=false;renderExams();window.scrollTo(0,0)});
+  el.querySelectorAll('[data-sd]').forEach(b=>b.onclick=async()=>{if(!confirm(t('ex_sure_slot')))return;const {error}=await sb.from('exam_slots').delete().eq('id',b.dataset.sd);if(error){msg(em(error));return}tabExams()});
+  document.getElementById('xPc').onclick=()=>printExCls();document.getElementById('xPg').onclick=()=>printExGrid();
+  const ps=document.getElementById('xPs');if(ps)ps.onclick=()=>printExSup();
+  document.getElementById('xXl').onclick=async()=>{try{await xlsExport('examens',[[e.title.slice(0,28),[['Date','Jour','Début','Fin','Classe','الفصل','Matière','المادة','Type','Salle','Surveillant','Barème']].concat(
+    slotClasses().map(s=>{const c=cmap[s.class_id],j=jmap[s.subject_id]||{};return [fdate(s.exam_date),DAYN.fr[dow(s.exam_date)],hm(s.start_time),hm(s.end_time),c?clsFr(c):'',c?clsAr(c):'',j.name_fr||'',j.name_ar||'',s.kind==='oral'?'Oral':'Écrit',s.room||'',s.supervisor_name||'',s.max_score||'']}))]])}catch(x){msg(em(x))}};
+  const mk=document.getElementById('xEv');if(mk)mk.onclick=async()=>{const todo=X.slots.filter(s=>!s.evaluation_id);if(!confirm(t('ex_sure_ev').replace('{n}',todo.length)))return;let n=0;
+    try{for(const s of todo){const c=cmap[s.class_id];msg(t('wait')+' '+(++n)+'/'+todo.length);
+      const {data,error}=await sb.from('evaluations').insert({class_id:s.class_id,subject_id:s.subject_id,term:e.term,kind:s.kind==='oral'?'oral':'exam',title:e.title+(s.kind==='oral'?' — '+t('ex_oral'):''),max_score:+s.max_score||scaleOf(c),eval_date:s.exam_date}).select().single();
+      if(error)throw error;const u=await sb.from('exam_slots').update({evaluation_id:data.id}).eq('id',s.id);if(u.error)throw u.error}
+      G.loadedFor=null;await tabExams();msg('✓ '+t('ex_ev_done').replace('{n}',todo.length),true)}catch(x){msg(em(x))}};
+  if(X.form&&W)bindSlotForm();if(X.gen&&W)bindGenEx()}
+function subjOfClass(cid){const ids=new Set(D.teaching.filter(x=>x.class_id===cid).map(x=>x.subject_id).concat((D.oteach||[]).filter(x=>x.class_id===cid).map(x=>x.subject_id)));return ids.size?D.subjects.filter(j=>ids.has(j.id)):D.subjects}
+function slotForm(s){const e=exOf(),cid=s.class_id||X.cls&&X.cls!=='mine'&&X.cls||(D.classes[0]||{}).id;
+  const rooms=[...new Set(X.slots.map(x=>x.room).filter(Boolean))];
+  return `<div class="cert" style="margin-top:0" id="slF"><b>${s.id?t('edit'):t('ex_add_slot').replace('+ ','')}</b>
+  <div class="two" style="margin-top:10px"><div class="fld"><label>${t('class')}</label><select id="slC">${opts(D.classes.map(c=>[c.id,clsName(c)]),cid)}</select></div>
+    <div class="fld"><label>${t('subject')}</label><select id="slJ">${opts(subjOfClass(cid).map(j=>[j.id,subjName(j)]),s.subject_id)}</select></div></div>
+  <div class="two"><div class="fld"><label>${t('ex_kind')}</label><select id="slK">${opts([['written',t('ex_written')],['oral',t('ex_oral')]],s.kind||'written')}</select></div>
+    <div class="fld"><label>${t('e_date')}</label><input id="slD" type="date" dir="ltr" value="${esc(s.exam_date||e.start_date||todayISO())}"></div></div>
+  <datalist id="dl_hm">${['07:30','08:00','09:00','10:00','10:30','11:00','12:00','12:30','14:30','15:00','16:00','17:00'].map(x=>`<option value="${x}">`).join('')}</datalist>
+  <div class="two"><div class="fld"><label>${t('ex_start')}</label><input id="slS" type="time" dir="ltr" list="dl_hm" value="${hm(s.start_time)||'08:00'}"></div>
+    <div class="fld"><label>${t('ex_end')}</label><input id="slE" type="time" dir="ltr" list="dl_hm" value="${hm(s.end_time)||'10:00'}"></div></div>
+  <datalist id="dl_room">${rooms.map(x=>`<option value="${esc(x)}">`).join('')}</datalist>
+  <div class="two"><div class="fld"><label>${t('ex_room')}</label><input id="slR" list="dl_room" value="${esc(s.room||'')}"></div>
+    <div class="fld"><label>${t('ex_sup')}</label><select id="slP">${opts([['','—']].concat(exStaff().map(f=>[f.id,stfName(f)])),s.supervisor_id||'')}</select></div></div>
+  <div class="fld"><label>${t('e_max')}</label><input id="slM" type="number" min="1" step="0.5" dir="ltr" list="dl_max" value="${esc(s.max_score||'')}" placeholder="${scaleOf(D.classes.find(c=>c.id===cid))}"></div>
+  <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="slSave">${t('save')}</button><button class="btn btn-t" id="slX">${t('cancel')}</button></div><div class="err" id="slErr"></div></div>`}
+function bindSlotForm(){const s=X.form;
+  document.getElementById('slX').onclick=()=>{X.form=null;renderExams()};
+  document.getElementById('slC').onchange=ev=>{document.getElementById('slJ').innerHTML=opts(subjOfClass(ev.target.value).map(j=>[j.id,subjName(j)]));document.getElementById('slM').placeholder=scaleOf(D.classes.find(c=>c.id===ev.target.value))};
+  document.getElementById('slSave').onclick=async()=>{const er=document.getElementById('slErr'),v=id=>document.getElementById(id).value.trim(),sup=v('slP');
+    const row={exam_id:X.ex,class_id:v('slC'),subject_id:v('slJ'),kind:v('slK'),exam_date:v('slD'),start_time:v('slS'),end_time:v('slE'),room:v('slR')||null,
+      supervisor_id:sup||null,supervisor_name:sup?stfName(exStaff().find(f=>f.id===sup)):null,max_score:parseFloat(v('slM'))||null};
+    if(!row.class_id||!row.subject_id||!row.exam_date||!row.start_time||!row.end_time){er.textContent=t('e_req');return}
+    if(mins(row.end_time)<=mins(row.start_time)){er.textContent=t('ex_bad_time');return}
+    const cf=exConflicts(X.slots.filter(x=>x.id!==s.id).concat([{...row,id:'_new'}]))['_new'];
+    if(cf&&!confirm('⚠ '+[...cf].map(k=>t('ex_cf_'+k)).join('، ')+'\n'+t('ex_save_any')))return;
+    er.textContent=t('wait');const r=s.id?await sb.from('exam_slots').update(row).eq('id',s.id):await sb.from('exam_slots').insert(row);
+    if(r.error){er.textContent=em(r.error);return}const keep=s.id?null:{class_id:row.class_id,exam_date:row.exam_date,kind:row.kind};X.form=keep;await tabExams();
+    if(keep){const m=document.getElementById('xMsg');m.style.color='var(--g2)';m.textContent=t('saved')}}}
+function genExPanel(e){return `<div class="cert" style="margin-top:0"><b>⚡ ${t('ex_gen')}</b><p class="sub" style="margin:4px 0 8px">${t('ex_gen_help')}</p>
+  <div class="fld"><label>${t('tab_cls')}</label><div class="chips">${D.classes.map(c=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="gxC" value="${c.id}" checked> ${esc(clsName(c))}</label>`).join('')}</div></div>
+  <div class="two"><div class="fld"><label>${t('ex_kind')}</label><select id="gxK">${opts([['written',t('ex_written')],['oral',t('ex_oral')]])}</select></div>
+    <div class="fld"><label>${t('td_from')}</label><input id="gxD" type="date" dir="ltr" value="${esc(e.start_date||todayISO())}"></div></div>
+  <div class="fld"><label>${t('ex_times')}</label><input id="gxT" dir="ltr" value="08:00-10:00, 10:30-12:30"><small class="sub">${t('ex_times_h')}</small></div>
+  <div class="fld"><label>${t('ex_skip')}</label><div class="chips">${[1,2,3,4,5,6,0].map(d=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="gxS" value="${d}"${d===0||d===6?' checked':''}> ${DAYN[L][d]}</label>`).join('')}</div></div>
+  <label class="opt"><input type="checkbox" id="gxNew" checked>${t('ex_only_new')}</label>
+  <label class="opt"><input type="checkbox" id="gxSup">${t('ex_auto_sup')}</label>
+  <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="gxGo">⚡ ${t('ex_gen_go')}</button><button class="btn btn-t" id="gxX">${t('cancel')}</button></div><div class="err" id="gxErr"></div></div>`}
+function bindGenEx(){const e=exOf();
+  document.getElementById('gxX').onclick=()=>{X.gen=false;renderExams()};
+  document.getElementById('gxGo').onclick=async()=>{const er=document.getElementById('gxErr');er.style.color='';
+    const cls=[...document.querySelectorAll('.gxC:checked')].map(x=>x.value),kind=document.getElementById('gxK').value,skip=new Set([...document.querySelectorAll('.gxS:checked')].map(x=>+x.value));
+    const times=document.getElementById('gxT').value.split(/[,;\n]+/).map(x=>x.trim()).filter(Boolean).map(x=>{const m=x.match(/^(\d{1,2})[:h.](\d{2})\s*[-–]\s*(\d{1,2})[:h.](\d{2})$/);return m?[m[1].padStart(2,'0')+':'+m[2],m[3].padStart(2,'0')+':'+m[4]]:null});
+    if(!cls.length||!times.length||times.some(x=>!x||mins(x[1])<=mins(x[0]))){er.textContent=t('ex_bad_time');return}if(skip.size>=7){er.textContent=t('ex_skip');return}
+    let d=document.getElementById('gxD').value||todayISO();const seq=[];const need=Math.max(...cls.map(c=>subjOfClass(c).length));
+    while(seq.length<need){if(!skip.has(dow(d)))times.forEach(tt=>seq.push([d,tt[0],tt[1]]));d=addDay(d,1)}
+    const onlyNew=document.getElementById('gxNew').checked,autoSup=document.getElementById('gxSup').checked,staff=exStaff(),rows=[];let rr=0;
+    const busy=X.slots.slice();
+    cls.forEach(cid=>{const c=D.classes.find(x=>x.id===cid);let k=0;
+      subjOfClass(cid).filter(j=>!onlyNew||!X.slots.some(s=>s.class_id===cid&&s.subject_id===j.id&&s.kind===kind)).forEach(j=>{const [dd,a,b]=seq[k++];
+        const row={exam_id:X.ex,class_id:cid,subject_id:j.id,kind,exam_date:dd,start_time:a,end_time:b,room:null,supervisor_id:null,supervisor_name:null,max_score:null};
+        if(autoSup&&staff.length){const teach=new Set((D.teaching.concat(D.oteach||[])).filter(x=>x.class_id===cid&&x.subject_id===j.id).map(x=>x.staff_id));
+          for(let n=0;n<staff.length;n++){const f=staff[(rr+n)%staff.length];if(teach.has(f.id))continue;
+            if(busy.some(s=>s.supervisor_id===f.id&&s.exam_date===dd&&mins(s.start_time)<mins(b)&&mins(a)<mins(s.end_time)))continue;
+            row.supervisor_id=f.id;row.supervisor_name=stfName(f);rr=(rr+n+1)%staff.length;break}}
+        rows.push(row);busy.push(row)})});
+    if(!rows.length){er.textContent=t('ex_gen_none');return}
+    const last=rows.reduce((m,r)=>r.exam_date>m?r.exam_date:m,'');
+    if(!confirm(t('ex_gen_sure').replace('{n}',rows.length).replace('{d}',fdate(last))+(e.end_date&&last>e.end_date?'\n⚠ '+t('ex_cf_out'):'')))return;
+    er.textContent=t('wait');const {error}=await sb.from('exam_slots').insert(rows);if(error){er.textContent=em(error);return}X.gen=false;await tabExams();
+    const m=document.getElementById('xMsg');m.style.color='var(--g2)';m.textContent='✓ '+t('ex_gen_done').replace('{n}',rows.length)}}
+// ---- exam prints (official, bilingual)
+function exPrintBase(){const e=exOf(),cmap=Object.fromEntries((D.allClasses||D.classes).map(c=>[c.id,c])),jmap=Object.fromEntries(D.subjects.map(j=>[j.id,j]));return {e,cmap,jmap,list:slotClasses()}}
+const jBoth=j=>j?`${esc(j.name_fr||'')}${j.name_fr?' — ':''}<span dir="rtl">${esc(j.name_ar)}</span>`:'';
+async function printExCls(){const {e,cmap,jmap,list}=exPrintBase();const ids=[...new Set(list.map(s=>s.class_id))].filter(id=>cmap[id]);
+  if(!ids.length){alert(t('ex_no_slot'));return}
+  const ord=sortedClasses().map(c=>c.id);ids.sort((a,b)=>ord.indexOf(a)-ord.indexOf(b));
+  await printPages(ids.map(cid=>{const c=cmap[cid],rows=list.filter(s=>s.class_id===cid);
+    return `<section class="ofdoc">${officialHead('CALENDRIER DES EXAMENS','جدول الامتحانات')}
+    <p style="text-align:center;margin:0 0 3mm"><b>${esc(e.title)}</b> — ${esc(termName(e.term))}<br><b>Classe : ${esc(clsFr(c))}</b> — <b dir="rtl">الفصل: ${esc(clsAr(c))}</b></p>
+    <table class="oftab"><thead><tr><th>Date</th><th>Jour / اليوم</th><th>Horaire</th><th>Durée</th><th>Matière / المادة</th><th>Type</th><th>Salle</th></tr></thead><tbody>
+    ${rows.map(s=>`<tr><td>${fdate(s.exam_date)}</td><td>${DAYN.fr[dow(s.exam_date)]} <span dir="rtl">${DAYN.ar[dow(s.exam_date)]}</span></td><td>${hm(s.start_time)} – ${hm(s.end_time)}</td><td>${durTxt(s.start_time,s.end_time)}</td>
+      <td>${jBoth(jmap[s.subject_id])}</td><td>${s.kind==='oral'?'Oral / شفهي':'Écrit / كتابي'}</td><td>${esc(s.room||'')}</td></tr>`).join('')}</tbody></table>
+    <p style="font-size:9pt;margin-top:3mm">${t('ex_rules')}</p>${officialSign('')}</section>`}).join(''))}
+async function printExGrid(){const {e,cmap,jmap,list}=exPrintBase();if(!list.length){alert(t('ex_no_slot'));return}
+  const ord=sortedClasses().map(c=>c.id),ids=[...new Set(list.map(s=>s.class_id))].filter(id=>cmap[id]).sort((a,b)=>ord.indexOf(a)-ord.indexOf(b));
+  const keys=[...new Set(list.map(s=>s.exam_date+'|'+hm(s.start_time)+'|'+hm(s.end_time)))].sort();
+  await printPages(`<section class="ofdoc ofland">${officialHead('CALENDRIER GÉNÉRAL DES EXAMENS','الجدول العام للامتحانات')}
+    <p style="text-align:center;margin:0 0 2mm"><b>${esc(e.title)}</b> — ${esc(termName(e.term))}</p>
+    <table class="oftab" style="font-size:8pt"><thead><tr><th>Date</th><th>Horaire</th>${ids.map(id=>`<th>${esc(clsFr(cmap[id]))}<br><span dir="rtl">${esc(clsAr(cmap[id]))}</span></th>`).join('')}</tr></thead><tbody>
+    ${keys.map(k=>{const [d,a,b]=k.split('|');return `<tr><td><b>${DAYN.fr[dow(d)].slice(0,3)}. ${fdate(d)}</b></td><td>${a}–${b}</td>${ids.map(id=>{const s=list.filter(x=>x.class_id===id&&x.exam_date===d&&hm(x.start_time)===a&&hm(x.end_time)===b);
+      return `<td>${s.map(x=>{const j=jmap[x.subject_id]||{};return `${esc(j.name_fr||'')}<br><span dir="rtl">${esc(j.name_ar||'')}</span>${x.kind==='oral'?' (oral)':''}${x.room?`<br><small>${esc(x.room)}</small>`:''}`}).join('<hr style="margin:1mm 0">')}</td>`}).join('')}</tr>`}).join('')}</tbody></table>${officialSign('')}</section>`,true)}
+async function printExSup(){const {e,cmap,jmap}=exPrintBase();const list=X.slots.filter(s=>s.supervisor_id);
+  const sups=[...new Set(list.map(s=>s.supervisor_id))].map(id=>({id,n:(list.find(s=>s.supervisor_id===id)||{}).supervisor_name||''})).sort((a,b)=>a.n.localeCompare(b.n,'ar'));
+  await printPages(`<section class="ofdoc">${officialHead('PLANNING DE SURVEILLANCE','جدول المراقبة')}
+    <p style="text-align:center;margin:0 0 3mm"><b>${esc(e.title)}</b> — ${esc(termName(e.term))}</p>
+    <table class="oftab"><thead><tr><th>Surveillant / المراقب</th><th>Date</th><th>Horaire</th><th>Classe / الفصل</th><th>Matière / المادة</th><th>Salle</th><th>Émargement</th></tr></thead><tbody>
+    ${sups.map(p=>list.filter(s=>s.supervisor_id===p.id).map((s,k)=>{const c=cmap[s.class_id];return `<tr>${k?'<td></td>':`<td><b>${esc(p.n)}</b></td>`}<td>${DAYN.fr[dow(s.exam_date)].slice(0,3)}. ${fdate(s.exam_date)}</td><td>${hm(s.start_time)}–${hm(s.end_time)}</td>
+      <td>${c?esc(clsFr(c))+' <span dir="rtl">'+esc(clsAr(c))+'</span>':''}</td><td>${jBoth(jmap[s.subject_id])}</td><td>${esc(s.room||'')}</td><td style="min-width:22mm"></td></tr>`}).join('')).join('')}</tbody></table>${officialSign('')}</section>`)}
+
 // ===== year rollover =====
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

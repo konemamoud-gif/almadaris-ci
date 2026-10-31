@@ -2368,9 +2368,10 @@ async function loadCardCheck(){const box=document.getElementById('cardBox');if(!
   let d=null;try{const r=await sb.rpc('verify_card',{p_token:tk});d=r.error?null:r.data}catch(e){}
   if(!d||!d.ok){box.innerHTML=`<div class="note" style="background:#fdecea;border-color:#f3c1bb;color:#b03a2e;font-size:18px">✗ <b>${t('cv_bad')}</b><br><small>${t('cv_bad_d')}</small></div>`;return}
   const S=d.school||{},c=d.class,ok=d.valid;let ph='';
-  if(d.photo){try{const r=await sb.storage.from('media').createSignedUrl(d.photo,900);if(r&&r.data)ph=r.data.signedUrl||r.data.signedURL||''}catch(e){}}
+  const sign=async p=>{if(!p)return '';try{const r=await sb.storage.from('media').createSignedUrl(p,900);return r&&r.data?(r.data.signedUrl||r.data.signedURL||''):''}catch(e){return ''}};
+  let lg='';[ph,lg]=await Promise.all([sign(d.photo),sign(S.logo)]);
   box.innerHTML=`<div class="note" style="background:${ok?'#e6f5ea':'#fdecea'};border-color:${ok?'#bfe3c8':'#f3c1bb'};color:${ok?'#0F5E2A':'#b03a2e'};font-size:19px;text-align:center"><b>${ok?'✓ '+t('cv_ok'):'✗ '+t(d.status==='left'?'cv_left':'cv_inactive')}</b></div>
-    <div style="display:flex;gap:12px;align-items:center;margin:14px 0"><img src="emblem.png" alt="" style="height:56px"><div><b>${esc(RTL()?S.name_ar:S.name_fr)}</b><br><small class="sub">${esc(RTL()?S.name_fr:S.name_ar)} · ${esc(S.city||'')}</small></div></div>
+    <div style="display:flex;gap:12px;align-items:center;margin:14px 0"><img src="${esc(lg||'emblem.png')}" alt="" style="height:64px;width:64px;object-fit:contain" onerror="this.src='emblem.png'"><div><b>${esc(RTL()?S.name_ar:S.name_fr)}</b><br><small class="sub">${esc(RTL()?S.name_fr:S.name_ar)} · ${esc(S.city||'')}</small></div></div>
     ${ph?`<div style="text-align:center;margin:6px 0 14px"><img src="${esc(ph)}" alt="" style="width:150px;height:190px;object-fit:cover;border-radius:12px;border:3px solid ${ok?'#1B7F3B':'#b03a2e'};box-shadow:0 4px 14px rgba(0,0,0,.15)"><br><small class="sub">${t('cv_photo')}</small></div>`:''}
     <table class="tbl" style="min-width:0"><tbody>
       <tr><td>${t(d.kind==='stu'?'cv_stu':'cv_stf')}</td><td><b style="font-size:18px">${esc(d.name_ar)}</b>${d.name_fr?`<br><span dir="ltr">${esc(d.name_fr)}</span>`:''}</td></tr>

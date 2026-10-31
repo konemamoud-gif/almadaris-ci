@@ -1106,7 +1106,7 @@ function tabStaff(){const el=document.getElementById('dtab');
   ${D.staff.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('s_name')}</th><th>${t('f_type')}</th><th>${t('account')}</th><th>${t('n_asg')}</th><th></th></tr></thead><tbody>
   ${D.staff.map(s=>`<tr${s.status==='left'?' class="left"':''}><td><div class="nm">${thumb(s.photo_path,s.full_name_ar)}<b>${esc(s.full_name_ar)}</b></div>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}${s.phone?`<br><small dir="ltr">${esc(s.phone)}</small>`:''}</td>
     <td>${t(STYPE[s.staff_type])}${s.position?`<br><small>${esc(s.position)}</small>`:''}${(s.perms||[]).map(k=>` <span class="badge" style="background:#fff4e0;color:#a35c00">${t(k==='fees'?'perm_fees':k==='payroll'?'perm_pay':'perm_reg')}</span>`).join('')}${s.status==='left'?` <span class="badge bad">${t('st_left2')}</span>`:''}</td>
-    <td>${s.user_id?`<span class="badge">✓ ${t('acc_on')}</span>`:`<div class="code" style="font-size:15px;padding:4px 10px">${esc(s.invite_code)}</div><br><button class="btn btn-t sm" data-copy="${s.id}">📋 ${t('copy_inv')}</button>`}<br><button class="btn btn-t sm" data-regen="${s.id}" title="${t('regen_t')}">🔄 ${t(s.user_id?'regen_unlink':'regen')}</button></td>
+    <td>${s.user_id?`<span class="badge">✓ ${t('acc_on')}</span>`:`<div class="code" style="font-size:15px;padding:4px 10px">${esc(s.invite_code||'—')}</div><br><button class="btn btn-t sm" data-copy="${s.id}">📋 ${t('copy_inv')}</button>`}<br><button class="btn btn-t sm" data-regen="${s.id}" title="${t('regen_t')}">🔄 ${t(s.user_id?'regen_unlink':'regen')}</button></td>
     <td>${D.teaching.filter(x=>x.staff_id===s.id).length}</td>
     <td style="white-space:nowrap"><button class="btn btn-t sm" data-att="${s.id}" title="${t('st_attest')}">📄</button><button class="btn btn-t sm" data-asg="${s.id}">${t('asg')}</button><button class="btn btn-t sm" data-edf="${s.id}">${t('edit')}</button><button class="btn btn-t sm red" data-delf="${s.id}">${t('del')}</button></td></tr>`).join('')}
   </tbody></table></div>`:`<div class="note">${t('no_staff')}</div>`}`;
@@ -2465,7 +2465,7 @@ function feeExpenses(){const ok=F.exps.filter(x=>!x.cancelled),mon=F.emon||'',ca
   ${list.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('xp_voucher')}</th><th>${t('e_date')}</th><th>${t('xp_cat')}</th><th>${t('f_amount')}</th><th></th></tr></thead><tbody>
   ${list.slice().sort((a,b)=>b.exp_date.localeCompare(a.exp_date)||b.seq-a.seq).map(x=>`<tr${x.cancelled?' class="left"':''}><td dir="ltr"><b>${esc(x.voucher||'')}</b></td><td dir="ltr">${fdate(x.exp_date)}</td>
     <td>${t('xc_'+x.category)}${x.description?`<br><small>${esc(x.description)}</small>`:''}${x.payee?`<br><small class="sub">→ ${esc(x.payee)}</small>`:''}${x.cancelled?`<br><span class="badge bad">${t('f_cancelled')}</span> <small>${esc(x.cancelled_reason||'')}</small>`:''}</td>
-    <td><b>${money(x.amount)}</b><br><small class="sub">${t(METH[x.method])}</small></td>
+    <td><b>${money(x.amount)}</b><br><small class="sub">${t(METH[x.method]||'pm_cash')}</small></td>
     <td style="white-space:nowrap"><button class="btn btn-t sm" data-xv="${x.id}">🖨</button>${x.cancelled?'':`<button class="btn btn-t sm red" data-xc="${x.id}">✕</button>`}</td></tr>`).join('')}</tbody></table></div>`:`<div class="note">${t('xp_none')}</div>`}`}
 function bindExpenses(){const v=id=>document.getElementById(id).value.trim();
   document.getElementById('xpMon').onchange=e=>{F.emon=e.target.value;tabFees()};document.getElementById('xpCat').onchange=e=>{F.ecat=e.target.value;tabFees()};
@@ -2490,7 +2490,7 @@ function printVoucher(x){if(!x)return;const fr=T.fr['xc_'+x.category],ar=T.ar['x
     <table class="oftab" style="font-size:11pt"><tbody><tr><td style="width:35%">N° / الرقم</td><td><b>${esc(x.voucher||'')}</b>${x.cancelled?' — <b style="color:#b03a2e">ANNULÉ / ملغى</b>':''}</td></tr>
       <tr><td>Date / التاريخ</td><td>${fdate(x.exp_date)}</td></tr><tr><td>Catégorie / الصنف</td><td>${esc(fr)} — <span dir="rtl">${esc(ar)}</span></td></tr>
       <tr><td>Libellé / البيان</td><td>${esc(x.description||'')}</td></tr><tr><td>Bénéficiaire / المستفيد</td><td><b>${esc(x.payee||'')}</b></td></tr>
-      <tr><td>Mode / طريقة الدفع</td><td>${esc(T.fr[METH[x.method]])}${x.reference?' — '+esc(x.reference):''}</td></tr>
+      <tr><td>Mode / طريقة الدفع</td><td>${esc(T.fr[METH[x.method]||'pm_cash'])}${x.reference?' — '+esc(x.reference):''}</td></tr>
       <tr><td>Montant / المبلغ</td><td><b style="font-size:14pt">${money(x.amount)}</b></td></tr></tbody></table>
     <div style="display:flex;justify-content:space-between;margin-top:10mm;font-weight:700"><span>Le bénéficiaire — المستفيد</span><span>Le comptable — المحاسب</span></div>${officialSign('')}</section>`)}
 function feeBalance(){const ms=yearMonths(F.year),inc={},exp={};

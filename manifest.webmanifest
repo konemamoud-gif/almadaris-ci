@@ -1,0 +1,22 @@
+{
+  "name": "Al-Madaris CI — منصة إدارة المدارس العربية والإسلامية",
+  "short_name": "Al-Madaris CI",
+  "description": "Gestion des écoles arabes et islamiques en Côte d'Ivoire — إدارة المدارس العربية والإسلامية",
+  "start_url": "./index.html#dash",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#1B7F3B",
+  "lang": "ar",
+  "dir": "rtl",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "الحضور / Présence", "url": "./index.html#dash"},
+    {"name": "بوابة الأولياء / Espace parents", "url": "./index.html#parent"}
+  ]
+}

@@ -304,6 +304,7 @@ footer a{color:#ffd08a}
 
 /* ===== diplomas ===== */
 .dzs{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}.dz-doc i{background:#fff;box-shadow:inset 0 0 0 1px #dde6df;background-image:linear-gradient(#1B7F3B,#1B7F3B),linear-gradient(#e6f5ea,#e6f5ea);background-size:80% 2px,70% 14px;background-position:center 30%,center 50%;background-repeat:no-repeat}
+.aud{display:inline-block;background:#f6f8f5;border:1px solid var(--line);border-radius:8px;padding:1px 8px;margin:2px 4px 0 0;font-size:13px}.aud s{color:#b03a2e}.aud b{color:var(--g2)}
 .dmen{display:flex;justify-content:space-around;gap:6mm;margin-top:4mm;padding:2.5mm;border:.4mm solid #1B7F3B;border-radius:2mm;background:#f3faf5;font-size:12pt}.dmen span{font-family:'Cairo',sans-serif}.dua2{color:#7a5a12;text-align:center!important}
 .dz{border:2px solid var(--line);background:#fff;border-radius:14px;padding:6px;width:120px;cursor:pointer;font:inherit;display:flex;flex-direction:column;gap:6px;align-items:center}
 .dz i{display:block;width:100%;height:62px;border-radius:8px}.dz span{font-weight:700;font-size:13px}.dz.on{border-color:var(--g);box-shadow:0 6px 16px -6px #1B7F3B}
@@ -774,6 +775,7 @@ Object.assign(T.ar,{"blood": "فصيلة الدم", "need_schema28": "نفّذ s
 Object.assign(T.ar,{"dz_official": "رسمي (إطار مزخرف)", "dl_ttl": "لغة الشهادة", "dl_arfr": "العربية والفرنسية", "dl_ar": "العربية فقط", "dl_fr": "الفرنسية فقط", "dl_aren": "العربية والإنجليزية", "dl_frame": "لون الإطار", "dl_sub_fr": "وصف المؤسسة بالفرنسية", "dl_sub_ar": "وصف المؤسسة بالعربية", "dl_num": "رقم أول شهادة", "dl_pfx": "رمز الترقيم (فرنسي / عربي)"});Object.assign(T.fr,{"dz_official": "Officiel (cadre)", "dl_ttl": "Langue du diplôme", "dl_arfr": "Arabe + Français", "dl_ar": "Arabe seul", "dl_fr": "Français seul", "dl_aren": "Arabe + Anglais", "dl_frame": "Couleur du cadre", "dl_sub_fr": "Sous-titre (FR)", "dl_sub_ar": "Sous-titre (AR)", "dl_num": "N° de la première", "dl_pfx": "Préfixe (FR / AR)"});Object.assign(T.en,{"dz_official": "Official (frame)", "dl_ttl": "Diploma language", "dl_arfr": "Arabic + French", "dl_ar": "Arabic only", "dl_fr": "French only", "dl_aren": "Arabic + English", "dl_frame": "Frame colour", "dl_sub_fr": "Subtitle (FR)", "dl_sub_ar": "Subtitle (AR)", "dl_num": "First number", "dl_pfx": "Prefix (FR / AR)"});
 Object.assign(T.ar,{"dz_doc": "رسمي (مثل الشهادة المدرسية)"});Object.assign(T.fr,{"dz_doc": "Officiel (modèle des documents)"});Object.assign(T.en,{"dz_doc": "Official (document model)"});
 Object.assign(T.ar,{"mo_tr": "كشف النقاط", "mo_cond": "حسن السيرة والسلوك", "mo_rec": "تزكية المدير", "mo_trec": "تزكية المدرّس", "mo_since": "في المدرسة منذ سنة", "mo_level": "السيرة والسلوك", "mo_quals": "الصفات", "mo_to": "موجّهة إلى (اختياري)", "mo_to_ph": "مثال: إدارة جامعة …", "mo_for": "الغرض (اختياري)", "mo_for_ph": "مثال: منحة دراسية / التسجيل في …", "mo_extra": "كلمة إضافية (اختياري)", "mo_extra_ph": "تظهر كما هي في التزكية", "mo_teacher": "المدرّس", "mo_subj": "المادة", "mo_subj_ph": "مثال: اللغة العربية", "mo_nogr": "لا توجد علامات لهذا التلميذ في هذه السنة."});Object.assign(T.fr,{"mo_tr": "Relevé de notes", "mo_cond": "Bonne conduite", "mo_rec": "Recommandation du directeur", "mo_trec": "Recommandation de l'enseignant", "mo_since": "Dans l'établissement depuis", "mo_level": "Conduite", "mo_quals": "Qualités", "mo_to": "Destinataire (facultatif)", "mo_to_ph": "ex. : Direction de l'université …", "mo_for": "Objet (facultatif)", "mo_for_ph": "ex. : une bourse d'études / l'inscription à …", "mo_extra": "Mot supplémentaire (facultatif)", "mo_extra_ph": "Apparaît tel quel", "mo_teacher": "Enseignant", "mo_subj": "Matière", "mo_subj_ph": "ex. : Langue arabe", "mo_nogr": "Aucune note pour cet élève cette année."});Object.assign(T.en,{"mo_tr": "Transcript", "mo_cond": "Good conduct", "mo_rec": "Principal's recommendation", "mo_trec": "Teacher's recommendation", "mo_since": "In the school since", "mo_level": "Conduct", "mo_quals": "Qualities", "mo_to": "Addressed to (optional)", "mo_to_ph": "e.g. University admissions …", "mo_for": "Purpose (optional)", "mo_for_ph": "e.g. a scholarship / admission to …", "mo_extra": "Additional words (optional)", "mo_extra_ph": "Shown as written", "mo_teacher": "Teacher", "mo_subj": "Subject", "mo_subj_ph": "e.g. Arabic language", "mo_nogr": "No grades for this student this year."});
+Object.assign(T.ar,{"tab_dis": "الانضباط", "tab_log": "سجل العمليات", "ds_need": "نفّذ schema29.sql في Supabase.", "ds_v_list": "📋 السجل", "ds_v_new": "➕ تسجيل مخالفة", "ds_v_sum": "📊 الملخص", "ds_none": "لا توجد مخالفات مسجلة.", "ds_days": "يوم", "ds_kind": "نوع المخالفة", "ds_sanc": "الإجراء / العقوبة", "ds_ndays": "عدد الأيام", "ds_from": "ابتداءً من", "ds_desc": "الوصف", "ds_desc_ph": "ماذا حدث؟ (يظهر في الإشعار)", "ds_notify": "إبلاغ ولي الأمر (يظهر في بوابته)", "ds_after": "تم الحفظ. هل ترسل الإشعار لولي الأمر عبر واتساب الآن؟", "ds_del_sure": "حذف هذه المخالفة؟", "ds_total": "المخالفات", "ds_studs": "تلاميذ معنيون", "ds_wa": "السلام عليكم،\nتُعلمكم {s} بأنّ ابنكم/ابنتكم {n} قد ارتكب(ت) بتاريخ {d} المخالفة الآتية: {k}{x}\nالإجراء المتخذ: {c}\nنرجو تعاونكم، وجزاكم الله خيراً.", "ds_cond_warn": "لهذا التلميذ {n} عقوبة مسجلة في سجل الانضباط. هل تريد إصدار شهادة حسن السلوك رغم ذلك؟", "pp_s_dis": "⚖️ الانضباط", "au_help": "كل إضافة أو تعديل أو حذف في البيانات الحساسة يُسجَّل هنا مع اسم صاحبه وتاريخه: التلاميذ، والدفعات، والتخفيضات، والمصاريف، والرواتب، والموظفون، وتعديل العلامات والحضور. لا يمكن تعديل هذا السجل أو حذفه.", "au_ins": "إضافة", "au_upd": "تعديل", "au_del": "حذف", "au_none": "لا توجد عمليات مسجلة بعد.", "au_more": "تظهر آخر 300 عملية. استعمل التصفية للبحث في الأقدم.", "yes": "نعم", "no": "لا"});Object.assign(T.fr,{"tab_dis": "Discipline", "tab_log": "Journal", "ds_need": "Exécutez schema29.sql dans Supabase.", "ds_v_list": "📋 Registre", "ds_v_new": "➕ Nouvel incident", "ds_v_sum": "📊 Synthèse", "ds_none": "Aucun incident enregistré.", "ds_days": "j", "ds_kind": "Type d'incident", "ds_sanc": "Mesure / sanction", "ds_ndays": "Nombre de jours", "ds_from": "À partir du", "ds_desc": "Description", "ds_desc_ph": "Que s'est-il passé ? (figure sur la notification)", "ds_notify": "Informer le parent (visible dans l'Espace parents)", "ds_after": "Enregistré. Envoyer la notification au parent par WhatsApp ?", "ds_del_sure": "Supprimer cet incident ?", "ds_total": "Incidents", "ds_studs": "Élèves concernés", "ds_wa": "Assalamou alaykoum,\n{s} vous informe que votre enfant {n} a commis le {d} le manquement suivant : {k}{x}\nMesure prise : {c}\nMerci de votre collaboration.", "ds_cond_warn": "Cet élève a {n} sanction(s) au registre de discipline. Délivrer quand même le certificat ?", "pp_s_dis": "⚖️ Discipline", "au_help": "Chaque ajout, modification ou suppression de données sensibles est enregistré ici avec son auteur et sa date : élèves, paiements, réductions, dépenses, paie, personnel, modifications de notes et de présences. Ce journal ne peut être ni modifié ni supprimé.", "au_ins": "Ajout", "au_upd": "Modification", "au_del": "Suppression", "au_none": "Aucune opération enregistrée.", "au_more": "Les 300 dernières opérations sont affichées. Filtrez pour voir les plus anciennes.", "yes": "Oui", "no": "Non"});Object.assign(T.en,{"tab_dis": "Discipline", "tab_log": "Activity log", "ds_need": "Run schema29.sql in Supabase.", "ds_v_list": "📋 Register", "ds_v_new": "➕ New incident", "ds_v_sum": "📊 Summary", "ds_none": "No incidents recorded.", "ds_days": "day(s)", "ds_kind": "Incident type", "ds_sanc": "Measure / sanction", "ds_ndays": "Number of days", "ds_from": "Starting", "ds_desc": "Description", "ds_desc_ph": "What happened? (shown on the notice)", "ds_notify": "Inform the parent (shown in the parent portal)", "ds_after": "Saved. Send the notice to the parent on WhatsApp now?", "ds_del_sure": "Delete this incident?", "ds_total": "Incidents", "ds_studs": "Students involved", "ds_wa": "Hello,\n{s} informs you that your child {n} committed the following on {d}: {k}{x}\nMeasure taken: {c}\nThank you for your cooperation.", "ds_cond_warn": "This student has {n} sanction(s) on record. Issue the certificate anyway?", "pp_s_dis": "⚖️ Discipline", "au_help": "Every addition, change or deletion of sensitive data is recorded here with its author and date. This log cannot be edited or deleted.", "au_ins": "Added", "au_upd": "Changed", "au_del": "Deleted", "au_none": "No operations yet.", "au_more": "Showing the last 300 operations. Use the filters to see older ones.", "yes": "Yes", "no": "No"});
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -867,9 +869,9 @@ async function reloadData(){
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section));
   if(c.error&&isNetErr(c.error))throw c.error;offSave()}
 
-const TABIC={ov:'🏠',plat:'🛡',cls:'🏫',stu:'🎓',att:'📷',grd:'📝',tt:'🗓',exm:'📋',rep:'📊',doc:'📄',crd:'🪪',msg:'💬',bk:'📚',fee:'💰',pay:'💵',staff:'👥',subj:'📘',set:'⚙️'};
+const TABIC={ov:'🏠',plat:'🛡',cls:'🏫',stu:'🎓',att:'📷',grd:'📝',tt:'🗓',exm:'📋',rep:'📊',doc:'📄',crd:'🪪',msg:'💬',bk:'📚',fee:'💰',pay:'💵',dis:'⚖️',log:'🕵',staff:'👥',subj:'📘',set:'⚙️'};
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
-  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set']]:[]);if(p&&p.role==='superadmin')tabs.splice(1,0,['plat','tab_plat']);
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['dis','tab_dis']]:[]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set'],['log','tab_log']]:[]);if(p&&p.role==='superadmin')tabs.splice(1,0,['plat','tab_plat']);
   const yl=yearsList();
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
     <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
@@ -891,7 +893,7 @@ function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
     if(a.length<8||a!==document.getElementById('cp2').value){er.textContent=t('e_pw');return}er.textContent=t('wait');const {error}=await sb.auth.updateUser({password:a});
     if(error){er.textContent=em(error);return}er.style.color='var(--g2)';er.textContent=t('np_ok')};
   if(MS.unread)updMsgBadge();
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay}[D.tab]||tabOverview)()}
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog}[D.tab]||tabOverview)()}
 
 function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -2363,7 +2365,7 @@ function renderParent(){const box=document.getElementById('parentBox');if(!box||
     <div class="stats"><div class="stat"><b>${last&&last.avg!=null?fmt(+last.avg)+'/'+sc:'—'}</b><span>${last?ppTerm(last.term,ts):t('avg')}</span></div>
       <div class="stat"${ab.absent?' style="border-color:#f3c1bb"':''}><b>${ab.absent||0}</b><span>${t('b_abs')}</span></div><div class="stat"><b>${ab.late||0}</b><span>${t('b_late')}</span></div>
       <div class="stat"${stmt&&stmt.rest?' style="border-color:#f3d9a8"':''}><b>${stmt?money(stmt.rest):'—'}</b><span>${t('pp_rest')}</span></div></div>
-    <div class="chips" style="margin:14px 0 4px">${[['grd','pp_s_grd'],['att','pp_s_att'],['fee','pp_s_fee'],['exm','pp_s_exm']].concat(PP.msgs&&PP.msgs[PP.cur]?[['msg','pp_s_msg']]:[]).map(([k,l])=>`<span class="chip${(PP.sec||'grd')===k?' on':''}" data-ps="${k}">${t(l)}${k==='msg'&&ppUnseen(PP.cur)&&PP.sec!=='msg'?` <b class="badge bad" style="padding:0 6px">${ppUnseen(PP.cur)}</b>`:''}</span>`).join('')}</div>`;
+    <div class="chips" style="margin:14px 0 4px">${[['grd','pp_s_grd'],['att','pp_s_att'],['fee','pp_s_fee'],['exm','pp_s_exm']].concat((d.discipline||[]).length?[['dis','pp_s_dis']]:[]).concat(PP.msgs&&PP.msgs[PP.cur]?[['msg','pp_s_msg']]:[]).map(([k,l])=>`<span class="chip${(PP.sec||'grd')===k?' on':''}" data-ps="${k}">${t(l)}${k==='msg'&&ppUnseen(PP.cur)&&PP.sec!=='msg'?` <b class="badge bad" style="padding:0 6px">${ppUnseen(PP.cur)}</b>`:''}</span>`).join('')}</div>`;
     const sec=PP.sec||'grd';
     if(sec==='grd'){h+=(d.grades||[]).length?d.grades.slice().reverse().map(g=>`<div class="cert"><b>${ppTerm(g.term,ts)}</b>
       <div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('subject')}</th><th>${t('avg')} /${sc}</th><th>${t('class_avg')}</th><th>${t('t_rem')}</th></tr></thead><tbody>
@@ -2381,6 +2383,7 @@ function renderParent(){const box=document.getElementById('parentBox');if(!box||
       <div class="cert"><b>${t('pp_pays')}</b>${(d.fees.payments||[]).length?`<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${d.fees.payments.map(p=>`<tr><td dir="ltr">${fdate(p.paid_on)}</td><td><b>${money(p.amount)}</b></td><td>${t(METH[p.method]||'pm_other')}</td><td dir="ltr"><small>${esc(p.receipt_code||'')}</small></td></tr>`).join('')}</tbody></table></div>`:`<p class="sub">—</p>`}</div>`
       :`<div class="note">${t('pp_no_fee')}</div>`}
     if(sec==='msg')h+=ppMsgSection(PP.cur);
+    if(sec==='dis'){h+=`<div class="cert"><div class="tblw"><table class="tbl" style="min-width:0"><tbody>${(d.discipline||[]).map(x=>`<tr><td dir="ltr"><small>${fdate(x.inc_date)}</small></td><td><b>${esc(IL(IKIND[x.kind]||IKIND.other))}</b>${x.description?`<br><small>${esc(x.description)}</small>`:''}</td><td><span class="badge${['exclusion','expulsion'].includes(x.sanction)?' bad':''}">${esc(IL(ISANC[x.sanction]||ISANC.none))}${x.sanction_days?' · '+x.sanction_days+' '+t('ds_days'):''}</span></td></tr>`).join('')}</tbody></table></div></div>`}
     if(sec==='exm'){h+=(d.exams||[]).length?`<div class="cert"><div class="tblw"><table class="tbl" style="min-width:0"><tbody>${d.exams.map(x=>`<tr><td>${LX(DAYN)[dow(x.exam_date)]}<br><span dir="ltr">${fdate(x.exam_date)}</span></td><td dir="ltr"><b>${hm(x.start_time)}–${hm(x.end_time)}</b></td>
       <td><b>${esc(L==='ar'?x.name_ar:(x.name_fr||x.name_ar))}</b>${x.kind==='oral'?` <span class="badge" style="background:#e8f0fe;color:#1a4fb0">${t('ex_oral')}</span>`:''}<br><small class="sub">${esc(x.title)}${x.room?' · '+esc(x.room):''}</small></td></tr>`).join('')}</tbody></table></div></div>`
       :`<div class="note">${t('pp_no_exm')}</div>`}
@@ -3393,6 +3396,8 @@ function bindMore(s){const box=document.getElementById('mBox');if(!box)return;le
 async function docMore(kind,s,o){const er=document.getElementById('dErr');er.style.color='';er.textContent=t('wait');
   const c=D.classes.find(x=>x.id===s.class_id),f=fem(s),i=D.i,y=curYear();
   const TT={tr:['RELEVÉ DE NOTES ANNUEL','كشف النقاط السنوي'],cond:['CERTIFICAT DE BONNE CONDUITE','شهادة حسن السيرة والسلوك'],rec:['LETTRE DE RECOMMANDATION DU DIRECTEUR','تزكية المدير'],trec:["LETTRE DE RECOMMANDATION DE L'ENSEIGNANT",'تزكية المدرّس']}[kind];
+  if(kind==='cond'){try{const r=await sb.from('incidents').select('sanction,inc_date').eq('student_id',s.id);const bad=(r.data||[]).filter(x=>!['none','oral'].includes(x.sanction));
+    if(bad.length&&!confirm(t('ds_cond_warn').replace('{n}',bad.length))){er.textContent='';return}}catch(e){}}
   let A=null,row=null;if(kind==='tr'||kind==='rec'||kind==='trec'){try{if(c){A=await computeAnnual(c);row=A.rows.find(r=>r.s.id===s.id)}}catch(e){}}
   if(kind==='tr'&&!row){er.textContent=t('mo_nogr');return}
   const {data:code,error}=await sb.rpc('issue_document',{p_student:s.id,p_type:TT[1]+' / '+TT[0],p_level:(c?clsAr(c)+' / '+clsFr(c)+' — ':'')+y,p_mention:row&&row.avg!=null?fmt(row.avg)+'/'+A.scale:''});
@@ -3430,6 +3435,118 @@ async function docMore(kind,s,o){const er=document.getElementById('dErr');er.sty
   await printPages(`<section class="ofdoc${kind==='tr'?' fit1':''}">${officialHead(TT[0],TT[1])}
     <div class="ofbody">${kind!=='tr'&&kind!=='trec'?docPhoto(s.photo_path):''}${body}</div>${sign}
     <footer class="off">Al-Madaris CI — ${t('foot')} · Document vérifiable : ${esc(code)}</footer></section>`)}
+
+// ===== discipline register / سجل الانضباط =====
+const IKIND={behaviour:['سوء السلوك','Mauvaise conduite','Misbehaviour'],disrespect:['عدم احترام المعلم أو الزملاء','Manque de respect','Disrespect'],fight:['شجار أو عنف','Bagarre / violence','Fight / violence'],
+  cheating:['غش في الامتحان','Fraude / tricherie','Cheating'],absence:['غياب غير مبرر','Absence injustifiée','Unjustified absence'],late:['تأخر متكرر','Retards répétés','Repeated lateness'],
+  uniform:['عدم احترام الزي المدرسي','Tenue non conforme','Uniform violation'],property:['إتلاف ممتلكات المدرسة','Dégradation du matériel','Damage to property'],phone:['استعمال الهاتف','Usage du téléphone','Phone use'],other:['مخالفة أخرى','Autre','Other']};
+const ISANC={none:['ملاحظة فقط','Simple observation','Note only'],oral:['تنبيه شفهي','Avertissement oral','Oral warning'],written:['إنذار كتابي','Avertissement écrit','Written warning'],
+  summons:['استدعاء ولي الأمر','Convocation des parents','Parent summons'],detention:['حجز / عمل إضافي','Retenue / consigne','Detention'],exclusion:['فصل مؤقت','Exclusion temporaire','Temporary exclusion'],
+  expulsion:['فصل نهائي','Exclusion définitive','Expulsion'],other:['عقوبة أخرى','Autre sanction','Other sanction']};
+const IL=o=>o[L==='ar'?0:L==='en'?2:1]||o[1];
+const DS={view:'list',cls:'',q:'',rows:null,edit:null};
+async function tabDis(){const el=document.getElementById('dtab');el.innerHTML=t('wait');
+  const r=await sb.from('incidents').select('*').eq('institution_id',D.i.id).order('inc_date',{ascending:false}).order('created_at',{ascending:false});
+  if(r.error){el.innerHTML=`<div class="note">${esc(/incidents/.test(r.error.message||'')?t('ds_need'):em(r.error))}</div>`;return}
+  DS.rows=r.data||[];renderDis()}
+function disStudents(){return D.students.filter(s=>s.status==='active'&&(!DS.cls||s.class_id===DS.cls))}
+function renderDis(){const el=document.getElementById('dtab'),W=!past();const views=[['list','ds_v_list'],['new','ds_v_new'],['sum','ds_v_sum']];
+  let h=`<div class="chips" style="margin-bottom:10px">${views.map(([k,l])=>`<span class="chip${DS.view===k?' on':''}" data-dsv="${k}">${t(l)}</span>`).join('')}</div>
+   <div class="toolbar" style="margin-top:0"><select id="dsC">${opts([['',t('all_cls')]].concat(D.classes.map(c=>[c.id,clsName(c)])),DS.cls)}</select>${DS.view!=='new'?`<input id="dsQ" placeholder="${t('search')}" value="${esc(DS.q)}">`:''}</div>`;
+  const sMap=Object.fromEntries((D.allStudents||D.students).map(s=>[s.id,s])),q=nz(DS.q);
+  const rows=DS.rows.filter(x=>{const s=sMap[x.student_id];return s&&(!DS.cls||s.class_id===DS.cls)&&(!q||nz(sName(s)+' '+(s.full_name_fr||'')+' '+s.code).includes(q))});
+  if(DS.view==='list'){h+=rows.length?`<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${rows.map(x=>{const s=sMap[x.student_id],c=D.classes.find(y=>y.id===s.class_id);
+      return `<tr><td><b>${esc(sName(s))}</b><br><small class="sub">${esc(c?clsName(c):'')} · <span dir="ltr">${fdate(x.inc_date)}</span></small></td>
+      <td><b>${esc(IL(IKIND[x.kind]||IKIND.other))}</b>${x.description?`<br><small>${esc(x.description)}</small>`:''}<br><span class="badge${['exclusion','expulsion'].includes(x.sanction)?' bad':''}">${esc(IL(ISANC[x.sanction]||ISANC.none))}${x.sanction_days?' · '+x.sanction_days+' '+t('ds_days'):''}</span>${x.notify_parent?' <small>👪</small>':''}${x.reporter_name?`<br><small class="sub">✍ ${esc(x.reporter_name)}</small>`:''}</td>
+      <td style="white-space:nowrap"><button class="btn btn-t sm" data-dsp="${x.id}" title="${t('d_print')}">🖨</button><button class="btn btn-t sm" data-dsw="${x.id}">📲</button>${W&&(hasPerm('registry')||x.reported_by===(D.user&&D.user.id))?`<button class="btn btn-t sm" data-dse="${x.id}">✏️</button><button class="btn btn-t sm red" data-dsx="${x.id}">✕</button>`:''}</td></tr>`}).join('')}</tbody></table></div>`:`<div class="note">${t('ds_none')}</div>`}
+  if(DS.view==='new'){const x=DS.edit?DS.rows.find(r=>r.id===DS.edit)||{}:{},studs=disStudents().sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
+    h+=`<div class="cert" style="margin-top:0"><b>${DS.edit?t('edit'):t('ds_v_new')}</b>
+     <div class="two" style="margin-top:8px"><div class="fld"><label>${t('s_name')} <span class="r">*</span></label><select id="dsS">${opts([['','—']].concat(studs.map(s=>[s.id,sName(s)+' — '+s.code])),x.student_id||'')}</select></div>
+       <div class="fld"><label>${t('e_date')}</label><input id="dsD" type="date" dir="ltr" value="${esc(x.inc_date||todayISO())}"></div></div>
+     <div class="two"><div class="fld"><label>${t('ds_kind')}</label><select id="dsK">${opts(Object.keys(IKIND).map(k=>[k,IL(IKIND[k])]),x.kind||'behaviour')}</select></div>
+       <div class="fld"><label>${t('ds_sanc')}</label><select id="dsN">${opts(Object.keys(ISANC).map(k=>[k,IL(ISANC[k])]),x.sanction||'none')}</select></div></div>
+     <div class="two" id="dsDays"><div class="fld"><label>${t('ds_ndays')}</label><input id="dsY" type="number" min="1" max="365" dir="ltr" value="${esc(x.sanction_days||'')}"></div><div class="fld"><label>${t('ds_from')}</label><input id="dsF" type="date" dir="ltr" value="${esc(x.sanction_from||'')}"></div></div>
+     <div class="fld"><label>${t('ds_desc')}</label><textarea id="dsT" rows="3" placeholder="${esc(t('ds_desc_ph'))}">${esc(x.description||'')}</textarea></div>
+     <label class="opt"><input type="checkbox" id="dsP"${x.notify_parent||!x.id?' checked':''}>${t('ds_notify')}</label>
+     <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="dsGo">${t('save')}</button>${DS.edit?`<button class="btn btn-t" id="dsCancel">${t('cancel')}</button>`:''}</div><div class="err" id="dsErr"></div></div>`}
+  if(DS.view==='sum'){const by={};rows.forEach(x=>{const o=by[x.student_id]=by[x.student_id]||{n:0,w:0,e:0,last:x.inc_date};o.n++;if(['written','summons'].includes(x.sanction))o.w++;if(['exclusion','expulsion'].includes(x.sanction))o.e++});
+    const L3=Object.entries(by).sort((a,b)=>(b[1].e-a[1].e)||(b[1].w-a[1].w)||(b[1].n-a[1].n));
+    h+=`<div class="stats" style="margin-top:0"><div class="stat"><b>${rows.length}</b><span>${t('ds_total')}</span></div><div class="stat"><b>${L3.length}</b><span>${t('ds_studs')}</span></div><div class="stat"><b>${rows.filter(x=>['exclusion','expulsion'].includes(x.sanction)).length}</b><span>${IL(ISANC.exclusion)}</span></div></div>
+     ${L3.length?`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('s_name')}</th><th>${t('ds_total')}</th><th>${IL(ISANC.written)}</th><th>${IL(ISANC.exclusion)}</th><th></th></tr></thead><tbody>${L3.map(([sid,o])=>{const s=sMap[sid];
+       return `<tr><td><b>${esc(sName(s))}</b><br><small class="sub" dir="ltr">${fdate(o.last)}</small></td><td>${o.n}</td><td>${o.w}</td><td style="${o.e?'color:#b03a2e;font-weight:800':''}">${o.e}</td><td>${hasPerm('registry')?`<button class="btn btn-t sm" data-dscv="${sid}">📣</button>`:''}</td></tr>`}).join('')}</tbody></table></div>`:`<div class="note">${t('ds_none')}</div>`}`}
+  el.innerHTML=h;
+  el.querySelectorAll('[data-dsv]').forEach(c=>c.onclick=()=>{DS.view=c.dataset.dsv;DS.edit=null;renderDis()});
+  document.getElementById('dsC').onchange=e=>{DS.cls=e.target.value;renderDis()};
+  const qi=document.getElementById('dsQ');if(qi)qi.oninput=()=>{DS.q=qi.value;const p=qi.selectionStart;renderDis();const n=document.getElementById('dsQ');n.focus();n.setSelectionRange(p,p)};
+  el.querySelectorAll('[data-dsp]').forEach(b=>b.onclick=()=>disPrint(DS.rows.find(x=>x.id===b.dataset.dsp)));
+  el.querySelectorAll('[data-dsw]').forEach(b=>b.onclick=()=>disWa(DS.rows.find(x=>x.id===b.dataset.dsw)));
+  el.querySelectorAll('[data-dse]').forEach(b=>b.onclick=()=>{DS.edit=b.dataset.dse;DS.view='new';renderDis()});
+  el.querySelectorAll('[data-dsx]').forEach(b=>b.onclick=async()=>{if(!confirm(t('ds_del_sure')))return;const {error}=await sb.from('incidents').delete().eq('id',b.dataset.dsx);if(error){alert(em(error));return}tabDis()});
+  el.querySelectorAll('[data-dscv]').forEach(b=>b.onclick=()=>{const s=D.students.find(x=>x.id===b.dataset.dscv);if(!s)return;DOC.view='stu';DOC.cls=s.class_id;DOC.sid=s.id;D.tab='doc';renderDash()});
+  const go=document.getElementById('dsGo');if(go){const sn=document.getElementById('dsN'),dd=document.getElementById('dsDays'),sh=()=>dd.style.display=['detention','exclusion'].includes(sn.value)?'':'none';sn.onchange=sh;sh();
+    const cc=document.getElementById('dsCancel');if(cc)cc.onclick=()=>{DS.edit=null;DS.view='list';renderDis()};
+    go.onclick=async()=>{const g=id=>document.getElementById(id).value.trim(),er=document.getElementById('dsErr');if(!g('dsS')){er.textContent=t('e_req');return}er.textContent=t('wait');
+      const row={student_id:g('dsS'),inc_date:g('dsD')||todayISO(),kind:g('dsK'),sanction:g('dsN'),description:g('dsT')||null,notify_parent:document.getElementById('dsP').checked,
+        sanction_days:['detention','exclusion'].includes(g('dsN'))&&g('dsY')?+g('dsY'):null,sanction_from:['detention','exclusion'].includes(g('dsN'))&&g('dsF')?g('dsF'):null};
+      if(!DS.edit)row.reporter_name=(D.p&&D.p.full_name)||(myStaff()&&myStaff().full_name_ar)||null;
+      const r=DS.edit?await sb.from('incidents').update(row).eq('id',DS.edit).select().single():await sb.from('incidents').insert(row).select().single();
+      if(r.error){er.textContent=em(r.error);return}DS.edit=null;DS.view='list';await tabDis();
+      if(r.data&&r.data.notify_parent&&confirm(t('ds_after')))disWa(r.data)}}}
+function disMsg(x){const s=(D.allStudents||D.students).find(y=>y.id===x.student_id)||{};
+  return t('ds_wa').replace('{s}',L==='ar'?D.i.name_ar:D.i.name_fr).replace('{n}',sName(s)+(s.full_name_fr?' ('+s.full_name_fr+')':'')).replace('{d}',fdate(x.inc_date))
+    .replace('{k}',IL(IKIND[x.kind]||IKIND.other)).replace('{x}',x.description?'\n'+x.description:'').replace('{c}',IL(ISANC[x.sanction]||ISANC.none)+(x.sanction_days?' ('+x.sanction_days+' '+t('ds_days')+(x.sanction_from?' — '+fdate(x.sanction_from):'')+')':''))+(D.i.phone?'\n☎ '+D.i.phone:'')}
+async function disWa(x){const s=(D.allStudents||D.students).find(y=>y.id===x.student_id)||{},ph=waPhone(s.guardian_phone),m=disMsg(x);
+  if(ph)window.open('https://wa.me/'+ph+'?text='+encodeURIComponent(m),'_blank');else{try{await navigator.clipboard.writeText(m);alert(t('cv_nophone'))}catch(e){prompt('',m)}}}
+async function disPrint(x){const s=(D.allStudents||D.students).find(y=>y.id===x.student_id);if(!s)return;const c=D.classes.find(y=>y.id===s.class_id),f=fem(s),i=D.i,k=IKIND[x.kind]||IKIND.other,n=ISANC[x.sanction]||ISANC.none;
+  const prior=DS.rows.filter(y=>y.student_id===s.id&&y.id!==x.id&&y.inc_date<=x.inc_date).length;
+  const T2=['written','oral'].includes(x.sanction)?['AVERTISSEMENT','إنذار']:['exclusion','expulsion'].includes(x.sanction)?["NOTIFICATION D'EXCLUSION",'إشعار بالفصل']:['NOTIFICATION DISCIPLINAIRE','إشعار تأديبي'];
+  const per=x.sanction_days?` pour une durée de <b>${x.sanction_days} jour(s)</b>${x.sanction_from?' à compter du <b>'+fdate(x.sanction_from)+'</b>':''}`:'',perA=x.sanction_days?` لمدة <b>${x.sanction_days}</b> يوماً${x.sanction_from?' ابتداءً من <b>'+fdate(x.sanction_from)+'</b>':''}`:'';
+  await printPages(`<section class="ofdoc fit1">${officialHead(T2[0],T2[1])}
+   <div class="ofbody">${docPhoto(s.photo_path)}
+    <p class="offr">Monsieur / Madame <b>${esc(s.guardian_name||'……………………')}</b>, parent de ${f?"l'élève":"l'élève"} <b>${esc(nameFr(s)||sName(s))}</b>${c?` (classe de <b>${esc(clsFr(c))}</b>)`:''},</p>
+    <p class="offr">Nous avons le regret de vous informer que votre enfant a commis le <b>${fdate(x.inc_date)}</b> le manquement suivant : <b>${k[1]}</b>${x.description?' — <i>'+esc(x.description)+'</i>':''}. En conséquence, ${f?'elle':'il'} fait l'objet de la mesure suivante : <b>${n[1]}</b>${per}.${prior?` Nous rappelons qu'il s'agit de son <b>${prior+1}<sup>e</sup></b> incident cette année.`:''}</p>
+    <p class="offr">Nous comptons sur votre collaboration pour que cela ne se reproduise plus.</p>
+    <p class="ofar" dir="rtl">السيد(ة) <b>${esc(s.guardian_name||'……………')}</b>، ولي أمر ${f?'التلميذة':'التلميذ'} <b>${esc(sName(s))}</b>${c?` (${esc(clsAr(c))})`:''}،</p>
+    <p class="ofar" dir="rtl">يؤسفنا إعلامكم بأنّ ${f?'ابنتكم ارتكبت':'ابنكم ارتكب'} بتاريخ <b>${fdate(x.inc_date)}</b> المخالفة الآتية: <b>${k[0]}</b>${x.description?' — '+esc(x.description):''}. وبناءً عليه ${f?'اتُّخذ في حقها':'اتُّخذ في حقه'} الإجراء الآتي: <b>${n[0]}</b>${perA}.${prior?` ونذكّركم بأنها المخالفة رقم <b>${prior+1}</b> هذه السنة.`:''}</p>
+    <p class="ofar" dir="rtl">نرجو تعاونكم حتى لا يتكرر ذلك، وجزاكم الله خيراً.</p></div>
+   ${officialSign('')}
+   <div style="border-top:1.5px dashed #777;margin-top:4mm;padding-top:2mm;font-size:9pt"><b>✂ ACCUSÉ DE RÉCEPTION — إشعار بالاستلام</b><br>
+    Je soussigné(e) ………………………………, parent de <b>${esc(nameFr(s)||sName(s))}</b>, reconnais avoir pris connaissance de cette notification du ${fdate(x.inc_date)}.
+    <div style="display:flex;justify-content:space-between;margin-top:3mm"><span>Date : ……………………</span><span>Signature du parent / توقيع الولي : ……………………</span></div></div>
+   <footer class="off">Al-Madaris CI — ${t('foot')}</footer></section>`)}
+
+// ===== audit log / سجل العمليات =====
+const AU={rows:[],tbl:'',op:'',from:'',ev:{}};
+const AUT={students:['تلميذ','Élève'],payments:['دفعة','Paiement'],discounts:['تخفيض','Réduction'],fee_items:['بند رسوم','Frais'],expenses:['مصروف','Dépense'],payslips:['قسيمة راتب','Bulletin de paie'],
+  staff_advances:['سلفة','Avance'],incidents:['مخالفة','Incident'],staff:['موظف','Personnel'],evaluations:['تقييم','Évaluation'],grades:['علامة','Note'],attendance:['حضور','Présence'],platform_invoices:['فاتورة اشتراك','Facture']};
+const AUF={score:['العلامة','Note'],absent:['غائب','Absent'],status:['الحالة','Statut'],amount:['المبلغ','Montant'],cancelled:['ملغى','Annulé'],cancelled_reason:['سبب الإلغاء','Motif'],class_id:['الفصل','Classe'],
+  first_name_ar:['الاسم','Prénom'],last_name_ar:['اللقب','Nom'],full_name_fr:['الاسم بالفرنسية','Nom (FR)'],full_name_ar:['الاسم','Nom'],percent:['النسبة','Pourcentage'],net:['الصافي','Net'],
+  base:['الأساسي','Base'],bonus:['المنحة','Prime'],deduction:['الاقتطاع','Retenue'],perms:['الصلاحيات','Droits'],max_score:['العلامة القصوى','Barème'],title:['العنوان','Intitulé'],sanction:['العقوبة','Sanction'],
+  guardian_phone:['هاتف الولي','Tél. parent'],birth_date:['تاريخ الميلاد','Naissance'],gender:['الجنس','Sexe'],method:['طريقة الدفع','Mode'],paid_on:['تاريخ الدفع','Payé le'],name_ar:['الاسم','Nom'],blood_group:['فصيلة الدم','Groupe sanguin']};
+async function tabLog(){const el=document.getElementById('dtab');el.innerHTML=t('wait');
+  let q=sb.from('audit_log').select('*').eq('institution_id',D.i.id).order('at',{ascending:false}).range(0,299);
+  if(AU.tbl)q=q.eq('tbl',AU.tbl);if(AU.op)q=q.eq('op',AU.op);if(AU.from)q=q.gte('at',AU.from);
+  const r=await q;if(r.error){el.innerHTML=`<div class="note">${esc(/audit_log/.test(r.error.message||'')?t('ds_need'):em(r.error))}</div>`;return}
+  AU.rows=r.data||[];const evIds=[...new Set(AU.rows.map(x=>x.data&&((x.data._&&x.data._.evaluation_id)||x.data.evaluation_id)).filter(Boolean))].filter(id=>!AU.ev[id]);
+  if(evIds.length){try{(await fetchIn('evaluations','id',evIds)).forEach(e=>AU.ev[e.id]=e)}catch(e){}}renderLog()}
+function auVal(k,v){if(v==null||v==='')return '—';if(typeof v==='boolean')return v?t('yes'):t('no');if(k==='class_id'){const c=(D.allClasses||D.classes).find(x=>x.id===v);return c?clsName(c):'—'}
+  if(k==='amount'||k==='net'||k==='base')return money(+v).replace(/[⁦⁩]/g,'');if(k==='sanction')return IL(ISANC[v]||ISANC.none);return typeof v==='object'?JSON.stringify(v):String(v)}
+function auLine(x){const d=x.data||{},c=d._||{},sMap=AU.sm,s=x.student_id&&sMap[x.student_id],A=L==='ar'?0:1,name=s?sName(s):(d.full_name_ar||c.full_name_ar||[d.last_name_ar,d.first_name_ar].filter(Boolean).join(' ')||'');
+  let what=(AUT[x.tbl]||[x.tbl,x.tbl])[A];
+  if(x.tbl==='grades'){const e=AU.ev[c.evaluation_id||d.evaluation_id],j=e&&D.subjects.find(y=>y.id===e.subject_id);if(j)what+=' — '+subjName(j)+(e.term?' · '+termName(e.term):'')}
+  if(x.tbl==='payments')what+=' '+(c.receipt_code||d.receipt_code||'')+' · '+auVal('amount',c.amount||d.amount);
+  if(x.tbl==='payslips')what+=' '+(c.month||d.month||'');if(x.tbl==='attendance')what+=' '+fdate(c.att_date||d.att_date);if(x.tbl==='evaluations'||x.tbl==='fee_items')what+=' '+(c.title||d.title||c.name_ar||d.name_ar||'');
+  let det='';if(x.op==='UPDATE')det=Object.entries(d).filter(([k])=>k!=='_').map(([k,v])=>`<span class="aud">${esc((AUF[k]||[k,k])[A])}: <s>${esc(auVal(k,v[0]))}</s> → <b>${esc(auVal(k,v[1]))}</b></span>`).join(' ');
+  return {what,name,det}}
+function renderLog(){const el=document.getElementById('dtab');AU.sm=Object.fromEntries((D.allStudents||D.students).map(s=>[s.id,s]));
+  const OPI={INSERT:['➕','au_ins'],UPDATE:['✏️','au_upd'],DELETE:['🗑','au_del']};
+  el.innerHTML=`<p class="sub" style="margin-top:0">${t('au_help')}</p><div class="toolbar" style="margin-top:0;flex-wrap:wrap">
+    <select id="auT" style="flex:0;width:auto">${opts([['',t('all')]].concat(Object.keys(AUT).map(k=>[k,AUT[k][L==='ar'?0:1]])),AU.tbl)}</select>
+    <select id="auO" style="flex:0;width:auto">${opts([['',t('all')],['INSERT',t('au_ins')],['UPDATE',t('au_upd')],['DELETE',t('au_del')]],AU.op)}</select>
+    <input id="auF" type="date" dir="ltr" value="${esc(AU.from)}" style="flex:0;width:160px"></div>
+  ${AU.rows.length?`<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${AU.rows.map(x=>{const l=auLine(x),o=OPI[x.op]||['•',''];return `<tr><td style="white-space:nowrap"><small dir="ltr">${fdate(x.at.slice(0,10))}<br>${x.at.slice(11,16)}</small></td>
+    <td>${o[0]} <b>${esc(t(o[1]))}</b> · ${esc(l.what)}${l.name?` — <b>${esc(l.name)}</b>`:''}${l.det?`<div style="margin-top:3px">${l.det}</div>`:''}<br><small class="sub">👤 ${esc(x.user_name||'—')}</small></td></tr>`}).join('')}</tbody></table></div>${AU.rows.length>=300?`<p class="sub">${t('au_more')}</p>`:''}`:`<div class="note">${t('au_none')}</div>`}`;
+  document.getElementById('auT').onchange=e=>{AU.tbl=e.target.value;tabLog()};document.getElementById('auO').onchange=e=>{AU.op=e.target.value;tabLog()};document.getElementById('auF').onchange=e=>{AU.from=e.target.value;tabLog()}}
 
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}
@@ -3655,7 +3772,7 @@ function bindImp(){const er=()=>document.getElementById('impErr');
     catch(x){er().textContent=`${em(x)} — ${t('imp_part').replace('{n}',done)}`;go.disabled=false;await reloadData()}}}
 
 // ===== full backup =====
-const BK_TABLES=[['classes','id'],['subjects','id'],['staff','id'],['students','id'],['teaching','id'],['evaluations','id'],['grades','id'],['fee_items','id'],['discounts','id'],['payments','id'],['expenses','id'],['attendance','id'],['documents','code'],['enrollments','id'],['remarks','id'],['exams','id'],['exam_slots','id'],['timetable','id'],['messages','id'],['books','id'],['book_moves','id'],['staff_pay','staff_id'],['staff_advances','id'],['payslips','id']];
+const BK_TABLES=[['classes','id'],['subjects','id'],['staff','id'],['students','id'],['teaching','id'],['evaluations','id'],['grades','id'],['fee_items','id'],['discounts','id'],['payments','id'],['expenses','id'],['attendance','id'],['documents','code'],['enrollments','id'],['remarks','id'],['exams','id'],['exam_slots','id'],['timetable','id'],['messages','id'],['books','id'],['book_moves','id'],['staff_pay','staff_id'],['staff_advances','id'],['payslips','id'],['incidents','id']];
 async function fetchAll(tb,ord,iid){const out=[];for(let f=0;;f+=1000){const {data,error}=await sb.from(tb).select('*').eq('institution_id',iid).order(ord).range(f,f+999);if(error)throw error;out.push(...data);if(data.length<1000)break}return out}
 async function doBackup(btn){const er=document.getElementById('bkErr'),iid=D.i.id;btn.disabled=true;er.style.color='';
   try{const data={app:'Al-Madaris CI',version:1,exported_at:new Date().toISOString(),institution:D.i};

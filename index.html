@@ -125,6 +125,7 @@ footer a{color:#ffd08a}
 .bul td,.bul th{border:1px solid #9aa;padding:5px 7px;text-align:start}
 .bul th{background:#1B7F3B;color:#fff}.bul .info td:nth-child(odd),.bul .tot td:nth-child(odd){background:#f3f6f3;width:18%}
 .bul .marks td:not(:first-child),.bul .marks th:not(:first-child){text-align:center}
+.bul .marks td.rm{text-align:start!important;font-size:12px}.bul .ann td,.bul .ann th{font-size:12px;padding:4px}
 .bul .sig{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-top:14px;min-height:110px}
 .bul .sig>div{flex:1;text-align:center;font-weight:700}
 .bul .qr{display:flex;flex-direction:column;align-items:center;gap:2px;font-weight:400!important}.bul .qr small{font-size:10px}
@@ -439,6 +440,10 @@ e_req:"Veuillez remplir les champs obligatoires (*).",e_cyc:"Choisissez au moins
 ok_t:"Établissement inscrit !",ok_code:"Code de votre établissement",ok_trial:"Essai gratuit jusqu'au",ok_note:"Démonstration : les données restent dans ce navigateur. L'enregistrement réel sur le serveur arrive à l'étape 2.",ok_go:"Aller à la connexion",
 cm_r:"Recto (une face)",cm_rv:"Recto-verso (deux faces)",cm_help:"Recto-verso : imprimez en mode « Recto-verso / Impression sur les deux côtés — retourner sur le bord long ». Sans imprimante recto-verso : imprimez les pages impaires, remettez les feuilles dans le bac, puis imprimez les pages paires.",valid_year:"Valable pour l'année",card_rules:"Cette carte est personnelle et doit être présentée à l'entrée de l'établissement.",card_found:"En cas de perte, merci de la rapporter à l'école :",
 inactive_msg:"Lecture seule : l'abonnement de l'école est suspendu ou la période d'essai est terminée.",not_allowed:"Opération non autorisée.",has_grades:"Impossible : des notes existent pour cette classe ou matière. Supprimez d'abord les évaluations concernées.",net_down:"Pas de connexion Internet. Vérifiez votre réseau et réessayez.",v_revoked:"✗ Document annulé",v_revoked_d:"Ce document a été annulé par l'établissement et n'est plus valable.",ban_susp:"Le compte de l'école est suspendu.",ban_trial:"La période d'essai gratuite est terminée.",ban_help:"Vos données sont conservées et consultables, mais aucune modification n'est possible. Pour activer l'abonnement :",
+rm_ttl:"Appréciations de l'enseignant",rm_help:"Une appréciation par élève pour cette matière ; elle apparaît sur le bulletin. Choisissez dans la liste ou écrivez librement.",rm_auto:"Proposer selon la moyenne",
+gen_ttl:"Conduite et décision du conseil",gen_help:"Conduite et appréciation générale (conseil de classe / direction) pour ce trimestre ; elles apparaissent sur le bulletin.",conduct:"Conduite",gen_rem:"Appréciation du conseil",t_rem:"Appréciation",
+b_abs:"Absences (jours)",b_exc:"justifiées",b_late:"Retards",ann_title:"Bulletin annuel",ann_all:"Bulletins annuels",ann_cert:"Annuels certifiés",ann_avg:"Moyenne annuelle",decision:"Décision",dec_ok:"Admis(e) en classe supérieure",dec_ko:"Redouble",
+td_ttl:"Dates des trimestres",td_help:"Servent à compter les absences et retards de chaque trimestre sur le bulletin.",td_from:"du",td_to:"au",td_bad:"Vérifiez les dates (début avant fin).",
 tab_plat:"🛡 Plateforme",vyear:"Année affichée",past_note:"Archives de l'année {y} : consultation et impression ; les fiches des élèves ne sont pas modifiables.",paid_until:"Abonnement jusqu'au",ban_paid:"L'abonnement annuel a expiré.",
 ro_ttl:"Passage à la nouvelle année",ro_help:"En fin d'année {a} : chaque élève passe en classe supérieure, redouble ou quitte l'établissement, et l'année {b} commence. Les notes et paiements de {a} restent consultables.",ro_btn:"Préparer le passage en",ro_calc:"(calcul des moyennes annuelles)",
 ro_how:"La décision proposée suit la moyenne annuelle (seuil des Paramètres DRENA). Modifiez-la élève par élève ou pour toute la classe.",ro_last:"Dernier niveau",ro_all:"Appliquer à toute la classe…",ro_prom:"Passe",ro_rep:"Redouble",ro_grad:"Fin de cycle",ro_left:"Quitte l'école",
@@ -465,6 +470,10 @@ ar:{}};
 document.querySelectorAll('[data-t]').forEach(e=>{const k=e.dataset.t;if(!(k in T.ar))T.ar[k]=e.innerHTML});
 Object.assign(T.ar,{cm_r:"وجه واحد (Recto)",cm_rv:"وجهان (Recto-verso)",cm_help:"الوجهان: اختر في نافذة الطباعة «طباعة على الوجهين — القلب على الحافة الطويلة». وإن كانت الطابعة لا تطبع على الوجهين: اطبع الصفحات الفردية، ثم أعد الأوراق إلى الطابعة واطبع الصفحات الزوجية.",valid_year:"صالحة للسنة",card_rules:"هذه البطاقة شخصية، ويجب إظهارها عند الدخول إلى المدرسة.",card_found:"في حال العثور عليها يُرجى إعادتها إلى المدرسة:",
 inactive_msg:"قراءة فقط: اشتراك المدرسة موقوف أو انتهت الفترة التجريبية.",not_allowed:"عملية غير مسموح بها.",has_grades:"لا يمكن: توجد علامات لهذا الفصل أو هذه المادة. احذف التقييمات المعنية أولاً.",net_down:"لا يوجد اتصال بالإنترنت. تحقق من الشبكة وأعد المحاولة.",v_revoked:"✗ وثيقة ملغاة",v_revoked_d:"ألغت المؤسسة هذه الوثيقة، فلم تعد صالحة.",ban_susp:"حساب المدرسة موقوف.",ban_trial:"انتهت الفترة التجريبية المجانية.",ban_help:"بياناتكم محفوظة ويمكن الاطلاع عليها، لكن لا يمكن التعديل. لتفعيل الاشتراك:",
+rm_ttl:"ملاحظات المعلم",rm_help:"ملاحظة لكل تلميذ في هذه المادة، تظهر في كشف النقاط. اختر من القائمة أو اكتب بحرية.",rm_auto:"اقتراح حسب المعدل",
+gen_ttl:"السلوك وقرار المجلس",gen_help:"السلوك والملاحظة العامة (مجلس القسم / الإدارة) لهذا الفصل الدراسي، وتظهر في كشف النقاط.",conduct:"السلوك",gen_rem:"ملاحظة المجلس",t_rem:"ملاحظة المعلم",
+b_abs:"الغيابات (أيام)",b_exc:"مبررة",b_late:"التأخرات",ann_title:"كشف النقاط السنوي",ann_all:"الكشوف السنوية",ann_cert:"السنوية الموثقة",ann_avg:"المعدل السنوي",decision:"القرار",dec_ok:"ينتقل إلى القسم الأعلى",dec_ko:"يعيد السنة",
+td_ttl:"تواريخ الفصول الدراسية",td_help:"تُستعمل لحساب غيابات وتأخرات كل فصل دراسي في كشف النقاط.",td_from:"من",td_to:"إلى",td_bad:"تحقق من التواريخ (البداية قبل النهاية).",
 tab_plat:"🛡 المنصة",vyear:"السنة المعروضة",past_note:"أرشيف سنة {y}: للاطلاع والطباعة فقط، ولا يمكن تعديل بيانات التلاميذ.",paid_until:"الاشتراك إلى غاية",ban_paid:"انتهى الاشتراك السنوي.",
 ro_ttl:"الانتقال إلى السنة الجديدة",ro_help:"في نهاية سنة {a}: ينتقل كل تلميذ إلى القسم الأعلى أو يعيد أو يغادر، وتبدأ سنة {b}. تبقى علامات {a} ودفعاتها محفوظة للاطلاع.",ro_btn:"تحضير الانتقال إلى",ro_calc:"(حساب المعدلات السنوية)",
 ro_how:"القرار المقترح حسب المعدل السنوي (عتبة النجاح في إعدادات DRENA). يمكنك تغييره لكل تلميذ أو للفصل كاملاً.",ro_last:"آخر مستوى",ro_all:"تطبيق على الفصل كله…",ro_prom:"ينتقل",ro_rep:"يعيد",ro_grad:"أنهى المرحلة",ro_left:"يغادر المدرسة",
@@ -843,12 +852,28 @@ function gradeSubjects(clsId){
     return ids.size?D.subjects.filter(j=>ids.has(j.id)):D.subjects}
   const mine=new Set(D.teaching.filter(x=>x.class_id===clsId).map(x=>x.subject_id));
   return D.subjects.filter(j=>mine.has(j.id))}
-async function loadEvals(force){const key=G.cls+'|'+G.term;if(!G.cls){G.evals=[];G.grades=[];return}
+async function fetchIn(tb,col,ids,extra){const out=[];for(let k=0;k<ids.length;k+=80){const part=ids.slice(k,k+80);
+    for(let f=0;;f+=1000){let q=sb.from(tb).select('*').in(col,part);if(extra)q=extra(q);const {data,error}=await q.order('id').range(f,f+999);if(error)throw error;out.push(...data);if(data.length<1000)break}}return out}
+async function loadRemarks(cls,term){try{let q=sb.from('remarks').select('*').eq('class_id',cls);if(term)q=q.eq('term',term);const r=await q;return r.error?[]:(r.data||[])}catch(e){return []}}
+async function loadEvals(force){const key=G.cls+'|'+G.term;if(!G.cls){G.evals=[];G.grades=[];G.rem=[];return}
   if(!force&&G.loadedFor===key)return;
   const {data:ev}=await sb.from('evaluations').select('*').eq('class_id',G.cls).eq('term',G.term).order('created_at');
   G.evals=ev||[];const ids=G.evals.map(e=>e.id);
-  if(ids.length){const {data:gr}=await sb.from('grades').select('*').in('evaluation_id',ids);G.grades=gr||[]}else G.grades=[];
+  G.grades=ids.length?await fetchIn('grades','evaluation_id',ids):[];
+  G.rem=await loadRemarks(G.cls,G.term);
   G.loadedFor=key}
+function termRanges(y){y=y||curYear();const a=parseInt(y),n=nTerms(),td=D.i&&D.i.term_dates&&D.i.term_dates[y];
+  const def=n===2?[[a+'-09-01',(a+1)+'-01-31'],[(a+1)+'-02-01',(a+1)+'-07-31']]:[[a+'-09-01',a+'-12-31'],[(a+1)+'-01-01',(a+1)+'-03-31'],[(a+1)+'-04-01',(a+1)+'-07-31']];
+  return def.map((d,k)=>td&&td[k]&&td[k][0]&&td[k][1]?td[k]:d)}
+async function absCounts(ids,from,to){const out={};if(!ids.length)return out;
+  try{const rows=await fetchIn('attendance','student_id',ids,q=>q.neq('status','present').gte('att_date',from).lte('att_date',to));
+    rows.forEach(r=>{const o=out[r.student_id]=out[r.student_id]||{a:0,l:0,x:0};if(r.status==='absent')o.a++;else if(r.status==='late')o.l++;else if(r.status==='excused')o.x++})}catch(e){}return out}
+const APPR={ar:['ممتاز، واصل على هذا المستوى','عمل جيد جداً','عمل جيد','نتائج مقبولة، يمكنه أفضل','نتائج متوسطة، عليه بذل جهد أكبر','نتائج ضعيفة، يحتاج إلى متابعة'],
+  fr:['Excellent travail, continuez','Très bon travail','Bon travail','Assez bien, peut mieux faire','Résultats moyens, doit fournir plus d\'efforts','Travail insuffisant, à suivre de près']};
+const DECS={ar:['تهانينا ولوحة الشرف','لوحة الشرف','تشجيع','إنذار في العمل','إنذار في السلوك','توبيخ'],fr:['Félicitations et tableau d\'honneur','Tableau d\'honneur','Encouragements','Avertissement travail','Avertissement conduite','Blâme']};
+const CONDUCT={ar:['ممتاز','حسن','مقبول','سيء'],fr:['Très bonne','Bonne','Passable','Mauvaise']};
+const apprOf=f=>f==null?'':APPR[L][f>=.9?0:f>=.8?1:f>=.7?2:f>=.6?3:f>=.5?4:5];
+const decOf=f=>f==null?'':f>=.8?DECS[L][0]:f>=.7?DECS[L][1]:f>=.6?DECS[L][2]:f<.5?DECS[L][3]:'';
 function computeClass(cls){
   const studs=D.students.filter(s=>s.class_id===cls.id&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar'));
   const scale=scaleOf(cls),subjIds=[...new Set(G.evals.map(e=>e.subject_id))];
@@ -905,8 +930,19 @@ async function tabGrades(){const el=document.getElementById('dtab');
     if(evs.length&&studs.length){const r=computeClass(cls);
       h+=`<div class="cert"><b>${t('subj_avgs')}</b><div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('s_name')}</th><th>${t('avg')} /${scale}</th></tr></thead><tbody>
       ${r.rows.map(x=>`<tr><td>${esc(x.s.last_name_ar+' '+x.s.first_name_ar)}</td><td><b>${fmt(x.per[G.subj])}</b></td></tr>`).join('')}
-      <tr><td><b>${t('class_avg')}</b></td><td><b>${fmt(r.classAvg[G.subj])}</b></td></tr></tbody></table></div></div>`}}
+      <tr><td><b>${t('class_avg')}</b></td><td><b>${fmt(r.classAvg[G.subj])}</b></td></tr></tbody></table></div></div>`;
+      if(!past()){const rm={};(G.rem||[]).filter(x=>x.subject_id===G.subj).forEach(x=>rm[x.student_id]=x.body||'');
+        h+=`<div class="cert"><b>✍ ${t('rm_ttl')} — ${esc(subjName(D.subjects.find(j=>j.id===G.subj)))} — ${termName(G.term)}</b><p class="sub" style="margin:4px 0 8px">${t('rm_help')}</p>
+        <datalist id="dl_appr">${APPR[L].map(x=>`<option value="${esc(x)}">`).join('')}</datalist>
+        <div class="tblw"><table class="tbl" style="min-width:0"><tbody>${r.rows.map(x=>`<tr><td style="white-space:nowrap">${esc(x.s.last_name_ar+' '+x.s.first_name_ar)}<br><small class="sub">${fmt(x.per[G.subj])}</small></td>
+          <td style="width:65%"><input class="rmIn" data-sid="${x.s.id}" list="dl_appr" maxlength="300" value="${esc(rm[x.s.id]||'')}" data-sug="${esc(apprOf(x.per[G.subj]!=null?x.per[G.subj]/scale:null))}" placeholder="${esc(apprOf(x.per[G.subj]!=null?x.per[G.subj]/scale:null))}"></td></tr>`).join('')}</tbody></table></div>
+        <div class="acts" style="justify-content:flex-start;flex-wrap:wrap"><button class="btn btn-l" id="rmAuto">✨ ${t('rm_auto')}</button><button class="btn btn-g" id="rmSave">${t('save')}</button></div><div class="err" id="rmErr"></div></div>`}}}
   el.innerHTML=h;bindPickers(tabGrades);
+  {const ra=document.getElementById('rmAuto');if(ra)ra.onclick=()=>el.querySelectorAll('.rmIn').forEach(i=>{if(!i.value.trim())i.value=i.dataset.sug});
+   const rs=document.getElementById('rmSave');if(rs)rs.onclick=async()=>{const er=document.getElementById('rmErr');er.style.color='';er.textContent=t('wait');
+     const items=[...el.querySelectorAll('.rmIn')].map(i=>({s:i.dataset.sid,body:i.value.trim()}));
+     const {error}=await sb.rpc('save_remarks',{p_class:G.cls,p_term:G.term,p_subject:G.subj,p_items:items});if(error){er.textContent=em(error);return}
+     G.rem=await loadRemarks(G.cls,G.term);er.style.color='var(--g2)';er.textContent=t('saved')}}
   el.querySelectorAll('[data-ev]').forEach(c=>c.onclick=()=>{G.ev=c.dataset.ev;tabGrades()});
   const ea=document.getElementById('eAdd');if(ea)ea.onclick=async()=>{const er=document.getElementById('eErr');er.textContent=t('wait');
     const row={class_id:G.cls,subject_id:G.subj,term:G.term,kind:document.getElementById('eKind').value,title:document.getElementById('eTitle').value.trim()||null,
@@ -931,17 +967,59 @@ async function tabReports(){const el=document.getElementById('dtab');
   el.innerHTML=t('wait');await loadEvals();
   const cls=D.classes.find(c=>c.id===G.cls);let h=pickers(false);
   if(cls){const r=computeClass(cls);
-    h+=`<div class="toolbar"><button class="btn btn-g" id="pAll">🖨 ${t('print_all')}</button><button class="btn btn-o" id="pCert">🔐 ${t('print_cert')}</button></div>
+    h+=`<div class="toolbar" style="flex-wrap:wrap"><button class="btn btn-g" id="pAll">🖨 ${t('print_all')}</button><button class="btn btn-o" id="pCert">🔐 ${t('print_cert')}</button>
+      <button class="btn btn-l" id="pAnn">📘 ${t('ann_all')}</button><button class="btn btn-l" id="pAnnC">🔐📘 ${t('ann_cert')}</button>${can('registry')?`<button class="btn btn-t" id="pGen">✍ ${t('gen_ttl')}</button>`:''}</div>
+    ${G.genOpen&&can('registry')?genPanel(cls,r):''}
     <div class="note">${t('cert_help')}</div><div class="err" id="pErr"></div>
     ${r.rows.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('rank')}</th><th>${t('s_name')}</th><th>${t('avg')} /${r.scale}</th><th>${t('mention')}</th><th></th></tr></thead><tbody>
     ${r.rows.slice().sort((a,b)=>(a.rank||999)-(b.rank||999)).map(x=>`<tr><td><b>${x.rank||'—'}</b></td><td><b>${esc(x.s.last_name_ar+' '+x.s.first_name_ar)}</b><br><small dir="ltr">${esc(x.s.code)}</small></td>
-      <td><b>${fmt(x.avg)}</b></td><td>${mention(x.avg!=null?x.avg/r.scale:null)}</td><td><button class="btn btn-t sm" data-pr="${x.s.id}">🖨 ${t('print_one')}</button></td></tr>`).join('')}
+      <td><b>${fmt(x.avg)}</b></td><td>${mention(x.avg!=null?x.avg/r.scale:null)}</td><td style="white-space:nowrap"><button class="btn btn-t sm" data-pr="${x.s.id}">🖨 ${t('print_one')}</button><button class="btn btn-t sm" data-pa="${x.s.id}" title="${t('ann_title')}">📘</button></td></tr>`).join('')}
     <tr><td></td><td><b>${t('class_avg')}</b></td><td><b>${fmt(r.gen)}</b></td><td></td><td></td></tr></tbody></table></div>`:`<div class="note">${t('no_stu')}</div>`}`}
   el.innerHTML=h;bindPickers(tabReports);if(!cls)return;
   const r=computeClass(cls);
   el.querySelectorAll('[data-pr]').forEach(b=>b.onclick=()=>printReports(cls,r,r.rows.filter(x=>x.s.id===b.dataset.pr),false));
   document.getElementById('pAll').onclick=()=>printReports(cls,r,r.rows,false);
-  document.getElementById('pCert').onclick=()=>{if(confirm(t('sure_cert')))printReports(cls,r,r.rows,true)}}
+  document.getElementById('pCert').onclick=()=>{if(confirm(t('sure_cert')))printReports(cls,r,r.rows,true)};
+  const ann=async(ids,cert)=>{const er=document.getElementById('pErr');er.style.color='';er.textContent=t('wait');try{const A=await computeAnnual(cls);er.textContent='';await printAnnual(cls,A,ids?A.rows.filter(x=>ids.includes(x.s.id)):A.rows,cert)}catch(e){er.textContent=em(e)}};
+  document.getElementById('pAnn').onclick=()=>ann(null,false);
+  document.getElementById('pAnnC').onclick=()=>{if(confirm(t('sure_cert')))ann(null,true)};
+  el.querySelectorAll('[data-pa]').forEach(b=>b.onclick=()=>ann([b.dataset.pa],false));
+  const pg=document.getElementById('pGen');if(pg)pg.onclick=()=>{G.genOpen=!G.genOpen;tabReports()};
+  if(document.getElementById('gnSave'))bindGen(cls)}
+function genPanel(cls,r){const gm={};(G.rem||[]).filter(x=>!x.subject_id).forEach(x=>gm[x.student_id]=x);
+  return `<div class="cert" style="margin-top:0"><b>✍ ${t('gen_ttl')} — ${esc(clsName(cls))} — ${termName(G.term)}</b><p class="sub" style="margin:4px 0 8px">${t('gen_help')}</p>
+  <datalist id="dl_dec">${DECS[L].map(x=>`<option value="${esc(x)}">`).join('')}</datalist>
+  <div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('s_name')}</th><th>${t('conduct')}</th><th>${t('gen_rem')}</th></tr></thead><tbody>
+  ${r.rows.map(x=>{const g=gm[x.s.id]||{},f=x.avg!=null?x.avg/r.scale:null;return `<tr><td style="white-space:nowrap">${esc(x.s.last_name_ar+' '+x.s.first_name_ar)}<br><small class="sub">${fmt(x.avg)}</small></td>
+    <td><select class="gnC" data-sid="${x.s.id}" style="min-width:100px">${opts([['','—']].concat([...new Set(CONDUCT[L].concat(g.conduct?[g.conduct]:[]))].map(c=>[c,c])),g.conduct||'')}</select></td>
+    <td style="width:55%"><input class="gnB" data-sid="${x.s.id}" list="dl_dec" maxlength="300" value="${esc(g.body||'')}" data-sug="${esc(decOf(f))}" placeholder="${esc(decOf(f))}"></td></tr>`}).join('')}</tbody></table></div>
+  <div class="acts" style="justify-content:flex-start;flex-wrap:wrap"><button class="btn btn-l" id="gnAuto">✨ ${t('rm_auto')}</button><button class="btn btn-g" id="gnSave">${t('save')}</button><button class="btn btn-t" id="gnClose">${t('close')}</button></div><div class="err" id="gnErr"></div></div>`}
+function bindGen(cls){const el=document.getElementById('dtab');
+  document.getElementById('gnClose').onclick=()=>{G.genOpen=false;tabReports()};
+  document.getElementById('gnAuto').onclick=()=>el.querySelectorAll('.gnB').forEach(i=>{if(!i.value.trim())i.value=i.dataset.sug});
+  document.getElementById('gnSave').onclick=async()=>{const er=document.getElementById('gnErr');er.style.color='';er.textContent=t('wait');
+    const items=[...el.querySelectorAll('.gnB')].map(i=>({s:i.dataset.sid,body:i.value.trim(),conduct:el.querySelector(`.gnC[data-sid="${i.dataset.sid}"]`).value}));
+    const {error}=await sb.rpc('save_remarks',{p_class:cls.id,p_term:G.term,p_subject:null,p_items:items});if(error){er.textContent=em(error);return}
+    G.rem=await loadRemarks(G.cls,G.term);er.style.color='var(--g2)';er.textContent=t('saved')}}
+
+async function computeAnnual(cls){const {data:ev,error}=await sb.from('evaluations').select('*').eq('class_id',cls.id);if(error)throw error;const evs=ev||[];
+  const gr=evs.length?await fetchIn('grades','evaluation_id',evs.map(e=>e.id)):[];
+  const T=nTerms(),per={},tavg={},subsSet=new Set(),save=[G.evals,G.grades];
+  try{for(let tm=1;tm<=T;tm++){const te=evs.filter(e=>e.term===tm);if(!te.length)continue;G.evals=te;const ids=new Set(te.map(e=>e.id));G.grades=gr.filter(g=>ids.has(g.evaluation_id));
+    const r=computeClass(cls);r.subs.forEach(j=>subsSet.add(j.id));
+    r.rows.forEach(x=>{(tavg[x.s.id]=tavg[x.s.id]||{})[tm]=x.avg;const ps=per[x.s.id]=per[x.s.id]||{};Object.entries(x.per).forEach(([j,v])=>{(ps[j]=ps[j]||{})[tm]=v})})}}
+  finally{[G.evals,G.grades]=save}
+  const scale=scaleOf(cls),pm=Number(D.i.pass_mark)||.5,mean=a=>{a=a.filter(v=>v!=null);return a.length?a.reduce((x,y)=>x+y,0)/a.length:null},TT=Array.from({length:T},(_,k)=>k+1);
+  const subs=D.subjects.filter(j=>subsSet.has(j.id));
+  const studs=D.students.filter(s=>s.class_id===cls.id&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar'));
+  const rows=studs.map(s=>{const ta=tavg[s.id]||{},ps=per[s.id]||{},terms=TT.map(k=>ta[k]==null?null:ta[k]),subj={};
+    subs.forEach(j=>{const o=ps[j.id]||{},tv=TT.map(k=>o[k]==null?null:o[k]);subj[j.id]={t:tv,ann:mean(tv)}});
+    const avg=mean(terms);return {s,terms,subj,avg,ok:avg!=null&&avg>=pm*scale}});
+  const sorted=rows.filter(r=>r.avg!=null).sort((a,b)=>b.avg-a.avg);sorted.forEach((r,i)=>{r.rank=i&&Math.abs(r.avg-sorted[i-1].avg)<1e-9?sorted[i-1].rank:i+1});
+  const classAvg={};subs.forEach(j=>classAvg[j.id]=mean(rows.map(r=>r.subj[j.id].ann)));
+  const tr=termRanges(cls.school_year),abs=await absCounts(studs.map(s=>s.id),tr[0][0],tr[T-1][1]);
+  const rem=(await loadRemarks(cls.id)).filter(x=>!x.subject_id);const gen={};TT.forEach(k=>rem.filter(x=>x.term===k).forEach(x=>gen[x.student_id]=x));
+  return {rows,subs,scale,T,classAvg,ranked:sorted.length,gen:mean(sorted.map(r=>r.avg)),abs,rem:gen}}
 
 function loadQR(){return new Promise(res=>{if(window.QRCode)return res();const s=document.createElement('script');
   s.src='https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js';s.onload=res;s.onerror=res;document.head.appendChild(s)})}
@@ -953,25 +1031,45 @@ async function printReports(cls,r,rows,certified){const i=D.i,er=document.getEle
         p_mention:fmt(x.avg)+' / '+r.scale+' — '+mention(x.avg/r.scale)+(x.rank?' — '+t('rank')+' '+x.rank+'/'+r.ranked:'')});
       if(error){er.textContent=em(error);return}codes[x.s.id]=data}
     er.textContent=''}
-  let pa=document.getElementById('printArea');if(!pa){pa=document.createElement('div');pa.id='printArea';document.body.appendChild(pa)}
-  const base=location.origin+location.pathname;
-  pa.innerHTML=rows.map(x=>{const s=x.s;return `<section class="bul" dir="${L==='ar'?'rtl':'ltr'}">
-    <header><img src="${esc(schoolLogo())}" alt=""><div><h1>${esc(i.name_ar)}</h1><h2>${esc(i.name_fr)}</h2><small>${esc([i.address,i.city,i.phone].filter(Boolean).join(' — '))}</small></div>${murl(s.photo_path)?`<img src="${esc(murl(s.photo_path))}" alt="" style="height:70px;border-radius:6px">`:`<img src="emblem.png" alt="" style="opacity:.35">`}</header>
-    <h3>${t('bul_title')} — ${termName(G.term)} — <span dir="ltr">${esc(cls.school_year||'')}</span></h3>
-    <table class="info"><tr><td>${t('s_name')}</td><td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?` — <span dir="ltr">${esc(s.full_name_fr)}</span>`:''}</td><td>${t('s_code')}</td><td dir="ltr"><b>${esc(s.code)}</b></td></tr>
-      <tr><td>${t('class')}</td><td>${esc(clsName(cls))}</td><td>${t('bdate')}</td><td dir="ltr">${esc(s.birth_date||'')}</td></tr></table>
-    <table class="marks"><thead><tr><th>${t('subject')}</th><th>${t('avg')} /${r.scale}</th><th>${t('class_avg')}</th><th>${t('mention')}</th></tr></thead><tbody>
-      ${r.subs.map(j=>`<tr><td>${esc(subjName(j))}</td><td><b>${fmt(x.per[j.id])}</b></td><td>${fmt(r.classAvg[j.id])}</td><td>${x.per[j.id]!=null?mention(x.per[j.id]/r.scale):''}</td></tr>`).join('')}</tbody></table>
+  const [d0,d1]=termRanges(cls.school_year)[G.term-1]||[],abs=d0?await absCounts(rows.map(x=>x.s.id),d0,d1):{};
+  const rm={},gm={};(G.rem||[]).forEach(x=>{if(x.subject_id)rm[x.student_id+'|'+x.subject_id]=x.body;else gm[x.student_id]=x});
+  const pa=printBox();
+  pa.innerHTML=rows.map(x=>{const s=x.s;return bulTop(s,cls,t('bul_title')+' — '+termName(G.term))+`
+    <table class="marks"><thead><tr><th>${t('subject')}</th><th>${t('avg')} /${r.scale}</th><th>${t('class_avg')}</th><th>${t('mention')}</th><th>${t('t_rem')}</th></tr></thead><tbody>
+      ${r.subs.map(j=>`<tr><td>${esc(subjName(j))}</td><td><b>${fmt(x.per[j.id])}</b></td><td>${fmt(r.classAvg[j.id])}</td><td>${x.per[j.id]!=null?mention(x.per[j.id]/r.scale):''}</td><td class="rm">${esc(rm[s.id+'|'+j.id]||'')}</td></tr>`).join('')}</tbody></table>
     <table class="tot"><tr><td>${t('gen_avg')}</td><td><b>${fmt(x.avg)} / ${r.scale}</b></td>${i.show_rank!==false?`<td>${t('rank')}</td><td><b>${x.rank?x.rank+' / '+r.ranked:'—'}</b></td>`:'<td></td><td></td>'}</tr>
-      <tr><td>${t('mention')}</td><td><b>${x.avg!=null?mention(x.avg/r.scale):''}</b></td><td>${t('class_avg')}</td><td>${fmt(r.gen)}</td></tr></table>
+      <tr><td>${t('mention')}</td><td><b>${x.avg!=null?mention(x.avg/r.scale):''}</b></td><td>${t('class_avg')}</td><td>${fmt(r.gen)}</td></tr></table>`+bulBottom(s,abs[s.id],gm[s.id],codes[s.id])}).join('');
+  await printGo(pa)}
+function printBox(){let pa=document.getElementById('printArea');if(!pa){pa=document.createElement('div');pa.id='printArea';document.body.appendChild(pa)}return pa}
+function bulTop(s,cls,title){const i=D.i;return `<section class="bul" dir="${L==='ar'?'rtl':'ltr'}">
+    <header><img src="${esc(schoolLogo())}" alt=""><div><h1>${esc(i.name_ar)}</h1><h2>${esc(i.name_fr)}</h2><small>${esc([i.address,i.city,i.phone].filter(Boolean).join(' — '))}</small></div>${murl(s.photo_path)?`<img src="${esc(murl(s.photo_path))}" alt="" style="height:70px;border-radius:6px">`:`<img src="emblem.png" alt="" style="opacity:.35">`}</header>
+    <h3>${title} — <span dir="ltr">${esc(cls.school_year||'')}</span></h3>
+    <table class="info"><tr><td>${t('s_name')}</td><td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?` — <span dir="ltr">${esc(s.full_name_fr)}</span>`:''}</td><td>${t('s_code')}</td><td dir="ltr"><b>${esc(s.code)}</b></td></tr>
+      <tr><td>${t('class')}</td><td>${esc(clsName(cls))}${s.is_repeater?` <small>(${t('repeater')})</small>`:''}</td><td>${t('bdate')}</td><td dir="ltr">${esc(s.birth_date||'')}</td></tr></table>`}
+function bulBottom(s,ab,g,code){const i=D.i,base=location.origin+location.pathname;ab=ab||{a:0,l:0,x:0};g=g||{};
+  return `<table class="tot"><tr><td>${t('b_abs')}</td><td><b>${ab.a}</b>${ab.x?` <small>(+${ab.x} ${t('b_exc')})</small>`:''}</td><td>${t('b_late')}</td><td><b>${ab.l}</b></td></tr>
+      <tr><td>${t('conduct')}</td><td><b>${esc(g.conduct||'')}</b></td><td>${t('gen_rem')}</td><td><b>${esc(g.body||'')}</b></td></tr></table>
     ${i.bulletin_note?`<p style="margin:6px 0;font-size:13px">${esc(i.bulletin_note)}</p>`:''}
     <div class="sig"><div class="sigd">${t('sig_dir')}${i.director_name?`<br><small style="font-weight:400">${esc(i.director_name)}</small>`:''}<div class="sigimgs">${murl(i.stamp_path)?`<img class="stampimg" src="${esc(murl(i.stamp_path))}">`:''}${murl(i.signature_path)?`<img class="sigimg" src="${esc(murl(i.signature_path))}">`:''}</div></div><div>${t('sig_par')}</div>
-      ${codes[s.id]?`<div class="qr"><div class="qrc" data-url="${esc(base+'?code='+codes[s.id]+'#verify')}"></div><small dir="ltr">${esc(codes[s.id])}</small><small>${t('scan_verify')}</small></div>`:''}</div>
-    <footer>Al-Madaris CI — ${t('foot')}</footer></section>`}).join('');
-  if(window.QRCode)pa.querySelectorAll('.qrc').forEach(d=>new QRCode(d,{text:d.dataset.url,width:96,height:96}));
+      ${code?`<div class="qr"><div class="qrc" data-url="${esc(base+'?code='+code+'#verify')}"></div><small dir="ltr">${esc(code)}</small><small>${t('scan_verify')}</small></div>`:''}</div>
+    <footer>Al-Madaris CI — ${t('foot')}</footer></section>`}
+async function printGo(pa){if(window.QRCode)pa.querySelectorAll('.qrc').forEach(d=>{if(!d.firstChild)new QRCode(d,{text:d.dataset.url,width:96,height:96})});
   const imgs=[...pa.querySelectorAll('img')];await Promise.all(imgs.map(im=>im.complete?0:new Promise(r2=>{im.onload=im.onerror=r2})));
   setTimeout(()=>window.print(),300)}
-
+async function printAnnual(cls,A,rows,certified){const i=D.i,er=document.getElementById('pErr'),codes={};
+  if(certified){er.style.color='';er.textContent=t('wait');await loadQR();
+    for(const x of rows){if(x.avg==null)continue;
+      const {data,error}=await sb.rpc('issue_document',{p_student:x.s.id,p_type:t('ann_title'),p_level:clsName(cls)+' — '+(cls.school_year||''),
+        p_mention:fmt(x.avg)+' / '+A.scale+' — '+mention(x.avg/A.scale)+' — '+t(x.ok?'dec_ok':'dec_ko')+(x.rank?' — '+t('rank')+' '+x.rank+'/'+A.ranked:'')});
+      if(error){er.textContent=em(error);return}codes[x.s.id]=data}er.textContent=''}
+  const TT=Array.from({length:A.T},(_,k)=>k+1),pa=printBox();
+  pa.innerHTML=rows.map(x=>{const s=x.s;return bulTop(s,cls,t('ann_title'))+`
+    <table class="marks ann"><thead><tr><th>${t('subject')}</th>${TT.map(k=>`<th>${termName(k)}</th>`).join('')}<th>${t('ann_avg')} /${A.scale}</th><th>${t('class_avg')}</th><th>${t('mention')}</th></tr></thead><tbody>
+      ${A.subs.map(j=>{const o=x.subj[j.id];return `<tr><td>${esc(subjName(j))}</td>${o.t.map(v=>`<td>${fmt(v)}</td>`).join('')}<td><b>${fmt(o.ann)}</b></td><td>${fmt(A.classAvg[j.id])}</td><td>${o.ann!=null?mention(o.ann/A.scale):''}</td></tr>`}).join('')}
+      <tr><td><b>${t('gen_avg')}</b></td>${x.terms.map(v=>`<td><b>${fmt(v)}</b></td>`).join('')}<td><b>${fmt(x.avg)}</b></td><td>${fmt(A.gen)}</td><td></td></tr></tbody></table>
+    <table class="tot"><tr><td>${t('ann_avg')}</td><td><b>${fmt(x.avg)} / ${A.scale}</b></td>${i.show_rank!==false?`<td>${t('rank')}</td><td><b>${x.rank?x.rank+' / '+A.ranked:'—'}</b></td>`:'<td></td><td></td>'}</tr>
+      <tr><td>${t('mention')}</td><td><b>${x.avg!=null?mention(x.avg/A.scale):''}</b></td><td>${t('decision')}</td><td><b>${x.avg==null?'—':t(x.ok?'dec_ok':'dec_ko')}</b></td></tr></table>`+bulBottom(s,A.abs[s.id],A.rem[s.id],codes[s.id])}).join('');
+  await printGo(pa)}
 function scaleCard(){if(!canEdit()||!D.i)return '';const cy=D.i.cycles&&D.i.cycles.length?D.i.cycles:Object.keys(CYC);
   return `<div class="cert"><b>${t('grading')}</b><p class="sub" style="margin:4px 0 8px">${t('grading_help')}</p>
   <div class="chips">${cy.map(c=>`<label style="display:flex;align-items:center;gap:6px">${t(CYC[c])} /<input class="scIn" data-cy="${c}" type="number" min="1" style="width:80px" dir="ltr" list="dl_scale" value="${scaleOf({cycle:c})}"></label>`).join('')}</div>
@@ -1376,6 +1474,9 @@ function tabSettings(){const el=document.getElementById('dtab'),i=D.i;
     <div class="fld"><label>${t('bul_note')}</label><input id="xNote" value="${esc(i.bulletin_note||'')}" list="dl_bnote"></div>
     <datalist id="dl_bnote"><option value="${esc(t('bn1'))}"><option value="${esc(t('bn2'))}"><option value="${esc(t('bn3'))}"></datalist>
     <button class="btn btn-g" id="xSave">${t('save')}</button><div class="err" id="xErr"></div></div>
+  <div class="cert"><b>📆 ${t('td_ttl')} — <span dir="ltr">${esc(curYear())}</span></b><p class="sub" style="margin:4px 0 8px">${t('td_help')}</p>
+    ${termRanges().map((r,k)=>`<div class="two"><div class="fld"><label>${termName(k+1)} — ${t('td_from')}</label><input class="tdIn" data-k="${k}" data-e="0" type="date" dir="ltr" value="${r[0]}"></div><div class="fld"><label>${t('td_to')}</label><input class="tdIn" data-k="${k}" data-e="1" type="date" dir="ltr" value="${r[1]}"></div></div>`).join('')}
+    <button class="btn btn-g sm" onclick="saveTerms(this)">${t('save')}</button><span class="err" id="tdErr" style="margin-inline-start:8px"></span></div>
   <div class="cert"><b>💾 ${t('bk_ttl')}</b><p class="sub" style="margin:4px 0 8px">${t('bk_help')}</p>
     <button class="btn btn-g" onclick="doBackup(this)">💾 ${t('bk_btn')}</button><div class="err" id="bkErr"></div></div>
   <div class="cert"><b>${t('set_brand')}</b><p class="sub">${t('brand_help')}</p>${brand('logo','b_logo','b_logo_h')}${brand('signature','b_sig','b_sig_h')}${brand('stamp','b_stamp','b_stamp_h')}
@@ -1648,7 +1749,7 @@ function staffHtml(){const list=SF().filter(s=>s.status==='active').sort((a,b)=>
 async function yearResults(){const out=[];const pm=Number(D.i.pass_mark)||.5;
   for(const g of levelGroups())for(const c of g.cs){
     const {data:ev}=await sb.from('evaluations').select('*').eq('class_id',c.id);const evs=ev||[];
-    let gr=[];if(evs.length){const r=await sb.from('grades').select('*').in('evaluation_id',evs.map(e=>e.id));gr=r.data||[]}
+    const gr=evs.length?await fetchIn('grades','evaluation_id',evs.map(e=>e.id)):[];
     const saveE=G.evals,saveG=G.grades,per={};
     for(let tm=1;tm<=3;tm++){const te=evs.filter(e=>e.term===tm);if(!te.length)continue;G.evals=te;G.grades=gr.filter(x=>te.some(e=>e.id===x.evaluation_id));computeClass(c).rows.forEach(r=>{(per[r.s.id]=per[r.s.id]||[]);if(r.avg!=null)per[r.s.id].push(r.avg)})}
     G.evals=saveE;G.grades=saveG;const scale=scaleOf(c);
@@ -1677,6 +1778,12 @@ async function sheetOf(k){const head=[[D.i.ministry||''],[D.i.drena||''],[D.i.na
     return ['Résultats',head.concat([['Niveau','المستوى','Inscrits','Évalués','Admis G','Admis F','Non admis','Taux %']],A.map(o=>[o.g.fr,o.g.ar,o.ins,o.ev,o.adG,o.adF,o.ko,o.ev?Math.round((o.adG+o.adF)/o.ev*1000)/10:'']),[[]],
       R.flatMap(x=>[[clsFr(x.c)+' — '+clsAr(x.c)],['N°','Nom','الاسم','Moyenne /'+x.scale,'Décision']].concat(x.st.map((r,n)=>[n+1,nameFr(r.s),sName(r.s),r.avg==null?'':Math.round(r.avg*100)/100,r.avg==null?'Non évalué':r.ok?'Admis':'Redouble']),[[]])))]}}
 
+async function saveTerms(btn){const er=document.getElementById('tdErr'),rs=termRanges().map(r=>r.slice());er.style.color='';
+  document.querySelectorAll('.tdIn').forEach(i=>{rs[+i.dataset.k][+i.dataset.e]=i.value});
+  if(rs.some(r=>!r[0]||!r[1]||r[0]>r[1])){er.textContent=t('td_bad');return}
+  const td=Object.assign({},D.i.term_dates||{},{[curYear()]:rs});er.textContent=t('wait');
+  const {error}=await sb.from('institutions').update({term_dates:td}).eq('id',D.i.id);if(error){er.textContent=em(error);return}
+  D.i.term_dates=td;er.style.color='var(--g2)';er.textContent=t('saved')}
 // ===== year rollover =====
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

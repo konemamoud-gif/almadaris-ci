@@ -384,6 +384,207 @@ footer{background:#0a2e17;color:#bcd6c4;padding:0}
 .chip{transition:.15s}.chip.on{box-shadow:0 4px 12px -4px #1B7F3B}
 header .brand,footer .brand{border-bottom:0!important;padding:0!important}
 #dashBox{max-width:1100px}@media(min-width:900px){.tabs{flex-wrap:wrap}}
+/* ===== SUPER ADMIN space 2026 ===== */
+body.sa-on>header,body.sa-on>footer,body.sa-on #nqoNote{display:none!important}
+body.sa-on{background:var(--sa-bg)}
+#admin.view.on{display:block;padding:0}
+.sa{--sa-g1:#0a4f2b;--sa-g2:#0f7a43;--sa-g3:#18a85c;--sa-gold:#f6c445;--sa-gold2:#d9900c;--sa-bg:#edf3ef;--sa-card:#fff;--sa-card2:#f6faf7;--sa-text:#10261b;--sa-mut:#5f7268;--sa-line:rgba(11,93,51,.11);--sa-sh:0 22px 44px -22px rgba(6,58,30,.38),0 5px 12px -6px rgba(6,58,30,.16);
+  display:grid;grid-template-columns:272px minmax(0,1fr);min-height:100vh;background:var(--sa-bg);color:var(--sa-text);font-family:'Cairo','Inter',sans-serif;position:relative}
+.sa.dark{--sa-bg:#06120c;--sa-card:#0e2118;--sa-card2:#112a1f;--sa-text:#e6f2ea;--sa-mut:#94ab9e;--sa-line:rgba(255,255,255,.08);--sa-sh:0 22px 44px -22px rgba(0,0,0,.7),0 5px 12px -6px rgba(0,0,0,.5)}
+.sa *{box-sizing:border-box}
+/* sidebar */
+.sa-side{position:sticky;top:0;height:100vh;overflow-y:auto;padding:18px 14px 16px;color:#fff;z-index:30;
+  background:radial-gradient(120% 60% at 50% 0%,rgba(246,196,69,.18),transparent 60%),linear-gradient(180deg,#0c5b32 0%,#08402a 55%,#062f1f 100%);
+  box-shadow:inset -1px 0 0 rgba(255,255,255,.06),12px 0 40px -20px rgba(0,0,0,.5);scrollbar-width:thin}
+.sa-brand{text-align:center;padding:4px 6px 14px}
+.sa-brand .lg{width:84px;height:84px;margin:0 auto;border-radius:24px;background:#fff;display:grid;place-items:center;box-shadow:0 14px 30px -10px rgba(0,0,0,.6),inset 0 -4px 0 rgba(0,0,0,.08);animation:saFloat 6s ease-in-out infinite}
+.sa-brand .lg img{width:74px;height:74px;object-fit:contain}
+.sa-brand b{display:block;font:800 21px/1.2 'Poppins','Inter',sans-serif;letter-spacing:1px;margin-top:10px;direction:ltr}
+.sa-brand b i{font-style:normal;color:var(--sa-gold)}
+.sa-brand small{display:block;opacity:.85;font-size:13px;margin-top:2px}
+.sa-badge{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:5px 16px;border-radius:30px;font:800 13px 'Poppins',sans-serif;letter-spacing:.8px;color:#3d2600;
+  background:linear-gradient(180deg,#ffe28a,#f6c445 45%,#d9900c);box-shadow:0 6px 16px -6px #d9900c,inset 0 1px 0 rgba(255,255,255,.7)}
+.sa-nav{display:flex;flex-direction:column;gap:5px;margin-top:6px}
+.sa-nav a{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:14px;color:#e9f6ee;text-decoration:none;font-weight:700;font-size:14.5px;cursor:pointer;position:relative;
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.06);transition:transform .2s,background .2s,box-shadow .2s}
+.sa-nav a:hover{transform:translateX(calc(var(--sa-dir,1)*-4px));background:rgba(255,255,255,.12)}
+.sa-nav a i{font-style:normal;width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-size:17px;background:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.15);flex:none}
+.sa-nav a.on{color:#2b1a00;background:linear-gradient(180deg,#ffe795,#f6c445 50%,#e3a11c);border-color:#ffe28a;box-shadow:0 10px 22px -10px #f6c445,inset 0 1px 0 rgba(255,255,255,.8)}
+.sa-nav a.on i{background:rgba(255,255,255,.55)}
+.sa-nav a .n{margin-inline-start:auto;min-width:22px;height:22px;border-radius:11px;background:#e53935;color:#fff;font:800 12px/22px Inter;text-align:center;padding:0 6px;box-shadow:0 3px 8px -2px #e53935}
+.sa-nav .sep{height:1px;background:rgba(255,255,255,.1);margin:6px 4px}
+.sa-out{margin-top:14px;display:flex;flex-direction:column;gap:8px}
+.sa-out button,.sa-out a{display:flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:16px;padding:11px;font:800 14.5px 'Cairo',sans-serif;cursor:pointer;text-decoration:none}
+.sa-out .lo{color:#fff;background:linear-gradient(180deg,#ff6b5e,#d92d20);box-shadow:0 10px 20px -10px #d92d20,inset 0 1px 0 rgba(255,255,255,.35)}
+.sa-out .ms{color:#fff;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.14)}
+/* main */
+.sa-main{min-width:0;padding:16px 22px 40px}
+.sa-top{position:sticky;top:10px;z-index:20;display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 14px;border-radius:20px;background:color-mix(in srgb,var(--sa-card) 86%,transparent);backdrop-filter:blur(14px);border:1px solid var(--sa-line);box-shadow:var(--sa-sh)}
+.sa-top .who{display:flex;align-items:center;gap:10px}
+.sa-av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:800 18px Cairo;color:#fff;background:linear-gradient(145deg,#18a85c,#0a4f2b);box-shadow:0 0 0 3px var(--sa-card),0 0 0 5px var(--sa-gold)}
+.sa-top .who b{display:block;font-size:15px;line-height:1.2}.sa-top .who small{color:var(--sa-mut);font-size:12.5px}
+.sa-srch{flex:1;min-width:180px;position:relative}
+.sa-srch input{width:100%;border-radius:30px;border:1px solid var(--sa-line);background:var(--sa-card2);color:var(--sa-text);padding-block:10px;padding-inline:16px 42px;font:600 14px Cairo;box-shadow:inset 0 2px 5px rgba(0,0,0,.05)}
+.sa-srch span{position:absolute;inset-inline-end:14px;top:50%;transform:translateY(-50%);opacity:.6}
+.sa-ib{position:relative;width:42px;height:42px;border-radius:14px;border:1px solid var(--sa-line);background:var(--sa-card2);color:var(--sa-text);display:grid;place-items:center;font-size:19px;cursor:pointer;transition:transform .2s;box-shadow:0 4px 10px -6px rgba(0,0,0,.25)}
+.sa-ib:hover{transform:translateY(-2px)}
+.sa-ib .n{position:absolute;top:-6px;inset-inline-end:-6px;min-width:20px;height:20px;border-radius:10px;background:#e53935;color:#fff;font:800 11px/20px Inter;padding:0 5px;box-shadow:0 0 0 2px var(--sa-card)}
+.sa-lang{display:flex;border-radius:30px;background:var(--sa-card2);border:1px solid var(--sa-line);padding:3px}
+.sa-lang button{border:0;background:transparent;color:var(--sa-mut);font:800 12.5px Inter;padding:7px 10px;border-radius:30px;cursor:pointer}
+.sa-lang button.on{background:linear-gradient(180deg,#18a85c,#0a4f2b);color:#fff;box-shadow:0 4px 10px -4px #0a4f2b}
+.sa-date{display:flex;align-items:center;gap:8px;padding:6px 12px;border-radius:14px;background:var(--sa-card2);border:1px solid var(--sa-line);font-size:12.5px;line-height:1.35}
+.sa-date b{display:block;font-size:13px}
+.sa-burger{display:none}
+.sa-pop{position:absolute;top:56px;inset-inline-end:10px;width:340px;max-width:92vw;max-height:70vh;overflow:auto;border-radius:18px;background:var(--sa-card);border:1px solid var(--sa-line);box-shadow:var(--sa-sh);padding:8px;z-index:40;animation:saRise .25s ease both}
+.sa-pop a{display:flex;gap:10px;padding:10px;border-radius:12px;color:var(--sa-text);text-decoration:none;cursor:pointer;font-size:13.5px}
+.sa-pop a:hover{background:var(--sa-card2)}
+.sa-h1{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:20px 2px 12px}
+.sa-h1 h2{margin:0;font-size:24px;font-weight:800;display:flex;align-items:center;gap:10px}
+.sa-h1 h2 i{font-style:normal;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:linear-gradient(145deg,#ffe28a,#d9900c);box-shadow:inset 0 2px 0 rgba(255,255,255,.6),0 8px 16px -8px #d9900c}
+/* hero */
+.sa-hero{position:relative;overflow:hidden;border-radius:28px;margin-top:16px;padding:26px 30px;min-height:210px;color:#fff;display:grid;grid-template-columns:1.1fr 1.4fr .9fr;align-items:center;gap:20px;
+  background:radial-gradient(70% 120% at 85% 10%,rgba(246,196,69,.35),transparent 55%),radial-gradient(60% 100% at 0% 100%,rgba(24,168,92,.55),transparent 60%),linear-gradient(120deg,#0a4f2b,#0f7a43 50%,#0a4f2b);
+  box-shadow:0 30px 60px -28px rgba(6,58,30,.7),inset 0 1px 0 rgba(255,255,255,.2);border:2px solid rgba(246,196,69,.55)}
+.sa-hero:before{content:"";position:absolute;inset:0;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Cpath d='M60 8 L74 46 L112 60 L74 74 L60 112 L46 74 L8 60 L46 46 Z'/%3E%3Ccircle cx='60' cy='60' r='9'/%3E%3C/g%3E%3C/svg%3E");background-size:90px;animation:saPat 60s linear infinite}
+.sa-hero>*{position:relative}
+.sa-hero .mid{text-align:center}
+.sa-hero .mid img{width:96px;height:96px;border-radius:26px;background:#fff;padding:6px;box-shadow:0 18px 36px -12px rgba(0,0,0,.55);animation:saFloat 6s ease-in-out infinite}
+.sa-hero h1{margin:10px 0 2px;font:900 clamp(26px,3.4vw,42px)/1.1 'Poppins','Inter',sans-serif;letter-spacing:1px;direction:ltr;text-shadow:0 4px 18px rgba(0,0,0,.35)}
+.sa-hero h1 i{font-style:normal;color:var(--sa-gold)}
+.sa-hero p{margin:4px 0 12px;opacity:.92;font-size:15px}
+.sa-hero .pill{display:inline-block;padding:8px 26px;border-radius:30px;font-weight:800;font-size:17px;color:#2b1a00;background:linear-gradient(180deg,#ffe795,#f6c445 50%,#d9900c);box-shadow:0 12px 24px -10px #d9900c,inset 0 1px 0 rgba(255,255,255,.8)}
+.sa-dev{position:relative;height:170px;perspective:900px}
+.sa-lap{position:absolute;inset-inline-start:6%;top:12px;width:250px;transform:rotateY(18deg) rotateX(6deg);transform-style:preserve-3d;animation:saTilt 9s ease-in-out infinite}
+.sa-lap .scr{height:150px;border-radius:12px 12px 4px 4px;background:#111;padding:8px;box-shadow:0 0 0 2px #2a2a2a,0 0 40px rgba(246,196,69,.45)}
+.sa-lap .scr div{height:100%;border-radius:6px;background:radial-gradient(circle at 50% 40%,#1db866,#0a4f2b);display:grid;place-items:center}
+.sa-lap .scr img{width:62px;height:62px;border-radius:16px;background:#fff;padding:4px}
+.sa-lap .base{height:12px;margin:0 -16px;border-radius:0 0 14px 14px;background:linear-gradient(180deg,#d9dde0,#9aa0a6);box-shadow:0 14px 20px -8px rgba(0,0,0,.6)}
+.sa-ph{position:absolute;inset-inline-start:calc(6% + 205px);top:44px;width:74px;height:136px;border-radius:16px;background:#111;padding:5px;transform:rotateY(-14deg);box-shadow:0 0 0 2px #333,0 18px 30px -10px rgba(0,0,0,.7);animation:saFloat 5s ease-in-out infinite}
+.sa-ph div{height:100%;border-radius:12px;background:linear-gradient(160deg,#18a85c,#0a4f2b);display:grid;place-items:center}
+.sa-ph img{width:36px;height:36px;border-radius:10px;background:#fff;padding:2px}
+.sa-flag{justify-self:end;text-align:center}
+.sa-flag .fl{width:130px;height:84px;border-radius:12px;display:flex;overflow:hidden;box-shadow:0 18px 30px -12px rgba(0,0,0,.6);animation:saWave 4s ease-in-out infinite;transform-origin:left center}
+.sa-flag .fl i{flex:1}
+.sa-flag small{display:block;margin-top:10px;font-weight:700;opacity:.9}
+/* cards */
+.sa-card{position:relative;background:linear-gradient(180deg,var(--sa-card),var(--sa-card2));border:1px solid var(--sa-line);border-radius:22px;box-shadow:var(--sa-sh),inset 0 1px 0 rgba(255,255,255,.6);transition:transform .25s ease,box-shadow .25s ease;transform-style:preserve-3d}
+.sa.dark .sa-card{box-shadow:var(--sa-sh),inset 0 1px 0 rgba(255,255,255,.05)}
+.sa-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:14px;margin-top:16px}
+.sa-kpi{display:flex;align-items:center;gap:11px;padding:14px;overflow:hidden}
+.sa-kpi:after{content:"";position:absolute;inset-inline-end:-30px;bottom:-30px;width:110px;height:110px;border-radius:50%;background:var(--c1);opacity:.09}
+.sa-kpi .tx small{display:block;color:var(--sa-mut);font-weight:700;font-size:13px}
+.sa-kpi .tx{min-width:0}.sa-kpi .tx b{display:block;font:900 26px/1.15 'Inter',sans-serif;letter-spacing:-.5px;white-space:nowrap}.sa-kpi .tx b.m{font-size:clamp(15px,1.45vw,20px)}
+.sa-ic{--c1:#22c55e;--c2:#15803d;flex:none;width:56px;height:56px;border-radius:18px;display:grid;place-items:center;font-size:28px;font-style:normal;background:linear-gradient(145deg,var(--c1),var(--c2));
+  box-shadow:inset 0 2px 0 rgba(255,255,255,.5),inset 0 -6px 12px rgba(0,0,0,.2),0 12px 20px -10px var(--c2);transform:translateZ(30px)}
+.sa-ic>span{filter:drop-shadow(0 3px 2px rgba(0,0,0,.25))}
+.sa-grid{display:grid;gap:16px;margin-top:16px}
+.sa-g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sa-g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sa-pan{padding:0;overflow:hidden}
+.sa-pt{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;color:#fff;font-weight:800;font-size:16px;
+  background:linear-gradient(90deg,#0a4f2b,#18a85c);border-bottom:3px solid var(--sa-gold);box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.sa-pt i{font-style:normal;font-size:20px}
+.sa-pt a{color:#fff;opacity:.9;font-size:13px;cursor:pointer;text-decoration:underline}
+.sa-pb{padding:14px 16px}
+.sa-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--sa-line);font-size:14px}
+.sa-row:last-child{border-bottom:0}
+.sa-row b{font-family:'Inter',sans-serif;font-weight:800}
+.sa-dot{width:11px;height:11px;border-radius:50%;display:inline-block;box-shadow:0 0 0 3px color-mix(in srgb,currentColor 20%,transparent)}
+.sa-don{display:flex;align-items:center;gap:16px;flex-wrap:wrap;justify-content:center}
+.sa-don svg{width:170px;height:170px;filter:drop-shadow(0 12px 16px rgba(6,58,30,.25))}
+.sa-don circle.s{transition:stroke-dasharray 1.2s cubic-bezier(.2,.8,.2,1)}
+.sa-don .lg{flex:1;min-width:150px}
+.sa-map{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}
+.sa-map svg{width:230px;height:auto;filter:drop-shadow(0 14px 16px rgba(6,58,30,.35))}
+.sa-map .ls{flex:1;min-width:140px}
+.sa-pin{transform-box:fill-box;transform-origin:center bottom;animation:saPin .7s cubic-bezier(.2,1.6,.4,1) both}
+.sa-line path.ln{stroke-dasharray:1200;stroke-dashoffset:1200;animation:saDraw 1.6s .2s ease forwards}
+.sa-line circle{opacity:0;animation:saFade .4s ease forwards}
+.sa-li{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--sa-line);font-size:13.5px;cursor:pointer}
+.sa-li:last-child{border-bottom:0}
+.sa-li .ic{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(145deg,#ffe28a,#e3a11c);flex:none;box-shadow:inset 0 1px 0 #fff8}
+.sa-li .tx{flex:1;min-width:0}.sa-li .tx b{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sa-li .tx small{color:var(--sa-mut)}
+.sa-tag{display:inline-block;padding:3px 10px;border-radius:20px;font-size:12px;font-weight:800;color:#fff;background:#16a34a;white-space:nowrap}
+.sa-tag.o{background:linear-gradient(180deg,#fb923c,#ea580c)}.sa-tag.b{background:linear-gradient(180deg,#60a5fa,#1d4ed8)}.sa-tag.r{background:linear-gradient(180deg,#f87171,#dc2626)}.sa-tag.g{background:linear-gradient(180deg,#4ade80,#15803d)}.sa-tag.y{background:linear-gradient(180deg,#facc15,#ca8a04);color:#3d2600}.sa-tag.k{background:#94a3b8}
+.sa-acts{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-top:16px}
+.sa-act{--c1:#22c55e;--c2:#15803d;border:0;cursor:pointer;color:#fff;border-radius:20px;padding:16px 10px;text-align:center;font:800 14.5px/1.3 'Cairo',sans-serif;
+  background:linear-gradient(160deg,var(--c1),var(--c2));box-shadow:0 16px 26px -14px var(--c2),inset 0 2px 0 rgba(255,255,255,.4),inset 0 -5px 10px rgba(0,0,0,.18);transition:transform .2s}
+.sa-act span{display:block;font-size:34px;margin-bottom:6px;filter:drop-shadow(0 4px 3px rgba(0,0,0,.25));transition:transform .3s}
+.sa-act:hover{transform:translateY(-4px)}.sa-act:hover span{transform:scale(1.15) rotate(-6deg)}
+.sa-chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 12px}
+.sa-chip{border:1px solid var(--sa-line);background:var(--sa-card);color:var(--sa-text);border-radius:30px;padding:7px 14px;font:700 13.5px Cairo;cursor:pointer;box-shadow:0 3px 8px -5px rgba(0,0,0,.2)}
+.sa-chip.on{background:linear-gradient(180deg,#18a85c,#0a4f2b);color:#fff;border-color:transparent}
+.sa-chip em{font-style:normal;opacity:.75;margin-inline-start:4px}
+.sa-t{width:100%;border-collapse:separate;border-spacing:0;font-size:14px}
+.sa-t th{text-align:start;font-size:12.5px;color:var(--sa-mut);font-weight:800;padding:10px;border-bottom:2px solid var(--sa-line);white-space:nowrap}
+.sa-t td{padding:10px;border-bottom:1px solid var(--sa-line);vertical-align:middle}
+.sa-t tr:hover td{background:color-mix(in srgb,var(--sa-g3) 6%,transparent)}
+.sa-tw{overflow-x:auto}
+.sa-btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:12px;padding:8px 14px;font:800 13.5px Cairo;cursor:pointer;text-decoration:none;color:#fff;background:linear-gradient(180deg,#18a85c,#0a4f2b);box-shadow:0 8px 14px -8px #0a4f2b,inset 0 1px 0 rgba(255,255,255,.3);transition:transform .15s}
+.sa-btn:hover{transform:translateY(-2px)}
+.sa-btn.gd{color:#3d2600;background:linear-gradient(180deg,#ffe28a,#e3a11c)}
+.sa-btn.lt{color:var(--sa-text);background:var(--sa-card2);border:1px solid var(--sa-line);box-shadow:none}
+.sa-btn.rd{background:linear-gradient(180deg,#f87171,#dc2626)}
+.sa-btn.sm{padding:5px 10px;font-size:12.5px;border-radius:10px}
+.sa-f{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));align-items:end}
+.sa-f label{display:block;font-size:12.5px;font-weight:800;color:var(--sa-mut);margin-bottom:4px}
+.sa input,.sa select,.sa textarea{font-family:inherit}
+.sa .sa-f input,.sa .sa-f select,.sa .sa-f textarea,.sa .sa-inp{width:100%;border-radius:12px;border:1px solid var(--sa-line);background:var(--sa-card);color:var(--sa-text);padding:9px 12px;font-size:14px}
+.sa-bar{height:9px;border-radius:9px;background:var(--sa-line);overflow:hidden;min-width:80px}
+.sa-bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,#18a85c,#f6c445)}
+.sa-empty{text-align:center;color:var(--sa-mut);padding:26px 10px}
+.sa-empty span{display:block;font-size:40px;margin-bottom:6px}
+.sa-msg{max-width:78%;padding:10px 14px;border-radius:16px;margin:8px 0;font-size:14px;line-height:1.6;white-space:pre-wrap}
+.sa-msg.me{margin-inline-start:auto;background:linear-gradient(180deg,#18a85c,#0f7a43);color:#fff;border-end-end-radius:4px}
+.sa-msg.th{background:var(--sa-card2);border:1px solid var(--sa-line);border-end-start-radius:4px}
+.sa-msg small{display:block;opacity:.7;font-size:11.5px;margin-top:4px}
+.sa-note{padding:12px 14px;border-radius:14px;background:#fff7e0;border:1px solid #f3d9a8;color:#7a4a00;font-size:14px;margin:10px 0}
+.sa.dark .sa-note{background:#2a2108;border-color:#5a4511;color:#f6d58a}
+.sa-bars{display:flex;align-items:flex-end;gap:6px;height:170px;padding-top:10px}
+.sa-bars .b{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;height:100%;justify-content:flex-end;min-width:0}
+.sa-bars .b div{width:100%;display:flex;gap:2px;align-items:flex-end;height:100%}
+.sa-bars .b i{flex:1;border-radius:6px 6px 2px 2px;transform-origin:bottom;animation:saGrow .9s cubic-bezier(.2,.8,.2,1) both}
+.sa-bars .b small{font-size:11px;color:var(--sa-mut)}
+/* legacy blocks inside the new shell */
+.sa #admBody .cert,.sa #admBody .stat,.sa #admBody .note{background:var(--sa-card);color:var(--sa-text);border-color:var(--sa-line)}
+.sa #admBody .cert{border-radius:20px;box-shadow:var(--sa-sh)}
+.sa #admBody .stat{border-radius:18px;box-shadow:0 10px 20px -14px rgba(6,58,30,.4)}
+.sa.dark #admBody .tbl td,.sa.dark #admBody .tbl th{color:var(--sa-text);border-color:var(--sa-line);background:transparent}
+.sa.dark #admBody input,.sa.dark #admBody select,.sa.dark #admBody textarea{background:var(--sa-card2);color:var(--sa-text);border-color:var(--sa-line)}
+.sa.dark #admBody .sub,.sa.dark .sub{color:var(--sa-mut)}
+.sa.dark #admBody a{color:#7ee2a8}
+/* motion */
+.sa-in{animation:saRise .6s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--d,0)*60ms)}
+@keyframes saRise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes saFade{to{opacity:1}}
+@keyframes saFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes saTilt{0%,100%{transform:rotateY(18deg) rotateX(6deg)}50%{transform:rotateY(8deg) rotateX(2deg) translateY(-6px)}}
+@keyframes saWave{0%,100%{transform:skewY(0)}50%{transform:skewY(-4deg) scaleX(.97)}}
+@keyframes saPat{to{background-position:900px 450px}}
+@keyframes saDraw{to{stroke-dashoffset:0}}
+@keyframes saPin{from{transform:translateY(-30px) scale(.4);opacity:0}to{transform:none;opacity:1}}
+@keyframes saGrow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@media (prefers-reduced-motion:reduce){.sa *{animation:none!important;transition:none!important}}
+/* responsive */
+@media (max-width:1180px){.sa-g3{grid-template-columns:repeat(2,minmax(0,1fr))}.sa-hero{grid-template-columns:1fr 1.4fr}.sa-flag{display:none}}
+@media (max-width:980px){
+  .sa{grid-template-columns:1fr}
+  .sa-side{position:fixed;inset-block:0;inset-inline-start:0;width:280px;transform:translateX(var(--off));transition:transform .3s ease}
+  html[dir=rtl] .sa-side{--off:100%}html[dir=ltr] .sa-side{--off:-100%}
+  .sa.nav-open .sa-side{--off:0}
+  .sa.nav-open:after{content:"";position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:25}
+  .sa-burger{display:grid}
+  .sa-main{padding:10px 12px 30px}
+  .sa-g2,.sa-g3{grid-template-columns:1fr}
+  .sa-hero{grid-template-columns:1fr;padding:20px;text-align:center}.sa-dev{display:none}
+  .sa-date,.sa-top .who small{display:none}
+}
+@media (max-width:560px){.sa-srch{order:9;flex-basis:100%}.sa-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sa-kpi{padding:12px;gap:9px}.sa-ic{width:44px;height:44px;font-size:22px;border-radius:14px}.sa-kpi .tx b{font-size:21px}.sa-top .who b{font-size:13.5px}.sa-h1 h2{font-size:20px}}
+@media print{.sa-side,.sa-top{display:none}}
+@media (min-width:1181px){.sa-kpis.k7{grid-template-columns:repeat(7,minmax(0,1fr))}.sa-kpis.k7 .sa-kpi{flex-direction:column;align-items:flex-start;gap:10px}}
+.sa-kpi .tx small{line-height:1.3}
+@media (max-width:560px){#saFull{display:none}.sa-top{gap:7px;padding:8px 10px}.sa-ib{width:38px;height:38px;font-size:17px}.sa-lang button{padding:6px 8px}}
 </style>
 </head>
 <body>
@@ -586,7 +787,7 @@ header .brand,footer .brand{border-bottom:0!important;padding:0!important}
   <div id="vres"></div>
 </div></div></main>
 
-<main id="admin" class="view"><div class="wrap"><div class="panel" id="admBox" style="max-width:1100px"></div></div></main>
+<main id="admin" class="view"><div id="admBox"></div></main>
 
 <main id="privacy" class="view"><div class="wrap"><div class="panel" style="max-width:760px">
   <h2 data-t="pv_ttl">🔐 سياسة الخصوصية وحماية البيانات</h2><p class="sub" data-t="pv_sub">Al-Madaris CI تعالج بيانات المدارس نيابة عنها، وتلتزم بحمايتها واحترام خصوصية التلاميذ وأسرهم.</p><h3 data-t="pv1">البيانات التي نحفظها</h3><p data-t="pv1d">بيانات المؤسسة، والفصول، والتلاميذ وأولياء أمورهم، والموظفين، والعلامات، والحضور، والرسوم، والرسائل، والصور التي تضيفها المدرسة. لا نطلب أكثر مما يلزم لتسيير المدرسة.</p><h3 data-t="pv2">من يملك البيانات ومن يراها</h3><p data-t="pv2d">البيانات ملك للمدرسة. لا يراها إلا موظفوها حسب الصلاحيات التي يحددها المدير، ويرى ولي الأمر بيانات ابنه فقط برمزه السري. لا نبيع البيانات ولا نشاركها مع أي جهة إعلانية.</p><h3 data-t="pv3">صور الأطفال</h3><p data-t="pv3d">تُحفظ في مساحة تخزين خاصة غير عامة، ولا تُعرض إلا لموظفي المدرسة عبر روابط مؤقتة. صفحة التحقق من البطاقة تُظهر صورة صاحب البطاقة فقط.</p><h3 data-t="pv4">الحماية</h3><p data-t="pv4d">الاتصال مشفّر (HTTPS)، وكل مدرسة معزولة عن غيرها في قاعدة البيانات، وكل عملية تخضع للصلاحيات.</p><h3 data-t="pv5">النسخ والحذف</h3><p data-t="pv5d">يمكن للمدير تنزيل نسخة كاملة من بيانات مدرسته في أي وقت. ويمكن للمدرسة طلب حذف بياناتها نهائياً بمراسلتنا.</p><h3 data-t="pv6">التواصل</h3><p data-t="pv6d">لأي سؤال عن البيانات: konemamoud@gmail.com — واتساب 07 47 42 34 04 — بواكي، ساحل العاج.</p>
@@ -785,6 +986,9 @@ Object.assign(T.ar,{"tab_dis": "الانضباط", "tab_log": "سجل العمل
 Object.assign(T.ar,{"av_staff": "👔 الموظفون", "sa_need": "نفّذ schema30.sql في Supabase.", "sa_day": "📅 اليوم", "sa_month": "📊 الشهر", "sa_leave": "إجازة", "sa_leave_s": "ج", "sa_help": "يمكن أيضاً مسح البطاقة المهنية من قسم «المسح»: المسح الأول = الوصول، والثاني (بعد 30 دقيقة) = الانصراف.", "sa_out": "انصراف", "sa_start": "ساعة بداية دوام الموظفين", "sa_same": "نفس ساعة التلاميذ", "sa_from_abs": "من غيابات الشهر", "sa_noabs": "لا غيابات مسجلة في هذا الشهر.", "sa_abs_note": "غياب {n} يوم", "sa_abs_info": "{n} يوم × {d} (الراتب ÷ 26)"});Object.assign(T.fr,{"av_staff": "👔 Personnel", "sa_need": "Exécutez schema30.sql dans Supabase.", "sa_day": "📅 Jour", "sa_month": "📊 Mois", "sa_leave": "Congé", "sa_leave_s": "C", "sa_help": "Vous pouvez aussi scanner la carte professionnelle dans « Scanner » : 1er scan = arrivée, 2e scan (après 30 min) = départ.", "sa_out": "Départ", "sa_start": "Heure d'arrivée du personnel", "sa_same": "Comme les élèves", "sa_from_abs": "Depuis les absences", "sa_noabs": "Aucune absence ce mois-ci.", "sa_abs_note": "Absence {n} jour(s)", "sa_abs_info": "{n} j × {d} (salaire ÷ 26)"});Object.assign(T.en,{"av_staff": "👔 Staff", "sa_need": "Run schema30.sql in Supabase.", "sa_day": "📅 Day", "sa_month": "📊 Month", "sa_leave": "Leave", "sa_leave_s": "L", "sa_help": "You can also scan the staff card in “Scan”: first scan = arrival, second (after 30 min) = departure.", "sa_out": "Departure", "sa_start": "Staff start time", "sa_same": "Same as students", "sa_from_abs": "From absences", "sa_noabs": "No absences this month.", "sa_abs_note": "Absence {n} day(s)", "sa_abs_info": "{n} day(s) × {d} (salary ÷ 26)"});
 Object.assign(T.ar,{"tab_ct": "دفتر النصوص", "tab_cal": "الرزنامة", "ct_need": "نفّذ schema31.sql في Supabase.", "ct_nocls": "لا توجد فصول مسندة إليك.", "ct_all_subj": "كل المواد", "ct_new": "درس جديد", "ct_title": "عنوان الدرس", "ct_title_ph": "مثال: الجمع بالاحتفاظ", "ct_content": "ملخص الدرس", "ct_hw": "الواجب", "ct_hw_ph": "مثال: تمرين 3 و4 ص 25", "ct_due": "موعد التسليم", "ct_none": "لا توجد دروس مسجلة في هذا الشهر.", "ct_del": "حذف هذا الدرس؟", "ev_new": "حدث جديد", "ev_print": "رزنامة السنة", "ev_t_ar": "العنوان بالعربية", "ev_t_fr": "العنوان بالفرنسية", "ev_from": "من", "ev_to": "إلى (اختياري)", "ev_kind": "النوع", "ev_holiday": "عطلة", "ev_exam": "امتحان", "ev_meeting": "اجتماع", "ev_event": "نشاط / حفل", "ev_other": "أخرى", "ev_par": "يظهر لأولياء الأمور في بوابتهم", "ev_del": "حذف", "ev_up": "المواعيد القادمة", "ev_none": "لا مواعيد قادمة.", "ev_bad": "تاريخ النهاية قبل البداية.", "pp_s_hw": "📒 الدروس والواجبات", "pp_s_cal": "📅 الرزنامة", "hl_ttl": "الملف الصحي", "hl_priv": "(يراه المدير والسكرتارية ومعلمو التلميذ فقط)", "hl_all": "الحساسية", "hl_all_ph": "مثال: الفول السوداني، البنسلين", "hl_cond": "أمراض مزمنة", "hl_cond_ph": "مثال: الربو، السكري، الصرع", "hl_med": "أدوية يتناولها", "hl_notes": "ملاحظات أخرى", "hl_en": "شخص للطوارئ", "hl_ep": "هاتف الطوارئ"});Object.assign(T.fr,{"tab_ct": "Cahier de textes", "tab_cal": "Calendrier", "ct_need": "Exécutez schema31.sql dans Supabase.", "ct_nocls": "Aucune classe ne vous est affectée.", "ct_all_subj": "Toutes les matières", "ct_new": "Nouvelle séance", "ct_title": "Titre de la leçon", "ct_title_ph": "ex. : L'addition avec retenue", "ct_content": "Contenu de la séance", "ct_hw": "Devoir", "ct_hw_ph": "ex. : Exercices 3 et 4 p. 25", "ct_due": "À rendre le", "ct_none": "Aucune séance enregistrée ce mois-ci.", "ct_del": "Supprimer cette séance ?", "ev_new": "Nouvel événement", "ev_print": "Calendrier annuel", "ev_t_ar": "Titre (arabe)", "ev_t_fr": "Titre (français)", "ev_from": "Du", "ev_to": "Au (facultatif)", "ev_kind": "Type", "ev_holiday": "Congé", "ev_exam": "Examen", "ev_meeting": "Réunion", "ev_event": "Activité / fête", "ev_other": "Autre", "ev_par": "Visible dans l'Espace parents", "ev_del": "Supprimer", "ev_up": "Prochains événements", "ev_none": "Aucun événement à venir.", "ev_bad": "La date de fin précède le début.", "pp_s_hw": "📒 Leçons et devoirs", "pp_s_cal": "📅 Calendrier", "hl_ttl": "Dossier médical", "hl_priv": "(visible par la direction, le secrétariat et ses enseignants)", "hl_all": "Allergies", "hl_all_ph": "ex. : arachide, pénicilline", "hl_cond": "Maladies chroniques", "hl_cond_ph": "ex. : asthme, diabète, épilepsie", "hl_med": "Traitement en cours", "hl_notes": "Autres remarques", "hl_en": "Contact d'urgence", "hl_ep": "Téléphone d'urgence"});Object.assign(T.en,{"tab_ct": "Lesson log", "tab_cal": "Calendar", "ct_need": "Run schema31.sql in Supabase.", "ct_nocls": "No classes assigned to you.", "ct_all_subj": "All subjects", "ct_new": "New lesson", "ct_title": "Lesson title", "ct_title_ph": "e.g. Addition with carrying", "ct_content": "Lesson summary", "ct_hw": "Homework", "ct_hw_ph": "e.g. Exercises 3 and 4 p. 25", "ct_due": "Due", "ct_none": "No lessons recorded this month.", "ct_del": "Delete this lesson?", "ev_new": "New event", "ev_print": "Yearly calendar", "ev_t_ar": "Title (Arabic)", "ev_t_fr": "Title (French)", "ev_from": "From", "ev_to": "To (optional)", "ev_kind": "Type", "ev_holiday": "Holiday", "ev_exam": "Exam", "ev_meeting": "Meeting", "ev_event": "Event", "ev_other": "Other", "ev_par": "Shown in the parent portal", "ev_del": "Delete", "ev_up": "Upcoming", "ev_none": "Nothing upcoming.", "ev_bad": "End date is before start.", "pp_s_hw": "📒 Lessons & homework", "pp_s_cal": "📅 Calendar", "hl_ttl": "Health record", "hl_priv": "(visible to management, office and the student's teachers)", "hl_all": "Allergies", "hl_all_ph": "e.g. peanuts, penicillin", "hl_cond": "Chronic conditions", "hl_cond_ph": "e.g. asthma, diabetes, epilepsy", "hl_med": "Current medication", "hl_notes": "Other notes", "hl_en": "Emergency contact", "hl_ep": "Emergency phone"});
 Object.assign(T.ar,{"adm_ttl": "لوحة مدير المنصة", "adm_btn": "لوحة المنصة", "adm_only": "هذه الصفحة لمدير المنصة فقط.", "adm_ov": "نظرة عامة", "adm_schools": "المدارس", "adm_inv": "الفواتير", "adm_ann": "الإعلانات", "adm_bak": "النسخ الاحتياطي", "adm_set": "الإعدادات", "adm_rev_m": "المحصّل هذا الشهر", "adm_new30": "مدارس جديدة (30 يوماً)", "adm_rev12": "المحصّل في آخر 12 شهراً", "adm_soon": "اشتراكات تنتهي خلال 14 يوماً", "adm_idle": "مدارس بلا نشاط منذ أكثر من 14 يوماً", "adm_need": "نفّذ schema32.sql في Supabase.", "adm_ann_h": "الإعلان يظهر في أعلى لوحة كل المدارس (للمدير والموظفين)، ويمكن لكل مستخدم إخفاؤه.", "adm_ann_new": "إعلان جديد لكل المدارس", "adm_ann_ar": "النص بالعربية", "adm_ann_fr": "النص بالفرنسية", "adm_ann_lvl": "النوع", "adm_l_info": "معلومة", "adm_l_warn": "تنبيه", "adm_l_ok": "خبر سار", "adm_ann_until": "يظهر حتى (اختياري)", "adm_ann_pub": "نشر", "adm_on": "ظاهر", "adm_off": "متوقف", "adm_bk_n": "نسخ محفوظة", "adm_bk_size": "الحجم الكلي", "adm_bk_old": "مدارس آخر نسخة لها أقدم من 8 أيام", "adm_bk_all": "نسخ كل المدارس الآن"});Object.assign(T.fr,{"adm_ttl": "Espace administrateur de la plateforme", "adm_btn": "Plateforme", "adm_only": "Page réservée à l'administrateur de la plateforme.", "adm_ov": "Vue d'ensemble", "adm_schools": "Écoles", "adm_inv": "Factures", "adm_ann": "Annonces", "adm_bak": "Sauvegardes", "adm_set": "Paramètres", "adm_rev_m": "Encaissé ce mois", "adm_new30": "Nouvelles écoles (30 j)", "adm_rev12": "Encaissements sur 12 mois", "adm_soon": "Abonnements expirant sous 14 jours", "adm_idle": "Écoles inactives depuis plus de 14 jours", "adm_need": "Exécutez schema32.sql dans Supabase.", "adm_ann_h": "L'annonce apparaît en haut du tableau de bord de toutes les écoles ; chaque utilisateur peut la masquer.", "adm_ann_new": "Nouvelle annonce à toutes les écoles", "adm_ann_ar": "Texte (arabe)", "adm_ann_fr": "Texte (français)", "adm_ann_lvl": "Type", "adm_l_info": "Information", "adm_l_warn": "Alerte", "adm_l_ok": "Bonne nouvelle", "adm_ann_until": "Visible jusqu'au (facultatif)", "adm_ann_pub": "Publier", "adm_on": "Visible", "adm_off": "Masqué", "adm_bk_n": "Sauvegardes", "adm_bk_size": "Taille totale", "adm_bk_old": "Écoles sans sauvegarde depuis 8 j", "adm_bk_all": "Sauvegarder toutes les écoles"});Object.assign(T.en,{"adm_ttl": "Platform admin space", "adm_btn": "Platform", "adm_only": "Platform administrator only.", "adm_ov": "Overview", "adm_schools": "Schools", "adm_inv": "Invoices", "adm_ann": "Announcements", "adm_bak": "Backups", "adm_set": "Settings", "adm_rev_m": "Collected this month", "adm_new30": "New schools (30 days)", "adm_rev12": "Revenue, last 12 months", "adm_soon": "Subscriptions ending within 14 days", "adm_idle": "Schools inactive for over 14 days", "adm_need": "Run schema32.sql in Supabase.", "adm_ann_h": "The announcement appears at the top of every school's dashboard; each user can dismiss it.", "adm_ann_new": "New announcement to all schools", "adm_ann_ar": "Text (Arabic)", "adm_ann_fr": "Text (French)", "adm_ann_lvl": "Type", "adm_l_info": "Info", "adm_l_warn": "Warning", "adm_l_ok": "Good news", "adm_ann_until": "Visible until (optional)", "adm_ann_pub": "Publish", "adm_on": "Visible", "adm_off": "Hidden", "adm_bk_n": "Backups", "adm_bk_size": "Total size", "adm_bk_old": "Schools without a backup for 8 days", "adm_bk_all": "Back up all schools now"});
+Object.assign(T.ar,{"sa_dash": "لوحة التحكم المركزية", "sa_schools": "إدارة المدارس والمؤسسات", "sa_admins": "مديرو المؤسسات", "sa_subs": "الاشتراكات والباقات", "sa_rev": "الإيرادات والحسابات", "sa_rep": "التقارير والإحصائيات", "sa_mon": "مراقبة النظام والنشاط", "sa_sup": "مركز الدعم الفني", "sa_ann": "الإشعارات والإعلانات", "sa_team": "فريق المنصة والصلاحيات", "sa_sec": "الأمان وسجل العمليات", "sa_set": "الإعدادات العامة للمنصة", "sa_central": "الإدارة المركزية للمنصة", "sa_logout": "تسجيل الخروج", "sa_owner": "مالك المنصة", "sa_search": "بحث عن مدرسة، مدير، اشتراك أو رقم…", "sa_notifs": "الإشعارات", "sa_dark": "الوضع الليلي", "sa_full": "ملء الشاشة", "sa_refresh": "تحديث", "sa_need": "لتفعيل هذا القسم نفّذ schema33.sql في Supabase.", "sa_n_tk": "تذكرة جديدة", "sa_n_exp": "انتهى اشتراك {n}", "sa_n_soon": "ينتهي اشتراك {n} خلال {d} يوم", "sa_n_due": "فاتورة غير مدفوعة {no} — {a}", "sa_n_none": "لا توجد إشعارات", "sa_expired": "منتهية", "sa_tk_open": "مفتوحة", "sa_tk_prog": "قيد المعالجة", "sa_tk_closed": "مغلقة", "sa_pr_low": "منخفضة", "sa_pr_norm": "عادية", "sa_pr_high": "عاجلة", "sa_school_s": "مدرسة", "sa_other_city": "مدن أخرى", "sa_tagline": "منصة إدارة المدارس العربية والإسلامية في ساحل العاج", "sa_civ": "ساحل العاج", "sa_k_stu": "إجمالي التلاميذ", "sa_k_tch": "إجمالي المدرسين", "sa_k_staff": "إجمالي الموظفين", "sa_k_sch": "إجمالي المدارس", "sa_k_act": "المدارس النشطة", "sa_k_trial": "في التجربة", "sa_k_exp": "منتهية الاشتراك", "sa_p_subs": "إحصائيات الاشتراكات", "sa_more": "عرض الكل", "sa_p_rev": "الإيرادات المالية", "sa_r_m": "إيرادات الشهر الحالي", "sa_r_y": "إيرادات السنة", "sa_r_t": "إجمالي الإيرادات", "sa_r_e": "إجمالي المصاريف", "sa_r_net": "صافي الأرباح", "sa_p_map": "توزيع المدارس في ساحل العاج", "sa_p_grow": "تطور عدد المدارس", "sa_p_latest": "آخر المدارس المسجلة", "sa_p_tk": "آخر طلبات الدعم الفني", "sa_tk_none": "لا توجد طلبات دعم", "sa_a_add": "إضافة مدرسة جديدة", "sa_a_plans": "إدارة الباقات والأسعار", "sa_a_renew": "تجديد الاشتراكات", "sa_a_inv": "إصدار الفواتير", "sa_a_rep": "التقارير الشاملة", "sa_a_ann": "إرسال إعلان عام", "sa_a_mon": "مراقبة النشاط", "sa_a_bak": "النسخ الاحتياطي", "sa_inv_msg": "السلام عليكم، ندعو مدرستكم للتسجيل في منصة المدارس Al-Madaris CI وتجربتها مجاناً 14 يوماً: {u}", "sa_inv_ok": "تم نسخ رابط التسجيل:\n{u}\n\nإرساله عبر واتساب؟", "sa_c_admin": "المدير", "sa_c_school": "المدرسة", "sa_c_contact": "التواصل", "sa_c_state": "الحالة", "sa_soon14": "تنتهي خلال 14 يوماً", "sa_plan": "الباقة والأسعار", "sa_trial_len": "مدة التجربة", "sa_edit_price": "تعديل الأسعار", "sa_c_end": "تاريخ الانتهاء", "sa_c_left": "المتبقي", "sa_ago": "منذ {n} يوم", "sa_1y": "سنة", "sa_rev12": "الإيرادات والمصاريف (12 شهراً)", "sa_rev_in": "الإيرادات", "sa_rev_out": "المصاريف", "sa_bymeth": "حسب طريقة الدفع", "sa_exp_ttl": "مصاريف المنصة", "sa_exp_lbl": "البيان", "sa_exp_ph": "مثال: استضافة الموقع", "sa_exp_cat": "الفئة", "sa_date": "التاريخ", "sa_exp_add": "إضافة مصروف", "sa_ec_hosting": "الاستضافة والخدمات", "sa_ec_marketing": "التسويق", "sa_ec_salary": "الرواتب", "sa_ec_transport": "التنقل", "sa_ec_equipment": "المعدات", "sa_ec_other": "أخرى", "sa_exp_none": "لا توجد مصاريف مسجلة", "sa_total": "المجموع", "sa_sure_del": "حذف هذا السطر نهائياً؟", "sa_rp_sch": "تقرير المدارس", "sa_rp_sch_h": "كل المدارس مع الأعداد والحالة ومعلومات المدير", "sa_rp_rev": "التقرير المالي", "sa_rp_rev_h": "الإيرادات والمصاريف والصافي لكل شهر", "sa_rp_inv": "تقرير الفواتير", "sa_rp_inv_h": "كل الفواتير مع حالة الدفع", "sa_rp_pdf": "ملخص المنصة للطباعة", "sa_rp_pdf_h": "صفحة رسمية بالفرنسية والعربية", "sa_print": "طباعة / PDF", "sa_top10": "أكبر 10 مدارس (عدد التلاميذ)", "sa_m_on": "نشطة", "sa_m_idle": "خاملة", "sa_m_dead": "متوقفة", "sa_m_ops7": "عمليات 7 أيام", "sa_m_ops30": "عمليات 30 يوماً", "sa_m_chart": "حجم العمليات اليومية (14 يوماً)", "sa_back": "رجوع", "sa_tc_bug": "مشكلة تقنية", "sa_tc_question": "سؤال", "sa_tc_feature": "اقتراح ميزة", "sa_tc_billing": "الاشتراك والفواتير", "sa_tc_data": "البيانات", "sa_tc_other": "أخرى", "sa_you": "أنت", "sa_tk_reopen": "إعادة الفتح", "sa_tk_close": "إغلاق الطلب", "sa_tk_reply_ph": "اكتب ردك…", "sa_send": "إرسال", "sa_tk_subj": "الموضوع", "sa_tk_cat": "النوع", "sa_tk_pr": "الأولوية", "sa_sup_h": "اكتب لنا أي مشكلة أو سؤال، وسيصلك الرد هنا.", "sa_tk_body": "التفاصيل", "sa_tk_send": "إرسال الطلب", "sa_since": "منذ", "sa_lastlog": "آخر دخول", "sa_revoke": "سحب", "sa_team_add": "إضافة مدير للمنصة", "sa_team_h": "يجب أن يكون للشخص حساب مسجل في المنصة.", "sa_grant": "منح صلاحية SUPER ADMIN", "sa_team_warn": "مدير المنصة يرى كل المدارس والإيرادات. امنح هذه الصلاحية لأشخاص موثوقين فقط.", "sa_no_user": "لا يوجد حساب بهذا البريد.", "sa_not_self": "لا يمكنك سحب صلاحيتك بنفسك.", "sa_sure_grant": "منح صلاحية مدير المنصة إلى {e}؟", "sa_sure_rev": "سحب صلاحية مدير المنصة من {e}؟", "sa_s_rls": "تغطية حماية الجداول (RLS)", "sa_s_users": "الحسابات", "sa_s_unconf": "بريد غير مؤكد", "sa_s_admins": "مدراء المنصة", "sa_s_pfail": "محاولات دخول أولياء فاشلة (24س)", "sa_s_del": "عمليات حذف (7 أيام)", "sa_s_unconf_h": "توجد حسابات ببريد غير مؤكد. فعّل «Confirm email» في Supabase ← Authentication قبل استقبال المدارس.", "sa_s_measures": "إجراءات الحماية المفعّلة", "sa_m1": "عزل بيانات كل مدرسة (RLS)", "sa_m2": "صور التلاميذ في مخزن خاص بروابط مؤقتة", "sa_m3": "سجل لكل تعديل وحذف", "sa_m4": "نسخ احتياطي تلقائي كل أسبوع", "sa_m5": "وثائق موثّقة برمز QR", "sa_m6": "صلاحيات حسب دور كل مستخدم", "sa_s_log": "سجل العمليات (آخر 200)", "tab_sup": "الدعم الفني"});
+Object.assign(T.fr,{"sa_dash": "Tableau de bord central", "sa_schools": "Écoles et établissements", "sa_admins": "Directeurs d’établissement", "sa_subs": "Abonnements et offres", "sa_rev": "Revenus et comptes", "sa_rep": "Rapports et statistiques", "sa_mon": "Suivi de l’activité", "sa_sup": "Support technique", "sa_ann": "Annonces et notifications", "sa_team": "Équipe et droits", "sa_sec": "Sécurité et journal", "sa_set": "Paramètres de la plateforme", "sa_central": "Administration centrale", "sa_logout": "Déconnexion", "sa_owner": "Propriétaire de la plateforme", "sa_search": "Rechercher une école, un directeur, un code…", "sa_notifs": "Notifications", "sa_dark": "Mode sombre", "sa_full": "Plein écran", "sa_refresh": "Actualiser", "sa_need": "Exécutez schema33.sql dans Supabase pour activer cette section.", "sa_n_tk": "Nouveau ticket", "sa_n_exp": "Abonnement expiré : {n}", "sa_n_soon": "{n} expire dans {d} j", "sa_n_due": "Facture impayée {no} — {a}", "sa_n_none": "Aucune notification", "sa_expired": "Expirée", "sa_tk_open": "Ouvert", "sa_tk_prog": "En cours", "sa_tk_closed": "Fermé", "sa_pr_low": "Basse", "sa_pr_norm": "Normale", "sa_pr_high": "Urgente", "sa_school_s": "écoles", "sa_other_city": "Autres villes", "sa_tagline": "Plateforme de gestion des écoles arabes et islamiques en Côte d’Ivoire", "sa_civ": "Côte d’Ivoire", "sa_k_stu": "Total élèves", "sa_k_tch": "Total enseignants", "sa_k_staff": "Total personnel", "sa_k_sch": "Total écoles", "sa_k_act": "Écoles actives", "sa_k_trial": "En essai", "sa_k_exp": "Expirées", "sa_p_subs": "Statistiques des abonnements", "sa_more": "Tout voir", "sa_p_rev": "Revenus", "sa_r_m": "Revenus du mois", "sa_r_y": "Revenus de l’année", "sa_r_t": "Revenus totaux", "sa_r_e": "Dépenses totales", "sa_r_net": "Bénéfice net", "sa_p_map": "Répartition des écoles", "sa_p_grow": "Évolution du nombre d’écoles", "sa_p_latest": "Dernières écoles inscrites", "sa_p_tk": "Dernières demandes de support", "sa_tk_none": "Aucune demande", "sa_a_add": "Ajouter une école", "sa_a_plans": "Offres et tarifs", "sa_a_renew": "Renouveler", "sa_a_inv": "Factures", "sa_a_rep": "Rapports", "sa_a_ann": "Envoyer une annonce", "sa_a_mon": "Suivi d’activité", "sa_a_bak": "Sauvegardes", "sa_inv_msg": "Bonjour, inscrivez votre école sur Al-Madaris CI et essayez gratuitement 14 jours : {u}", "sa_inv_ok": "Lien d’inscription copié :\n{u}\n\nL’envoyer par WhatsApp ?", "sa_c_admin": "Directeur", "sa_c_school": "École", "sa_c_contact": "Contact", "sa_c_state": "Statut", "sa_soon14": "Expire sous 14 j", "sa_plan": "Offre et tarifs", "sa_trial_len": "Durée d’essai", "sa_edit_price": "Modifier les tarifs", "sa_c_end": "Échéance", "sa_c_left": "Restant", "sa_ago": "il y a {n} j", "sa_1y": "1 an", "sa_rev12": "Revenus et dépenses (12 mois)", "sa_rev_in": "Revenus", "sa_rev_out": "Dépenses", "sa_bymeth": "Par mode de paiement", "sa_exp_ttl": "Dépenses de la plateforme", "sa_exp_lbl": "Libellé", "sa_exp_ph": "Ex. : hébergement", "sa_exp_cat": "Catégorie", "sa_date": "Date", "sa_exp_add": "Ajouter", "sa_ec_hosting": "Hébergement", "sa_ec_marketing": "Marketing", "sa_ec_salary": "Salaires", "sa_ec_transport": "Transport", "sa_ec_equipment": "Équipement", "sa_ec_other": "Autre", "sa_exp_none": "Aucune dépense", "sa_total": "Total", "sa_sure_del": "Supprimer définitivement ?", "sa_rp_sch": "Rapport des écoles", "sa_rp_sch_h": "Toutes les écoles avec effectifs, statut et directeur", "sa_rp_rev": "Rapport financier", "sa_rp_rev_h": "Revenus, dépenses et net par mois", "sa_rp_inv": "Rapport des factures", "sa_rp_inv_h": "Toutes les factures et leur statut", "sa_rp_pdf": "Synthèse imprimable", "sa_rp_pdf_h": "Document officiel FR/AR", "sa_print": "Imprimer / PDF", "sa_top10": "Top 10 écoles (élèves)", "sa_m_on": "Active", "sa_m_idle": "Peu active", "sa_m_dead": "Inactive", "sa_m_ops7": "Opérations 7 j", "sa_m_ops30": "Opérations 30 j", "sa_m_chart": "Opérations par jour (14 j)", "sa_back": "Retour", "sa_tc_bug": "Problème technique", "sa_tc_question": "Question", "sa_tc_feature": "Suggestion", "sa_tc_billing": "Abonnement / facture", "sa_tc_data": "Données", "sa_tc_other": "Autre", "sa_you": "Vous", "sa_tk_reopen": "Rouvrir", "sa_tk_close": "Fermer", "sa_tk_reply_ph": "Votre réponse…", "sa_send": "Envoyer", "sa_tk_subj": "Objet", "sa_tk_cat": "Type", "sa_tk_pr": "Priorité", "sa_sup_h": "Écrivez-nous un problème ou une question ; la réponse arrivera ici.", "sa_tk_body": "Détails", "sa_tk_send": "Envoyer la demande", "sa_since": "Depuis", "sa_lastlog": "Dernière connexion", "sa_revoke": "Retirer", "sa_team_add": "Ajouter un administrateur", "sa_team_h": "La personne doit déjà avoir un compte.", "sa_grant": "Donner l’accès SUPER ADMIN", "sa_team_warn": "Un administrateur voit toutes les écoles et les revenus. Réservez cet accès à des personnes de confiance.", "sa_no_user": "Aucun compte avec cet email.", "sa_not_self": "Vous ne pouvez pas retirer votre propre accès.", "sa_sure_grant": "Donner l’accès administrateur à {e} ?", "sa_sure_rev": "Retirer l’accès de {e} ?", "sa_s_rls": "Couverture RLS", "sa_s_users": "Comptes", "sa_s_unconf": "Emails non confirmés", "sa_s_admins": "Administrateurs", "sa_s_pfail": "Échecs parents (24 h)", "sa_s_del": "Suppressions (7 j)", "sa_s_unconf_h": "Des comptes n’ont pas confirmé leur email : activez « Confirm email » dans Supabase → Authentication.", "sa_s_measures": "Mesures de sécurité", "sa_m1": "Isolation des données par école (RLS)", "sa_m2": "Photos privées par liens signés", "sa_m3": "Journal de chaque modification", "sa_m4": "Sauvegarde hebdomadaire automatique", "sa_m5": "Documents vérifiables par QR", "sa_m6": "Droits selon le rôle", "sa_s_log": "Journal (200 derniers)", "tab_sup": "Support"});
+Object.assign(T.en,{"sa_dash": "Central dashboard", "sa_schools": "Schools & institutions", "sa_admins": "School directors", "sa_subs": "Subscriptions & plans", "sa_rev": "Revenue & accounts", "sa_rep": "Reports & statistics", "sa_mon": "Activity monitoring", "sa_sup": "Support center", "sa_ann": "Announcements", "sa_team": "Team & permissions", "sa_sec": "Security & audit log", "sa_set": "Platform settings", "sa_central": "Central administration", "sa_logout": "Log out", "sa_owner": "Platform owner", "sa_search": "Search a school, director, code…", "sa_notifs": "Notifications", "sa_dark": "Dark mode", "sa_full": "Full screen", "sa_refresh": "Refresh", "sa_need": "Run schema33.sql in Supabase to enable this section.", "sa_n_tk": "New ticket", "sa_n_exp": "Subscription expired: {n}", "sa_n_soon": "{n} expires in {d} d", "sa_n_due": "Unpaid invoice {no} — {a}", "sa_n_none": "No notifications", "sa_expired": "Expired", "sa_tk_open": "Open", "sa_tk_prog": "In progress", "sa_tk_closed": "Closed", "sa_pr_low": "Low", "sa_pr_norm": "Normal", "sa_pr_high": "Urgent", "sa_school_s": "schools", "sa_other_city": "Other cities", "sa_tagline": "Management platform for Arabic & Islamic schools in Côte d’Ivoire", "sa_civ": "Côte d’Ivoire", "sa_k_stu": "Total students", "sa_k_tch": "Total teachers", "sa_k_staff": "Total staff", "sa_k_sch": "Total schools", "sa_k_act": "Active schools", "sa_k_trial": "On trial", "sa_k_exp": "Expired", "sa_p_subs": "Subscription stats", "sa_more": "View all", "sa_p_rev": "Revenue", "sa_r_m": "This month", "sa_r_y": "This year", "sa_r_t": "Total revenue", "sa_r_e": "Total expenses", "sa_r_net": "Net profit", "sa_p_map": "Schools across Côte d’Ivoire", "sa_p_grow": "Schools growth", "sa_p_latest": "Latest schools", "sa_p_tk": "Latest support requests", "sa_tk_none": "No requests", "sa_a_add": "Add a school", "sa_a_plans": "Plans & pricing", "sa_a_renew": "Renewals", "sa_a_inv": "Invoices", "sa_a_rep": "Reports", "sa_a_ann": "Send announcement", "sa_a_mon": "Monitoring", "sa_a_bak": "Backups", "sa_inv_msg": "Hello, register your school on Al-Madaris CI and try it free for 14 days: {u}", "sa_inv_ok": "Registration link copied:\n{u}\n\nSend it via WhatsApp?", "sa_c_admin": "Director", "sa_c_school": "School", "sa_c_contact": "Contact", "sa_c_state": "Status", "sa_soon14": "Expiring ≤14 d", "sa_plan": "Plan & pricing", "sa_trial_len": "Trial length", "sa_edit_price": "Edit pricing", "sa_c_end": "End date", "sa_c_left": "Remaining", "sa_ago": "{n} d ago", "sa_1y": "1 yr", "sa_rev12": "Revenue & expenses (12 months)", "sa_rev_in": "Revenue", "sa_rev_out": "Expenses", "sa_bymeth": "By payment method", "sa_exp_ttl": "Platform expenses", "sa_exp_lbl": "Label", "sa_exp_ph": "e.g. hosting", "sa_exp_cat": "Category", "sa_date": "Date", "sa_exp_add": "Add expense", "sa_ec_hosting": "Hosting", "sa_ec_marketing": "Marketing", "sa_ec_salary": "Salaries", "sa_ec_transport": "Transport", "sa_ec_equipment": "Equipment", "sa_ec_other": "Other", "sa_exp_none": "No expenses", "sa_total": "Total", "sa_sure_del": "Delete permanently?", "sa_rp_sch": "Schools report", "sa_rp_sch_h": "All schools with counts, status and director", "sa_rp_rev": "Financial report", "sa_rp_rev_h": "Monthly revenue, expenses and net", "sa_rp_inv": "Invoices report", "sa_rp_inv_h": "All invoices with payment status", "sa_rp_pdf": "Printable summary", "sa_rp_pdf_h": "Official FR/AR page", "sa_print": "Print / PDF", "sa_top10": "Top 10 schools (students)", "sa_m_on": "Active", "sa_m_idle": "Idle", "sa_m_dead": "Dormant", "sa_m_ops7": "Ops 7 d", "sa_m_ops30": "Ops 30 d", "sa_m_chart": "Daily operations (14 d)", "sa_back": "Back", "sa_tc_bug": "Technical issue", "sa_tc_question": "Question", "sa_tc_feature": "Feature request", "sa_tc_billing": "Billing", "sa_tc_data": "Data", "sa_tc_other": "Other", "sa_you": "You", "sa_tk_reopen": "Reopen", "sa_tk_close": "Close", "sa_tk_reply_ph": "Your reply…", "sa_send": "Send", "sa_tk_subj": "Subject", "sa_tk_cat": "Type", "sa_tk_pr": "Priority", "sa_sup_h": "Tell us any issue or question; the reply will appear here.", "sa_tk_body": "Details", "sa_tk_send": "Send request", "sa_since": "Since", "sa_lastlog": "Last login", "sa_revoke": "Revoke", "sa_team_add": "Add an administrator", "sa_team_h": "The person must already have an account.", "sa_grant": "Grant SUPER ADMIN", "sa_team_warn": "An administrator sees all schools and revenue. Grant only to trusted people.", "sa_no_user": "No account with this email.", "sa_not_self": "You cannot revoke yourself.", "sa_sure_grant": "Grant admin access to {e}?", "sa_sure_rev": "Revoke access from {e}?", "sa_s_rls": "RLS coverage", "sa_s_users": "Accounts", "sa_s_unconf": "Unconfirmed emails", "sa_s_admins": "Platform admins", "sa_s_pfail": "Parent login failures (24 h)", "sa_s_del": "Deletions (7 d)", "sa_s_unconf_h": "Some accounts are unconfirmed: enable “Confirm email” in Supabase → Authentication.", "sa_s_measures": "Security measures", "sa_m1": "Per-school data isolation (RLS)", "sa_m2": "Private photos via signed links", "sa_m3": "Audit log of every change", "sa_m4": "Weekly automatic backup", "sa_m5": "QR-verifiable documents", "sa_m6": "Role-based permissions", "sa_s_log": "Audit log (last 200)", "tab_sup": "Support"});
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -794,6 +998,7 @@ function applyLang(){
   setStep(step);setTab(tab);
   if(location.hash==='#dash'&&D.p)renderDash();
   if(location.hash==='#parent'&&typeof renderParent==='function')renderParent();
+  if(location.hash==='#admin'&&typeof renderAdmin==='function'&&D.p)renderAdmin();
 }
 document.getElementById('langBtn').onchange=e=>{L=e.target.value;try{localStorage.setItem('amc_lang',L)}catch(x){}applyLang()};
 
@@ -802,7 +1007,7 @@ const C=window.AMC_CONFIG||{};
 const LIVE=!!(window.supabase&&C.SUPABASE_URL&&!/XXXX/.test(C.SUPABASE_URL));
 const sb=LIVE?window.supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY):null;
 const views=['home','register','login','verify','dash','activate','forgot','newpw','parent','card','privacy','admin'];
-function route(){const h=location.hash.slice(1);if(h!=='verify'&&typeof vStop==='function')vStop();if(h!=='dash'&&typeof stopScan==='function')stopScan();views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash();if(h==='admin')loadAdmin();if(h==='parent'&&LIVE)loadParent();if(h==='card')loadCardCheck()}
+function route(){const h=location.hash.slice(1);document.body.classList.toggle('sa-on',h==='admin');if(h!=='verify'&&typeof vStop==='function')vStop();if(h!=='dash'&&typeof stopScan==='function')stopScan();views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash();if(h==='admin')loadAdmin();if(h==='parent'&&LIVE)loadParent();if(h==='card')loadCardCheck()}
 addEventListener('hashchange',route);
 
 // login tabs
@@ -878,9 +1083,9 @@ async function reloadData(){
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section));
   if(c.error&&isNetErr(c.error))throw c.error;await loadHealth();offSave()}
 
-const TABIC={ov:'🏠',plat:'🛡',cls:'🏫',stu:'🎓',att:'📷',grd:'📝',tt:'🗓',exm:'📋',rep:'📊',doc:'📄',crd:'🪪',msg:'💬',bk:'📚',fee:'💰',pay:'💵',dis:'⚖️',log:'🕵',ct:'📒',cal:'📅',staff:'👥',subj:'📘',set:'⚙️'};
+const TABIC={ov:'🏠',plat:'🛡',cls:'🏫',stu:'🎓',att:'📷',grd:'📝',tt:'🗓',exm:'📋',rep:'📊',doc:'📄',crd:'🪪',msg:'💬',bk:'📚',fee:'💰',pay:'💵',dis:'⚖️',log:'🕵',sup:'🎧',ct:'📒',cal:'📅',staff:'👥',subj:'📘',set:'⚙️'};
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
-  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['ct','tab_ct'],['dis','tab_dis']]:[]).concat([['cal','tab_cal']]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set'],['log','tab_log']]:[]);
+  const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['ct','tab_ct'],['dis','tab_dis']]:[]).concat([['cal','tab_cal']]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set'],['log','tab_log'],['sup','tab_sup']]:[]);
   const yl=yearsList();
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
     <div><p class="sub" style="margin:0">${t('d_hi')} ${esc(p&&p.full_name||D.user.email)}${p&&p.role_title?' — '+esc(p.role_title):''}</p>
@@ -904,7 +1109,7 @@ function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
     if(a.length<8||a!==document.getElementById('cp2').value){er.textContent=t('e_pw');return}er.textContent=t('wait');const {error}=await sb.auth.updateUser({password:a});
     if(error){er.textContent=em(error);return}er.style.color='var(--g2)';er.textContent=t('np_ok')};
   if(MS.unread)updMsgBadge();
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal}[D.tab]||tabOverview)()}
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup}[D.tab]||tabOverview)()}
 
 function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -3708,42 +3913,355 @@ async function ovEvents(){const b=document.getElementById('ovEv');if(!b)return;t
   const up=CAL.rows.filter(e=>(e.end_date||e.start_date)>=todayISO()).slice(0,4);if(!up.length||!document.getElementById('ovEv'))return;
   b.innerHTML=`<div class="cert"><b>📅 ${t('ev_up')}</b>${up.map(e=>`<div style="display:flex;gap:8px;margin-top:6px"><small dir="ltr" class="sub" style="min-width:86px">${fdate(e.start_date)}</small><span>${EVK[e.kind][0]} ${esc(evTitle(e))}</span></div>`).join('')}</div>`}
 
-// ===== platform admin space / لوحة مدير المنصة =====
-const ADM={sec:'ov',ann:[],bak:[],ierr:''};
-const ADMS=[['ov','📊','adm_ov'],['schools','🏫','adm_schools'],['inv','🧾','adm_inv'],['ann','📣','adm_ann'],['bak','💾','adm_bak'],['set','⚙️','adm_set']];
-async function loadAdmin(){const box=document.getElementById('admBox');if(!box)return;if(!LIVE){location.hash='login';return}box.innerHTML=t('wait');
+// ===== SUPER ADMIN space 2026 / فضاء صاحب المنصة =====
+const ADM={sec:'dash',ann:[],bak:[],ierr:'',nav:false};
+const SA_NAV=[['dash','🏠','sa_dash'],['schools','🏫','sa_schools'],['admins','👤','sa_admins'],['subs','💳','sa_subs'],['rev','💰','sa_rev'],['inv','🧾','adm_inv'],['rep','📊','sa_rep'],['mon','📈','sa_mon'],['sup','🎧','sa_sup'],['ann','📣','sa_ann'],['team','🛡️','sa_team'],['bak','💾','adm_bak'],['sec','🔐','sa_sec'],['set','⚙️','sa_set']];
+const SAD={exp:[],tk:[],need:'',act:null,secd:null,team:null,tq:'',tf:'open',topen:null,rep:[],sf:'',aq:'',ef:''};
+const saN=n=>Math.round(+n||0).toLocaleString('fr-FR').replace(/[  ]/g,' ');
+const saDays=d=>d?Math.ceil((new Date(String(d).slice(0,10)+'T00:00:00Z')-new Date(todayISO()+'T00:00:00Z'))/864e5):null;
+const saEnd=x=>x.status==='trial'?x.trial_end:x.paid_until;
+const saSchool=id=>(P.list||[]).find(x=>x.id===id)||{};
+const saSName=x=>esc((L==='ar'||L==='nqo'||!x.name_fr?x.name_ar:x.name_fr)||'—');
+function saDark(){try{return localStorage.getItem('amc_sa_dark')==='1'}catch(e){return false}}
+function saState(x){const k=platState(x)[0];return k==='texp'||k==='pexp'?'exp':k}
+const SA_ST={act:['g','pl_act'],trial:['b','pl_trial'],exp:['r','sa_expired'],susp:['k','pl_susp']};
+const saTag=x=>{const s=SA_ST[saState(x)];return `<span class="sa-tag ${s[0]}">${t(s[1])}</span>`};
+const TK_ST={open:['o','sa_tk_open'],progress:['b','sa_tk_prog'],closed:['g','sa_tk_closed']};
+const TK_PR={low:['k','sa_pr_low'],normal:['y','sa_pr_norm'],high:['r','sa_pr_high']};
+const TK_CAT=['bug','question','feature','billing','data','other'];
+const EXP_CAT=['hosting','marketing','salary','transport','equipment','other'];
+function saDates(){const d=new Date(),lc={ar:'ar',fr:'fr-FR',en:'en-GB',nqo:'fr-FR'}[L]||'fr-FR';let g='',h='';
+  try{g=new Intl.DateTimeFormat(lc,{weekday:'long',day:'numeric',month:'long',year:'numeric'}).format(d)}catch(e){g=fdate(todayISO())}
+  try{h=new Intl.DateTimeFormat((L==='ar'?'ar':lc)+'-u-ca-islamic-umalqura',{day:'numeric',month:'long',year:'numeric'}).format(d)}catch(e){}
+  return [g,h]}
+function saNotifs(){const out=[];
+  SAD.tk.filter(k=>k.status==='open').forEach(k=>out.push({ic:'🎧',tx:`${t('sa_n_tk')} #${k.ticket_no} — ${esc(k.subject)}`,sub:saSName(saSchool(k.institution_id)),go:()=>{ADM.sec='sup';SAD.topen=k.id}}));
+  (P.list||[]).forEach(x=>{const s=saState(x),d=saDays(saEnd(x));
+    if(s==='exp')out.push({ic:'⛔',tx:t('sa_n_exp').replace('{n}',saSName(x)),sub:fdate(saEnd(x)),go:()=>{ADM.sec='subs';SAD.sf='exp'}});
+    else if(s!=='susp'&&d!=null&&d>=0&&d<=7)out.push({ic:'⏳',tx:t('sa_n_soon').replace('{n}',saSName(x)).replace('{d}',d),sub:fdate(saEnd(x)),go:()=>{ADM.sec='subs';SAD.sf='soon'}})});
+  P.inv.filter(v=>v.status==='due').forEach(v=>out.push({ic:'🧾',tx:t('sa_n_due').replace('{no}',esc(v.invoice_no||'')).replace('{a}',money(v.amount)),sub:saSName(saSchool(v.institution_id)),go:()=>{ADM.sec='inv';ADM.if='due'}}));
+  return out}
+
+async function loadAdmin(){const box=document.getElementById('admBox');if(!box)return;if(!LIVE){location.hash='login';return}
+  if(!box.querySelector('.sa'))box.innerHTML=`<div class="wrap" style="padding:40px 0"><div class="note">${t('wait')}</div></div>`;
   let user=null;try{user=(await sb.auth.getUser()).data.user}catch(e){}if(!user){location.hash='login';return}
   if(!D.p||D.user?.id!==user.id){D.user=user;const r=await sb.from('profiles').select('full_name,role,role_title,institution_id').eq('id',user.id).maybeSingle();D.p=r.data}
-  if(!D.p||D.p.role!=='superadmin'){box.innerHTML=`<div class="note">⛔ ${t('adm_only')}</div><p><a class="btn btn-l" href="#dash">${t('my_dash')}</a></p>`;return}
-  const {data,error}=await sb.rpc('platform_list');if(error){box.innerHTML=`<div class="err">${esc(em(error))}</div>`;return}
-  P.list=data||[];P.inv=[];P.conf={};P.ierr='';
-  try{const [a,b]=await Promise.all([sb.from('platform_invoices').select('*').order('issued_on'),sb.from('platform_settings').select('conf').maybeSingle()]);
-    if(a.error)P.ierr=/platform_invoices/.test(a.error.message||'')?t('pi_need'):em(a.error);else P.inv=a.data||[];if(b&&b.data)P.conf=b.data.conf||{}}catch(e){}
+  if(!D.p||D.p.role!=='superadmin'){box.innerHTML=`<div class="wrap" style="padding:30px 0"><div class="panel"><div class="note">⛔ ${t('adm_only')}</div><p><a class="btn btn-l" href="#dash">${t('my_dash')}</a></p></div></div>`;return}
+  const {data,error}=await sb.rpc('platform_list');if(error){box.innerHTML=`<div class="wrap" style="padding:30px 0"><div class="panel"><div class="err">${esc(em(error))}</div></div></div>`;return}
+  P.list=data||[];P.inv=[];P.conf={};P.ierr='';SAD.need='';
+  try{const [a,b,c,d]=await Promise.all([sb.from('platform_invoices').select('*').order('issued_on'),sb.from('platform_settings').select('conf').maybeSingle(),
+      sb.from('platform_expenses').select('*').order('spent_on',{ascending:false}),sb.from('support_tickets').select('*').order('updated_at',{ascending:false})]);
+    if(a.error)P.ierr=/platform_invoices/.test(a.error.message||'')?t('pi_need'):em(a.error);else P.inv=a.data||[];if(b&&b.data)P.conf=b.data.conf||{};
+    SAD.exp=c&&!c.error?c.data||[]:[];SAD.tk=d&&!d.error?d.data||[]:[];if((c&&c.error)||(d&&d.error))SAD.need=t('sa_need')}catch(e){}
   renderAdmin()}
-function renderAdmin(){const box=document.getElementById('admBox');
-  box.innerHTML=`<div class="admh"><div><small class="sub">${t('d_hi')} ${esc(D.p.full_name||'')}</small><h2>🛡 ${t('adm_ttl')}</h2></div><a class="btn btn-l" href="#dash">🏫 ${t('my_dash')}</a></div>
-   <div class="tabs" style="margin-top:10px">${ADMS.map(([k,ic,l])=>`<div class="tab${ADM.sec===k?' on':''}" data-adm="${k}"><i>${ic}</i>${t(l)}</div>`).join('')}</div><div id="admBody"></div>`;
-  box.querySelectorAll('[data-adm]').forEach(e=>e.onclick=()=>{ADM.sec=e.dataset.adm;renderAdmin()});
-  ({ov:admOverview,schools:renderPlatform,set:renderPlatform,inv:admInvoices,ann:admAnn,bak:admBackups}[ADM.sec]||admOverview)()}
-function admOverview(){const el=document.getElementById('admBody'),L2=P.list,td=todayISO(),st=L2.map(x=>platState(x)[0]),c=k=>st.filter(v=>v===k).length;
-  const paid=P.inv.filter(v=>v.status==='paid'),sum=a=>a.reduce((s,v)=>s+(+v.amount),0),ym=td.slice(0,7);
-  const endOf=x=>x.status==='trial'?x.trial_end:x.paid_until,left=x=>{const e=endOf(x);return e?Math.ceil((new Date(e)-new Date(td))/864e5):null};
-  const soon=L2.filter(x=>x.status!=='suspended'&&left(x)!=null&&left(x)>=0&&left(x)<=14).sort((a,b)=>left(a)-left(b));
-  const stopped=L2.filter(x=>['texp','pexp','susp'].includes(platState(x)[0]));
-  const fresh=L2.filter(x=>(new Date(td)-new Date(String(x.created_at).slice(0,10)))/864e5<=30);
-  const idle=L2.filter(x=>!['susp'].includes(platState(x)[0])&&(!x.last_activity||(new Date(td)-new Date(String(x.last_activity).slice(0,10)))/864e5>14));
-  const months=Array.from({length:12},(_,k)=>{const d=new Date(Date.UTC(+td.slice(0,4),+td.slice(5,7)-12+k,1));return d.toISOString().slice(0,7)}),byM=months.map(m=>sum(paid.filter(v=>String(v.paid_on).slice(0,7)===m))),mx=Math.max(1,...byM);
-  const row=(x,extra)=>`<tr><td><b>${esc(x.name_ar)}</b><br><small class="sub" dir="ltr">${esc(x.code)}</small></td><td>${extra}</td><td style="white-space:nowrap">${(x.admin&&x.admin.phone)||x.phone?`<a class="btn btn-t sm" target="_blank" rel="noopener" href="https://wa.me/${waNum((x.admin&&x.admin.phone)||x.phone)}?text=${encodeURIComponent(piRemind(x))}">💬</a>`:''}<button class="btn btn-t sm" data-ago="${x.id}">↗</button></td></tr>`;
-  el.innerHTML=`<div class="stats"><div class="stat"><b>${L2.length}</b><span>${t('pl_schools')}</span></div><div class="stat"><b>${c('act')}</b><span>${t('pl_act')}</span></div><div class="stat"><b>${c('trial')}</b><span>${t('pl_trial')}</span></div>
-    <div class="stat" style="${stopped.length?'background:#fdecea':''}"><b>${stopped.length}</b><span>${t('pl_stop')}</span></div><div class="stat"><b>${L2.reduce((a,x)=>a+Number(x.n_students||0),0)}</b><span>${t('tab_stu')}</span></div><div class="stat"><b>${L2.reduce((a,x)=>a+Number(x.n_staff||0),0)}</b><span>${t('tab_staff')}</span></div></div>
-   <div class="stats"><div class="stat"><b>${money(sum(paid.filter(v=>String(v.paid_on).slice(0,7)===ym)))}</b><span>${t('adm_rev_m')}</span></div><div class="stat"><b>${money(sum(paid.filter(v=>String(v.paid_on).slice(0,4)===td.slice(0,4))))}</b><span>${t('pi_rev')} ${td.slice(0,4)}</span></div>
-    <div class="stat" style="${P.inv.some(v=>v.status==='due')?'background:#fdecea':''}"><b>${money(sum(P.inv.filter(v=>v.status==='due')))}</b><span>${t('pi_unpaid')}</span></div><div class="stat"><b>${fresh.length}</b><span>${t('adm_new30')}</span></div></div>
-   <div class="cert"><b>📈 ${t('adm_rev12')}</b><div class="bars">${months.map((m,k)=>`<div class="bar"><i style="height:${Math.round(byM[k]/mx*100)}%" title="${esc(money(byM[k]))}"></i><small>${m.slice(5)}</small></div>`).join('')}</div></div>
-   <div class="cert"><b>⏳ ${t('adm_soon')}</b>${soon.length?`<div class="tblw" style="margin-top:6px"><table class="tbl" style="min-width:0"><tbody>${soon.map(x=>row(x,`<span class="badge${left(x)<=3?' bad':''}">${t('sub_left').replace('{n}',left(x))}</span><br><small dir="ltr">${fdate(endOf(x))}</small>`)).join('')}</tbody></table></div>`:`<p class="sub">—</p>`}</div>
-   ${stopped.length?`<div class="cert"><b>⛔ ${t('pl_stop')}</b><div class="tblw" style="margin-top:6px"><table class="tbl" style="min-width:0"><tbody>${stopped.map(x=>row(x,`<span class="badge bad">${t('pl_'+platState(x)[0])}</span>`)).join('')}</tbody></table></div></div>`:''}
-   <div class="cert"><b>💤 ${t('adm_idle')}</b>${idle.length?`<div class="tblw" style="margin-top:6px"><table class="tbl" style="min-width:0"><tbody>${idle.map(x=>row(x,`<small>${t('pl_last')}: <span dir="ltr">${x.last_activity?fdate(String(x.last_activity).slice(0,10)):'—'}</span></small>`)).join('')}</tbody></table></div>`:`<p class="sub">—</p>`}</div>
-   <div class="cert"><b>🆕 ${t('adm_new30')}</b>${fresh.length?`<div class="tblw" style="margin-top:6px"><table class="tbl" style="min-width:0"><tbody>${fresh.map(x=>row(x,`<small>${esc(x.city||'')}<br><span dir="ltr">${fdate(String(x.created_at).slice(0,10))}</span></small>`)).join('')}</tbody></table></div>`:`<p class="sub">—</p>`}</div>`;
-  el.querySelectorAll('[data-ago]').forEach(b=>b.onclick=()=>{ADM.sec='schools';P.q=(P.list.find(x=>x.id===b.dataset.ago)||{}).code||'';renderAdmin()})}
+
+function renderAdmin(){const box=document.getElementById('admBox');if(!box||!D.p||D.p.role!=='superadmin')return;
+  const openT=SAD.tk.filter(k=>k.status!=='closed').length,newT=SAD.tk.filter(k=>k.status==='open').length,nb=saNotifs().length,nm=D.p.full_name||(D.user&&D.user.email)||'';
+  const [gd,hd]=saDates(),cur=SA_NAV.find(n=>n[0]===ADM.sec)||SA_NAV[0];
+  box.innerHTML=`<div class="sa${saDark()?' dark':''}" id="saRoot" style="--sa-dir:${RTL()?1:-1}">
+   <aside class="sa-side">
+    <div class="sa-brand"><div class="lg"><img src="logo.png" alt=""></div><b><i>AL-</i>MADARIS <i>CI</i></b><small>${t('sa_central')}</small><span class="sa-badge">👑 SUPER ADMIN</span></div>
+    <nav class="sa-nav">${SA_NAV.map(([k,ic,l],i)=>`${[1,6,9,11].includes(i)?'<div class="sep"></div>':''}<a data-sa="${k}" class="${ADM.sec===k?'on':''}" href="javascript:void 0"><i>${ic}</i><span>${t(l)}</span>${k==='sup'&&openT?`<em class="n">${openT}</em>`:''}${k==='inv'&&P.inv.some(v=>v.status==='due')?`<em class="n">${P.inv.filter(v=>v.status==='due').length}</em>`:''}</a>`).join('')}</nav>
+    <div class="sa-out">${D.p.institution_id?`<a class="ms" href="#dash">🏫 ${t('my_dash')}</a>`:''}<button class="lo" id="saOut">⏻ ${t('sa_logout')}</button></div>
+   </aside>
+   <section class="sa-main">
+    <div class="sa-top">
+     <button class="sa-ib sa-burger" id="saBurger" aria-label="menu">☰</button>
+     <div class="who"><div class="sa-av">${esc(String(nm).trim().charAt(0)||'?')}</div><div><b>${esc(nm)}</b><small>${t('sa_owner')}</small></div></div>
+     <div class="sa-srch"><input id="saQ" placeholder="${esc(t('sa_search'))}" value="${esc(ADM.sec==='schools'?P.q||'':'')}"><span>🔍</span></div>
+     <div class="sa-date"><span style="font-size:20px">📅</span><div><b>${esc(gd)}</b>${esc(hd)}</div></div>
+     <button class="sa-ib" id="saMail" title="${esc(t('sa_sup'))}">✉️${newT?`<span class="n">${newT}</span>`:''}</button>
+     <button class="sa-ib" id="saBell" title="${esc(t('sa_notifs'))}">🔔${nb?`<span class="n">${nb>99?'99+':nb}</span>`:''}</button>
+     <div class="sa-lang">${['ar','fr','en','nqo'].map(l=>`<button data-sal="${l}" class="${L===l?'on':''}">${{ar:'AR',fr:'FR',en:'EN',nqo:'ߒߞߏ'}[l]}</button>`).join('')}</div>
+     <button class="sa-ib" id="saDark" title="${esc(t('sa_dark'))}">${saDark()?'☀️':'🌙'}</button>
+     <button class="sa-ib" id="saFull" title="${esc(t('sa_full'))}">⛶</button>
+     <div id="saPop"></div>
+    </div>
+    ${ADM.sec==='dash'?'':`<div class="sa-h1 sa-in"><h2><i>${cur[1]}</i>${t(cur[2])}</h2><button class="sa-btn lt sm" id="saRef">⟳ ${t('sa_refresh')}</button></div>`}
+    ${SAD.need&&['sup','rev','mon','team','sec','dash'].includes(ADM.sec)?`<div class="sa-note">⚙️ ${esc(SAD.need)}</div>`:''}
+    <div id="admBody"></div>
+   </section></div>`;
+  const root=document.getElementById('saRoot'),g=id=>document.getElementById(id);
+  root.querySelectorAll('[data-sa]').forEach(a=>a.onclick=()=>{ADM.sec=a.dataset.sa;ADM.nav=false;SAD.topen=null;if(ADM.sec!=='schools'){P.q='';P.iopen=null}renderAdmin();window.scrollTo(0,0)});
+  root.onclick=e=>{if(e.target===root&&root.classList.contains('nav-open'))root.classList.remove('nav-open')};
+  g('saBurger').onclick=()=>root.classList.toggle('nav-open');
+  g('saOut').onclick=async()=>{try{await sb.auth.signOut()}catch(e){}location.hash='login'};
+  g('saDark').onclick=()=>{const on=!saDark();try{localStorage.setItem('amc_sa_dark',on?'1':'0')}catch(e){}root.classList.toggle('dark',on);g('saDark').textContent=on?'☀️':'🌙'};
+  g('saFull').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+  root.querySelectorAll('[data-sal]').forEach(b=>b.onclick=()=>{L=b.dataset.sal;try{localStorage.setItem('amc_lang',L)}catch(x){}applyLang()});
+  g('saMail').onclick=()=>{ADM.sec='sup';SAD.tf='open';SAD.topen=null;renderAdmin()};
+  g('saBell').onclick=e=>{e.stopPropagation();const p=g('saPop');if(p.innerHTML){p.innerHTML='';return}const N=saNotifs();
+    p.innerHTML=`<div class="sa-pop">${N.length?N.slice(0,30).map((n,i)=>`<a data-nt="${i}"><span style="font-size:20px">${n.ic}</span><span><b>${n.tx}</b><br><small class="sub">${n.sub||''}</small></span></a>`).join(''):`<div class="sa-empty"><span>🔕</span>${t('sa_n_none')}</div>`}</div>`;
+    p.querySelectorAll('[data-nt]').forEach(a=>a.onclick=()=>{N[+a.dataset.nt].go();renderAdmin()})};
+  document.addEventListener('click',saPopClose);
+  const q=g('saQ');q.onkeydown=e=>{if(e.key==='Enter'){P.q=q.value.trim();P.f='';ADM.sec='schools';renderAdmin()}};
+  const rf=g('saRef');if(rf)rf.onclick=()=>{SAD.act=null;SAD.secd=null;SAD.team=null;loadAdmin()};
+  ({dash:saDash,schools:renderPlatform,set:renderPlatform,inv:admInvoices,ann:admAnn,bak:admBackups,admins:saAdmins,subs:saSubs,rev:saRev,rep:saRep,mon:saMon,sup:saSup,team:saTeam,sec:saSec}[ADM.sec]||saDash)();
+  saFx(root)}
+function saPopClose(e){const p=document.getElementById('saPop');if(p&&p.innerHTML&&!e.target.closest('.sa-pop'))p.innerHTML=''}
+function saFx(root){if(!root)return;saCount(root);
+  if(!window.matchMedia||!matchMedia('(hover:hover)').matches||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
+  root.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('.sa-card.tl');root.querySelectorAll('.sa-card.tl[style*=perspective]').forEach(x=>{if(x!==c)x.style.transform=''});if(!c)return;
+    const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(900px) rotateX(${(-y*7).toFixed(2)}deg) rotateY(${(x*9).toFixed(2)}deg) translateY(-4px)`});
+  root.addEventListener('pointerleave',()=>root.querySelectorAll('.sa-card.tl').forEach(x=>x.style.transform=''))}
+function saCount(scope){const red=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  scope.querySelectorAll('[data-cnt]').forEach(e=>{const v=+e.dataset.cnt||0,f=e.dataset.fmt==='m'?n=>money(n):saN;if(red||!v){e.textContent=f(v);return}
+    const t0=performance.now(),step=now=>{const p=Math.min(1,(now-t0)/1100),k=1-Math.pow(1-p,3);e.textContent=f(v*k);if(p<1&&document.body.contains(e))requestAnimationFrame(step)};requestAnimationFrame(step)})}
+const saKpi=(ic,c1,c2,lbl,v,i,fmt)=>`<div class="sa-card sa-kpi tl sa-in" style="--d:${i};--c1:${c1}"><i class="sa-ic" style="--c1:${c1};--c2:${c2}"><span>${ic}</span></i><div class="tx"><small>${lbl}</small><b${fmt?' class="m"':''}><bdi dir="ltr" data-cnt="${+v||0}"${fmt?` data-fmt="${fmt}"`:''}>0</bdi></b></div></div>`;
+const saPan=(ic,title,body,i,link)=>`<div class="sa-card sa-pan tl sa-in" style="--d:${i}"><div class="sa-pt"><span><i>${ic}</i> ${title}</span>${link||''}</div><div class="sa-pb">${body}</div></div>`;
+const saSum=a=>a.reduce((s,v)=>s+(+v.amount||0),0);
+function saMonths(n){const td=todayISO();return Array.from({length:n},(_,k)=>{const d=new Date(Date.UTC(+td.slice(0,4),+td.slice(5,7)-n+k,1));return d.toISOString().slice(0,7)})}
+function saMLabel(m){try{return new Intl.DateTimeFormat({ar:'ar',fr:'fr-FR',en:'en-GB',nqo:'fr-FR'}[L]||'fr-FR',{month:'short'}).format(new Date(m+'-15T00:00:00Z'))}catch(e){return m.slice(5)}}
+
+// --- Côte d'Ivoire map ---
+const SA_CIV=[[-7.52,4.35],[-7.62,5.1],[-7.42,5.85],[-7.95,6.3],[-8.3,6.6],[-8.55,7.25],[-8.2,7.6],[-8.45,7.75],[-8.1,8.2],[-7.75,8.45],[-8.05,8.75],[-7.9,9.4],[-8.15,9.65],[-7.95,10.15],[-7.6,10.42],[-6.95,10.3],[-6.5,10.6],[-6.2,10.5],[-5.85,10.4],[-5.5,10.42],[-5.3,10.73],[-4.95,10.15],[-4.4,9.7],[-3.6,9.9],[-3.0,9.75],[-2.7,9.45],[-2.7,9.0],[-2.5,8.2],[-2.9,7.9],[-3.05,7.6],[-3.25,6.6],[-3.05,5.75],[-2.95,5.1],[-3.3,5.12],[-4.0,5.23],[-5.0,5.12],[-6.0,4.95],[-6.6,4.68],[-7.0,4.5]];
+const SA_CITY={abidjan:[-4.02,5.35,'أبيدجان','Abidjan'],bouake:[-5.03,7.69,'بواكي','Bouaké'],yamoussoukro:[-5.27,6.82,'ياموسوكرو','Yamoussoukro'],daloa:[-6.45,6.88,'دالوا','Daloa'],sanpedro:[-6.64,4.75,'سان بيدرو','San-Pédro'],korhogo:[-5.63,9.46,'كورهوغو','Korhogo'],man:[-7.55,7.41,'مان','Man'],gagnoa:[-5.95,6.13,'غانيوا','Gagnoa'],odienne:[-7.57,9.51,'أودييني','Odienné'],bondoukou:[-2.8,8.04,'بوندوكو','Bondoukou'],abengourou:[-3.49,6.73,'أبينغورو','Abengourou'],divo:[-5.36,5.84,'ديفو','Divo'],seguela:[-6.67,7.96,'سيغيلا','Séguéla'],soubre:[-6.6,5.79,'سوبري','Soubré'],ferkessedougou:[-5.19,9.6,'فيركيسيدوغو','Ferkessédougou'],katiola:[-5.1,8.14,'كاتيولا','Katiola'],grandbassam:[-3.74,5.21,'غران باسام','Grand-Bassam'],agboville:[-4.21,5.93,'أغبوفيل','Agboville'],touba:[-7.68,8.28,'توبا','Touba'],bouafle:[-5.75,6.99,'بوافلي','Bouaflé'],sinfra:[-5.91,6.62,'سينفرا','Sinfra'],dabou:[-4.38,5.32,'دابو','Dabou'],anyama:[-4.05,5.49,'أنياما','Anyama'],mankono:[-6.19,8.06,'مانكونو','Mankono'],boundiali:[-6.48,9.52,'بونديالي','Boundiali'],tengrela:[-6.41,10.48,'تينغريلا','Tengréla'],dimbokro:[-4.71,6.65,'ديمبوكرو','Dimbokro'],bongouanou:[-4.2,6.65,'بونغوانو','Bongouanou'],aboisso:[-3.21,5.47,'أبواسو','Aboisso'],sassandra:[-6.09,4.95,'ساساندرا','Sassandra'],guiglo:[-7.49,6.54,'غيغلو','Guiglo'],duekoue:[-7.35,6.74,'دويكوي','Duékoué'],issia:[-6.59,6.49,'إيسيا','Issia'],tiassale:[-4.82,5.9,'تياسالي','Tiassalé'],beoumi:[-5.57,7.67,'بيومي','Béoumi'],sakassou:[-5.29,7.45,'ساكاسو','Sakassou'],dabakala:[-4.43,8.36,'داباكالا','Dabakala'],toumodi:[-5.02,6.55,'تومودي','Toumodi'],adzope:[-3.86,6.11,'أدزوبي','Adzopé'],bingerville:[-3.89,5.36,'بينجرفيل','Bingerville'],yopougon:[-4.08,5.34,'يوبوغون','Yopougon'],abobo:[-4.02,5.42,'أبوبو','Abobo'],cocody:[-3.98,5.36,'كوكودي','Cocody']};
+const SA_ABJ=['yopougon','abobo','cocody'];
+function saCity(c){const s=String(c||'').trim();if(!s)return null;const k=s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase().replace(/[^a-z]/g,'');
+  if(SA_CITY[k])return SA_ABJ.includes(k)?'abidjan':k;const a=nz(s);for(const [key,v] of Object.entries(SA_CITY))if(nz(v[2])===a||a.includes(nz(v[2])))return SA_ABJ.includes(key)?'abidjan':key;return null}
+const saXY=(lon,lat)=>[((lon+8.75)*36).toFixed(1),((10.9-lat)*36).toFixed(1)];
+function saMap(L2){const cnt={};let other=0;L2.forEach(x=>{const k=saCity(x.city);if(k)cnt[k]=(cnt[k]||0)+1;else other++});
+  const top=Object.entries(cnt).sort((a,b)=>b[1]-a[1]),cn=k=>L==='ar'?SA_CITY[k][2]:SA_CITY[k][3];
+  const pins=top.map(([k,n],i)=>{const [x,y]=saXY(SA_CITY[k][0],SA_CITY[k][1]);return `<g class="sa-pin" style="animation-delay:${.3+i*.08}s"><title>${esc(cn(k))}: ${n}</title><path d="M${x} ${y} c-6 -9 -10 -13 -10 -18 a10 10 0 1 1 20 0 c0 5 -4 9 -10 18z" fill="url(#saPinG)" stroke="#fff" stroke-width="1.5"/><text x="${x}" y="${+y-16}" text-anchor="middle" font-size="9" font-weight="800" fill="#fff" font-family="Inter">${n}</text></g>`}).join('');
+  const poly=SA_CIV.map(p=>saXY(p[0],p[1]).join(',')).join(' ');
+  return `<div class="sa-map"><svg viewBox="0 0 240 245" role="img" aria-label="Côte d'Ivoire"><defs><linearGradient id="saMapG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3fcf7f"/><stop offset="1" stop-color="#0f7a43"/></linearGradient><linearGradient id="saPinG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9b52"/><stop offset="1" stop-color="#e2560c"/></linearGradient></defs>
+    <polygon points="${poly}" fill="#06381f" transform="translate(4,7)" opacity=".55"/><polygon points="${poly}" fill="url(#saMapG)" stroke="#f6c445" stroke-width="2.2" stroke-linejoin="round"/>${pins}
+    <g transform="translate(120,226)"><rect x="-44" y="-12" width="88" height="22" rx="11" fill="#f6c445" stroke="#fff"/><text text-anchor="middle" y="4" font-size="11" font-weight="800" fill="#3d2600" font-family="Cairo,Inter">${L2.length} ${esc(t('sa_school_s'))}</text></g></svg>
+    <div class="ls">${top.slice(0,6).map(([k,n])=>`<div class="sa-row"><span>📍 ${esc(cn(k))}</span><b>${n}</b></div>`).join('')}${other?`<div class="sa-row"><span>📍 ${t('sa_other_city')}</span><b>${other}</b></div>`:''}${!L2.length?`<div class="sa-empty">—</div>`:''}</div></div>`}
+function saDonut(parts,center,sub){const tot=parts.reduce((a,p)=>a+p[1],0)||1,R=58,C=2*Math.PI*R;let off=0;
+  const segs=parts.map(([lbl,v,col])=>{const len=v/tot*C,s=`<circle class="s" cx="80" cy="80" r="${R}" fill="none" stroke="${col}" stroke-width="22" stroke-dasharray="0 ${C}" data-da="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 80 80)"/>`;off+=len;return s}).join('');
+  return `<div class="sa-don"><svg viewBox="0 0 160 160"><circle cx="80" cy="80" r="${R}" fill="none" stroke="rgba(120,140,130,.15)" stroke-width="22"/>${segs}<circle cx="80" cy="80" r="44" fill="var(--sa-card)"/><text x="80" y="80" text-anchor="middle" font-size="30" font-weight="900" fill="currentColor" font-family="Inter">${center}</text><text x="80" y="100" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" opacity=".7" font-family="Cairo,Inter">${esc(sub)}</text></svg>
+   <div class="lg">${parts.map(([lbl,v,col])=>`<div class="sa-row"><span><span class="sa-dot" style="background:${col};color:${col}"></span> ${lbl}</span><b>${v} <small class="sub" style="font-weight:600">(${Math.round(v/tot*1000)/10}%)</small></b></div>`).join('')}</div></div>`}
+function saDonutGo(){requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll('.sa-don circle.s[data-da]').forEach(c=>c.setAttribute('stroke-dasharray',c.dataset.da))))}
+function saLine(labels,vals,col,W=380,H=170){const pl=Math.max(30,String(saN(Math.max(1,...vals))).length*6.6+10),pr=14,pt=22,pb=26,mx=Math.max(1,...vals),mn=Math.min(...vals,0),rg=Math.max(1,mx-mn),n=vals.length;
+  const X=i=>pl+(n<2?0:i*(W-pl-pr)/(n-1)),Y=v=>pt+(H-pt-pb)*(1-(v-mn)/rg);const pts=vals.map((v,i)=>[X(i),Y(v)]);
+  const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' '),area=d+` L${X(n-1)} ${H-pb} L${X(0)} ${H-pb} Z`,ticks=[mn,mn+rg/2,mx];
+  return `<svg class="sa-line" viewBox="0 0 ${W} ${H}" style="width:100%;height:auto;direction:ltr"><defs><linearGradient id="saLg${col.slice(1)}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${col}" stop-opacity=".45"/><stop offset="1" stop-color="${col}" stop-opacity="0"/></linearGradient></defs>
+   ${ticks.map(v=>`<line x1="${pl}" x2="${W-pr}" y1="${Y(v)}" y2="${Y(v)}" stroke="currentColor" opacity=".1"/><text x="${pl-6}" y="${Y(v)+4}" text-anchor="end" font-size="10" fill="currentColor" opacity=".6" font-family="Inter">${saN(v)}</text>`).join('')}
+   <path d="${area}" fill="url(#saLg${col.slice(1)})" opacity=".9"/><path class="ln" d="${d}" fill="none" stroke="${col}" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+   ${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="5" fill="#f6c445" stroke="${col}" stroke-width="2.5" style="animation-delay:${1+i*.08}s"/><text x="${p[0]}" y="${p[1]-10}" text-anchor="middle" font-size="11" font-weight="800" fill="currentColor" font-family="Inter">${saN(vals[i])}</text><text x="${p[0]}" y="${H-8}" text-anchor="middle" font-size="10.5" fill="currentColor" opacity=".7" font-family="Cairo,Inter">${esc(labels[i])}</text>`).join('')}</svg>`}
+function saBars(labels,series){const mx=Math.max(1,...series.flatMap(s=>s.v));
+  return `<div class="sa-bars">${labels.map((l,i)=>`<div class="b"><div>${series.map(s=>`<i title="${esc(s.n)}: ${esc(money(s.v[i]))}" style="height:${Math.max(s.v[i]?3:0,Math.round(s.v[i]/mx*100))}%;background:linear-gradient(180deg,${s.c[0]},${s.c[1]});animation-delay:${i*40}ms"></i>`).join('')}</div><small>${esc(l)}</small></div>`).join('')}</div>
+   <div class="sa-chips" style="margin:8px 0 0">${series.map(s=>`<span class="sub"><span class="sa-dot" style="background:${s.c[1]};color:${s.c[1]}"></span> ${esc(s.n)}</span>`).join(' ')}</div>`}
+
+// --- dashboard ---
+function saDash(){const el=document.getElementById('admBody'),L2=P.list,td=todayISO(),ym=td.slice(0,7);
+  const st=L2.map(saState),c=k=>st.filter(v=>v===k).length,tot=k=>L2.reduce((a,x)=>a+(+x[k]||0),0);
+  const paid=P.inv.filter(v=>v.status==='paid'),revM=saSum(paid.filter(v=>String(v.paid_on).slice(0,7)===ym)),revY=saSum(paid.filter(v=>String(v.paid_on).slice(0,4)===td.slice(0,4))),revT=saSum(paid),expT=saSum(SAD.exp),net=revT-expT;
+  const months=saMonths(6),grow=months.map(m=>L2.filter(x=>String(x.created_at).slice(0,7)<=m).length);
+  const latest=L2.slice().sort((a,b)=>String(b.created_at).localeCompare(String(a.created_at))).slice(0,4);
+  const tks=SAD.tk.slice(0,4);
+  const [g1]=saDates();
+  el.innerHTML=`<div class="sa-hero sa-in">
+     <div class="sa-dev" aria-hidden="true"><div class="sa-lap"><div class="scr"><div><img src="logo.png" alt=""></div></div><div class="base"></div></div><div class="sa-ph"><div><img src="logo.png" alt=""></div></div></div>
+     <div class="mid"><img src="logo.png" alt=""><h1><i>AL-</i>MADARIS <i>CI</i></h1><p>${t('sa_tagline')}</p><span class="pill">${t('sa_central')}</span></div>
+     <div class="sa-flag"><div class="fl"><i style="background:#f77f00"></i><i style="background:#fff"></i><i style="background:#009e60"></i></div><small>🇨🇮 ${t('sa_civ')}</small></div></div>
+   <div class="sa-kpis k7">${[
+     ['🎓','#a78bfa','#6d28d9',t('sa_k_stu'),tot('n_students')],['👨‍🏫','#60a5fa','#1d4ed8',t('sa_k_tch'),tot('n_teachers')],['👥','#fdba74','#ea580c',t('sa_k_staff'),tot('n_staff')],
+     ['🏫','#4ade80','#15803d',t('sa_k_sch'),L2.length],['✅','#34d399','#047857',t('sa_k_act'),c('act')],['🧪','#93c5fd','#2563eb',t('sa_k_trial'),c('trial')],['⛔','#fca5a5','#dc2626',t('sa_k_exp'),c('exp')+c('susp')]
+    ].map((k,i)=>saKpi(k[0],k[1],k[2],k[3],k[4],i)).join('')}</div>
+   <div class="sa-grid sa-g3">
+    ${saPan('📊',t('sa_p_subs'),saDonut([[t('pl_act'),c('act'),'#16a34a'],[t('pl_trial'),c('trial'),'#2563eb'],[t('sa_expired'),c('exp'),'#dc2626'],[t('pl_susp'),c('susp'),'#94a3b8']],L2.length,t('sa_school_s')),1,`<a data-go="subs">${t('sa_more')}</a>`)}
+    ${saPan('💰',t('sa_p_rev')+' (FCFA)',[['📅',t('sa_r_m'),revM],['🗓',t('sa_r_y'),revY],['📈',t('sa_r_t'),revT],['📉',t('sa_r_e'),expT,'#dc2626'],['💵',t('sa_r_net'),net,net<0?'#dc2626':'#16a34a']].map(r=>`<div class="sa-row"><span>${r[0]} ${r[1]}</span><b data-cnt="${r[2]}" data-fmt="m" style="${r[3]?'color:'+r[3]+';font-size:'+(r[1]===t('sa_r_net')?'19px':'15px'):''}">0</b></div>`).join(''),2,`<a data-go="rev">${t('sa_more')}</a>`)}
+    ${saPan('🗺️',t('sa_p_map'),saMap(L2),3)}
+   </div>
+   <div class="sa-grid sa-g3">
+    ${saPan('📈',t('sa_p_grow'),saLine(months.map(saMLabel),grow,'#16a34a'),4)}
+    ${saPan('🏫',t('sa_p_latest'),latest.length?latest.map(x=>`<div class="sa-li" data-sq="${esc(x.code)}"><span class="ic">🏫</span><span class="tx"><b>${saSName(x)}</b><small>${esc(x.city||'')} · <span dir="ltr">${fdate(String(x.created_at).slice(0,10))}</span></small></span>${saTag(x)}</div>`).join(''):`<div class="sa-empty"><span>🏫</span>${t('pl_none')}</div>`,5,`<a data-go="schools">${t('sa_more')}</a>`)}
+    ${saPan('🎧',t('sa_p_tk'),tks.length?tks.map(k=>`<div class="sa-li" data-tk="${k.id}"><span class="ic">📄</span><span class="tx"><b>${esc(k.subject)}</b><small>#${k.ticket_no} · ${saSName(saSchool(k.institution_id))}</small></span><span class="sa-tag ${TK_ST[k.status][0]}">${t(TK_ST[k.status][1])}</span></div>`).join(''):`<div class="sa-empty"><span>🎧</span>${t('sa_tk_none')}</div>`,6,`<a data-go="sup">${t('sa_more')}</a>`)}
+   </div>
+   <div class="sa-acts">${[['🏫','#c084fc','#7e22ce','sa_a_add','add'],['🗂️','#60a5fa','#1d4ed8','sa_a_plans','set'],['🔄','#fcd34d','#d97706','sa_a_renew','subs'],['🧾','#4ade80','#15803d','sa_a_inv','inv'],['📊','#7dd3fc','#0284c7','sa_a_rep','rep'],['📣','#fdba74','#ea580c','sa_a_ann','ann'],['🖥️','#c4b5fd','#6d28d9','sa_a_mon','mon'],['💾','#86efac','#16a34a','sa_a_bak','bak']]
+     .map((a,i)=>`<button class="sa-act sa-in" style="--d:${8+i};--c1:${a[1]};--c2:${a[2]}" data-qa="${a[4]}"><span>${a[0]}</span>${t(a[3])}</button>`).join('')}</div>`;
+  saDonutGo();
+  el.querySelectorAll('[data-go]').forEach(a=>a.onclick=()=>{ADM.sec=a.dataset.go;renderAdmin();window.scrollTo(0,0)});
+  el.querySelectorAll('[data-sq]').forEach(a=>a.onclick=()=>{ADM.sec='schools';P.q=a.dataset.sq;P.f='';renderAdmin();window.scrollTo(0,0)});
+  el.querySelectorAll('[data-tk]').forEach(a=>a.onclick=()=>{ADM.sec='sup';SAD.topen=a.dataset.tk;renderAdmin();window.scrollTo(0,0)});
+  el.querySelectorAll('[data-qa]').forEach(b=>b.onclick=()=>{const k=b.dataset.qa;if(k==='add')return saInvite();ADM.sec=k;renderAdmin();window.scrollTo(0,0)})}
+async function saInvite(){const url=location.origin+location.pathname+'#register',msg=t('sa_inv_msg').replace('{u}',url);
+  try{if(navigator.share){await navigator.share({title:'Al-Madaris CI',text:msg,url});return}}catch(e){if(e&&e.name==='AbortError')return}
+  try{await navigator.clipboard.writeText(url)}catch(e){}
+  if(confirm(t('sa_inv_ok').replace('{u}',url)))window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener')}
+
+// --- school admins ---
+function saAdmins(){const el=document.getElementById('admBody'),q=nz(SAD.aq);
+  const L2=P.list.filter(x=>!q||nz([x.name_ar,x.name_fr,x.code,x.city,x.admin&&x.admin.name,x.admin&&x.admin.phone,x.admin&&x.admin.email].join(' ')).includes(q));
+  el.innerHTML=`<div class="sa-card sa-in" style="padding:14px"><div class="sa-f" style="grid-template-columns:1fr auto"><input class="sa-inp" id="saAq" placeholder="${esc(t('sa_search'))}" value="${esc(SAD.aq)}"><button class="sa-btn gd" id="saAx">📊 Excel</button></div>
+   <div class="sa-tw" style="margin-top:10px"><table class="sa-t"><thead><tr><th>${t('sa_c_admin')}</th><th>${t('sa_c_school')}</th><th>${t('sa_c_contact')}</th><th>${t('sa_c_state')}</th><th>${t('pl_last')}</th></tr></thead><tbody>
+   ${L2.map(x=>{const a=x.admin||{};return `<tr><td><div style="display:flex;align-items:center;gap:10px"><span class="sa-av" style="width:38px;height:38px;font-size:15px">${esc(String(a.name||'?').trim().charAt(0)||'?')}</span><span><b>${esc(a.name||'—')}</b><br><small class="sub">${esc(a.title||'')}</small></span></div></td>
+     <td><b>${saSName(x)}</b><br><small class="sub" dir="ltr">${esc(x.code)}</small></td>
+     <td style="white-space:nowrap">${a.phone?`<a class="sa-btn sm" target="_blank" rel="noopener" href="https://wa.me/${waNum(a.phone)}">💬 <span dir="ltr">${esc(a.phone)}</span></a>`:''} ${a.email?`<a class="sa-btn lt sm" href="mailto:${esc(a.email)}">✉️ <span dir="ltr">${esc(a.email)}</span></a>`:''}</td>
+     <td>${saTag(x)}</td><td><small dir="ltr">${x.last_activity?fdate(String(x.last_activity).slice(0,10)):'—'}</small></td></tr>`}).join('')||`<tr><td colspan="5"><div class="sa-empty"><span>👤</span>${t('pl_none')}</div></td></tr>`}</tbody></table></div></div>`;
+  const qi=document.getElementById('saAq');qi.oninput=()=>{SAD.aq=qi.value;const p=qi.selectionStart;saAdmins();const n=document.getElementById('saAq');n.focus();n.setSelectionRange(p,p)};
+  document.getElementById('saAx').onclick=()=>xlsExport('Directeurs_Al-Madaris',[['Directeurs',[['Nom','Fonction','École','Code','Ville','Téléphone','Email','Statut','Dernière activité']].concat(L2.map(x=>{const a=x.admin||{};return [a.name||'',a.title||'',x.name_fr||x.name_ar,x.code,x.city||'',a.phone||'',a.email||'',saState(x),x.last_activity?String(x.last_activity).slice(0,10):'']}))]])}
+
+// --- subscriptions ---
+async function saQuick(x,k){const o={status:x.status,trial_end:x.trial_end,paid_until:x.paid_until};
+  if(k==='year'){o.status='active';o.paid_until=addDays(x.status==='active'?x.paid_until:null,365);if(!confirm(t('pl_sure_year').replace('{n}',x.name_ar).replace('{d}',o.paid_until)))return}
+  if(k==='trial'){o.status='trial';o.trial_end=addDays(x.trial_end,14)}
+  if(k==='susp'){if(!confirm(t('pl_sure_susp').replace('{n}',x.name_ar)))return;o.status='suspended'}
+  if(k==='resume')o.status=x.paid_until||x.trial_end<todayISO()?'active':'trial';
+  const {error}=await sb.rpc('platform_set',{p_inst:x.id,p_status:o.status,p_trial_end:o.trial_end||null,p_paid_until:o.paid_until||null,p_note:x.admin_note||''});
+  if(error){alert(em(error));return}await loadAdmin()}
+function saSubs(){const el=document.getElementById('admBody'),L2=P.list,soon=x=>{const d=saDays(saEnd(x));return saState(x)!=='susp'&&saState(x)!=='exp'&&d!=null&&d>=0&&d<=14};
+  const F=[['',t('all'),L2.length],['soon','⏳ '+t('sa_soon14'),L2.filter(soon).length],['act',t('pl_act'),L2.filter(x=>saState(x)==='act').length],['trial',t('pl_trial'),L2.filter(x=>saState(x)==='trial').length],['exp',t('sa_expired'),L2.filter(x=>saState(x)==='exp').length],['susp',t('pl_susp'),L2.filter(x=>saState(x)==='susp').length]];
+  const list=L2.filter(x=>!SAD.sf||(SAD.sf==='soon'?soon(x):saState(x)===SAD.sf)).sort((a,b)=>(saDays(saEnd(a))??9e9)-(saDays(saEnd(b))??9e9));
+  el.innerHTML=`<div class="sa-grid sa-g3" style="margin-top:0">
+     ${saPan('🗂️',t('sa_plan'),`<div class="sa-row"><span>${t('pi_price')}</span><b>${P.conf.price?money(P.conf.price):'—'}</b></div><div class="sa-row"><span>${t('pi_min')}</span><b>${P.conf.min_amount?money(P.conf.min_amount):'—'}</b></div><div class="sa-row"><span>${t('sa_trial_len')}</span><b>14 ${t('pl_days')}</b></div><button class="sa-btn lt sm" data-go="set" style="margin-top:8px">⚙️ ${t('sa_edit_price')}</button>`,0)}
+     ${saPan('💳',t('sa_p_subs'),saDonut([[t('pl_act'),F[2][2],'#16a34a'],[t('pl_trial'),F[3][2],'#2563eb'],[t('sa_expired'),F[4][2],'#dc2626'],[t('pl_susp'),F[5][2],'#94a3b8']],L2.length,t('sa_school_s')),1)}
+     ${saPan('🧾',t('pi_unpaid'),`<div style="font:900 30px Inter;color:#dc2626" data-cnt="${saSum(P.inv.filter(v=>v.status==='due'))}" data-fmt="m">0</div><p class="sub">${P.inv.filter(v=>v.status==='due').length} ${t('pi_n')}</p><button class="sa-btn sm" data-go="inv">🧾 ${t('adm_inv')}</button>`,2)}</div>
+   <div class="sa-chips" style="margin-top:16px">${F.map(f=>`<button class="sa-chip${SAD.sf===f[0]?' on':''}" data-sf="${f[0]}">${f[1]}<em>${f[2]}</em></button>`).join('')}</div>
+   <div class="sa-card sa-in" style="padding:6px 12px"><div class="sa-tw"><table class="sa-t"><thead><tr><th>${t('sa_c_school')}</th><th>${t('sa_c_state')}</th><th>${t('sa_c_end')}</th><th>${t('sa_c_left')}</th><th>${t('tab_stu')}</th><th></th></tr></thead><tbody>
+   ${list.map(x=>{const s=saState(x),d=saDays(saEnd(x)),span=x.status==='trial'?14:365,pc=d==null?100:Math.max(0,Math.min(100,Math.round(d/span*100))),ph=(x.admin&&x.admin.phone)||x.phone;
+     return `<tr><td><b>${saSName(x)}</b><br><small class="sub" dir="ltr">${esc(x.code)}</small></td><td>${saTag(x)}</td><td dir="ltr" style="white-space:nowrap">${saEnd(x)?fdate(saEnd(x)):'∞'}</td>
+      <td style="min-width:120px">${d==null?'—':`<small>${d<0?t('sa_ago').replace('{n}',-d):t('sub_left').replace('{n}',d)}</small><div class="sa-bar"><i style="width:${pc}%;${d<=7?'background:linear-gradient(90deg,#dc2626,#fb923c)':''}"></i></div>`}</td><td><b>${saN(x.n_students)}</b></td>
+      <td style="white-space:nowrap"><button class="sa-btn sm" data-q="year" data-x="${x.id}" title="${esc(t('pl_year'))}">✓ ${t('sa_1y')}</button> <button class="sa-btn lt sm" data-q="trial" data-x="${x.id}">+14</button>
+       ${s==='susp'?`<button class="sa-btn lt sm" data-q="resume" data-x="${x.id}">▶</button>`:`<button class="sa-btn lt sm" data-q="susp" data-x="${x.id}" title="${esc(t('pl_suspend'))}">⏸</button>`}
+       <button class="sa-btn gd sm" data-inv="${x.id}" title="${esc(t('pi_btn'))}">🧾</button>${ph?` <a class="sa-btn lt sm" target="_blank" rel="noopener" href="https://wa.me/${waNum(ph)}?text=${encodeURIComponent(piRemind(x))}">💬</a>`:''}</td></tr>`}).join('')||`<tr><td colspan="6"><div class="sa-empty"><span>💳</span>${t('pl_none')}</div></td></tr>`}</tbody></table></div></div>`;
+  saDonutGo();
+  el.querySelectorAll('[data-sf]').forEach(b=>b.onclick=()=>{SAD.sf=b.dataset.sf;saSubs();saCount(el)});
+  el.querySelectorAll('[data-go]').forEach(a=>a.onclick=()=>{ADM.sec=a.dataset.go;renderAdmin()});
+  el.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{b.disabled=true;saQuick(P.list.find(y=>y.id===b.dataset.x),b.dataset.q).finally(()=>{b.disabled=false})});
+  el.querySelectorAll('[data-inv]').forEach(b=>b.onclick=()=>{const x=P.list.find(y=>y.id===b.dataset.inv);ADM.sec='schools';P.q=x.code;P.f='';P.iopen=x.id;renderAdmin()})}
+
+// --- revenue & accounts ---
+function saRev(){const el=document.getElementById('admBody'),td=todayISO(),y=td.slice(0,4),paid=P.inv.filter(v=>v.status==='paid');
+  const revY=saSum(paid.filter(v=>String(v.paid_on).slice(0,4)===y)),expY=saSum(SAD.exp.filter(e=>String(e.spent_on).slice(0,4)===y)),months=saMonths(12);
+  const rM=months.map(m=>saSum(paid.filter(v=>String(v.paid_on).slice(0,7)===m))),eM=months.map(m=>saSum(SAD.exp.filter(e=>String(e.spent_on).slice(0,7)===m)));
+  const byMeth={};paid.forEach(v=>{const k=v.method||'other';byMeth[k]=(byMeth[k]||0)+(+v.amount||0)});
+  const E=SAD.exp.filter(e=>!SAD.ef||e.category===SAD.ef);
+  el.innerHTML=`<div class="sa-kpis" style="margin-top:0">${[['📅','#4ade80','#15803d',t('sa_r_m'),rM[11],'m'],['🗓','#60a5fa','#1d4ed8',t('sa_r_y')+' '+y,revY,'m'],['📈','#a78bfa','#6d28d9',t('sa_r_t'),saSum(paid),'m'],['🧾','#fdba74','#ea580c',t('pi_unpaid'),saSum(P.inv.filter(v=>v.status==='due')),'m'],['📉','#fca5a5','#dc2626',t('sa_r_e')+' '+y,expY,'m'],['💵','#fcd34d','#d97706',t('sa_r_net')+' '+y,revY-expY,'m']].map((k,i)=>saKpi(...k.slice(0,5),i,'m')).join('')}</div>
+   <div class="sa-grid sa-g2" style="grid-template-columns:2fr 1fr">
+    ${saPan('📊',t('sa_rev12'),saBars(months.map(saMLabel),[{n:t('sa_rev_in'),v:rM,c:['#4ade80','#15803d']},{n:t('sa_rev_out'),v:eM,c:['#fdba74','#ea580c']}]),1)}
+    ${saPan('💳',t('sa_bymeth'),Object.keys(byMeth).length?Object.entries(byMeth).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<div class="sa-row"><span>${esc(t(METH[k]||'pm_other'))}</span><b>${money(v)}</b></div>`).join(''):`<div class="sa-empty"><span>💳</span>—</div>`,2)}
+   </div>
+   <div class="sa-card sa-in" style="padding:16px;margin-top:16px;--d:3">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap"><h3 style="margin:0">📉 ${t('sa_exp_ttl')}</h3><button class="sa-btn gd sm" id="exX">📊 Excel</button></div>
+    ${SAD.need?`<div class="sa-note">${esc(SAD.need)}</div>`:`<div class="sa-f" style="margin-top:12px"><div><label>${t('sa_exp_lbl')} *</label><input id="exL" placeholder="${esc(t('sa_exp_ph'))}"></div>
+      <div><label>${t('sa_exp_cat')}</label><select id="exC">${opts(EXP_CAT.map(k=>[k,t('sa_ec_'+k)]))}</select></div><div><label>${t('f_amount')} (FCFA) *</label><input id="exA" type="number" min="0" dir="ltr"></div>
+      <div><label>${t('sa_date')}</label><input id="exD" type="date" dir="ltr" value="${td}"></div><div><button class="sa-btn" id="exGo" style="width:100%;justify-content:center">＋ ${t('sa_exp_add')}</button></div></div><div class="err" id="exErr"></div>
+    <div class="sa-chips" style="margin-top:12px"><button class="sa-chip${!SAD.ef?' on':''}" data-ef="">${t('all')}</button>${EXP_CAT.map(k=>`<button class="sa-chip${SAD.ef===k?' on':''}" data-ef="${k}">${t('sa_ec_'+k)}</button>`).join('')}</div>
+    <div class="sa-tw"><table class="sa-t"><thead><tr><th>${t('sa_date')}</th><th>${t('sa_exp_lbl')}</th><th>${t('sa_exp_cat')}</th><th>${t('f_amount')}</th><th></th></tr></thead><tbody>
+     ${E.map(e=>`<tr><td dir="ltr">${fdate(e.spent_on)}</td><td><b>${esc(e.label)}</b>${e.note?`<br><small class="sub">${esc(e.note)}</small>`:''}</td><td><span class="sa-tag o">${t('sa_ec_'+e.category)}</span></td><td><b>${money(e.amount)}</b></td><td><button class="sa-btn rd sm" data-exd="${e.id}">✕</button></td></tr>`).join('')||`<tr><td colspan="5"><div class="sa-empty"><span>📉</span>${t('sa_exp_none')}</div></td></tr>`}
+     ${E.length?`<tr><td colspan="3"><b>${t('sa_total')}</b></td><td colspan="2"><b>${money(saSum(E))}</b></td></tr>`:''}</tbody></table></div>`}</div>`;
+  const g=id=>document.getElementById(id);
+  g('exX').onclick=()=>xlsExport('Comptes_Al-Madaris',[['Mensuel',[['Mois','Revenus','Dépenses','Net']].concat(months.map((m,i)=>[m,rM[i],eM[i],rM[i]-eM[i]]))],['Dépenses',[['Date','Libellé','Catégorie','Montant','Note']].concat(SAD.exp.map(e=>[e.spent_on,e.label,e.category,+e.amount,e.note||'']))],['Encaissements',[['N°','École','Payé le','Mode','Montant']].concat(paid.map(v=>[v.invoice_no,(saSchool(v.institution_id).name_fr||saSchool(v.institution_id).name_ar||''),v.paid_on,v.method||'',+v.amount]))]]);
+  el.querySelectorAll('[data-ef]').forEach(b=>b.onclick=()=>{SAD.ef=b.dataset.ef;saRev();saCount(el)});
+  if(g('exGo'))g('exGo').onclick=async()=>{const er=g('exErr'),lb=g('exL').value.trim(),am=parseFloat(g('exA').value);if(!lb||!(am>=0)||g('exA').value===''){er.textContent=t('e_req');return}er.textContent=t('wait');
+    const {data,error}=await sb.from('platform_expenses').insert({label:lb,category:g('exC').value,amount:am,spent_on:g('exD').value||td}).select().single();if(error){er.textContent=em(error);return}
+    SAD.exp.unshift(data);SAD.exp.sort((a,b)=>String(b.spent_on).localeCompare(String(a.spent_on)));saRev();saCount(el)};
+  el.querySelectorAll('[data-exd]').forEach(b=>b.onclick=async()=>{if(!confirm(t('sa_sure_del')))return;const {error}=await sb.from('platform_expenses').delete().eq('id',b.dataset.exd);if(error){alert(em(error));return}SAD.exp=SAD.exp.filter(e=>e.id!==b.dataset.exd);saRev();saCount(el)})}
+
+// --- reports ---
+function saRep(){const el=document.getElementById('admBody'),L2=P.list,top=L2.slice().sort((a,b)=>(+b.n_students||0)-(+a.n_students||0)).slice(0,10),mx=Math.max(1,...top.map(x=>+x.n_students||0)),months=saMonths(12),paid=P.inv.filter(v=>v.status==='paid');
+  const R=[['🏫','#4ade80','#15803d','sa_rp_sch','sa_rp_sch_h','sch'],['💰','#fcd34d','#d97706','sa_rp_rev','sa_rp_rev_h','rev'],['🧾','#60a5fa','#1d4ed8','sa_rp_inv','sa_rp_inv_h','inv'],['🖨️','#c084fc','#7e22ce','sa_rp_pdf','sa_rp_pdf_h','pdf']];
+  el.innerHTML=`<div class="sa-grid" style="margin-top:0;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))">${R.map((r,i)=>`<div class="sa-card tl sa-in" style="padding:18px;--d:${i}"><i class="sa-ic" style="--c1:${r[1]};--c2:${r[2]}"><span>${r[0]}</span></i><h3 style="margin:12px 0 4px">${t(r[3])}</h3><p class="sub" style="margin:0 0 12px;min-height:40px">${t(r[4])}</p><button class="sa-btn${r[5]==='pdf'?'':' gd'}" data-rp="${r[5]}">${r[5]==='pdf'?'🖨 '+t('sa_print'):'📊 Excel'}</button></div>`).join('')}</div>
+   <div class="sa-grid sa-g2">${saPan('🎓',t('sa_top10'),top.length?top.map(x=>`<div style="margin:8px 0"><div style="display:flex;justify-content:space-between;font-size:13.5px"><span>${saSName(x)}</span><b>${saN(x.n_students)}</b></div><div class="sa-bar" style="height:12px"><i style="width:${Math.round((+x.n_students||0)/mx*100)}%"></i></div></div>`).join(''):`<div class="sa-empty">—</div>`,4)}
+    ${saPan('📈',t('sa_rev12'),saLine(months.slice(6).map(saMLabel),months.slice(6).map(m=>saSum(paid.filter(v=>String(v.paid_on).slice(0,7)===m))),'#d97706'),5)}</div>`;
+  el.querySelectorAll('[data-rp]').forEach(b=>b.onclick=()=>{const k=b.dataset.rp;
+    if(k==='sch')xlsExport('Ecoles_Al-Madaris',[['Écoles',[['Code','Nom (FR)','الاسم','Ville','Statut','Fin essai','Payé jusqu’au','Élèves','Enseignants','Personnel','Classes','Inscrite le','Directeur','Téléphone','Email']].concat(L2.map(x=>{const a=x.admin||{};return [x.code,x.name_fr||'',x.name_ar||'',x.city||'',saState(x),x.trial_end||'',x.paid_until||'',+x.n_students||0,+x.n_teachers||0,+x.n_staff||0,+x.n_classes||0,String(x.created_at).slice(0,10),a.name||'',a.phone||'',a.email||'']}))]]);
+    if(k==='rev')xlsExport('Revenus_Al-Madaris',[['Mensuel',[['Mois','Revenus','Dépenses','Net']].concat(months.map(m=>{const r=saSum(paid.filter(v=>String(v.paid_on).slice(0,7)===m)),e=saSum(SAD.exp.filter(x=>String(x.spent_on).slice(0,7)===m));return [m,r,e,r-e]}))]]);
+    if(k==='inv')xlsExport('Factures_Al-Madaris',[['Factures',[['N°','École','Code','Du','Au','Montant','Statut','Payé le','Mode']].concat(P.inv.map(v=>{const x=saSchool(v.institution_id);return [v.invoice_no,x.name_fr||x.name_ar||'',x.code||'',v.period_from,v.period_to,+v.amount,v.status,v.paid_on||'',v.method||'']}))]]);
+    if(k==='pdf')saPrintSummary()})}
+function saPrintSummary(){const L2=P.list,st=L2.map(saState),c=k=>st.filter(v=>v===k).length,tot=k=>L2.reduce((a,x)=>a+(+x[k]||0),0),paid=P.inv.filter(v=>v.status==='paid'),mn=n=>money(n).replace(/[⁦⁩]/g,'');
+  const rows=[['Écoles inscrites','المدارس المسجلة',L2.length],['Écoles actives','المدارس النشطة',c('act')],['En essai','في التجربة',c('trial')],['Expirées / suspendues','منتهية / موقوفة',c('exp')+c('susp')],['Élèves','التلاميذ',saN(tot('n_students'))],['Enseignants','المعلمون',saN(tot('n_teachers'))],['Personnel','الموظفون',saN(tot('n_staff'))],['Revenus totaux','إجمالي الإيرادات',mn(saSum(paid))],['Dépenses totales','إجمالي المصاريف',mn(saSum(SAD.exp))],['Bénéfice net','صافي الأرباح',mn(saSum(paid)-saSum(SAD.exp))],['Factures impayées','فواتير غير مدفوعة',mn(saSum(P.inv.filter(v=>v.status==='due')))]];
+  printPages(`<section class="ofdoc fit1"><div style="display:flex;justify-content:space-between;align-items:center;border-bottom:3px solid #1B7F3B;padding-bottom:4mm"><img src="logo.png" style="height:26mm"><div style="text-align:right"><h1 style="margin:0;color:#0F5E2A">RAPPORT DE LA PLATEFORME</h1><h2 dir="rtl" style="margin:2mm 0 0">تقرير المنصة</h2><small>${fdate(todayISO())}</small></div></div>
+   <table class="oftab" style="margin-top:8mm"><tbody>${rows.map(r=>`<tr><td>${r[0]}</td><td dir="rtl">${r[1]}</td><td style="text-align:right;font-weight:800">${r[2]}</td></tr>`).join('')}</tbody></table>
+   <h3 style="margin-top:8mm">Écoles / المدارس</h3><table class="oftab"><thead><tr><th>Code</th><th>École</th><th>Ville</th><th>Élèves</th><th>Statut</th></tr></thead><tbody>${L2.map(x=>`<tr><td dir="ltr">${esc(x.code)}</td><td>${esc(x.name_fr||'')}<br><span dir="rtl">${esc(x.name_ar||'')}</span></td><td>${esc(x.city||'')}</td><td>${+x.n_students||0}</td><td>${esc(saState(x))}</td></tr>`).join('')}</tbody></table>
+   <footer class="off">Al-Madaris CI — Plateforme de gestion des écoles arabes et islamiques en Côte d'Ivoire</footer></section>`)}
+
+// --- activity monitoring ---
+async function saMon(){const el=document.getElementById('admBody');if(!SAD.act){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;const r=await sb.rpc('platform_activity');if(ADM.sec!=='mon')return;SAD.act=r.error?{err:r.error}:r.data||{}}
+  const A=SAD.act,by=Object.fromEntries((A.schools||[]).map(s=>[s.id,s])),td=todayISO();
+  const lv=x=>{const s=by[x.id]||{},last=s.last||x.last_activity,d=last?-saDays(String(last).slice(0,10)):999;return (+s.ops7||0)>0||d<=7?['g','sa_m_on']:d<=30?['y','sa_m_idle']:['r','sa_m_dead']};
+  const L2=P.list.slice().sort((a,b)=>(+(by[b.id]||{}).ops7||0)-(+(by[a.id]||{}).ops7||0)||String(b.last_activity||'').localeCompare(String(a.last_activity||'')));
+  const cnt=k=>L2.filter(x=>lv(x)[1]===k).length,days=A.days||[];
+  el.innerHTML=`${A.err?`<div class="sa-note">${esc(/platform_activity/.test(A.err.message||'')?t('sa_need'):em(A.err))}</div>`:''}
+   <div class="sa-kpis" style="margin-top:0">${saKpi('🟢','#4ade80','#15803d',t('sa_m_on'),cnt('sa_m_on'),0)}${saKpi('🟡','#fde047','#ca8a04',t('sa_m_idle'),cnt('sa_m_idle'),1)}${saKpi('🔴','#fca5a5','#dc2626',t('sa_m_dead'),cnt('sa_m_dead'),2)}${saKpi('⚡','#93c5fd','#2563eb',t('sa_m_ops7'),(A.schools||[]).reduce((a,s)=>a+(+s.ops7||0),0),3)}</div>
+   ${days.length?`<div class="sa-grid">${saPan('📈',t('sa_m_chart'),saLine(days.map(d=>String(d.d).slice(8,10)+'/'+String(d.d).slice(5,7)),days.map(d=>+d.n||0),'#2563eb',980,230),4)}</div>`:''}
+   <div class="sa-card sa-in" style="padding:6px 12px;margin-top:16px;--d:5"><div class="sa-tw"><table class="sa-t"><thead><tr><th>${t('sa_c_school')}</th><th>${t('sa_c_state')}</th><th>${t('pl_last')}</th><th>${t('sa_m_ops7')}</th><th>${t('sa_m_ops30')}</th><th>📷 7j</th><th>💰 7j</th></tr></thead><tbody>
+   ${L2.map(x=>{const s=by[x.id]||{},l=lv(x),last=s.last||x.last_activity;return `<tr><td><b>${saSName(x)}</b><br><small class="sub" dir="ltr">${esc(x.code)}</small></td><td><span class="sa-tag ${l[0]}">${t(l[1])}</span></td><td dir="ltr"><small>${last?fdate(String(last).slice(0,10))+' '+String(last).slice(11,16):'—'}</small></td><td><b>${saN(s.ops7)}</b></td><td>${saN(s.ops30)}</td><td>${saN(s.att7)}</td><td>${saN(s.pay7)}</td></tr>`}).join('')||`<tr><td colspan="7"><div class="sa-empty">—</div></td></tr>`}</tbody></table></div></div>`;
+  saCount(el)}
+
+// --- support center (shared with schools) ---
+async function saThread(box,k,plat,back){box.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;
+  let r;try{r=await sb.from('support_replies').select('*').eq('ticket_id',k.id).order('created_at')}catch(e){r={error:e}}const R=r.error?[]:r.data||[];if(!document.body.contains(box))return;
+  const x=saSchool(k.institution_id),ph=(x.admin&&x.admin.phone)||x.phone,mine=m=>plat?m.from_platform:!m.from_platform;
+  box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap"><div><button class="sa-btn lt sm" id="tkBack">${RTL()?'→':'←'} ${t('sa_back')}</button>
+     <h3 style="margin:10px 0 4px">#${k.ticket_no} — ${esc(k.subject)}</h3><small class="sub">${plat?saSName(x)+' · ':''}${t('sa_tc_'+k.category)} · <span dir="ltr">${fdate(String(k.created_at).slice(0,10))}</span></small></div>
+     <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">${plat?`<select class="sa-inp" id="tkS" style="width:auto">${opts(Object.keys(TK_ST).map(s=>[s,t(TK_ST[s][1])]),k.status)}</select><select class="sa-inp" id="tkP" style="width:auto">${opts(Object.keys(TK_PR).map(s=>[s,t(TK_PR[s][1])]),k.priority)}</select>${ph?`<a class="sa-btn sm" target="_blank" rel="noopener" href="https://wa.me/${waNum(ph)}?text=${encodeURIComponent('#'+k.ticket_no+' — '+k.subject)}">💬 WhatsApp</a>`:''}`
+       :`<span class="sa-tag ${TK_ST[k.status][0]}">${t(TK_ST[k.status][1])}</span><button class="sa-btn lt sm" id="tkC">${k.status==='closed'?'↺ '+t('sa_tk_reopen'):'✓ '+t('sa_tk_close')}</button>`}</div></div>
+   <div style="margin-top:14px"><div class="sa-msg ${plat?'th':'me'}">${esc(k.body)}<small>${plat?saSName(x):t('sa_you')} · ${fdate(String(k.created_at).slice(0,10))} ${String(k.created_at).slice(11,16)}</small></div>
+    ${R.map(m=>`<div class="sa-msg ${mine(m)?'me':'th'}">${esc(m.body)}<small>${m.from_platform?'🛡 Al-Madaris CI':esc(m.author_name||'')} · ${fdate(String(m.created_at).slice(0,10))} ${String(m.created_at).slice(11,16)}</small></div>`).join('')}</div>
+   <div class="sa-f" style="grid-template-columns:1fr auto;margin-top:10px"><textarea class="sa-inp" id="tkR" rows="3" placeholder="${esc(t('sa_tk_reply_ph'))}"></textarea><button class="sa-btn" id="tkGo">➤ ${t('sa_send')}</button></div><div class="err" id="tkErr"></div>`;
+  const g=id=>document.getElementById(id);g('tkBack').onclick=back;
+  g('tkGo').onclick=async()=>{const b=g('tkR').value.trim(),er=g('tkErr');if(!b){er.textContent=t('e_req');return}er.textContent=t('wait');
+    const {error}=await sb.from('support_replies').insert({ticket_id:k.id,body:b});if(error){er.textContent=em(error);return}
+    const n=await sb.from('support_tickets').select('*').eq('id',k.id).maybeSingle();if(n.data)Object.assign(k,n.data);saThread(box,k,plat,back)};
+  const upd=async o=>{const {error}=await sb.from('support_tickets').update(o).eq('id',k.id);if(error){alert(em(error));return}Object.assign(k,o);saThread(box,k,plat,back)};
+  if(g('tkS'))g('tkS').onchange=e=>upd({status:e.target.value});if(g('tkP'))g('tkP').onchange=e=>upd({priority:e.target.value});
+  if(g('tkC'))g('tkC').onclick=()=>upd({status:k.status==='closed'?'open':'closed'})}
+function saSup(){const el=document.getElementById('admBody');
+  if(SAD.topen){const k=SAD.tk.find(x=>x.id===SAD.topen);if(k){el.innerHTML=`<div class="sa-card sa-in" style="padding:16px" id="tkBox"></div>`;saThread(document.getElementById('tkBox'),k,true,()=>{SAD.topen=null;renderAdmin()});return}SAD.topen=null}
+  const q=nz(SAD.tq),F=[['open','sa_tk_open'],['progress','sa_tk_prog'],['closed','sa_tk_closed'],['','all']];
+  const L2=SAD.tk.filter(k=>(!SAD.tf||k.status===SAD.tf)&&(!q||nz([k.subject,k.ticket_no,saSchool(k.institution_id).name_ar,saSchool(k.institution_id).code].join(' ')).includes(q)));
+  el.innerHTML=`<div class="sa-kpis" style="margin-top:0">${saKpi('📬','#fdba74','#ea580c',t('sa_tk_open'),SAD.tk.filter(k=>k.status==='open').length,0)}${saKpi('🛠️','#93c5fd','#2563eb',t('sa_tk_prog'),SAD.tk.filter(k=>k.status==='progress').length,1)}${saKpi('✅','#86efac','#16a34a',t('sa_tk_closed'),SAD.tk.filter(k=>k.status==='closed').length,2)}${saKpi('🔥','#fca5a5','#dc2626',t('sa_pr_high'),SAD.tk.filter(k=>k.priority==='high'&&k.status!=='closed').length,3)}</div>
+   <div class="sa-chips" style="margin-top:16px">${F.map(f=>`<button class="sa-chip${SAD.tf===f[0]?' on':''}" data-tf="${f[0]}">${t(f[1])}<em>${f[0]?SAD.tk.filter(k=>k.status===f[0]).length:SAD.tk.length}</em></button>`).join('')}<input class="sa-inp" id="tkQ" style="max-width:260px" placeholder="${esc(t('sa_search'))}" value="${esc(SAD.tq)}"></div>
+   <div class="sa-card sa-in" style="padding:6px 12px"><div class="sa-tw"><table class="sa-t"><thead><tr><th>#</th><th>${t('sa_tk_subj')}</th><th>${t('sa_c_school')}</th><th>${t('sa_tk_cat')}</th><th>${t('sa_tk_pr')}</th><th>${t('sa_c_state')}</th><th>${t('sa_date')}</th></tr></thead><tbody>
+   ${L2.map(k=>`<tr style="cursor:pointer" data-to="${k.id}"><td dir="ltr"><b>#${k.ticket_no}</b></td><td><b>${esc(k.subject)}</b></td><td>${saSName(saSchool(k.institution_id))}</td><td><small>${t('sa_tc_'+k.category)}</small></td><td><span class="sa-tag ${TK_PR[k.priority][0]}">${t(TK_PR[k.priority][1])}</span></td><td><span class="sa-tag ${TK_ST[k.status][0]}">${t(TK_ST[k.status][1])}</span></td><td dir="ltr"><small>${fdate(String(k.updated_at).slice(0,10))}</small></td></tr>`).join('')||`<tr><td colspan="7"><div class="sa-empty"><span>🎧</span>${t('sa_tk_none')}</div></td></tr>`}</tbody></table></div></div>`;
+  el.querySelectorAll('[data-tf]').forEach(b=>b.onclick=()=>{SAD.tf=b.dataset.tf;saSup();saCount(el)});
+  const qi=document.getElementById('tkQ');qi.oninput=()=>{SAD.tq=qi.value;const p=qi.selectionStart;saSup();saCount(el);const n=document.getElementById('tkQ');n.focus();n.setSelectionRange(p,p)};
+  el.querySelectorAll('[data-to]').forEach(r=>r.onclick=()=>{SAD.topen=r.dataset.to;saSup()})}
+// school side: 🎧 support tab
+const SUP={rows:null,open:null,nw:false};
+async function tabSup(){const el=document.getElementById('dtab');el.innerHTML=t('wait');
+  let r;try{r=await sb.from('support_tickets').select('*').order('updated_at',{ascending:false})}catch(e){r={error:/fetch/i.test(e&&e.message||'')?e:{message:'support_tickets'}}}if(D.tab!=='sup')return;
+  if(r.error){el.innerHTML=`<div class="note">${esc(/support_tickets/.test(r.error.message||'')?t('sa_need'):em(r.error))}</div>`;return}
+  SUP.rows=r.data||[];
+  if(SUP.open){const k=SUP.rows.find(x=>x.id===SUP.open);if(k){el.innerHTML=`<div class="sa" style="display:block;min-height:0;background:transparent"><div class="sa-card" style="padding:16px" id="tkBox"></div></div>`;saThread(document.getElementById('tkBox'),k,false,()=>{SUP.open=null;tabSup()});return}SUP.open=null}
+  el.innerHTML=`<div class="sa" style="display:block;min-height:0;background:transparent"><div class="sa-card" style="padding:16px"><h3 style="margin:0 0 4px">🎧 ${t('sa_sup')}</h3><p class="sub" style="margin:0 0 12px">${t('sa_sup_h')}</p>
+    <div class="sa-f"><div><label>${t('sa_tk_subj')} *</label><input id="nkS" maxlength="200"></div><div><label>${t('sa_tk_cat')}</label><select id="nkC">${opts(TK_CAT.map(k=>[k,t('sa_tc_'+k)]),'question')}</select></div></div>
+    <div class="sa-f" style="margin-top:10px;grid-template-columns:1fr"><div><label>${t('sa_tk_body')} *</label><textarea id="nkB" rows="4" maxlength="5000"></textarea></div></div>
+    <button class="sa-btn" id="nkGo" style="margin-top:10px">➤ ${t('sa_tk_send')}</button><span class="err" id="nkErr"></span></div>
+   <div class="sa-card" style="padding:6px 12px;margin-top:14px"><div class="sa-tw"><table class="sa-t"><tbody>${SUP.rows.map(k=>`<tr style="cursor:pointer" data-so="${k.id}"><td dir="ltr"><b>#${k.ticket_no}</b></td><td><b>${esc(k.subject)}</b><br><small class="sub">${t('sa_tc_'+k.category)}</small></td><td><span class="sa-tag ${TK_ST[k.status][0]}">${t(TK_ST[k.status][1])}</span></td><td dir="ltr"><small>${fdate(String(k.updated_at).slice(0,10))}</small></td></tr>`).join('')||`<tr><td><div class="sa-empty"><span>🎧</span>${t('sa_tk_none')}</div></td></tr>`}</tbody></table></div></div></div>`;
+  const g=id=>document.getElementById(id);
+  g('nkGo').onclick=async()=>{const er=g('nkErr'),s=g('nkS').value.trim(),b=g('nkB').value.trim();if(s.length<2||b.length<2){er.textContent=t('e_req');return}er.textContent=t('wait');
+    const {error}=await sb.from('support_tickets').insert({subject:s,body:b,category:g('nkC').value});if(error){er.textContent=em(error);return}tabSup()};
+  el.querySelectorAll('[data-so]').forEach(r=>r.onclick=()=>{SUP.open=r.dataset.so;tabSup()})}
+
+// --- platform team ---
+async function saTeam(){const el=document.getElementById('admBody');if(!SAD.team){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;const r=await sb.rpc('platform_admins');if(ADM.sec!=='team')return;SAD.team=r.error?{err:r.error}:{rows:r.data||[]}}
+  const T2=SAD.team;
+  el.innerHTML=`${T2.err?`<div class="sa-note">${esc(/platform_admins/.test(T2.err.message||'')?t('sa_need'):em(T2.err))}</div>`:''}
+   <div class="sa-grid sa-g2" style="margin-top:0;grid-template-columns:2fr 1fr">
+    <div class="sa-card sa-in" style="padding:6px 12px"><div class="sa-tw"><table class="sa-t"><thead><tr><th>${t('sa_c_admin')}</th><th>${t('sa_c_contact')}</th><th>${t('sa_since')}</th><th>${t('sa_lastlog')}</th><th></th></tr></thead><tbody>
+     ${(T2.rows||[]).map(a=>`<tr><td><div style="display:flex;align-items:center;gap:10px"><span class="sa-av" style="width:38px;height:38px;font-size:15px">${esc(String(a.name||a.email||'?').trim().charAt(0))}</span><span><b>${esc(a.name||'—')}</b> ${a.me?`<span class="sa-tag y">${t('sa_you')}</span>`:''}<br><small class="sub">👑 SUPER ADMIN${a.school?' · '+esc(a.school):''}</small></span></div></td>
+       <td><small dir="ltr">${esc(a.email||'')}</small>${a.phone?`<br><small dir="ltr">${esc(a.phone)}</small>`:''}</td><td dir="ltr"><small>${a.since?fdate(String(a.since).slice(0,10)):'—'}</small></td><td dir="ltr"><small>${a.last_login?fdate(String(a.last_login).slice(0,10)):'—'}</small></td>
+       <td>${a.me?'':`<button class="sa-btn rd sm" data-rv="${esc(a.email||'')}">✕ ${t('sa_revoke')}</button>`}</td></tr>`).join('')}</tbody></table></div></div>
+    <div class="sa-card sa-in" style="padding:16px;--d:1"><h3 style="margin:0 0 6px">➕ ${t('sa_team_add')}</h3><p class="sub" style="margin:0 0 10px">${t('sa_team_h')}</p><input class="sa-inp" id="tmE" type="email" dir="ltr" placeholder="email@exemple.com"><button class="sa-btn gd" id="tmGo" style="margin-top:10px">👑 ${t('sa_grant')}</button><div class="err" id="tmErr"></div>
+     <div class="sa-note" style="margin-top:14px">⚠️ ${t('sa_team_warn')}</div></div></div>`;
+  const g=id=>document.getElementById(id),act=async(email,on)=>{const er=g('tmErr');er.textContent=t('wait');const {error}=await sb.rpc('platform_admin_set',{p_email:email,p_on:on});
+    if(error){er.textContent=/NO_USER/.test(error.message)?t('sa_no_user'):/NOT_SELF/.test(error.message)?t('sa_not_self'):em(error);return}SAD.team=null;saTeam()};
+  g('tmGo').onclick=()=>{const e=g('tmE').value.trim();if(!/^\S+@\S+\.\S+$/.test(e)){g('tmErr').textContent=t('e_req');return}if(confirm(t('sa_sure_grant').replace('{e}',e)))act(e,true)};
+  el.querySelectorAll('[data-rv]').forEach(b=>b.onclick=()=>{if(confirm(t('sa_sure_rev').replace('{e}',b.dataset.rv)))act(b.dataset.rv,false)})}
+
+// --- security & audit ---
+async function saSec(){const el=document.getElementById('admBody');
+  if(!SAD.secd){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;const [a,b]=await Promise.all([sb.rpc('platform_security'),sb.from('audit_log').select('at,institution_id,user_name,tbl,op,row_id').order('at',{ascending:false}).limit(200)]);if(ADM.sec!=='sec')return;
+    SAD.secd={s:a.error?null:a.data,err:a.error,log:b.error?[]:b.data||[]}}
+  const S=SAD.secd.s||{},rl=(S.rls_off||[]).length,cov=S.tables?Math.round((S.tables-rl)/S.tables*100):null,of=SAD.secd.of||'';
+  const LOG=SAD.secd.log.filter(r=>!of||r.op===of);
+  const chk=[['🔒',t('sa_s_rls'),cov==null?'—':cov+'%',rl?'r':'g'],['👥',t('sa_s_users'),S.users??'—','b'],['📧',t('sa_s_unconf'),S.unconfirmed??'—',S.unconfirmed?'o':'g'],['👑',t('sa_s_admins'),S.superadmins??'—',(S.superadmins||0)>3?'o':'g'],['🚫',t('sa_s_pfail'),S.parent_fail24??'—',(S.parent_fail24||0)>20?'r':'g'],['🗑️',t('sa_s_del'),S.deletes7??'—','y']];
+  el.innerHTML=`${SAD.secd.err?`<div class="sa-note">${esc(/platform_security/.test(SAD.secd.err.message||'')?t('sa_need'):em(SAD.secd.err))}</div>`:''}
+   <div class="sa-kpis" style="margin-top:0">${chk.map((c,i)=>`<div class="sa-card sa-kpi tl sa-in" style="--d:${i}"><i class="sa-ic" style="--c1:${{g:'#4ade80',r:'#fca5a5',o:'#fdba74',b:'#93c5fd',y:'#fde047'}[c[3]]};--c2:${{g:'#15803d',r:'#dc2626',o:'#ea580c',b:'#2563eb',y:'#ca8a04'}[c[3]]}"><span>${c[0]}</span></i><div class="tx"><small>${c[1]}</small><b>${esc(c[2])}</b></div></div>`).join('')}</div>
+   ${S.unconfirmed?`<div class="sa-note">📧 ${t('sa_s_unconf_h')}</div>`:''}${rl?`<div class="sa-note">⚠️ RLS: ${esc(S.rls_off.join(', '))}</div>`:''}
+   <div class="sa-grid sa-g2" style="grid-template-columns:1fr 2fr">
+    ${saPan('🛡️',t('sa_s_measures'),['sa_m1','sa_m2','sa_m3','sa_m4','sa_m5','sa_m6'].map(k=>`<div class="sa-row" style="justify-content:flex-start"><span style="color:#16a34a">✔</span><span>${t(k)}</span></div>`).join(''),6)}
+    <div class="sa-card sa-pan sa-in" style="--d:7"><div class="sa-pt"><span><i>🕵️</i> ${t('sa_s_log')}</span><a id="lgX">Excel</a></div><div class="sa-pb">
+     <div class="sa-chips" style="margin-top:0">${[['',t('all')],['INSERT','➕ INSERT'],['UPDATE','✏️ UPDATE'],['DELETE','🗑 DELETE']].map(o=>`<button class="sa-chip${of===o[0]?' on':''}" data-of="${o[0]}">${o[1]}</button>`).join('')}</div>
+     <div class="sa-tw" style="max-height:440px;overflow:auto"><table class="sa-t"><tbody>${LOG.map(r=>`<tr><td dir="ltr" style="white-space:nowrap"><small>${fdate(String(r.at).slice(0,10))} ${String(r.at).slice(11,16)}</small></td><td><small>${saSName(saSchool(r.institution_id))}</small></td><td><small>${esc(r.user_name||'—')}</small></td><td><small dir="ltr">${esc(r.tbl)}</small></td><td><span class="sa-tag ${r.op==='DELETE'?'r':r.op==='UPDATE'?'b':'g'}">${esc(r.op)}</span></td></tr>`).join('')||`<tr><td><div class="sa-empty">—</div></td></tr>`}</tbody></table></div></div></div></div>`;
+  el.querySelectorAll('[data-of]').forEach(b=>b.onclick=()=>{SAD.secd.of=b.dataset.of;saSec()});
+  document.getElementById('lgX').onclick=()=>xlsExport('Journal_Al-Madaris',[['Journal',[['Date','École','Utilisateur','Table','Opération','ID']].concat(LOG.map(r=>[String(r.at).slice(0,16).replace('T',' '),saSchool(r.institution_id).name_fr||saSchool(r.institution_id).name_ar||'',r.user_name||'',r.tbl,r.op,r.row_id||'']))]])}
+
 function admInvoices(){const el=document.getElementById('admBody');if(P.ierr){el.innerHTML=`<div class="note">${esc(P.ierr)}</div>`;return}
   const sm=Object.fromEntries(P.list.map(x=>[x.id,x])),q=nz(ADM.iq||''),f=ADM.if||'';
   const L2=P.inv.slice().reverse().filter(v=>(!f||v.status===f)&&(!q||nz([v.invoice_no,(sm[v.institution_id]||{}).name_ar,(sm[v.institution_id]||{}).code].join(' ')).includes(q)));

@@ -1247,6 +1247,36 @@ Object.assign(T.en,{emer_name:'Emergency contact (name)',emer_phone:'Emergency p
  xe_e_MULTI_ENROL_OFF:'The school does not allow multi-department enrolment (enable it in Departments).',xe_e_DEPT_TAKEN:'Already enrolled in a class of this department.',xe_e_SAME_DEPT:'This class belongs to the department of the main class.',xe_e_SAME_CLASS:'This is already the main class.',xe_e_BAD_YEAR:'Class from another school year.',xe_e_NEED_DEPT_CLASS:'Class not linked to a department.',
  need_schema39:'Run schema39.sql in Supabase first.',dp_multi:'Multi-department enrolment',dp_multi_off:'Not allowed',dp_multi_on:'Allowed',dp_hours:'periods/week'});
 
+Object.assign(T.ar,{rp_print:'طباعة',tab_ntf:'التنبيهات والرسائل',tab_rpt:'التقارير',nt_new:'{n} تنبيه/رسالة جديدة',nt_compose:'رسالة جديدة',nt_to:'إلى',nt_to_user:'شخص',nt_to_dept:'أعضاء قسم',nt_to_all:'كل الموظفين',nt_person:'المستلم',nt_dept:'القسم',nt_subject:'الموضوع',nt_body:'نص الرسالة',nt_send:'إرسال',nt_pick:'اختر المستلم.',nt_sent:'أُرسلت إلى {n} مستلم.',nt_too_many:'عدد كبير من الرسائل خلال ساعة، حاول لاحقاً.',
+ nt_f_all:'الكل',nt_f_unread:'غير مقروءة',nt_f_msg:'الرسائل',nt_f_rpt:'التقارير',nt_f_alert:'التنبيهات',nt_read_all:'تعليم الكل مقروءاً',nt_open:'فتح',nt_reply:'رد',nt_mark:'مقروء',nt_r_admin:'المدير العام',nt_r_director:'مدير قسم',nt_r_staff:'موظف',
+ need_schema40:'نفّذ ملف schema40.sql في Supabase أولاً.',
+ rp_help_dd:'أعدّ تقرير قسمك وأرسله إلى المدير العام. تُرفق به أرقام لوحة القسم تلقائياً، ويُحفظ كل تغيير في سجل التقرير.',rp_new:'تقرير جديد',rp_title:'العنوان',rp_period:'الفترة',rp_status:'الحالة',rp_updated:'التاريخ',rp_none:'لا توجد تقارير.',rp_body:'نص التقرير',rp_body_ph:'الإنجازات، الصعوبات، الحالات الخاصة، الاحتياجات، المقترحات...',
+ rp_snap:'إرفاق أرقام لوحة القسم الحالية',rp_snap_ttl:'أرقام القسم عند الإعداد',rp_snap_at:'أُخذت في',rp_save_draft:'حفظ مسودة',rp_save_send:'حفظ وإرسال للمدير العام',rp_send:'إرسال للمدير العام',rp_dg_note:'ملاحظة المدير العام',rp_note:'الملاحظة / سبب القرار',rp_note_ph:'إلزامية عند الرفض أو طلب التصحيح',rp_need_note:'اكتب السبب أولاً.',rp_bad_state:'تغيّرت حالة التقرير، أعد التحميل.',
+ rp_a_approve:'مصادقة',rp_a_reject:'رفض',rp_a_correction:'طلب تصحيح',rp_a_archive:'أرشفة',rp_hist:'سجل التقرير',rp_p_year:'السنة كاملة',rp_att_rate:'نسبة الحضور',rp_avg:'المعدل العام',rp_pass:'نسبة النجاح',rp_rev:'الإيرادات',rp_gd_ttl:'تقارير الأقسام',rp_n:'العدد',rp_last:'آخر تقرير',
+ rp_s_draft:'مسودة',rp_s_submitted:'بانتظار المصادقة',rp_s_approved:'مصادق عليه',rp_s_rejected:'مرفوض',rp_s_correction:'مطلوب تصحيح',rp_s_archived:'مؤرشف',
+ rp_h_create:'إنشاء',rp_h_edit:'تعديل',rp_h_submit:'إرسال',rp_h_approve:'مصادقة',rp_h_reject:'رفض',rp_h_correction:'طلب تصحيح',rp_h_archive:'أرشفة',
+ sg_mode:'طريقة اختصار الأرقام العشرية',sg_round:'تقريب (14,567 ← 14,57)',sg_trunc:'بتر/تكسير (14,567 ← 14,56)',sg_dept:'سلالم خاصة بالأقسام',sg_dept_h:'مثلاً: القسم العربي على 10 والقسم الفرنسي على 20. تُستعمل فقط إذا سمحت بذلك، والخانة الفارغة تأخذ سلم المرحلة.',sg_dept_allow:'السماح للأقسام بسلالم خاصة',sg_dept_empty:'السلالم المقترحة: 6، 10، 20، 100.',
+ sg_hist:'سجل تغييرات نظام التقييم',sg_h_field:'الإعداد',sg_h_old:'قبل',sg_h_new:'بعد',sg_h_none:'لا تغييرات مسجلة بعد.',sg_l_conf:'عرض المعدل والتقريب',sg_l_scale:'سلم التنقيط',sg_l_terms:'نظام الفترات',sg_l_count:'عدد الفترات',sg_l_pass:'عتبة النجاح',sg_l_rank:'عرض الترتيب'});
+Object.assign(T.fr,{rp_print:'Imprimer',tab_ntf:'Notifications & messages',tab_rpt:'Rapports',nt_new:'{n} nouvelle(s) notification(s)',nt_compose:'Nouveau message',nt_to:'À',nt_to_user:'Une personne',nt_to_dept:"Membres d'un département",nt_to_all:'Tout le personnel',nt_person:'Destinataire',nt_dept:'Département',nt_subject:'Objet',nt_body:'Message',nt_send:'Envoyer',nt_pick:'Choisissez le destinataire.',nt_sent:'Envoyé à {n} destinataire(s).',nt_too_many:'Trop de messages en une heure, réessayez plus tard.',
+ nt_f_all:'Tout',nt_f_unread:'Non lus',nt_f_msg:'Messages',nt_f_rpt:'Rapports',nt_f_alert:'Alertes',nt_read_all:'Tout marquer comme lu',nt_open:'Ouvrir',nt_reply:'Répondre',nt_mark:'Lu',nt_r_admin:'Directeur général',nt_r_director:'Directeur de département',nt_r_staff:'Personnel',
+ need_schema40:"Exécutez d'abord schema40.sql dans Supabase.",
+ rp_help_dd:'Préparez le rapport de votre département et transmettez-le au Directeur général. Les chiffres du tableau de bord sont joints automatiquement et chaque étape est historisée.',rp_new:'Nouveau rapport',rp_title:'Titre',rp_period:'Période',rp_status:'Statut',rp_updated:'Date',rp_none:'Aucun rapport.',rp_body:'Contenu du rapport',rp_body_ph:'Réalisations, difficultés, cas particuliers, besoins, propositions…',
+ rp_snap:'Joindre les chiffres actuels du tableau de bord',rp_snap_ttl:'Chiffres du département à la préparation',rp_snap_at:'Relevés le',rp_save_draft:'Enregistrer le brouillon',rp_save_send:'Enregistrer et transmettre au DG',rp_send:'Transmettre au DG',rp_dg_note:'Observation du DG',rp_note:'Observation / motif de la décision',rp_note_ph:'Obligatoire pour un refus ou une demande de correction',rp_need_note:"Indiquez d'abord le motif.",rp_bad_state:'Le statut du rapport a changé, rechargez.',
+ rp_a_approve:'Approuver',rp_a_reject:'Refuser',rp_a_correction:'Demander une correction',rp_a_archive:'Archiver',rp_hist:'Historique du rapport',rp_p_year:"Année complète",rp_att_rate:'Taux de présence',rp_avg:'Moyenne générale',rp_pass:'Taux de réussite',rp_rev:'Recettes',rp_gd_ttl:'Rapports des départements',rp_n:'Nombre',rp_last:'Dernier rapport',
+ rp_s_draft:'Brouillon',rp_s_submitted:'En attente',rp_s_approved:'Approuvé',rp_s_rejected:'Refusé',rp_s_correction:'Correction demandée',rp_s_archived:'Archivé',
+ rp_h_create:'Création',rp_h_edit:'Modification',rp_h_submit:'Transmission',rp_h_approve:'Approbation',rp_h_reject:'Refus',rp_h_correction:'Demande de correction',rp_h_archive:'Archivage',
+ sg_mode:'Arrondi ou troncature',sg_round:'Arrondi (14,567 → 14,57)',sg_trunc:'Troncature (14,567 → 14,56)',sg_dept:'Barèmes propres aux départements',sg_dept_h:'Ex. : département arabe sur 10, département français sur 20. Utilisés seulement si vous l’autorisez ; une case vide reprend le barème du cycle.',sg_dept_allow:'Autoriser des barèmes par département',sg_dept_empty:'Barèmes usuels : 6, 10, 20, 100.',
+ sg_hist:'Historique du système d’évaluation',sg_h_field:'Paramètre',sg_h_old:'Avant',sg_h_new:'Après',sg_h_none:'Aucune modification enregistrée.',sg_l_conf:'Affichage et arrondi',sg_l_scale:'Barème',sg_l_terms:'Périodes',sg_l_count:'Nombre de périodes',sg_l_pass:'Seuil de réussite',sg_l_rank:'Classement'});
+Object.assign(T.en,{rp_print:'Print',tab_ntf:'Notifications & messages',tab_rpt:'Reports',nt_new:'{n} new notification(s)',nt_compose:'New message',nt_to:'To',nt_to_user:'A person',nt_to_dept:'Department members',nt_to_all:'All staff',nt_person:'Recipient',nt_dept:'Department',nt_subject:'Subject',nt_body:'Message',nt_send:'Send',nt_pick:'Choose the recipient.',nt_sent:'Sent to {n} recipient(s).',nt_too_many:'Too many messages this hour, try later.',
+ nt_f_all:'All',nt_f_unread:'Unread',nt_f_msg:'Messages',nt_f_rpt:'Reports',nt_f_alert:'Alerts',nt_read_all:'Mark all read',nt_open:'Open',nt_reply:'Reply',nt_mark:'Read',nt_r_admin:'General director',nt_r_director:'Department director',nt_r_staff:'Staff',need_schema40:'Run schema40.sql in Supabase first.',
+ rp_help_dd:'Prepare your department report and send it to the general director. Dashboard figures are attached automatically and every step is kept in history.',rp_new:'New report',rp_title:'Title',rp_period:'Period',rp_status:'Status',rp_updated:'Date',rp_none:'No reports.',rp_body:'Report content',rp_body_ph:'Achievements, difficulties, special cases, needs, proposals…',
+ rp_snap:'Attach current dashboard figures',rp_snap_ttl:'Department figures at preparation',rp_snap_at:'Taken on',rp_save_draft:'Save draft',rp_save_send:'Save and send to the director',rp_send:'Send to the director',rp_dg_note:"Director's note",rp_note:'Note / reason',rp_note_ph:'Required to reject or request a correction',rp_need_note:'Write the reason first.',rp_bad_state:'Report status changed, reload.',
+ rp_a_approve:'Approve',rp_a_reject:'Reject',rp_a_correction:'Request correction',rp_a_archive:'Archive',rp_hist:'Report history',rp_p_year:'Whole year',rp_att_rate:'Attendance rate',rp_avg:'Overall average',rp_pass:'Pass rate',rp_rev:'Revenue',rp_gd_ttl:'Department reports',rp_n:'Count',rp_last:'Latest report',
+ rp_s_draft:'Draft',rp_s_submitted:'Pending',rp_s_approved:'Approved',rp_s_rejected:'Rejected',rp_s_correction:'Correction requested',rp_s_archived:'Archived',
+ rp_h_create:'Created',rp_h_edit:'Edited',rp_h_submit:'Sent',rp_h_approve:'Approved',rp_h_reject:'Rejected',rp_h_correction:'Correction requested',rp_h_archive:'Archived',
+ sg_mode:'Rounding or truncation',sg_round:'Round (14.567 → 14.57)',sg_trunc:'Truncate (14.567 → 14.56)',sg_dept:'Department-specific scales',sg_dept_h:'E.g. Arabic department out of 10, French out of 20. Used only if allowed; empty cells use the cycle scale.',sg_dept_allow:'Allow department scales',sg_dept_empty:'Usual scales: 6, 10, 20, 100.',
+ sg_hist:'Grading system history',sg_h_field:'Setting',sg_h_old:'Before',sg_h_new:'After',sg_h_none:'No changes recorded yet.',sg_l_conf:'Display & rounding',sg_l_scale:'Scale',sg_l_terms:'Periods',sg_l_count:'Number of periods',sg_l_pass:'Pass mark',sg_l_rank:'Ranking'});
+
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -1335,14 +1365,14 @@ async function reloadData(){
   const [c,s,j,f,tc]=await Promise.all([q('classes').order('created_at'),q('students').order('seq'),q('subjects').order('created_at'),q('staff').order('created_at'),q('teaching').order('created_at')]);
   D.allClasses=c.data||[];D.allStudents=s.data||[];D.subjects=j.data||[];D.staff=f.data||[];D.teaching=tc.data||[];
   try{const r=await q('enrollments');D.enr=r.error?[]:(r.data||[])}catch(e){D.enr=[]}applyYear();
-  await ddLoad();await p6Load();D.ostaff=null;D.oteach=null;if(!canEdit()&&!isDD()&&can('registry')){const r=await sb.rpc('office_staff');if(!r.error&&r.data){D.ostaff=r.data.staff||[];D.oteach=r.data.teaching||[]}}
+  await ddLoad();await p6Load();RP.list=null;await ntLoad();NT.loaded=1;D.ostaff=null;D.oteach=null;if(!canEdit()&&!isDD()&&can('registry')){const r=await sb.rpc('office_staff');if(!r.error&&r.data){D.ostaff=r.data.staff||[];D.oteach=r.data.teaching||[]}}
   await signPaths(D.students.map(x=>x.photo_path).concat(D.staff.map(x=>x.photo_path),[D.i.logo_path,D.i.signature_path,D.i.stamp_path]));
   loadMsgCount().then(()=>{if(MS.unread)updMsgBadge()});
   const ord={mat:0,pri:1,col:2,lyc:3,uni:4};
   D.classes.sort((a,b)=>(ord[a.cycle]-ord[b.cycle])||((LEVELS[a.cycle]||[]).findIndex(x=>x[0]===a.level)-(LEVELS[b.cycle]||[]).findIndex(x=>x[0]===b.level))||a.track.localeCompare(b.track)||a.section.localeCompare(b.section));
   if(c.error&&isNetErr(c.error))throw c.error;await loadHealth();offSave()}
 
-const TABIC={ov:'🏠',plat:'🛡',cls:'🏫',stu:'🎓',att:'📷',grd:'📝',tt:'🗓',exm:'📋',rep:'📊',doc:'📄',crd:'🪪',msg:'💬',bk:'📚',fee:'💰',pay:'💵',dis:'⚖️',log:'🕵',sup:'🎧',dept:'🏛',gd:'🧭',ct:'📒',cal:'📅',staff:'👥',subj:'📘',set:'⚙️'};
+const TABIC={ov:'🏠',plat:'🛡',cls:'🏫',stu:'🎓',att:'📷',grd:'📝',tt:'🗓',exm:'📋',rep:'📊',doc:'📄',crd:'🪪',msg:'💬',bk:'📚',fee:'💰',pay:'💵',dis:'⚖️',log:'🕵',sup:'🎧',dept:'🏛',gd:'🧭',ntf:'🔔',rpt:'📑',ct:'📒',cal:'📅',staff:'👥',subj:'📘',set:'⚙️'};
 function renderDashOld(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
   const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['ct','tab_ct'],['dis','tab_dis']]:[]).concat([['cal','tab_cal']]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set'],['log','tab_log'],['sup','tab_sup']]:[]);
   const yl=yearsList();
@@ -1640,7 +1670,7 @@ const KIND={devoir:'k_devoir',exam:'k_exam',oral:'k_oral',other:'k_other'};
 const G={term:1,cls:'',subj:'',ev:null,evals:[],grades:[],loadedFor:''};
 const nTerms=()=>{const k=D.i&&D.i.term_system;return k==='sem'?2:(k==='eval'||k==='per')?Math.min(6,Math.max(1,+D.i.term_count||3)):3};
 const termName=n=>termLabel(n,D.i&&D.i.term_system);
-const scaleOf=c=>{const gs=(D.i&&D.i.grade_scale)||{};return Number(gs[c&&c.cycle])||(c&&['mat','pri'].includes(c.cycle)?10:20)};
+const scaleOf=c=>{const dsc=deptScale(c);if(dsc)return dsc;const gs=(D.i&&D.i.grade_scale)||{};return Number(gs[c&&c.cycle])||(c&&['mat','pri'].includes(c.cycle)?10:20)};
 const fmt=x=>x==null||isNaN(x)?'—':(Math.round(x*100)/100).toString();
 const mention=f=>f==null?'':f>=.9?t('m_exc'):f>=.8?t('m_tb'):f>=.7?t('m_b'):f>=.6?t('m_ab'):f>=.5?t('m_p'):t('m_ins');
 function gradeSubjects(clsId){
@@ -4612,15 +4642,15 @@ function smartBack(d){return smartBackRaw(d,D.i,schoolLogo())}
 function k5QR(scope){if(window.QRCode)scope.querySelectorAll('.qrc').forEach(d=>{if(!d.firstChild)new QRCode(d,{text:d.dataset.url,width:96,height:96})})}
 
 // -- school space shell
-const SC_G=[['sc_g_main',['ov','gd','cal','msg','sup']],['sc_g_ped',['cls','stu','att','grd','tt','exm','rep','ct','dis']],['sc_g_adm',['dept','doc','crd','bk','fee','pay','staff','subj']],['sc_g_sys',['set','log']]];
-function scTabs(){return [['ov','tab_ov']].concat(canEdit()?[['gd','tab_gd']]:isDD()?[['gd','tab_dd']]:[]).concat([['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['ct','tab_ct'],['dis','tab_dis']]:[]).concat([['cal','tab_cal']]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['dept','tab_dept'],['set','tab_set'],['log','tab_log'],['sup','tab_sup']]:[]))}
+const SC_G=[['sc_g_main',['ov','gd','ntf','rpt','cal','msg','sup']],['sc_g_ped',['cls','stu','att','grd','tt','exm','rep','ct','dis']],['sc_g_adm',['dept','doc','crd','bk','fee','pay','staff','subj']],['sc_g_sys',['set','log']]];
+function scTabs(){return [['ov','tab_ov'],['ntf','tab_ntf']].concat(canEdit()||isDD()?[['rpt','tab_rpt']]:[]).concat(canEdit()?[['gd','tab_gd']]:isDD()?[['gd','tab_dd']]:[]).concat([['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['ct','tab_ct'],['dis','tab_dis']]:[]).concat([['cal','tab_cal']]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['dept','tab_dept'],['set','tab_set'],['log','tab_log'],['sup','tab_sup']]:[]))}
 function hijriY(d){try{return new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{year:'numeric'}).format(d).replace(/\D/g,'')}catch(e){return ''}}
 function yearHijri(y){const a=parseInt(y)||new Date().getFullYear(),h1=hijriY(new Date(Date.UTC(a,8,1))),h2=hijriY(new Date(Date.UTC(a+1,5,30)));return h1&&h2?(h1===h2?h1:h1+' - '+h2)+(L==='ar'?' هـ':' H'):''}
 function scNotifs(){const i=D.i,out=[];if(!i)return out;const sl=subLeft(i),td=todayISO();
   if(i.status==='suspended'||(sl&&sl.n<0))out.push({ic:'⛔',tx:t('sc_n_exp'),go:()=>{D.tab='ov'}});else if(sl&&sl.n<=14)out.push({ic:'⏳',tx:t('sc_n_sub').replace('{n}',sl.n),go:()=>{D.tab='ov'}});
   if(MS.unread)out.push({ic:'💬',tx:t('sc_n_msg').replace('{n}',MS.unread),go:()=>{D.tab='msg'}});
   (ANN.list||[]).filter(a=>!a.until||a.until>=td).forEach(a=>out.push({ic:a.level==='warn'?'⚠️':'📣',tx:esc(L==='ar'||!a.body_fr?a.body_ar:a.body_fr),go:()=>{D.tab='ov'}}));
-  return out}
+  ntPush(out);return out}
 function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i,tabs=scTabs(),has=new Set(tabs.map(x=>x[0]));if(!has.has(D.tab))D.tab='ov';
   const yl=yearsList(),nm=(p&&p.full_name)||(D.user&&D.user.email)||'',[gd,hd]=saDates(),cur=tabs.find(x=>x[0]===D.tab)||tabs[0];
   document.getElementById('dash').classList.add('scx');if(typeof docTheme==='function')docTheme();if(location.hash==='#dash')document.body.classList.add('sa-on');
@@ -4678,7 +4708,7 @@ function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i,t
   document.addEventListener('click',saPopClose);
   const q=g('scQ');q.onkeydown=e=>{if(e.key==='Enter'){D.q=q.value.trim();D.fc='';go('stu')}};
   if(MS.unread)updMsgBadge();
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup,dept:tabDepts,gd:tabGd}[D.tab]||tabOverview)();
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup,dept:tabDepts,gd:tabGd,ntf:tabNtf,rpt:tabRpt}[D.tab]||tabOverview)();
   saFx(root)}
 function updMsgBadge(){document.querySelectorAll('.sa-nav [data-dt=msg]').forEach(tb=>{let n=tb.querySelector('.n');if(!MS.unread){if(n)n.remove();return}if(!n){n=document.createElement('em');n.className='n';tb.appendChild(n)}n.textContent=MS.unread});
   const m=document.getElementById('scMail');if(m)m.innerHTML='✉️'+(MS.unread?`<span class="n">${MS.unread}</span>`:'')}
@@ -4738,8 +4768,8 @@ function termLabel(n,kind){kind=kind||'tri';n=+n;
 function termRangesN(a,n){if(n===2)return [[a+'-09-01',(a+1)+'-01-31'],[(a+1)+'-02-01',(a+1)+'-07-31']];if(n===3)return [[a+'-09-01',a+'-12-31'],[(a+1)+'-01-01',(a+1)+'-03-31'],[(a+1)+'-04-01',(a+1)+'-07-31']];
   const out=[];for(let k=0;k<n;k++){const m0=Math.floor(k*11/n),m1=Math.floor((k+1)*11/n)-1,d0=new Date(Date.UTC(a,8+m0,1)),d1=new Date(Date.UTC(a,8+m1+1,0));out.push([d0.toISOString().slice(0,10),d1.toISOString().slice(0,10)])}return out}
 // -- average display: avg / frac / pct
-function gconf(c){c=c||(D.i&&D.i.grade_conf)||{};return {show:Array.isArray(c.show)&&c.show.length?c.show:['frac'],dec:c.dec==null?2:+c.dec,sep:c.sep===','?',':'.'}}
-function avgNum(v,c){const p=Math.pow(10,c.dec);let s=(Math.round(v*p)/p).toFixed(c.dec);if(c.dec>0&&c.trim!==false)s=s.replace(/\.?0+$/,'');return c.sep===','?s.replace('.',','):s}
+function gconf(c){c=c||(D.i&&D.i.grade_conf)||{};return {show:Array.isArray(c.show)&&c.show.length?c.show:['frac'],dec:c.dec==null?2:+c.dec,sep:c.sep===','?',':'.',mode:c.mode==='trunc'?'trunc':'round'}}
+function avgNum(v,c){const p=Math.pow(10,c.dec);let s=((c.mode==='trunc'?Math.trunc(v*p+(v<0?-1e-7:1e-7)):Math.round(v*p))/p).toFixed(c.dec);if(c.dec>0&&c.trim!==false)s=s.replace(/\.?0+$/,'');return c.sep===','?s.replace('.',','):s}
 function avgFmt(v,scale,conf){if(v==null||isNaN(v))return '—';const c=gconf(conf),sc=+scale||20;
   return c.show.map(k=>k==='avg'?avgNum(v,c):k==='frac'?avgNum(v,c)+' / '+sc:avgNum(v/sc*100,{...c,dec:Math.min(c.dec,1)})+' %').join(' — ')}
 // -- documents: header, signer, footer, colour
@@ -4836,18 +4866,18 @@ function setGrade(){const b=document.getElementById('setBody'),i=D.i,g=gconf(),k
     <div class="chips">${[['avg','sg_m_avg'],['frac','sg_m_frac'],['pct','sg_m_pct']].map(([k,l])=>chk('sgM_'+k,g.show.includes(k),t(l))).join('')}</div>
     <div class="two" style="margin-top:10px"><div class="fld"><label>${t('sg_dec')}</label><select id="sgD">${opts([['0','0 — 15'],['1','1 — 14,6'],['2','2 — 14,57']],String(g.dec))}</select></div>
       <div class="fld"><label>${t('sg_sep')}</label><select id="sgS">${opts([['.','14.57'],[',','14,57']],g.sep)}</select></div></div>
-    <div class="note" id="sgEx"></div></div>
+    <div class="fld" style="margin-top:6px"><label>✂️ ${t('sg_mode')}</label><select id="sgR">${opts([['round',t('sg_round')],['trunc',t('sg_trunc')]],g.mode)}</select></div><div class="note" id="sgEx"></div></div>${sgDeptHtml()}
    <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="sgGo">💾 ${t('save')}</button><span class="err" id="sgErr"></span></div>`;
   chipSync(b);
   const g2=id=>document.getElementById(id),rd=()=>({k:g2('sgK').value,n:g2('sgK').value==='tri'?3:g2('sgK').value==='sem'?2:+g2('sgN').value,
-    conf:{show:['avg','frac','pct'].filter(k=>g2('sgM_'+k).checked),dec:+g2('sgD').value,sep:g2('sgS').value}});
+    conf:{show:['avg','frac','pct'].filter(k=>g2('sgM_'+k).checked),dec:+g2('sgD').value,sep:g2('sgS').value,mode:g2('sgR').value,dept_allow:!!(g2('sgDA')&&g2('sgDA').checked)}});
   const upd=()=>{const r=rd(),fixed=r.k==='tri'||r.k==='sem';g2('sgN').disabled=fixed;if(fixed)g2('sgN').value=String(r.n);
     g2('sgNames').innerHTML=Array.from({length:r.n},(_,k)=>`<span class="chip">${esc(termLabel(k+1,r.k))}</span>`).join('');
     const sc=20;g2('sgEx').innerHTML=`${t('sg_ex')}: <b dir="ltr">${esc(avgFmt(14.5678,sc,r.conf.show.length?r.conf:{show:['frac']}))}</b> · <b dir="ltr">${esc(avgFmt(7.25,10,r.conf.show.length?r.conf:{show:['frac']}))}</b>`};
-  b.querySelectorAll('select,input').forEach(x=>x.addEventListener('change',upd));upd();
+  b.querySelectorAll('select,input').forEach(x=>x.addEventListener('change',upd));upd();sgHistLoad();
   g2('sgGo').onclick=async()=>{const r=rd(),er=g2('sgErr');if(!r.conf.show.length){er.textContent=t('sg_need1');return}
     const used=Math.max(0,...(G.evals||[]).map(e=>+e.term||0));if(used>r.n&&!confirm(t('sg_warn').replace('{n}',used)))return;
-    if(await setSave({term_system:r.k,term_count:(r.k==='eval'||r.k==='per')?r.n:null,grade_conf:r.conf},'sgErr')){G.term=Math.min(G.term||1,r.n)}}}
+    if(await setSave({term_system:r.k,term_count:(r.k==='eval'||r.k==='per')?r.n:null,grade_conf:r.conf},'sgErr')){G.term=Math.min(G.term||1,r.n);if(await sgDeptSave())setTimeout(sgHistLoad,400)}}}
 
 // ===== Multi-department phase 2: departments & roles =====
 const PERM_CAT=[['students.view','pm_stu_view'],['students.create','pm_stu_create'],['students.edit','pm_stu_edit'],['students.delete','pm_stu_delete'],
@@ -4959,7 +4989,7 @@ const gdPct=v=>v==null?'—':(Math.round(v*10)/10).toLocaleString('fr-FR')+' %';
 function gdHBars(rows,fmt,click){const mx=Math.max(1,...rows.map(r=>+r.v||0));
   return rows.map(r=>`<div style="margin:9px 0;cursor:${click?'pointer':'default'}"${click&&r.id!==undefined?` data-gdd="${esc(r.id||'shared')}"`:''} title="${esc(r.l)}: ${esc(fmt(r.v))}"><div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:700"><span>${r.l}</span><b>${fmt(r.v)}</b></div>
     <div class="sa-bar" style="height:13px"><i style="width:${Math.round((+r.v||0)/mx*100)}%;background:linear-gradient(90deg,${r.c},${r.c}aa)"></i></div></div>`).join('')||'<div class="sa-empty">—</div>'}
-async function tabGd(){const el=document.getElementById('dtab');ddFix();if(GD.at&&Date.now()-GD.at>30000){GD.data=null;GD.err=''}if(!GD.data&&!GD.err){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;await gdLoad();if(D.tab!=='gd')return}
+async function tabGdBase(){const el=document.getElementById('dtab');ddFix();if(GD.at&&Date.now()-GD.at>30000){GD.data=null;GD.err=''}if(!GD.data&&!GD.err){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;await gdLoad();if(D.tab!=='gd')return}
   if(GD.err){el.innerHTML=`<div class="note">⚙️ ${esc(GD.err)}</div>`;return}
   const d=GD.data,k=d.kpi||{},BD=(d.by_dept||[]).filter(x=>(x.id||x.students||x.classes)&&(!isDD()||D.dd.some(y=>y.id===x.id))),dn=x=>esc(x.id?((L==='ar'||L==='nqo'||!x.name_fr)?x.name_ar:x.name_fr):t('dp_shared')),sc=20;
   const yrs=(d.years||[]).length?d.years:[curYear()],clsList=(D.allClasses||D.classes).filter(c=>c.school_year===(GD.y||curYear())&&(!GD.dep||(GD.dep==='shared'?!c.department_id:c.department_id===GD.dep))&&(!GD.lv||c.level===GD.lv));
@@ -5014,9 +5044,9 @@ function ddFix(){if(!isDD())return;if(!D.dd.some(d=>d.id===GD.dep)){GD.dep=D.dd[
 // الحماية الفعلية في الخادم (schema39). هنا: عرض وإدارة فقط.
 async function p6Load(){const iid=D.i&&D.i.id;D.xc=[];D.depts=[];D.dmAll=[];D.ttH={};if(!iid)return;
   const q=tb=>sb.from(tb).select('*').eq('institution_id',iid);
-  try{const [x,d,m,tt]=await Promise.all([q('student_classes'),q('departments'),q('department_members'),sb.from('timetable').select('staff_id,school_year').eq('institution_id',iid)]);
-    D.xc=x&&!x.error?(x.data||[]):[];D.depts=d&&!d.error?(d.data||[]):[];D.dmAll=m&&!m.error?(m.data||[]):[];
-    const y=(D.i&&D.i.current_year)||curYear();((tt&&!tt.error&&tt.data)||[]).forEach(r=>{if(r.staff_id&&(!r.school_year||r.school_year===y))D.ttH[r.staff_id]=(D.ttH[r.staff_id]||0)+1})}catch(e){}
+  const safe=async f=>{try{const r=await f();return r&&!r.error?(r.data||[]):[]}catch(e){return []}};
+  const [x,d,m,tt]=await Promise.all([safe(()=>q('student_classes')),safe(()=>q('departments')),safe(()=>q('department_members')),safe(()=>sb.from('timetable').select('staff_id,school_year').eq('institution_id',iid))]);
+  D.xc=x;D.depts=d;D.dmAll=m;const y=(D.i&&D.i.current_year)||curYear();tt.forEach(r=>{if(r.staff_id&&(!r.school_year||r.school_year===y))D.ttH[r.staff_id]=(D.ttH[r.staff_id]||0)+1});
   const by={};D.xc.forEach(r=>{(by[r.student_id]=by[r.student_id]||[]).push(r.class_id)});(D.allStudents||[]).forEach(s=>{s._xc=by[s.id]||[]})}
 const inCls=(s,c)=>!!s&&(s.class_id===c||(!!c&&(s._xc||[]).includes(c)));
 const depOf=id=>(D.depts||[]).find(d=>d.id===id)||((D.dd||[]).find(d=>d.id===id))||null;
@@ -5050,6 +5080,162 @@ function stfDeps(s){const ds=(D.dmAll||[]).filter(m=>m.staff_id===s.id&&m.active
 // القسم على رأس الوثائق الرسمية والكشوف
 let OHD=null;
 function depLine(d){return d?`<small class="ofdep" style="display:block;font-weight:800;color:${esc(d.color||'#0a4f2b')}">${esc(d.icon||'🏛')} ${esc(d.name_fr||'')}${d.name_fr?' — ':''}<span dir="rtl">${esc(d.name_ar)}</span></small>`:''}
+
+// ===== Multi-department phase 7: reports & validations, notifications centre, internal messaging, grading history =====
+// كل الحماية في الخادم (schema40). هذه الواجهة فقط.
+const NT={list:[],unread:0,f:'all',compose:null,contacts:null,err:''};
+const NTK={report:['📑','#7c3aed'],validation:['✅','#15803d'],enrol:['🎓','#0d9488'],finance:['💰','#b45309'],absence:['🚫','#dc2626'],message:['✉️','#1d4ed8'],grading:['📏','#9333ea'],pedago:['📘','#0369a1'],info:['ℹ️','#475569']};
+const ntTime=x=>{try{return new Date(x).toLocaleString(L==='ar'?'ar-EG':L==='en'?'en-GB':'fr-FR',{day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'})}catch(e){return String(x||'').slice(0,16)}};
+async function ntLoad(){try{const r=await sb.from('internal_notifications').select('*').order('created_at',{ascending:false}).limit(300);
+  if(r.error){NT.list=[];NT.unread=0;NT.off=/internal_notifications/.test(r.error.message||'');return}NT.off=false;NT.list=r.data||[];NT.unread=NT.list.filter(n=>!n.read_at).length}catch(e){NT.list=[];NT.unread=0}}
+function ntPush(out){if(!NT.unread)return;out.unshift({ic:'🔔',tx:t('nt_new').replace('{n}',NT.unread),go:()=>{D.tab='ntf';NT.f='unread'}})}
+async function ntRead(ids){ids=ids.filter(Boolean);if(!ids.length)return;const now=new Date().toISOString();
+  for(let k=0;k<ids.length;k+=100){await sb.from('internal_notifications').update({read_at:now}).in('id',ids.slice(k,k+100))}
+  NT.list.forEach(n=>{if(ids.includes(n.id))n.read_at=now});NT.unread=NT.list.filter(n=>!n.read_at).length}
+function ntCompose(pre){pre=pre||{};const dl=canEdit()?(D.depts||[]).filter(d=>d.active!==false):isDD()?D.dd:[];
+  const kinds=[['user',t('nt_to_user')]].concat(dl.length?[['dept',t('nt_to_dept')]]:[]).concat(canEdit()?[['all',t('nt_to_all')]]:[]);
+  return `<div class="cert" style="margin-top:0" id="ntForm"><b>✉️ ${t('nt_compose')}</b>
+   <div class="two" style="margin-top:8px"><div class="fld"><label>${t('nt_to')}</label><select id="ntK">${opts(kinds,pre.kind||'user')}</select></div>
+    <div class="fld" id="ntUBox"><label>${t('nt_person')}</label><select id="ntU">${opts((NT.contacts||[]).map(c=>[c.id,c.name+' — '+t('nt_r_'+c.role)]),pre.to||'')}</select></div>
+    <div class="fld" id="ntDBox" style="display:none"><label>${t('nt_dept')}</label><select id="ntD">${opts(dl.map(d=>[d.id,(d.icon||'🏛')+' '+depName(d)]))}</select></div></div>
+   <div class="fld"><label>${t('nt_subject')} *</label><input id="ntT" maxlength="200" value="${esc(pre.title||'')}"></div>
+   <div class="fld"><label>${t('nt_body')}</label><textarea id="ntB" rows="4" maxlength="4000"></textarea></div>
+   <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="ntGo">📨 ${t('nt_send')}</button><button class="btn btn-t" id="ntX">${t('cancel')}</button><span class="err" id="ntErr"></span></div></div>`}
+async function tabNtf(){const el=document.getElementById('dtab');
+  if(!NT.loaded){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;await ntLoad();NT.loaded=1;if(D.tab!=='ntf')return}
+  if(NT.off){el.innerHTML=`<div class="note">⚙️ ${t('need_schema40')}</div>`;return}
+  const F=[['all','nt_f_all'],['unread','nt_f_unread'],['message','nt_f_msg'],['report','nt_f_rpt'],['alert','nt_f_alert']];
+  const L2=NT.list.filter(n=>NT.f==='all'||(NT.f==='unread'?!n.read_at:NT.f==='message'?n.kind==='message':NT.f==='report'?['report','validation'].includes(n.kind):!['message','report','validation'].includes(n.kind)));
+  el.innerHTML=`${NT.compose?ntCompose(NT.compose):''}
+   <div class="toolbar" style="margin-top:0;align-items:center;flex-wrap:wrap"><div class="chips" style="margin:0;flex:1">${F.map(([k,l])=>`<span class="chip${NT.f===k?' on':''}" data-ntf="${k}" style="cursor:pointer">${t(l)}${k==='unread'&&NT.unread?` <b>${NT.unread}</b>`:''}</span>`).join('')}</div>
+    ${NT.compose?'':`<button class="btn btn-g sm" id="ntNew">✉️ ${t('nt_compose')}</button>`}${NT.unread?`<button class="btn btn-t sm" id="ntAll">✔ ${t('nt_read_all')}</button>`:''}<button class="btn btn-t sm" id="ntR">⟳</button></div>
+   ${L2.length?L2.map(n=>{const [ic,col]=NTK[n.kind]||NTK.info;return `<div class="cert" style="margin:8px 0;padding:12px 14px;border-inline-start:4px solid ${col};${n.read_at?'opacity:.78':'background:#fbfdfb'}">
+     <div style="display:flex;gap:10px;align-items:flex-start"><span style="font-size:22px">${ic}</span><div style="flex:1;min-width:0">
+      <b>${n.read_at?'':'<span style="color:#dc2626">●</span> '}${esc(n.title)}${n.n>1?` <span class="badge">×${n.n}</span>`:''}</b>
+      ${n.body?`<div style="white-space:pre-wrap;margin-top:4px">${esc(n.body)}</div>`:''}
+      <small class="sub">${n.sender_name?'👤 '+esc(n.sender_name)+' · ':''}${n.department_id?depBadge(depOf(n.department_id))+' · ':''}<bdi dir="ltr">${esc(ntTime(n.created_at))}</bdi></small></div>
+      <div style="display:flex;gap:4px;flex-wrap:wrap">${n.link&&n.link!=='ntf'?`<button class="btn btn-t sm" data-ngo="${n.id}">↗ ${t('nt_open')}</button>`:''}${n.kind==='message'&&n.sender_id?`<button class="btn btn-o sm" data-nre="${n.id}">↩ ${t('nt_reply')}</button>`:''}
+      ${n.read_at?'':`<button class="btn btn-t sm" data-nrd="${n.id}" title="${t('nt_mark')}">✔</button>`}<button class="btn btn-t sm red" data-ndl="${n.id}" title="${t('del')}">✕</button></div></div></div>`}).join(''):`<div class="sa-empty"><span>🔕</span>${t('sa_n_none')}</div>`}`;
+  const g=id=>document.getElementById(id),re=()=>{renderDash()};
+  el.querySelectorAll('[data-ntf]').forEach(c=>c.onclick=()=>{NT.f=c.dataset.ntf;tabNtf()});
+  if(g('ntR'))g('ntR').onclick=async()=>{await ntLoad();re()};
+  if(g('ntAll'))g('ntAll').onclick=async()=>{await ntRead(NT.list.filter(n=>!n.read_at).map(n=>n.id));re()};
+  el.querySelectorAll('[data-nrd]').forEach(b=>b.onclick=async()=>{await ntRead([b.dataset.nrd]);re()});
+  el.querySelectorAll('[data-ndl]').forEach(b=>b.onclick=async()=>{const {error}=await sb.from('internal_notifications').delete().eq('id',b.dataset.ndl);if(error)return alert(em(error));NT.list=NT.list.filter(n=>n.id!==b.dataset.ndl);NT.unread=NT.list.filter(n=>!n.read_at).length;re()});
+  el.querySelectorAll('[data-ngo]').forEach(b=>b.onclick=async()=>{const n=NT.list.find(x=>x.id===b.dataset.ngo);await ntRead([n.id]);if(n.link==='rpt'&&n.ref_id)RP.open=n.ref_id;D.tab=n.link;renderDash()});
+  const openC=async pre=>{if(!NT.contacts){const r=await sb.rpc('msg_contacts');NT.contacts=r.error?[]:(r.data||[])}NT.compose=pre||{};tabNtf()};
+  if(g('ntNew'))g('ntNew').onclick=()=>openC({});
+  el.querySelectorAll('[data-nre]').forEach(b=>b.onclick=async()=>{const n=NT.list.find(x=>x.id===b.dataset.nre);await ntRead([n.id]);
+    await openC({kind:'user',to:n.sender_id,title:(/^(RE|رد): /.test(n.title)?'':(L==='ar'?'رد: ':'RE: '))+n.title});
+    if(NT.contacts&&!NT.contacts.some(c=>c.id===n.sender_id)){NT.contacts.push({id:n.sender_id,name:n.sender_name||'—',role:'staff'});NT.compose={kind:'user',to:n.sender_id,title:g('ntT').value};tabNtf()}});
+  if(g('ntForm')){const k=g('ntK'),sw=()=>{g('ntUBox').style.display=k.value==='user'?'':'none';g('ntDBox').style.display=k.value==='dept'?'':'none'};k.onchange=sw;sw();
+    g('ntX').onclick=()=>{NT.compose=null;tabNtf()};
+    g('ntGo').onclick=async()=>{const er=g('ntErr'),ti=g('ntT').value.trim();if(!ti){er.textContent=t('e_req');return}if(k.value==='user'&&!g('ntU').value){er.textContent=t('nt_pick');return}
+      er.textContent=t('wait');const {data,error}=await sb.rpc('send_internal',{p_to:k.value==='user'?g('ntU').value:null,p_dept:k.value==='dept'?g('ntD').value:null,p_all:k.value==='all',p_title:ti,p_body:g('ntB').value.trim()||null});
+      if(error){er.textContent=/NOT_ALLOWED/.test(error.message||'')?t('not_allowed'):/TOO_MANY/.test(error.message||'')?t('nt_too_many'):/send_internal/.test(error.message||'')?t('need_schema40'):em(error);return}
+      NT.compose=null;tabNtf();const n=document.createElement('div');n.className='note';n.style.cssText='background:#e6f5ea;border-color:#bfe3c8;color:#0F5E2A';n.textContent='✓ '+t('nt_sent').replace('{n}',data||0);el.prepend(n)}}}
+
+// ---------- التقارير الهرمية ----------
+const RP={list:null,hist:{},open:null,edit:null,f:'',dep:'',err:''};
+const RPS={draft:['📝','#64748b'],submitted:['📨','#1d4ed8'],approved:['✅','#15803d'],rejected:['⛔','#dc2626'],correction:['✏️','#d97706'],archived:['🗄','#475569']};
+const rpBadge=s=>{const [ic,c]=RPS[s]||RPS.draft;return `<span class="badge" style="background:${c}1a;color:${c};border:1px solid ${c}55">${ic} ${t('rp_s_'+s)}</span>`};
+async function rpLoad(){try{const r=await sb.from('dept_reports').select('*').order('updated_at',{ascending:false});if(r.error){RP.err=/dept_reports/.test(r.error.message||'')?t('need_schema40'):em(r.error);RP.list=[];return}RP.err='';RP.list=r.data||[]}catch(e){RP.list=[];RP.err=t('need_schema40')}}
+async function rpHist(id){const r=await sb.from('report_history').select('*').eq('report_id',id).order('at');RP.hist[id]=r.error?[]:(r.data||[])}
+function rpSnapHtml(s){if(!s||!s.kpi)return '';const k=s.kpi,pc=v=>v==null?'—':(Math.round(v*10)/10).toLocaleString('fr-FR')+' %',at=(+k.present||0)+(+k.late||0)+(+k.absent||0)+(+k.excused||0);
+  const rows=[['🎓',t('gd_k_stu'),k.students],['🏫',t('sc_k_cls'),k.classes],['🧑‍🏫',t('sc_k_tch'),k.teachers],['📝',t('gd_k_new'),k.new_enrol],['🚫',t('gd_k_abs'),k.absent],['🕒',t('rp_att_rate'),at?pc(((+k.present||0)+(+k.late||0))/at*100):'—'],['📈',t('rp_avg'),k.avg==null?'—':pc(k.avg)],['🏆',t('rp_pass'),pc(k.pass_rate)]].concat(k.revenue!=null?[['💰',t('rp_rev'),money(k.revenue)]]:[]);
+  return `<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${rows.map(r=>`<tr><td>${r[0]} ${r[1]}</td><td><b dir="ltr">${esc(String(r[2]??'—'))}</b></td></tr>`).join('')}</tbody></table></div><small class="sub">${t('rp_snap_at')} <bdi dir="ltr">${esc(ntTime(s.at||''))}</bdi></small>`}
+function rpPeriods(){return Array.from({length:nTerms()},(_,n)=>termName(n+1)).concat([t('rp_p_year')])}
+async function tabRpt(){const el=document.getElementById('dtab');
+  if(RP.list===null){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;await rpLoad();if(D.tab!=='rpt')return}
+  if(RP.err){el.innerHTML=`<div class="note">⚙️ ${esc(RP.err)}</div>`;return}
+  const adm=canEdit(),deps=adm?(D.depts||[]):(D.dd||[]),cur=RP.open&&RP.list.find(r=>r.id===RP.open);
+  if(cur){if(!RP.hist[cur.id])await rpHist(cur.id);return rpView(el,cur)}
+  if(RP.edit)return rpForm(el,RP.edit);
+  const L2=RP.list.filter(r=>(!RP.f||r.status===RP.f)&&(!RP.dep||r.department_id===RP.dep));
+  const cnt=s=>RP.list.filter(r=>r.status===s).length;
+  el.innerHTML=`${adm?'':`<div class="note" style="margin-top:0">📑 ${t('rp_help_dd')}</div>`}
+   <div class="toolbar" style="margin-top:0;flex-wrap:wrap;align-items:center"><div class="chips" style="margin:0;flex:1">${[''].concat(Object.keys(RPS)).map(s=>`<span class="chip${RP.f===s?' on':''}" data-rpf="${s}" style="cursor:pointer">${s?RPS[s][0]+' '+t('rp_s_'+s)+` <b>${cnt(s)}</b>`:t('all')}</span>`).join('')}</div>
+    ${deps.length>1?`<select id="rpDep" style="max-width:220px">${opts([['',t('gd_all_dep')]].concat(deps.map(d=>[d.id,depName(d)])),RP.dep)}</select>`:''}
+    ${!adm&&isDD()?`<button class="btn btn-g sm" id="rpNew">➕ ${t('rp_new')}</button>`:''}</div>
+   ${L2.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('rp_title')}</th><th>${t('nt_dept')}</th><th>${t('rp_period')}</th><th>${t('rp_status')}</th><th>${t('rp_updated')}</th></tr></thead><tbody>
+    ${L2.map(r=>`<tr style="cursor:pointer" data-rpo="${r.id}"><td><b>${esc(r.title)}</b>${r.author_name?`<br><small class="sub">👤 ${esc(r.author_name)}</small>`:''}</td><td>${depBadge(depOf(r.department_id))}</td><td>${esc(r.period_label||'')} <small dir="ltr">${esc(r.school_year)}</small></td><td>${rpBadge(r.status)}</td><td><bdi dir="ltr">${esc(ntTime(r.updated_at))}</bdi></td></tr>`).join('')}</tbody></table></div>`
+    :`<div class="sa-empty"><span>📑</span>${t('rp_none')}</div>`}`;
+  el.querySelectorAll('[data-rpf]').forEach(c=>c.onclick=()=>{RP.f=c.dataset.rpf;tabRpt()});
+  el.querySelectorAll('[data-rpo]').forEach(c=>c.onclick=()=>{RP.open=c.dataset.rpo;tabRpt()});
+  const d=document.getElementById('rpDep');if(d)d.onchange=()=>{RP.dep=d.value;tabRpt()};
+  const n=document.getElementById('rpNew');if(n)n.onclick=()=>{RP.edit={department_id:(RP.dep||D.dd[0].id),school_year:curYear(),period_label:rpPeriods()[0],title:'',body:''};tabRpt()}}
+async function rpSnap(dep){try{const {data,error}=await sb.rpc('dg_dashboard',{p_year:curYear(),p_dept:dep,p_class:null,p_level:null,p_term:null,p_from:null,p_to:null});
+  if(error||!data)return null;return {at:new Date().toISOString(),kpi:data.kpi||{},year:data.year||curYear()}}catch(e){return null}}
+function rpForm(el,r){const deps=D.dd||[];
+  el.innerHTML=`<div class="cert" style="margin-top:0"><b>${r.id?'✏️ '+t('edit'):'➕ '+t('rp_new')}</b>
+   <div class="two" style="margin-top:8px"><div class="fld"><label>${t('nt_dept')}</label><select id="rfD"${r.id?' disabled':''}>${opts(deps.map(d=>[d.id,depName(d)]),r.department_id)}</select></div>
+    <div class="fld"><label>${t('rp_period')}</label><input id="rfP" list="dl_rpp" maxlength="80" value="${esc(r.period_label||'')}"><datalist id="dl_rpp">${rpPeriods().map(p=>`<option value="${esc(p)}">`).join('')}</datalist></div></div>
+   <div class="fld"><label>${t('rp_title')} *</label><input id="rfT" maxlength="200" value="${esc(r.title||'')}"></div>
+   <div class="fld"><label>${t('rp_body')}</label><textarea id="rfB" rows="10" maxlength="20000" placeholder="${esc(t('rp_body_ph'))}">${esc(r.body||'')}</textarea></div>
+   <label class="opt"><input type="checkbox" id="rfS" checked> 📊 ${t('rp_snap')}</label>
+   ${r.status==='correction'&&r.decision_note?`<div class="note" style="background:#fff4e0;border-color:#f5c27a;color:#7a4a00">✏️ ${t('rp_dg_note')}: ${esc(r.decision_note)}</div>`:''}
+   <div class="acts" style="justify-content:flex-start"><button class="btn btn-t" id="rfSave">💾 ${t('rp_save_draft')}</button><button class="btn btn-g" id="rfSend">📨 ${t('rp_save_send')}</button><button class="btn btn-t" id="rfX">${t('cancel')}</button><span class="err" id="rfErr"></span></div></div>`;
+  const g=id=>document.getElementById(id);g('rfX').onclick=()=>{RP.edit=null;tabRpt()};
+  const save=async send=>{const er=g('rfErr'),ti=g('rfT').value.trim();if(!ti){er.textContent=t('e_req');return}er.textContent=t('wait');
+    const row={title:ti,period_label:g('rfP').value.trim()||null,body:g('rfB').value.trim()||null};const dep=r.department_id||g('rfD').value;
+    if(g('rfS').checked){const s=await rpSnap(dep);if(s)row.snapshot=s}
+    let id=r.id;if(id){const {error}=await sb.from('dept_reports').update(row).eq('id',id);if(error){er.textContent=em(error);return}}
+    else{const {data,error}=await sb.from('dept_reports').insert({...row,department_id:dep,school_year:curYear(),status:'draft'}).select().single();if(error){er.textContent=/dept_reports/.test(error.message||'')?t('need_schema40'):em(error);return}id=data.id}
+    if(send){const {error}=await sb.rpc('report_act',{p_id:id,p_action:'submit',p_note:null});if(error){er.textContent=em(error);return}}
+    RP.edit=null;RP.open=id;delete RP.hist[id];await rpLoad();tabRpt()};
+  g('rfSave').onclick=()=>save(false);g('rfSend').onclick=()=>save(true)}
+function rpView(el,r){const adm=canEdit(),mine=isDD()&&D.dd.some(d=>d.id===r.department_id),H=RP.hist[r.id]||[],d=depOf(r.department_id);
+  const acts=[];if(mine&&['draft','correction'].includes(r.status))acts.push(`<button class="btn btn-t" id="rvEdit">✏️ ${t('edit')}</button><button class="btn btn-g" id="rvSend">📨 ${t('rp_send')}</button>`);
+  if(mine&&r.status==='draft')acts.push(`<button class="btn btn-t red" id="rvDel">🗑 ${t('del')}</button>`);
+  if(adm&&r.status==='submitted')acts.push(`<button class="btn btn-g" data-rva="approve">✅ ${t('rp_a_approve')}</button><button class="btn btn-o" data-rva="correction">✏️ ${t('rp_a_correction')}</button><button class="btn btn-t red" data-rva="reject">⛔ ${t('rp_a_reject')}</button>`);
+  if(adm&&['approved','rejected'].includes(r.status))acts.push(`<button class="btn btn-t" data-rva="archive">🗄 ${t('rp_a_archive')}</button>`);
+  el.innerHTML=`<div class="toolbar" style="margin-top:0"><button class="btn btn-t sm" id="rvBack">${RTL()?'→':'←'} ${t('back')||t('cancel')}</button><button class="btn btn-t sm" id="rvPrint">🖨 ${t('rp_print')}</button></div>
+   <div class="cert" style="margin-top:0"><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center"><div><b style="font-size:18px">${esc(r.title)}</b><br>${depBadge(d)} <small>${esc(r.period_label||'')} · <bdi dir="ltr">${esc(r.school_year)}</bdi>${r.author_name?' · 👤 '+esc(r.author_name):''}</small></div>${rpBadge(r.status)}</div>
+    ${r.decision_note?`<div class="note" style="margin:10px 0 0;background:#fff4e0;border-color:#f5c27a;color:#7a4a00">💬 ${t('rp_dg_note')}: ${esc(r.decision_note)}</div>`:''}
+    <div style="white-space:pre-wrap;margin:12px 0;line-height:1.8">${esc(r.body||'')}</div>
+    ${r.snapshot?`<b>📊 ${t('rp_snap_ttl')}</b>${rpSnapHtml(r.snapshot)}`:''}
+    ${acts.length?`<div class="fld" style="margin-top:12px">${adm&&r.status==='submitted'?`<label>${t('rp_note')}</label><textarea id="rvN" rows="2" maxlength="2000" placeholder="${esc(t('rp_note_ph'))}"></textarea>`:''}</div><div class="acts" style="justify-content:flex-start">${acts.join('')}<span class="err" id="rvErr"></span></div>`:''}</div>
+   <div class="cert"><b>🕓 ${t('rp_hist')}</b>${H.length?`<div style="margin-top:8px">${H.map(h=>`<div style="display:flex;gap:8px;align-items:flex-start;margin:6px 0"><span>${(RPS[h.status_to]||RPS.draft)[0]}</span><div><b>${t('rp_h_'+h.action)||h.action}</b> ${h.status_to?rpBadge(h.status_to):''}<br><small class="sub">${h.user_name?'👤 '+esc(h.user_name)+' · ':''}<bdi dir="ltr">${esc(ntTime(h.at))}</bdi></small>${h.note?`<div>💬 ${esc(h.note)}</div>`:''}</div></div>`).join('')}</div>`:`<div class="sub">—</div>`}</div>`;
+  const g=id=>document.getElementById(id),done=async()=>{delete RP.hist[r.id];await rpLoad();tabRpt()};
+  g('rvBack').onclick=()=>{RP.open=null;tabRpt()};
+  g('rvPrint').onclick=()=>{OHD=d;printPages(`<section class="ofdoc">${officialHead('RAPPORT DU DÉPARTEMENT','تقرير القسم')}<div class="ofbody"><h3 style="margin:4mm 0">${esc(r.title)}</h3><p><b>${esc(r.period_label||'')}</b> — ${esc(r.school_year)} — ${t('rp_status')}: ${t('rp_s_'+r.status)}</p><div style="white-space:pre-wrap;line-height:1.8">${esc(r.body||'')}</div>${r.snapshot?rpSnapHtml(r.snapshot):''}${r.decision_note?`<p>💬 ${esc(r.decision_note)}</p>`:''}</div></section>`)};
+  if(g('rvEdit'))g('rvEdit').onclick=()=>{RP.edit={...r};RP.open=null;tabRpt()};
+  if(g('rvSend'))g('rvSend').onclick=async()=>{const {error}=await sb.rpc('report_act',{p_id:r.id,p_action:'submit',p_note:null});if(error){g('rvErr').textContent=em(error);return}done()};
+  if(g('rvDel'))g('rvDel').onclick=async()=>{if(!confirm(t('sure')||'?'))return;const {error}=await sb.from('dept_reports').delete().eq('id',r.id);if(error){g('rvErr').textContent=em(error);return}RP.open=null;done()};
+  el.querySelectorAll('[data-rva]').forEach(b=>b.onclick=async()=>{const a=b.dataset.rva,note=g('rvN')?g('rvN').value.trim():'';
+    if(['reject','correction'].includes(a)&&!note){g('rvErr').textContent=t('rp_need_note');g('rvN').focus();return}
+    if(a==='archive'&&!confirm(t('rp_a_archive')+' ?'))return;
+    const {error}=await sb.rpc('report_act',{p_id:r.id,p_action:a,p_note:note||null});if(error){g('rvErr').textContent=/NOTE_REQUIRED/.test(error.message||'')?t('rp_need_note'):/BAD_STATE/.test(error.message||'')?t('rp_bad_state'):em(error);return}done()})}
+// تجميع التقارير في لوحة المدير العام
+async function gdReports(){const el=document.getElementById('dtab');if(!el||D.tab!=='gd'||!canEdit())return;await rpLoad();if(RP.err||D.tab!=='gd')return;
+  const deps=(D.depts||[]).filter(d=>d.active!==false);if(!deps.length)return;
+  const rows=deps.map(d=>{const R=RP.list.filter(r=>r.department_id===d.id&&r.school_year===(GD.y||curYear()));const last=R[0];
+    return `<tr><td>${depBadge(d)}</td><td>${R.length}</td><td><b style="color:#1d4ed8">${R.filter(r=>r.status==='submitted').length}</b></td><td>${R.filter(r=>r.status==='approved'||r.status==='archived').length}</td><td>${last?`<a href="#" data-gdr="${last.id}">${esc(last.title)}</a> ${rpBadge(last.status)}`:'—'}</td></tr>`}).join('');
+  const box=document.createElement('div');box.innerHTML=saPan('📑',t('rp_gd_ttl'),`<div class="tblw"><table class="tbl" style="min-width:0"><thead><tr><th>${t('nt_dept')}</th><th>${t('rp_n')}</th><th>${t('rp_s_submitted')}</th><th>${t('rp_s_approved')}</th><th>${t('rp_last')}</th></tr></thead><tbody>${rows}</tbody></table></div>`,1,`<a href="#" data-gdr="all" style="color:#fff">${t('nt_open')} ↗</a>`);
+  box.style.marginTop='14px';el.appendChild(box);
+  box.querySelectorAll('[data-gdr]').forEach(a=>a.onclick=e=>{e.preventDefault();RP.open=a.dataset.gdr==='all'?null:a.dataset.gdr;RP.f=a.dataset.gdr==='all'?'submitted':'';D.tab='rpt';renderDash()})}
+
+// ---------- نظام التقييم: بتر/تقريب، سلالم الأقسام، السجل ----------
+function deptScale(c){const gc=(D.i&&D.i.grade_conf)||{};if(!gc.dept_allow||!c||!c.department_id)return 0;const d=depOf(c.department_id);return Number(d&&d.grade_conf&&d.grade_conf.scale&&d.grade_conf.scale[c.cycle])||0}
+function sgDeptHtml(){if(!canEdit())return '';const deps=(D.depts||[]).filter(d=>d.active!==false),gc=D.i.grade_conf||{},cy=D.i.cycles&&D.i.cycles.length?D.i.cycles:Object.keys(CYC);
+  return `<div class="cert"><b>🏛 ${t('sg_dept')}</b><p class="sub" style="margin:4px 0 8px">${t('sg_dept_h')}</p>
+   <label class="chip${gc.dept_allow?' on':''}" style="cursor:pointer"><input type="checkbox" id="sgDA"${gc.dept_allow?' checked':''} hidden> ${t('sg_dept_allow')}</label>
+   ${deps.length?`<div class="tblw" style="margin-top:8px"><table class="tbl" style="min-width:0"><thead><tr><th></th>${cy.map(c=>`<th>${t(CYC[c])}</th>`).join('')}</tr></thead><tbody>
+    ${deps.map(d=>`<tr><td>${depBadge(d)}</td>${cy.map(c=>`<td><input class="sgDS" data-d="${d.id}" data-cy="${c}" type="number" min="1" max="1000" dir="ltr" list="dl_scale" style="width:80px" placeholder="${scaleOf({cycle:c})}" value="${esc(String((d.grade_conf&&d.grade_conf.scale&&d.grade_conf.scale[c])||''))}"></td>`).join('')}</tr>`).join('')}</tbody></table></div><small class="sub">${t('sg_dept_empty')}</small>`:`<div class="sub">${t('dp_none')||'—'}</div>`}</div>`}
+async function sgDeptSave(){const ins=[...document.querySelectorAll('.sgDS')];if(!ins.length)return true;const by={};
+  ins.forEach(i=>{const v=parseFloat(i.value);(by[i.dataset.d]=by[i.dataset.d]||{})[i.dataset.cy]=v>0?v:null});
+  for(const id of Object.keys(by)){const d=depOf(id);if(!d)continue;const sc={};Object.entries(by[id]).forEach(([k,v])=>{if(v)sc[k]=v});
+    const old=JSON.stringify((d.grade_conf||{}).scale||{});if(old===JSON.stringify(sc))continue;const gc={...(d.grade_conf||{}),scale:sc};
+    const {error}=await sb.from('departments').update({grade_conf:gc}).eq('id',id);if(error){const er=document.getElementById('sgErr');er.style.color='';er.textContent=/grade_conf/.test(error.message||'')?t('need_schema40'):em(error);return false}d.grade_conf=gc}
+  return true}
+const GLF={grade_conf:'sg_l_conf',grade_scale:'sg_l_scale',term_system:'sg_l_terms',term_count:'sg_l_count',pass_mark:'sg_l_pass',show_rank:'sg_l_rank'};
+async function sgHistLoad(){const b=document.getElementById('setBody');if(!b)return;let box=document.getElementById('sgHist');if(!box){box=document.createElement('div');box.id='sgHist';b.appendChild(box)}
+  let r;try{r=await sb.from('grading_log').select('*').order('at',{ascending:false}).limit(40)}catch(e){r={error:e}}if(!r||r.error){box.innerHTML='';return}
+  const v=x=>x==null?'—':typeof x==='object'?Object.entries(x).map(([k,y])=>k+': '+(typeof y==='object'?JSON.stringify(y):y)).join(' · '):String(x);
+  box.innerHTML=`<div class="cert"><b>🕓 ${t('sg_hist')}</b>${(r.data||[]).length?`<div class="tblw" style="margin-top:8px"><table class="tbl" style="min-width:0"><thead><tr><th>${t('rp_updated')}</th><th>👤</th><th>${t('sg_h_field')}</th><th>${t('sg_h_old')}</th><th>${t('sg_h_new')}</th></tr></thead><tbody>
+   ${r.data.map(x=>`<tr><td><bdi dir="ltr">${esc(ntTime(x.at))}</bdi></td><td>${esc(x.user_name||'')}</td><td>${t(GLF[x.field]||'')||esc(x.field)}${x.department_id?' '+depBadge(depOf(x.department_id)):''}</td><td dir="ltr"><small>${esc(v(x.old_value))}</small></td><td dir="ltr"><small><b>${esc(v(x.new_value))}</b></small></td></tr>`).join('')}</tbody></table></div>`:`<div class="sub">${t('sg_h_none')}</div>`}</div>`}
+
+async function tabGd(){await tabGdBase();await gdReports()}
 
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

@@ -585,11 +585,162 @@ body.sa-on{background:var(--sa-bg)}
 @media (min-width:1181px){.sa-kpis.k7{grid-template-columns:repeat(7,minmax(0,1fr))}.sa-kpis.k7 .sa-kpi{flex-direction:column;align-items:flex-start;gap:10px}}
 .sa-kpi .tx small{line-height:1.3}
 @media (max-width:560px){#saFull{display:none}.sa-top{gap:7px;padding:8px 10px}.sa-ib{width:38px;height:38px;font-size:17px}.sa-lang button{padding:6px 8px}}
+/* ===== Phase 2 — school space, home, smart card (2026) ===== */
+/* school shell */
+#dash.scx{padding:0}#dash.scx>.wrap{max-width:none;padding:0;margin:0}
+#dash.scx #dashBox{max-width:none;padding:0;margin:0;background:none;border:0;box-shadow:none;border-radius:0}
+.sa.sc .sa-brand .lg img{border-radius:18px}
+.sa.sc .sa-brand .sn{display:block;font-weight:800;font-size:15.5px;line-height:1.35;margin-top:10px}
+.sa.sc .sa-brand .sf{display:block;font:600 12px Inter;opacity:.8;direction:ltr}
+.sa.sc .sa-brand code{display:inline-block;margin-top:8px;font:700 12px Inter;letter-spacing:.5px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.12);border:1px dashed rgba(246,196,69,.7);color:#ffe28a}
+.sa-gl{font-size:11.5px;font-weight:800;letter-spacing:.6px;opacity:.6;margin:10px 8px 2px;text-transform:uppercase}
+.sa.sc .sa-nav{gap:4px}.sa.sc .sa-nav a{padding:7px 11px;font-size:14px}.sa.sc .sa-nav a i{width:28px;height:28px;font-size:16px}
+.sa .sc-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.sa .sc-tools select{width:auto;border-radius:12px;border:1px solid var(--sa-line);background:var(--sa-card);color:var(--sa-text);padding:7px 10px}
+#dtab.sc-tab{margin-top:14px}
+/* legacy blocks inside the new school shell */
+.sa #dtab .cert,.sa #dtab .fc,.sa #pwBox{background:var(--sa-card);color:var(--sa-text);border-color:var(--sa-line);border-radius:20px;box-shadow:var(--sa-sh)}
+.sa #dtab .stat{background:linear-gradient(160deg,var(--sa-card),var(--sa-card2));color:var(--sa-text);border:1px solid var(--sa-line);border-radius:18px;box-shadow:0 12px 22px -16px rgba(6,58,30,.45)}
+.sa #dtab .tabs .tab{border-radius:12px}
+.sa.dark #dtab,.sa.dark #dtab .sub{color:var(--sa-text)}
+.sa.dark #dtab .sub,.sa.dark #dtab small.sub{color:var(--sa-mut)}
+.sa.dark #dtab .tbl td,.sa.dark #dtab .tbl th,.sa.dark #dtab table td,.sa.dark #dtab table th{color:var(--sa-text);border-color:var(--sa-line);background:transparent}
+.sa.dark #dtab input,.sa.dark #dtab select,.sa.dark #dtab textarea{background:var(--sa-card2);color:var(--sa-text);border-color:var(--sa-line)}
+.sa.dark #dtab .note{background:#11281d;border-color:var(--sa-line);color:var(--sa-text)}
+.sa.dark #dtab a:not(.btn){color:#7ee2a8}
+.sa.dark .xc{color:#1d2b36}
+/* overview */
+.sc-hero{grid-template-columns:1fr 1.5fr 1.1fr}
+.sc-hero .mid img{background:#fff;object-fit:contain}
+.sc-hero h1{font-family:'Cairo','Inter',sans-serif;direction:inherit;font-size:clamp(22px,2.6vw,34px);letter-spacing:0}
+.sc-hero .sf{display:block;font:600 14px Inter;opacity:.85;direction:ltr}
+.sc-chk{background:rgba(255,255,255,.96);color:#10261b;border-radius:20px;padding:14px 16px;box-shadow:0 18px 30px -14px rgba(0,0,0,.5);border:2px solid #f6c445}
+.sc-chk h4{margin:0 0 8px;text-align:center;font-size:15.5px;background:linear-gradient(90deg,#0a4f2b,#18a85c);color:#fff;border-radius:12px;padding:7px 10px}
+.sc-chk div{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:700;padding:4px 0}
+.sc-chk div:before{content:"✓";flex:none;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-size:12px;color:#fff;background:linear-gradient(180deg,#22c55e,#15803d)}
+.sc-year{background:linear-gradient(150deg,#0a4f2b,#15803d);color:#fff;border:2px solid #f6c445}
+.sc-year .tx small{color:#ffe28a!important}.sc-year .tx b{color:#fff}.sc-year .tx em{display:block;font-style:normal;font-size:12.5px;opacity:.9;margin-top:2px}
+.sc-cardbox{display:flex;justify-content:center;padding:6px 0 4px;perspective:900px}
+.sc-cardbox .zoom{transform:scale(var(--z,1.18));transform-origin:center top;margin-bottom:calc((var(--z,1.18) - 1)*54mm);animation:scCard 7s ease-in-out infinite}
+@keyframes scCard{0%,100%{transform:scale(var(--z,1.18)) rotateY(-8deg) rotateX(3deg)}50%{transform:scale(var(--z,1.18)) rotateY(8deg) rotateX(-2deg)}}
+.sc-trk{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.sc-trk div{border-radius:16px;padding:12px;text-align:center;background:var(--sa-card2);border:1px solid var(--sa-line);box-shadow:0 8px 16px -12px rgba(0,0,0,.35)}
+.sc-trk div span{display:block;font-size:28px}.sc-trk div b{display:block;font-size:14px}.sc-trk div small{color:var(--sa-mut)}
+.sc-info{margin-top:18px}
+@media (max-width:1180px){.sc-hero{grid-template-columns:1fr 1.4fr}.sc-hero .sc-chk{display:none}}
+@media (max-width:560px){.sc-cardbox .zoom{--z:.95}}
+/* ===== smart school card (k5) ===== */
+.k5{background:#fff;color:#14261c}
+.k5 .k5w{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.k5h{position:relative;z-index:1;display:flex;align-items:center;gap:1.5mm;padding:1.8mm 2.6mm 0}
+.k5h img{width:9mm;height:9mm;object-fit:contain;background:#fff;border-radius:1.6mm;padding:.3mm;box-shadow:0 .3mm 1mm rgba(0,0,0,.18)}
+.k5h b{display:block;font-size:2.9mm;font-weight:800;color:#0F5E2A;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:64mm}
+.k5h small{display:block;font:600 1.8mm Inter;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:64mm}
+.k5t{position:relative;z-index:1;align-self:center;margin:.9mm 0 0;background:linear-gradient(180deg,#22a45a,#0F5E2A);color:#fff;border-radius:1.4mm;padding:.35mm 3.2mm .45mm;text-align:center;line-height:1.1;box-shadow:0 .4mm 1mm rgba(0,0,0,.25),inset 0 .2mm 0 rgba(255,255,255,.4)}
+.k5t b{display:block;font-size:2.5mm}.k5t small{display:block;font:700 1.6mm Inter;letter-spacing:.2mm}
+.k5b{position:relative;z-index:1;flex:1;display:flex;align-items:center;gap:2mm;padding:.8mm 2.6mm 0}
+.k5 .xph{width:16.5mm;height:20.5mm;border:.55mm solid #E9A81C;border-radius:1.8mm;box-shadow:0 .5mm 1.2mm rgba(0,0,0,.25)}
+.k5i{flex:1;min-width:0}
+.k5i .xn{font-size:3.2mm}.k5i .xnf{font-size:1.9mm;margin-bottom:.4mm}
+.k5r{display:flex;gap:1mm;font-size:2mm;line-height:1.45;white-space:nowrap;overflow:hidden}
+.k5r span{color:#5a6b62;min-width:13mm}.k5r span i{font-style:normal;font-family:Inter;font-size:1.55mm;color:#8a9a91}
+.k5r b{color:#14261c;overflow:hidden;text-overflow:ellipsis}
+.k5q{flex:none;background:#fff;border:.3mm solid #dfe7e1;border-radius:1.4mm;padding:.6mm;box-shadow:0 .4mm 1mm rgba(0,0,0,.12)}
+.k5q canvas,.k5q img{width:14mm!important;height:14mm!important;display:block}
+.k5f{position:relative;z-index:1;height:5.6mm;margin-top:.8mm;display:flex;align-items:center;justify-content:space-between;padding:0 2.6mm;color:#fff;background:linear-gradient(90deg,#0F5E2A,#1B7F3B);border-top:.5mm solid #E9A81C;font:700 2.1mm Inter}
+.k5f .yr{background:#fff;color:#0F5E2A;border-radius:1mm;padding:.2mm 1.6mm;font-weight:800}
+.k5f .bc{height:3.2mm;width:20mm;background:repeating-linear-gradient(90deg,#fff 0 .3mm,transparent .3mm .6mm,#fff .6mm 1.2mm,transparent 1.2mm 1.5mm,#fff 1.5mm 1.7mm,transparent 1.7mm 2.3mm)}
+.k5.xback{background:linear-gradient(160deg,#0F5E2A,#1B7F3B 55%,#0b4a24);color:#fff}
+.k5.xback .k5bk{position:relative;z-index:1;flex:1;display:flex;gap:2.2mm;padding:2.4mm 2.6mm .6mm}
+.k5.xback .k5p{flex:1;min-width:0;background:rgba(255,255,255,.95);color:#14261c;border-radius:1.8mm;padding:1.4mm 1.8mm;border:.35mm solid #E9A81C}
+.k5.xback .k5p .xkv{font-size:1.95mm}
+.k5.xback .xr{font-size:1.6mm;color:#33443a;margin-top:.6mm;line-height:1.35}
+.k5.xback .k5qb{flex:none;display:flex;flex-direction:column;align-items:center;gap:.6mm;background:#fff;border-radius:1.8mm;padding:1mm;align-self:flex-start}
+.k5.xback .k5qb canvas,.k5.xback .k5qb img{width:17mm!important;height:17mm!important;display:block}
+.k5.xback .k5qb small{font:600 1.5mm monospace;color:#333}
+.k5.xback .k5qb .xsg{color:#14261c}
+.k5.xback .k5f{background:rgba(0,0,0,.25)}
+/* ===== home 2026 ===== */
+body:not(.sa-on)>header{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);box-shadow:0 10px 30px -18px rgba(6,58,30,.45);border-bottom:2px solid #f6c44555}
+.hnav{display:flex;gap:4px;align-items:center;margin-inline-start:14px}
+.hnav a{padding:7px 12px;border-radius:30px;font-weight:700;font-size:14px;color:#10261b;text-decoration:none;cursor:pointer}
+.hnav a:hover{background:#e7f4eb}.hnav a.on{background:linear-gradient(180deg,#18a85c,#0a4f2b);color:#fff}
+@media (max-width:980px){.hnav{display:none}}
+#home .hx{position:relative;overflow:hidden;margin:14px auto 0;max-width:1180px;border-radius:30px;color:#fff;min-height:330px;padding:30px 34px;display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:18px;align-items:center;
+  background:radial-gradient(60% 90% at 50% 0%,rgba(246,196,69,.28),transparent 60%),radial-gradient(70% 100% at 100% 100%,rgba(24,168,92,.6),transparent 60%),linear-gradient(120deg,#0a4f2b,#0f7a43 55%,#0a4f2b);
+  box-shadow:0 34px 60px -30px rgba(6,58,30,.75);border:2px solid #f6c445}
+#home .hx:before{content:"";position:absolute;inset:0;opacity:.11;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Cpath d='M60 8 L74 46 L112 60 L74 74 L60 112 L46 74 L8 60 L46 46 Z'/%3E%3Ccircle cx='60' cy='60' r='9'/%3E%3C/g%3E%3C/svg%3E");background-size:90px;animation:saPat 60s linear infinite}
+#home .hx .sw{position:absolute;inset:auto 0 0 0;height:90px;width:100%;pointer-events:none}
+#home .hx>*{position:relative;z-index:1}
+#home .hx .c{text-align:center}
+#home .hx .c img.lg{width:104px;height:104px;border-radius:28px;background:#fff;padding:6px;box-shadow:0 18px 36px -12px rgba(0,0,0,.55);animation:saFloat 6s ease-in-out infinite}
+#home .hx .brandx{display:block;margin:10px 0 0;font:900 clamp(28px,4vw,46px)/1.05 'Poppins','Inter',sans-serif;letter-spacing:1px;direction:ltr;text-shadow:0 4px 18px rgba(0,0,0,.35)}
+#home .hx .brandx i{font-style:normal;color:#f6c445}
+#home .hx h1{font-size:clamp(17px,1.9vw,23px);margin:8px 0 2px;color:#fff;line-height:1.5}
+#home .hx h1 em{font-style:normal;color:#ffe28a}
+#home .hx p.l2{font:500 14px Inter;opacity:.9;margin:2px 0 6px;direction:ltr}
+#home .hx p.ld{font-size:14.5px;opacity:.92;margin:6px auto 14px;max-width:520px}
+#home .hx .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+#home .hx .cta .btn-o{background:linear-gradient(180deg,#ffe28a,#f6c445 45%,#d9900c);color:#2b1a00;border:0;box-shadow:0 14px 26px -12px #d9900c}
+#home .hx .cta .btn-l{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.4)}
+#home .hx .pill{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff}
+.hcard{display:flex;justify-content:center;perspective:900px}
+.hcard .lan{position:relative;padding-top:26px}
+.hcard .lan:before{content:"";position:absolute;top:-40px;left:50%;width:18px;height:70px;transform:translateX(-50%);background:linear-gradient(90deg,#d9900c,#ffe28a,#d9900c);border-radius:4px}
+.hcard .lan:after{content:"";position:absolute;top:18px;left:50%;width:34px;height:14px;transform:translateX(-50%);border-radius:6px;background:#0f7a43;border:2px solid #ffe28a}
+.hcard .xc{transform:rotate(-4deg) scale(1.12);box-shadow:0 26px 40px -16px rgba(0,0,0,.6);animation:hSwing 6s ease-in-out infinite;transform-origin:top center}
+@keyframes hSwing{0%,100%{transform:rotate(-4deg) scale(1.12)}50%{transform:rotate(3deg) scale(1.12)}}
+.hdev{position:relative;height:220px}
+.hdev .sa-lap{inset-inline-start:auto;inset-inline-end:16%;top:20px}
+.hdev .sa-ph{inset-inline-start:auto;inset-inline-end:2%;top:64px}
+.hkpi{max-width:1180px;margin:18px auto 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:0 14px}
+.hk{display:flex;align-items:center;gap:12px;padding:16px;border-radius:22px;background:linear-gradient(160deg,#fff,#f6faf7);border:1px solid rgba(11,93,51,.1);box-shadow:0 20px 34px -22px rgba(6,58,30,.45)}
+.hk .sa-ic{width:58px;height:58px;font-size:30px;border-radius:18px}
+.hk small{display:block;color:#5f7268;font-weight:800;font-size:13px}.hk b{display:block;font:900 27px Inter;color:#10261b}
+.hsp{max-width:1180px;margin:22px auto 0;padding:0 14px;display:grid;grid-template-columns:2fr 1fr;gap:16px}
+.hsp .portals{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:0}
+.hsp .portal{border:0!important;color:#fff;border-radius:20px!important;padding:16px!important;cursor:pointer;box-shadow:0 18px 30px -16px var(--c2);background:linear-gradient(150deg,var(--c1),var(--c2))!important;transition:transform .2s}
+.hsp .portal:hover{transform:translateY(-4px)}
+.hsp .portal h3,.hsp .portal p{color:#fff!important}.hsp .portal p{opacity:.9}
+.hsp .portal .ic{background:rgba(255,255,255,.22)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+.hyr{border-radius:22px;padding:18px;color:#fff;background:linear-gradient(150deg,#0a4f2b,#15803d);border:2px solid #f6c445;box-shadow:0 22px 36px -20px rgba(6,58,30,.7);display:flex;flex-direction:column;justify-content:center;text-align:center}
+.hyr small{color:#ffe28a;font-weight:800}.hyr b{display:block;font:900 34px Inter;margin:6px 0}.hyr span{opacity:.9}
+#home .mods{display:grid!important;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+#home .mod{flex-direction:column;align-items:center!important;text-align:center;border-radius:22px!important;padding:18px 14px!important;background:linear-gradient(160deg,#fff,#f5faf6)!important;border:1px solid rgba(11,93,51,.1)!important;box-shadow:0 18px 30px -20px rgba(6,58,30,.45)!important;transition:transform .25s}
+#home .mod:hover{transform:translateY(-5px) rotateX(4deg)}
+#home .mod .mi{width:64px!important;height:64px!important;font-size:32px!important;border-radius:20px!important;display:grid!important;place-items:center;background:linear-gradient(145deg,#ffe28a,#e3a11c)!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -6px 12px rgba(0,0,0,.15),0 12px 20px -10px #d9900c;margin-bottom:8px}
+#home .mod:nth-child(3n+2) .mi{background:linear-gradient(145deg,#86efac,#16a34a)!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -6px 12px rgba(0,0,0,.15),0 12px 20px -10px #16a34a}
+#home .mod:nth-child(3n) .mi{background:linear-gradient(145deg,#93c5fd,#2563eb)!important;box-shadow:inset 0 2px 0 rgba(255,255,255,.6),inset 0 -6px 12px rgba(0,0,0,.15),0 12px 20px -10px #2563eb}
+.hcs{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:center;border-radius:26px;padding:22px;background:linear-gradient(160deg,#fff,#f4faf6);border:1px solid rgba(11,93,51,.1);box-shadow:0 22px 40px -26px rgba(6,58,30,.5)}
+.hcs h2{margin:0 0 10px;font-size:22px;display:inline-block;background:linear-gradient(90deg,#0a4f2b,#18a85c);color:#fff;border-radius:14px;padding:6px 16px;border-bottom:3px solid #f6c445}
+.hcs ul{list-style:none;padding:0;margin:0}.hcs li{display:flex;gap:10px;align-items:center;padding:7px 0;font-weight:700}
+.hcs li:before{content:"✓";flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:12px;background:linear-gradient(180deg,#22c55e,#15803d)}
+.hhelp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hhelp a{display:block;text-align:center;color:#fff;text-decoration:none;border-radius:20px;padding:16px 10px;font-weight:800;cursor:pointer;background:linear-gradient(160deg,var(--c1),var(--c2));box-shadow:0 16px 26px -14px var(--c2),inset 0 2px 0 rgba(255,255,255,.35);transition:transform .2s}
+.hhelp a span{display:block;font-size:32px;margin-bottom:4px}.hhelp a:hover{transform:translateY(-4px)}
+body:not(.sa-on)>footer{background:linear-gradient(120deg,#0a4f2b,#0f7a43)!important;border-top:4px solid #f6c445}
+.hin{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}.hin.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.hin{opacity:1;transform:none;transition:none}.hcard .xc,.sc-cardbox .zoom{animation:none}}
+@media (max-width:980px){#home .hx{grid-template-columns:1fr;text-align:center;padding:24px 18px}.hdev{display:none}.hkpi{grid-template-columns:repeat(2,minmax(0,1fr))}.hsp,.hcs{grid-template-columns:1fr}.hhelp{grid-template-columns:repeat(2,minmax(0,1fr))}.hsp .portals{grid-template-columns:1fr}}
+@media (max-width:560px){.hk{padding:12px;gap:9px}.hk .sa-ic{width:44px;height:44px;font-size:22px}.hk b{font-size:21px}#home .hx{margin:10px 10px 0}.hcard .xc{transform:scale(.95)}}
+#home .trust{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+#home .trust span{color:#10261b!important;background:#fff;border:1px solid rgba(11,93,51,.12);border-radius:30px;padding:8px 16px;box-shadow:0 10px 20px -16px rgba(6,58,30,.5)}
+#home .trust b{color:#10261b!important}
+.sc-hero .sa-lap{width:180px}.sc-hero .sa-lap .scr{height:112px}.sc-hero .sa-lap .scr img{width:48px;height:48px}
+.sc-hero .sa-ph{inset-inline-start:calc(6% + 140px);top:40px;width:58px;height:106px}.sc-hero .sa-ph img{width:28px;height:28px}
+.sc-hero .sa-dev{height:150px}
+@media (min-width:1181px){.sa-kpis.k6{grid-template-columns:repeat(5,minmax(0,1fr)) minmax(0,1.45fr)}.sa-kpis.k6 .sa-kpi{flex-direction:column;align-items:flex-start;gap:10px}}
+.sc-year .tx b{font-size:clamp(18px,1.7vw,24px)!important}
+.sc-cardbox{overflow:hidden}
+@media (max-width:560px){.hcard .xc{animation:none;transform:none;zoom:.78}.hcard .lan:before{top:-24px;height:50px}#hCard2 .xc{zoom:.8}}
+#home .hx .hcard{min-width:0}
+.sa .sa-h1 h2{color:var(--sa-text)}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
   <a class="brand" href="#home"><img src="emblem.png" alt=""><span>AL-MADARIS <b>CI</b></span></a>
+  <nav class="hnav"><a onclick="hScroll('hTop')" data-t="h_nav_home">الرئيسية</a><a onclick="hScroll('hFeat')" data-t="h_nav_feat">المميزات</a><a onclick="hScroll('hPrice')" data-t="h_nav_price">الأسعار</a><a onclick="hScroll('hHelp')" data-t="h_nav_sup">الدعم</a><a onclick="hScroll('hFaq')" data-t="h_nav_faq">أسئلة شائعة</a></nav>
   <div class="sp"></div>
   <select class="btn btn-t" id="langBtn" aria-label="Language"><option value="ar">العربية</option><option value="fr">Français</option><option value="en">English</option><option value="nqo">ߒߞߏ</option></select>
   <button class="btn btn-t hide-sm" id="pwaBtn" style="display:none" data-t="pwa_btn">📲 التطبيق</button>
@@ -600,47 +751,48 @@ body.sa-on{background:var(--sa-bg)}
 
 <!-- HOME -->
 <main id="home" class="view">
-  <div class="hero"><div class="wrap grid">
-    <div>
-      <span class="pill" data-t="pill">نظام التشغيل الأكاديمي والمدرسي</span>
+  <div id="hTop" style="padding:0 14px"><div class="hx">
+    <div class="hcard" id="hCard" aria-hidden="true"></div>
+    <div class="c"><img class="lg" src="logo.png" alt=""><span class="brandx"><i>AL-</i>MADARIS <i>CI</i></span>
       <h1 data-t="h1">منصة إدارة المدارس <em>العربية والإسلامية</em> في ساحل العاج</h1>
-      <p data-t="lead">التسجيل، الملفات، العلامات، الحضور ببطاقات QR، الرسوم، والشهادات الرسمية الموثقة — من الروضة إلى الجامعة، في مكان واحد.</p>
-      <div class="cta">
-        <a class="btn btn-o" href="#register" data-t="trial">سجّل مؤسستك — تجربة 14 يوماً</a>
-        <a class="btn btn-l" href="#verify" data-t="verify_btn">التحقق من وثيقة</a>
-      </div>
-    </div>
-    <div class="mock" aria-hidden="true">
-      <div class="phone"><div class="ph-top"><span class="ph-dot"></span></div>
-        <div class="ph-head"><img src="emblem.png" alt=""><div><b data-t="mk_sch">مدرسة النور — بواكي</b><small data-t="mk_today">لوحة اليوم</small></div></div>
-        <div class="ph-stats"><div><b>320</b><small data-t="mk_stu">تلميذ</small></div><div><b>96%</b><small data-t="mk_att">حضور اليوم</small></div><div><b dir="ltr">1,2 M</b><small data-t="mk_fee">المحصّل</small></div></div>
-        <div class="ph-ttl" data-t="mk_scan">📷 مسح البطاقات صباح اليوم</div>
-        <div class="ph-row"><i class="av a1">آ</i><span data-t="mk_n1">آمنة كوني</span><em class="ok">✓ 07:42</em></div>
-        <div class="ph-row"><i class="av a2">ي</i><span data-t="mk_n2">يوسف تراوري</span><em class="ok">✓ 07:45</em></div>
-        <div class="ph-row"><i class="av a3">م</i><span data-t="mk_n3">مريم سيسي</span><em class="late">⏰ 07:58</em></div>
-        <div class="ph-bar"><span style="width:78%"></span></div><small class="ph-cap" data-t="mk_bar">نسبة تحصيل الرسوم 78%</small></div>
-      <div class="mkc"><div class="mkc-h"><img src="emblem.png" alt=""><b data-t="mk_card">بطاقة مدرسية</b></div>
-        <div class="mkc-b"><i class="mkc-ph">👦🏾</i><div><b data-t="mk_n2">يوسف تراوري</b><small dir="ltr">AMC-1001-0042</small><small data-t="mk_cls">السنة الثالثة ابتدائي</small></div><div class="mkc-qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21" shape-rendering="crispEdges"><rect width="21" height="21" fill="#fff"/><g fill="#0F5E2A"><rect x="0" y="0" width="1" height="1"/><rect x="1" y="0" width="1" height="1"/><rect x="2" y="0" width="1" height="1"/><rect x="3" y="0" width="1" height="1"/><rect x="4" y="0" width="1" height="1"/><rect x="5" y="0" width="1" height="1"/><rect x="6" y="0" width="1" height="1"/><rect x="8" y="0" width="1" height="1"/><rect x="9" y="0" width="1" height="1"/><rect x="10" y="0" width="1" height="1"/><rect x="11" y="0" width="1" height="1"/><rect x="12" y="0" width="1" height="1"/><rect x="14" y="0" width="1" height="1"/><rect x="15" y="0" width="1" height="1"/><rect x="16" y="0" width="1" height="1"/><rect x="17" y="0" width="1" height="1"/><rect x="18" y="0" width="1" height="1"/><rect x="19" y="0" width="1" height="1"/><rect x="20" y="0" width="1" height="1"/><rect x="0" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="10" y="1" width="1" height="1"/><rect x="12" y="1" width="1" height="1"/><rect x="14" y="1" width="1" height="1"/><rect x="20" y="1" width="1" height="1"/><rect x="0" y="2" width="1" height="1"/><rect x="2" y="2" width="1" height="1"/><rect x="3" y="2" width="1" height="1"/><rect x="4" y="2" width="1" height="1"/><rect x="6" y="2" width="1" height="1"/><rect x="9" y="2" width="1" height="1"/><rect x="10" y="2" width="1" height="1"/><rect x="12" y="2" width="1" height="1"/><rect x="14" y="2" width="1" height="1"/><rect x="16" y="2" width="1" height="1"/><rect x="17" y="2" width="1" height="1"/><rect x="18" y="2" width="1" height="1"/><rect x="20" y="2" width="1" height="1"/><rect x="0" y="3" width="1" height="1"/><rect x="2" y="3" width="1" height="1"/><rect x="3" y="3" width="1" height="1"/><rect x="4" y="3" width="1" height="1"/><rect x="6" y="3" width="1" height="1"/><rect x="12" y="3" width="1" height="1"/><rect x="14" y="3" width="1" height="1"/><rect x="16" y="3" width="1" height="1"/><rect x="17" y="3" width="1" height="1"/><rect x="18" y="3" width="1" height="1"/><rect x="20" y="3" width="1" height="1"/><rect x="0" y="4" width="1" height="1"/><rect x="2" y="4" width="1" height="1"/><rect x="3" y="4" width="1" height="1"/><rect x="4" y="4" width="1" height="1"/><rect x="6" y="4" width="1" height="1"/><rect x="10" y="4" width="1" height="1"/><rect x="11" y="4" width="1" height="1"/><rect x="12" y="4" width="1" height="1"/><rect x="14" y="4" width="1" height="1"/><rect x="16" y="4" width="1" height="1"/><rect x="17" y="4" width="1" height="1"/><rect x="18" y="4" width="1" height="1"/><rect x="20" y="4" width="1" height="1"/><rect x="0" y="5" width="1" height="1"/><rect x="6" y="5" width="1" height="1"/><rect x="10" y="5" width="1" height="1"/><rect x="14" y="5" width="1" height="1"/><rect x="20" y="5" width="1" height="1"/><rect x="0" y="6" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="2" y="6" width="1" height="1"/><rect x="3" y="6" width="1" height="1"/><rect x="4" y="6" width="1" height="1"/><rect x="5" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="8" y="6" width="1" height="1"/><rect x="11" y="6" width="1" height="1"/><rect x="12" y="6" width="1" height="1"/><rect x="14" y="6" width="1" height="1"/><rect x="15" y="6" width="1" height="1"/><rect x="16" y="6" width="1" height="1"/><rect x="17" y="6" width="1" height="1"/><rect x="18" y="6" width="1" height="1"/><rect x="19" y="6" width="1" height="1"/><rect x="20" y="6" width="1" height="1"/><rect x="8" y="7" width="1" height="1"/><rect x="10" y="7" width="1" height="1"/><rect x="0" y="8" width="1" height="1"/><rect x="1" y="8" width="1" height="1"/><rect x="8" y="8" width="1" height="1"/><rect x="10" y="8" width="1" height="1"/><rect x="11" y="8" width="1" height="1"/><rect x="12" y="8" width="1" height="1"/><rect x="13" y="8" width="1" height="1"/><rect x="14" y="8" width="1" height="1"/><rect x="17" y="8" width="1" height="1"/><rect x="0" y="9" width="1" height="1"/><rect x="1" y="9" width="1" height="1"/><rect x="2" y="9" width="1" height="1"/><rect x="3" y="9" width="1" height="1"/><rect x="4" y="9" width="1" height="1"/><rect x="8" y="9" width="1" height="1"/><rect x="11" y="9" width="1" height="1"/><rect x="16" y="9" width="1" height="1"/><rect x="17" y="9" width="1" height="1"/><rect x="19" y="9" width="1" height="1"/><rect x="1" y="10" width="1" height="1"/><rect x="2" y="10" width="1" height="1"/><rect x="5" y="10" width="1" height="1"/><rect x="6" y="10" width="1" height="1"/><rect x="7" y="10" width="1" height="1"/><rect x="10" y="10" width="1" height="1"/><rect x="14" y="10" width="1" height="1"/><rect x="16" y="10" width="1" height="1"/><rect x="17" y="10" width="1" height="1"/><rect x="1" y="11" width="1" height="1"/><rect x="4" y="11" width="1" height="1"/><rect x="5" y="11" width="1" height="1"/><rect x="6" y="11" width="1" height="1"/><rect x="7" y="11" width="1" height="1"/><rect x="9" y="11" width="1" height="1"/><rect x="10" y="11" width="1" height="1"/><rect x="11" y="11" width="1" height="1"/><rect x="13" y="11" width="1" height="1"/><rect x="14" y="11" width="1" height="1"/><rect x="17" y="11" width="1" height="1"/><rect x="1" y="12" width="1" height="1"/><rect x="2" y="12" width="1" height="1"/><rect x="3" y="12" width="1" height="1"/><rect x="4" y="12" width="1" height="1"/><rect x="6" y="12" width="1" height="1"/><rect x="7" y="12" width="1" height="1"/><rect x="10" y="12" width="1" height="1"/><rect x="14" y="12" width="1" height="1"/><rect x="16" y="12" width="1" height="1"/><rect x="17" y="12" width="1" height="1"/><rect x="9" y="13" width="1" height="1"/><rect x="14" y="13" width="1" height="1"/><rect x="18" y="13" width="1" height="1"/><rect x="19" y="13" width="1" height="1"/><rect x="20" y="13" width="1" height="1"/><rect x="0" y="14" width="1" height="1"/><rect x="1" y="14" width="1" height="1"/><rect x="2" y="14" width="1" height="1"/><rect x="3" y="14" width="1" height="1"/><rect x="4" y="14" width="1" height="1"/><rect x="5" y="14" width="1" height="1"/><rect x="6" y="14" width="1" height="1"/><rect x="9" y="14" width="1" height="1"/><rect x="12" y="14" width="1" height="1"/><rect x="14" y="14" width="1" height="1"/><rect x="18" y="14" width="1" height="1"/><rect x="19" y="14" width="1" height="1"/><rect x="0" y="15" width="1" height="1"/><rect x="6" y="15" width="1" height="1"/><rect x="8" y="15" width="1" height="1"/><rect x="11" y="15" width="1" height="1"/><rect x="15" y="15" width="1" height="1"/><rect x="16" y="15" width="1" height="1"/><rect x="17" y="15" width="1" height="1"/><rect x="19" y="15" width="1" height="1"/><rect x="20" y="15" width="1" height="1"/><rect x="0" y="16" width="1" height="1"/><rect x="2" y="16" width="1" height="1"/><rect x="3" y="16" width="1" height="1"/><rect x="4" y="16" width="1" height="1"/><rect x="6" y="16" width="1" height="1"/><rect x="8" y="16" width="1" height="1"/><rect x="9" y="16" width="1" height="1"/><rect x="11" y="16" width="1" height="1"/><rect x="12" y="16" width="1" height="1"/><rect x="16" y="16" width="1" height="1"/><rect x="18" y="16" width="1" height="1"/><rect x="20" y="16" width="1" height="1"/><rect x="0" y="17" width="1" height="1"/><rect x="2" y="17" width="1" height="1"/><rect x="3" y="17" width="1" height="1"/><rect x="4" y="17" width="1" height="1"/><rect x="6" y="17" width="1" height="1"/><rect x="8" y="17" width="1" height="1"/><rect x="9" y="17" width="1" height="1"/><rect x="10" y="17" width="1" height="1"/><rect x="11" y="17" width="1" height="1"/><rect x="12" y="17" width="1" height="1"/><rect x="14" y="17" width="1" height="1"/><rect x="16" y="17" width="1" height="1"/><rect x="17" y="17" width="1" height="1"/><rect x="18" y="17" width="1" height="1"/><rect x="19" y="17" width="1" height="1"/><rect x="20" y="17" width="1" height="1"/><rect x="0" y="18" width="1" height="1"/><rect x="2" y="18" width="1" height="1"/><rect x="3" y="18" width="1" height="1"/><rect x="4" y="18" width="1" height="1"/><rect x="6" y="18" width="1" height="1"/><rect x="10" y="18" width="1" height="1"/><rect x="14" y="18" width="1" height="1"/><rect x="18" y="18" width="1" height="1"/><rect x="19" y="18" width="1" height="1"/><rect x="20" y="18" width="1" height="1"/><rect x="0" y="19" width="1" height="1"/><rect x="6" y="19" width="1" height="1"/><rect x="9" y="19" width="1" height="1"/><rect x="10" y="19" width="1" height="1"/><rect x="11" y="19" width="1" height="1"/><rect x="12" y="19" width="1" height="1"/><rect x="13" y="19" width="1" height="1"/><rect x="14" y="19" width="1" height="1"/><rect x="15" y="19" width="1" height="1"/><rect x="19" y="19" width="1" height="1"/><rect x="0" y="20" width="1" height="1"/><rect x="1" y="20" width="1" height="1"/><rect x="2" y="20" width="1" height="1"/><rect x="3" y="20" width="1" height="1"/><rect x="4" y="20" width="1" height="1"/><rect x="5" y="20" width="1" height="1"/><rect x="6" y="20" width="1" height="1"/><rect x="8" y="20" width="1" height="1"/><rect x="9" y="20" width="1" height="1"/><rect x="10" y="20" width="1" height="1"/><rect x="11" y="20" width="1" height="1"/><rect x="12" y="20" width="1" height="1"/><rect x="13" y="20" width="1" height="1"/><rect x="14" y="20" width="1" height="1"/><rect x="15" y="20" width="1" height="1"/></g></svg></div></div></div>
-    </div>
-  </div>
-  <div class="wrap"><div class="trust">
+      <p class="l2">Plateforme de gestion des écoles arabes et islamiques en Côte d'Ivoire</p>
+      <p class="ld" data-t="lead">التسجيل، الملفات، العلامات، الحضور ببطاقات QR، الرسوم، والشهادات الرسمية الموثقة — من الروضة إلى الجامعة، في مكان واحد.</p>
+      <div class="cta"><a class="btn btn-o" href="#register" data-t="trial">سجّل مؤسستك — تجربة 14 يوماً</a><a class="btn btn-l" href="#verify" data-t="verify_btn">التحقق من وثيقة</a></div></div>
+    <div class="hdev" aria-hidden="true"><div class="sa-lap"><div class="scr"><div><img src="logo.png" alt=""></div></div><div class="base"></div></div><div class="sa-ph"><div><img src="logo.png" alt=""></div></div></div>
+    <svg class="sw" viewBox="0 0 1200 90" preserveAspectRatio="none"><path d="M0 70 C300 20 600 110 1200 30 L1200 90 L0 90Z" fill="#f6c445" opacity=".9"/><path d="M0 82 C320 40 640 120 1200 48 L1200 90 L0 90Z" fill="#0a4f2b"/></svg>
+  </div></div>
+  <div class="wrap" style="margin-top:14px"><div class="trust">
     <span>🌍 <b data-t="tb1">4 لغات</b></span><span>🏫 <b data-t="tb2">من الروضة إلى الجامعة</b></span><span>📴 <b data-t="tb3">يعمل دون إنترنت</b></span><span>🔐 <b data-t="tb4">وثائق موثقة بـ QR</b></span></div></div>
+  <div class="hkpi hin" id="hKpi" style="display:none">
+    <div class="hk"><i class="sa-ic" style="--c1:#4ade80;--c2:#15803d"><span>🏫</span></i><div><small data-t="h_k_sch">المدارس</small><b><bdi dir="ltr" id="hkS" data-cnt="0">0</bdi></b></div></div>
+    <div class="hk"><i class="sa-ic" style="--c1:#fcd34d;--c2:#d97706"><span>🎓</span></i><div><small data-t="h_k_stu">التلاميذ</small><b><bdi dir="ltr" id="hkU" data-cnt="0">0</bdi></b></div></div>
+    <div class="hk"><i class="sa-ic" style="--c1:#60a5fa;--c2:#1d4ed8"><span>📚</span></i><div><small data-t="h_k_cls">الفصول</small><b><bdi dir="ltr" id="hkC" data-cnt="0">0</bdi></b></div></div>
+    <div class="hk"><i class="sa-ic" style="--c1:#c4b5fd;--c2:#7c3aed"><span>👥</span></i><div><small data-t="h_k_stf">الموظفون</small><b><bdi dir="ltr" id="hkF" data-cnt="0">0</bdi></b></div></div>
+  </div>
+  <div class="hsp hin">
+    <div><div class="ttl" style="text-align:start;margin-bottom:10px"><span class="eb" data-t="h_sp">فضاءات المنصة</span></div><div class="portals">
+      <div class="portal" style="--c1:#22c55e;--c2:#0a4f2b" onclick="goLogin('dir')"><div class="ic" style="background:#e6f5ea">🏛️</div><h3 data-t="p1">فضاء الإدارة</h3><p data-t="p1d">المدير والمسؤول الإداري: المؤسسة، الأقسام، الرسوم، التقارير.</p><span class="pgo" data-t="p_go">دخول ←</span></div>
+<div class="portal" style="--c1:#3b82f6;--c2:#1e3a8a" onclick="goLogin('staff')"><div class="ic" style="background:#fff1df">👨‍🏫</div><h3 data-t="p2">الموظفون والمعلّمون</h3><p data-t="p2d">إدخال العلامات، تسجيل الحضور، جدول الحصص والامتحانات.</p><span class="pgo" data-t="p_go">دخول ←</span></div>
+<div class="portal" style="--c1:#fb923c;--c2:#c2410c" onclick="goLogin('student')"><div class="ic" style="background:#e8f0fb">🎓</div><h3 data-t="p3">بوابة التلميذ وولي الأمر</h3><p data-t="p3d">النتائج، الغياب، الرسوم المستحقة، والإشعارات.</p><span class="pgo" data-t="p_go_par">دخول ولي الأمر ←</span></div>
+<div class="portal" style="--c1:#a855f7;--c2:#5b21b6" onclick="location.hash='verify'"><div class="ic">🔎</div><h3 data-t="h_p4">التحقق من الوثائق</h3><p data-t="h_p4d">تحقّق من صحة شهادة أو كشف أو بطاقة برمز QR.</p></div>
+    </div></div>
+    <div class="hyr"><small data-t="h_yr">السنة الدراسية الحالية</small><b dir="ltr" id="hYr"></b><span id="hYrH"></span></div>
   </div>
 
-  <div class="wrap">
-    <div class="portals">
-      <div class="portal" onclick="goLogin('dir')"><div class="ic" style="background:#e6f5ea">🏛️</div><h3 data-t="p1">فضاء الإدارة</h3><p data-t="p1d">المدير والمسؤول الإداري: المؤسسة، الأقسام، الرسوم، التقارير.</p><span class="pgo" data-t="p_go">دخول ←</span></div>
-      <div class="portal" onclick="goLogin('staff')"><div class="ic" style="background:#fff1df">👨‍🏫</div><h3 data-t="p2">الموظفون والمعلّمون</h3><p data-t="p2d">إدخال العلامات، تسجيل الحضور، جدول الحصص والامتحانات.</p><span class="pgo" data-t="p_go">دخول ←</span></div>
-      <div class="portal" onclick="goLogin('student')"><div class="ic" style="background:#e8f0fb">🎓</div><h3 data-t="p3">بوابة التلميذ وولي الأمر</h3><p data-t="p3d">النتائج، الغياب، الرسوم المستحقة، والإشعارات.</p><span class="pgo" data-t="p_go_par">دخول ولي الأمر ←</span></div>
-    </div>
-  </div>
 
-  <section class="blk"><div class="wrap">
+  <section class="blk hin" id="hFeat"><div class="wrap">
     <div class="ttl"><span class="eb" data-t="eb_feat">الميزات</span><h2 data-t="f_ttl">كل ما تحتاجه مدرستك</h2><p data-t="f_sub">من الروضة إلى الجامعة، بالمسار العربي أو الفرنسي أو المزدوج أو التحفيظ</p></div>
     <div class="mods"><div class="mod"><div class="mi">👥</div><div><b data-t="m1">التلاميذ والملفات</b><small data-t="m1d">تسجيل بالصورة، استيراد من Excel، نقل وانتقال للسنة الجديدة</small></div></div><div class="mod"><div class="mi">📝</div><div><b data-t="m2">العلامات وكشوف النقاط</b><small data-t="m2d">معدلات وترتيب تلقائي، كشوف فصلية وسنوية وملاحظات</small></div></div><div class="mod"><div class="mi">📷</div><div><b data-t="m3">الحضور ببطاقات QR</b><small data-t="m3d">مسح البطاقة بالهاتف، نداء يدوي، إحصاءات شهرية</small></div></div><div class="mod"><div class="mi">🪪</div><div><b data-t="m4">البطاقات المدرسية</b><small data-t="m4d">4 تصاميم بالصورة والشعار، طباعة A4 أو PVC، وجه وخلف</small></div></div><div class="mod"><div class="mi">🗓️</div><div><b data-t="m5">جدول الحصص والامتحانات</b><small data-t="m5d">جدول أسبوعي لكل فصل ومعلم مع كشف التعارضات</small></div></div><div class="mod"><div class="mi">💰</div><div><b data-t="m6">الرسوم والإيصالات</b><small data-t="m6d">أقساط، تخفيضات، إيصالات بـ QR، مصاريف ورصيد</small></div></div><div class="mod"><div class="mi">📜</div><div><b data-t="m7">الوثائق الرسمية</b><small data-t="m7d">شهادات وكشوف بختم وتوقيع ورمز QR للتحقق</small></div></div><div class="mod"><div class="mi">💬</div><div><b data-t="m8">رسائل أولياء الأمور</b><small data-t="m8d">إعلانات للمدرسة أو الفصل، محادثة، وإشعار واتساب</small></div></div><div class="mod"><div class="mi">📚</div><div><b data-t="m9">الكتب والمخزون</b><small data-t="m9d">كتالوج، دخول وخروج، توزيع بالبيع أو الإعارة</small></div></div><div class="mod"><div class="mi">📊</div><div><b data-t="m10">تقارير DRENA</b><small data-t="m10d">قوائم وإحصاءات رسمية جاهزة بصيغة Excel</small></div></div><div class="mod"><div class="mi">📲</div><div><b data-t="m11">تطبيق الهاتف</b><small data-t="m11d">يُثبَّت على الهاتف ويعمل دون إنترنت ثم يزامن</small></div></div><div class="mod"><div class="mi">🌍</div><div><b data-t="m12">أربع لغات</b><small data-t="m12d">العربية، الفرنسية، الإنجليزية، وأنكو — مع صلاحيات لكل موظف</small></div></div></div>
   </div></section>
 
-  <section class="blk" style="padding-top:0"><div class="wrap">
+  <section class="blk hin" id="hCardSec" style="padding-top:0"><div class="wrap">
+    <div class="hcs"><div><h2 data-t="h_card_t">🪪 البطاقة المدرسية الذكية</h2><ul>
+      <li data-t="h_cf1">تصميم احترافي بهوية المؤسسة وشعارها</li><li data-t="h_cf2">رمز QR للتحقق السريع ولتسجيل الحضور</li>
+      <li data-t="h_cf3">طباعة جماعية سريعة على ورق A4 أو طابعة بطاقات</li><li data-t="h_cf4">صورة التلميذ وفصيلة الدم ومعلومات ولي الأمر</li><li data-t="h_cf5">خمسة نماذج قابلة للاختيار، منها البطاقة الذكية 2026</li></ul></div>
+      <div class="hcard" id="hCard2" aria-hidden="true"></div></div>
+  </div></section>
+
+  <section class="blk hin" style="padding-top:0"><div class="wrap">
     <div class="ttl"><span class="eb" data-t="eb_how">البداية</span><h2 data-t="hw_ttl">كيف تبدأ؟</h2></div>
     <div class="steps3">
       <div class="st3"><span>1</span><b data-t="hw1">سجّل مؤسستك</b><small data-t="hw1d">في دقائق، وتحصل على رمز المؤسسة وحساب المدير.</small></div>
@@ -649,7 +801,7 @@ body.sa-on{background:var(--sa-bg)}
     </div>
   </div></section>
 
-  <section class="blk" style="padding-top:0"><div class="wrap">
+  <section class="blk hin" id="hPrice" style="padding-top:0"><div class="wrap">
     <div class="price">
       <div><h2 data-t="pr_ttl">💳 الأسعار والاشتراك</h2>
       <p data-t="pr_d">السعر يناسب حجم مدرستك وعدد تلاميذها. تواصل معنا لنرسل لك العرض المناسب، والتجربة الأولى مجانية دائماً.</p></div>
@@ -657,7 +809,7 @@ body.sa-on{background:var(--sa-bg)}
     </div>
   </div></section>
 
-  <section class="blk" style="padding-top:0"><div class="wrap">
+  <section class="blk hin" style="padding-top:0"><div class="wrap">
     <div class="ttl"><span class="eb" data-t="eb_trk">المسارات</span><h2 data-t="t_ttl">أربعة مسارات دراسية</h2></div>
     <div class="tracks">
       <div class="tr"><b data-t="tr1">عربي فقط</b><small>Arabe</small></div>
@@ -678,7 +830,16 @@ body.sa-on{background:var(--sa-bg)}
     <div class="appx"><div class="mi">📲</div><div style="flex:1;min-width:220px"><h3 data-t="ap_ttl">ثبّت التطبيق على هاتفك</h3><p data-t="ap_d">أندرويد: قائمة Chrome ⋮ ثم «تثبيت التطبيق». آيفون: زر المشاركة ⬆️ في Safari ثم «إضافة إلى الشاشة الرئيسية».</p></div><button class="btn btn-g" id="pwaBtn2" style="display:none" data-t="ap_btn">📲 تثبيت الآن</button></div>
   </div></section>
 
-  <section class="blk" style="padding-top:0"><div class="wrap">
+  <section class="blk hin" id="hHelp" style="padding-top:0"><div class="wrap">
+    <div class="hhelp">
+      <a style="--c1:#4ade80;--c2:#15803d" onclick="hScroll('hFaq')"><span>❓</span><b data-t="h_help1">الأسئلة الشائعة</b></a>
+      <a style="--c1:#60a5fa;--c2:#1d4ed8" target="_blank" rel="noopener" href="https://wa.me/2250747423404"><span>🎧</span><b data-t="h_help2">الدعم الفني</b></a>
+      <a style="--c1:#c4b5fd;--c2:#7c3aed" href="#verify"><span>🔎</span><b data-t="h_help3">التحقق من وثيقة</b></a>
+      <a style="--c1:#fdba74;--c2:#ea580c" href="#register"><span>🏫</span><b data-t="h_help4">سجّل مؤسستك</b></a>
+    </div>
+  </div></section>
+
+  <section class="blk hin" id="hFaq" style="padding-top:0"><div class="wrap">
     <div class="ttl"><span class="eb" data-t="eb_faq">أسئلة</span><h2 data-t="fq_ttl">أسئلة شائعة</h2></div>
     <div class="faqs"><details class="faq"><summary data-t="q1">هل بيانات مدرستي آمنة؟</summary><p data-t="q1a">كل مدرسة ترى بياناتها فقط، والاتصال مشفّر، وصور التلاميذ محفوظة في مساحة خاصة لا تُفتح إلا برابط مؤقت. ويمكنك تنزيل نسخة احتياطية كاملة في أي وقت.</p></details><details class="faq"><summary data-t="q2">هل تعمل المنصة دون إنترنت؟</summary><p data-t="q2a">نعم بعد تثبيت التطبيق: مسح البطاقات والنداء وإدخال العلامات تُحفظ على الجهاز وتُرسل تلقائياً عند عودة الاتصال.</p></details><details class="faq"><summary data-t="q3">هل أحتاج إلى حاسوب؟</summary><p data-t="q3a">لا، الهاتف يكفي لكل شيء. الحاسوب والطابعة مفيدان فقط لطباعة الوثائق والبطاقات.</p></details><details class="faq"><summary data-t="q4">كيف يدخل ولي الأمر؟</summary><p data-t="q4a">برمز التلميذ ورقم سري تعطيه المدرسة، فيرى النتائج والغياب والرسوم ويتبادل الرسائل مع المدرسة، ويمكنه متابعة أكثر من ابن.</p></details><details class="faq"><summary data-t="q5">ماذا يحدث بعد انتهاء التجربة؟</summary><p data-t="q5a">تبقى كل بياناتك محفوظة، وتتوقف الإضافة والتعديل حتى تفعيل الاشتراك، ثم تكمل من حيث توقفت.</p></details><details class="faq"><summary data-t="q6">هل يمكن نقل قوائم تلاميذي الحالية؟</summary><p data-t="q6a">نعم، يمكن استيراد التلاميذ من ملف Excel (CSV) دفعة واحدة، ونساعدك في ذلك عند البداية.</p></details></div>
     <p style="text-align:center;margin-top:18px"><a class="btn btn-g" target="_blank" rel="noopener" href="https://wa.me/2250747423404" data-t="fq_more">💬 سؤال آخر؟ راسلنا على واتساب</a></p>
@@ -989,6 +1150,9 @@ Object.assign(T.ar,{"adm_ttl": "لوحة مدير المنصة", "adm_btn": "ل�
 Object.assign(T.ar,{"sa_dash": "لوحة التحكم المركزية", "sa_schools": "إدارة المدارس والمؤسسات", "sa_admins": "مديرو المؤسسات", "sa_subs": "الاشتراكات والباقات", "sa_rev": "الإيرادات والحسابات", "sa_rep": "التقارير والإحصائيات", "sa_mon": "مراقبة النظام والنشاط", "sa_sup": "مركز الدعم الفني", "sa_ann": "الإشعارات والإعلانات", "sa_team": "فريق المنصة والصلاحيات", "sa_sec": "الأمان وسجل العمليات", "sa_set": "الإعدادات العامة للمنصة", "sa_central": "الإدارة المركزية للمنصة", "sa_logout": "تسجيل الخروج", "sa_owner": "مالك المنصة", "sa_search": "بحث عن مدرسة، مدير، اشتراك أو رقم…", "sa_notifs": "الإشعارات", "sa_dark": "الوضع الليلي", "sa_full": "ملء الشاشة", "sa_refresh": "تحديث", "sa_need": "لتفعيل هذا القسم نفّذ schema33.sql في Supabase.", "sa_n_tk": "تذكرة جديدة", "sa_n_exp": "انتهى اشتراك {n}", "sa_n_soon": "ينتهي اشتراك {n} خلال {d} يوم", "sa_n_due": "فاتورة غير مدفوعة {no} — {a}", "sa_n_none": "لا توجد إشعارات", "sa_expired": "منتهية", "sa_tk_open": "مفتوحة", "sa_tk_prog": "قيد المعالجة", "sa_tk_closed": "مغلقة", "sa_pr_low": "منخفضة", "sa_pr_norm": "عادية", "sa_pr_high": "عاجلة", "sa_school_s": "مدرسة", "sa_other_city": "مدن أخرى", "sa_tagline": "منصة إدارة المدارس العربية والإسلامية في ساحل العاج", "sa_civ": "ساحل العاج", "sa_k_stu": "إجمالي التلاميذ", "sa_k_tch": "إجمالي المدرسين", "sa_k_staff": "إجمالي الموظفين", "sa_k_sch": "إجمالي المدارس", "sa_k_act": "المدارس النشطة", "sa_k_trial": "في التجربة", "sa_k_exp": "منتهية الاشتراك", "sa_p_subs": "إحصائيات الاشتراكات", "sa_more": "عرض الكل", "sa_p_rev": "الإيرادات المالية", "sa_r_m": "إيرادات الشهر الحالي", "sa_r_y": "إيرادات السنة", "sa_r_t": "إجمالي الإيرادات", "sa_r_e": "إجمالي المصاريف", "sa_r_net": "صافي الأرباح", "sa_p_map": "توزيع المدارس في ساحل العاج", "sa_p_grow": "تطور عدد المدارس", "sa_p_latest": "آخر المدارس المسجلة", "sa_p_tk": "آخر طلبات الدعم الفني", "sa_tk_none": "لا توجد طلبات دعم", "sa_a_add": "إضافة مدرسة جديدة", "sa_a_plans": "إدارة الباقات والأسعار", "sa_a_renew": "تجديد الاشتراكات", "sa_a_inv": "إصدار الفواتير", "sa_a_rep": "التقارير الشاملة", "sa_a_ann": "إرسال إعلان عام", "sa_a_mon": "مراقبة النشاط", "sa_a_bak": "النسخ الاحتياطي", "sa_inv_msg": "السلام عليكم، ندعو مدرستكم للتسجيل في منصة المدارس Al-Madaris CI وتجربتها مجاناً 14 يوماً: {u}", "sa_inv_ok": "تم نسخ رابط التسجيل:\n{u}\n\nإرساله عبر واتساب؟", "sa_c_admin": "المدير", "sa_c_school": "المدرسة", "sa_c_contact": "التواصل", "sa_c_state": "الحالة", "sa_soon14": "تنتهي خلال 14 يوماً", "sa_plan": "الباقة والأسعار", "sa_trial_len": "مدة التجربة", "sa_edit_price": "تعديل الأسعار", "sa_c_end": "تاريخ الانتهاء", "sa_c_left": "المتبقي", "sa_ago": "منذ {n} يوم", "sa_1y": "سنة", "sa_rev12": "الإيرادات والمصاريف (12 شهراً)", "sa_rev_in": "الإيرادات", "sa_rev_out": "المصاريف", "sa_bymeth": "حسب طريقة الدفع", "sa_exp_ttl": "مصاريف المنصة", "sa_exp_lbl": "البيان", "sa_exp_ph": "مثال: استضافة الموقع", "sa_exp_cat": "الفئة", "sa_date": "التاريخ", "sa_exp_add": "إضافة مصروف", "sa_ec_hosting": "الاستضافة والخدمات", "sa_ec_marketing": "التسويق", "sa_ec_salary": "الرواتب", "sa_ec_transport": "التنقل", "sa_ec_equipment": "المعدات", "sa_ec_other": "أخرى", "sa_exp_none": "لا توجد مصاريف مسجلة", "sa_total": "المجموع", "sa_sure_del": "حذف هذا السطر نهائياً؟", "sa_rp_sch": "تقرير المدارس", "sa_rp_sch_h": "كل المدارس مع الأعداد والحالة ومعلومات المدير", "sa_rp_rev": "التقرير المالي", "sa_rp_rev_h": "الإيرادات والمصاريف والصافي لكل شهر", "sa_rp_inv": "تقرير الفواتير", "sa_rp_inv_h": "كل الفواتير مع حالة الدفع", "sa_rp_pdf": "ملخص المنصة للطباعة", "sa_rp_pdf_h": "صفحة رسمية بالفرنسية والعربية", "sa_print": "طباعة / PDF", "sa_top10": "أكبر 10 مدارس (عدد التلاميذ)", "sa_m_on": "نشطة", "sa_m_idle": "خاملة", "sa_m_dead": "متوقفة", "sa_m_ops7": "عمليات 7 أيام", "sa_m_ops30": "عمليات 30 يوماً", "sa_m_chart": "حجم العمليات اليومية (14 يوماً)", "sa_back": "رجوع", "sa_tc_bug": "مشكلة تقنية", "sa_tc_question": "سؤال", "sa_tc_feature": "اقتراح ميزة", "sa_tc_billing": "الاشتراك والفواتير", "sa_tc_data": "البيانات", "sa_tc_other": "أخرى", "sa_you": "أنت", "sa_tk_reopen": "إعادة الفتح", "sa_tk_close": "إغلاق الطلب", "sa_tk_reply_ph": "اكتب ردك…", "sa_send": "إرسال", "sa_tk_subj": "الموضوع", "sa_tk_cat": "النوع", "sa_tk_pr": "الأولوية", "sa_sup_h": "اكتب لنا أي مشكلة أو سؤال، وسيصلك الرد هنا.", "sa_tk_body": "التفاصيل", "sa_tk_send": "إرسال الطلب", "sa_since": "منذ", "sa_lastlog": "آخر دخول", "sa_revoke": "سحب", "sa_team_add": "إضافة مدير للمنصة", "sa_team_h": "يجب أن يكون للشخص حساب مسجل في المنصة.", "sa_grant": "منح صلاحية SUPER ADMIN", "sa_team_warn": "مدير المنصة يرى كل المدارس والإيرادات. امنح هذه الصلاحية لأشخاص موثوقين فقط.", "sa_no_user": "لا يوجد حساب بهذا البريد.", "sa_not_self": "لا يمكنك سحب صلاحيتك بنفسك.", "sa_sure_grant": "منح صلاحية مدير المنصة إلى {e}؟", "sa_sure_rev": "سحب صلاحية مدير المنصة من {e}؟", "sa_s_rls": "تغطية حماية الجداول (RLS)", "sa_s_users": "الحسابات", "sa_s_unconf": "بريد غير مؤكد", "sa_s_admins": "مدراء المنصة", "sa_s_pfail": "محاولات دخول أولياء فاشلة (24س)", "sa_s_del": "عمليات حذف (7 أيام)", "sa_s_unconf_h": "توجد حسابات ببريد غير مؤكد. فعّل «Confirm email» في Supabase ← Authentication قبل استقبال المدارس.", "sa_s_measures": "إجراءات الحماية المفعّلة", "sa_m1": "عزل بيانات كل مدرسة (RLS)", "sa_m2": "صور التلاميذ في مخزن خاص بروابط مؤقتة", "sa_m3": "سجل لكل تعديل وحذف", "sa_m4": "نسخ احتياطي تلقائي كل أسبوع", "sa_m5": "وثائق موثّقة برمز QR", "sa_m6": "صلاحيات حسب دور كل مستخدم", "sa_s_log": "سجل العمليات (آخر 200)", "tab_sup": "الدعم الفني"});
 Object.assign(T.fr,{"sa_dash": "Tableau de bord central", "sa_schools": "Écoles et établissements", "sa_admins": "Directeurs d’établissement", "sa_subs": "Abonnements et offres", "sa_rev": "Revenus et comptes", "sa_rep": "Rapports et statistiques", "sa_mon": "Suivi de l’activité", "sa_sup": "Support technique", "sa_ann": "Annonces et notifications", "sa_team": "Équipe et droits", "sa_sec": "Sécurité et journal", "sa_set": "Paramètres de la plateforme", "sa_central": "Administration centrale", "sa_logout": "Déconnexion", "sa_owner": "Propriétaire de la plateforme", "sa_search": "Rechercher une école, un directeur, un code…", "sa_notifs": "Notifications", "sa_dark": "Mode sombre", "sa_full": "Plein écran", "sa_refresh": "Actualiser", "sa_need": "Exécutez schema33.sql dans Supabase pour activer cette section.", "sa_n_tk": "Nouveau ticket", "sa_n_exp": "Abonnement expiré : {n}", "sa_n_soon": "{n} expire dans {d} j", "sa_n_due": "Facture impayée {no} — {a}", "sa_n_none": "Aucune notification", "sa_expired": "Expirée", "sa_tk_open": "Ouvert", "sa_tk_prog": "En cours", "sa_tk_closed": "Fermé", "sa_pr_low": "Basse", "sa_pr_norm": "Normale", "sa_pr_high": "Urgente", "sa_school_s": "écoles", "sa_other_city": "Autres villes", "sa_tagline": "Plateforme de gestion des écoles arabes et islamiques en Côte d’Ivoire", "sa_civ": "Côte d’Ivoire", "sa_k_stu": "Total élèves", "sa_k_tch": "Total enseignants", "sa_k_staff": "Total personnel", "sa_k_sch": "Total écoles", "sa_k_act": "Écoles actives", "sa_k_trial": "En essai", "sa_k_exp": "Expirées", "sa_p_subs": "Statistiques des abonnements", "sa_more": "Tout voir", "sa_p_rev": "Revenus", "sa_r_m": "Revenus du mois", "sa_r_y": "Revenus de l’année", "sa_r_t": "Revenus totaux", "sa_r_e": "Dépenses totales", "sa_r_net": "Bénéfice net", "sa_p_map": "Répartition des écoles", "sa_p_grow": "Évolution du nombre d’écoles", "sa_p_latest": "Dernières écoles inscrites", "sa_p_tk": "Dernières demandes de support", "sa_tk_none": "Aucune demande", "sa_a_add": "Ajouter une école", "sa_a_plans": "Offres et tarifs", "sa_a_renew": "Renouveler", "sa_a_inv": "Factures", "sa_a_rep": "Rapports", "sa_a_ann": "Envoyer une annonce", "sa_a_mon": "Suivi d’activité", "sa_a_bak": "Sauvegardes", "sa_inv_msg": "Bonjour, inscrivez votre école sur Al-Madaris CI et essayez gratuitement 14 jours : {u}", "sa_inv_ok": "Lien d’inscription copié :\n{u}\n\nL’envoyer par WhatsApp ?", "sa_c_admin": "Directeur", "sa_c_school": "École", "sa_c_contact": "Contact", "sa_c_state": "Statut", "sa_soon14": "Expire sous 14 j", "sa_plan": "Offre et tarifs", "sa_trial_len": "Durée d’essai", "sa_edit_price": "Modifier les tarifs", "sa_c_end": "Échéance", "sa_c_left": "Restant", "sa_ago": "il y a {n} j", "sa_1y": "1 an", "sa_rev12": "Revenus et dépenses (12 mois)", "sa_rev_in": "Revenus", "sa_rev_out": "Dépenses", "sa_bymeth": "Par mode de paiement", "sa_exp_ttl": "Dépenses de la plateforme", "sa_exp_lbl": "Libellé", "sa_exp_ph": "Ex. : hébergement", "sa_exp_cat": "Catégorie", "sa_date": "Date", "sa_exp_add": "Ajouter", "sa_ec_hosting": "Hébergement", "sa_ec_marketing": "Marketing", "sa_ec_salary": "Salaires", "sa_ec_transport": "Transport", "sa_ec_equipment": "Équipement", "sa_ec_other": "Autre", "sa_exp_none": "Aucune dépense", "sa_total": "Total", "sa_sure_del": "Supprimer définitivement ?", "sa_rp_sch": "Rapport des écoles", "sa_rp_sch_h": "Toutes les écoles avec effectifs, statut et directeur", "sa_rp_rev": "Rapport financier", "sa_rp_rev_h": "Revenus, dépenses et net par mois", "sa_rp_inv": "Rapport des factures", "sa_rp_inv_h": "Toutes les factures et leur statut", "sa_rp_pdf": "Synthèse imprimable", "sa_rp_pdf_h": "Document officiel FR/AR", "sa_print": "Imprimer / PDF", "sa_top10": "Top 10 écoles (élèves)", "sa_m_on": "Active", "sa_m_idle": "Peu active", "sa_m_dead": "Inactive", "sa_m_ops7": "Opérations 7 j", "sa_m_ops30": "Opérations 30 j", "sa_m_chart": "Opérations par jour (14 j)", "sa_back": "Retour", "sa_tc_bug": "Problème technique", "sa_tc_question": "Question", "sa_tc_feature": "Suggestion", "sa_tc_billing": "Abonnement / facture", "sa_tc_data": "Données", "sa_tc_other": "Autre", "sa_you": "Vous", "sa_tk_reopen": "Rouvrir", "sa_tk_close": "Fermer", "sa_tk_reply_ph": "Votre réponse…", "sa_send": "Envoyer", "sa_tk_subj": "Objet", "sa_tk_cat": "Type", "sa_tk_pr": "Priorité", "sa_sup_h": "Écrivez-nous un problème ou une question ; la réponse arrivera ici.", "sa_tk_body": "Détails", "sa_tk_send": "Envoyer la demande", "sa_since": "Depuis", "sa_lastlog": "Dernière connexion", "sa_revoke": "Retirer", "sa_team_add": "Ajouter un administrateur", "sa_team_h": "La personne doit déjà avoir un compte.", "sa_grant": "Donner l’accès SUPER ADMIN", "sa_team_warn": "Un administrateur voit toutes les écoles et les revenus. Réservez cet accès à des personnes de confiance.", "sa_no_user": "Aucun compte avec cet email.", "sa_not_self": "Vous ne pouvez pas retirer votre propre accès.", "sa_sure_grant": "Donner l’accès administrateur à {e} ?", "sa_sure_rev": "Retirer l’accès de {e} ?", "sa_s_rls": "Couverture RLS", "sa_s_users": "Comptes", "sa_s_unconf": "Emails non confirmés", "sa_s_admins": "Administrateurs", "sa_s_pfail": "Échecs parents (24 h)", "sa_s_del": "Suppressions (7 j)", "sa_s_unconf_h": "Des comptes n’ont pas confirmé leur email : activez « Confirm email » dans Supabase → Authentication.", "sa_s_measures": "Mesures de sécurité", "sa_m1": "Isolation des données par école (RLS)", "sa_m2": "Photos privées par liens signés", "sa_m3": "Journal de chaque modification", "sa_m4": "Sauvegarde hebdomadaire automatique", "sa_m5": "Documents vérifiables par QR", "sa_m6": "Droits selon le rôle", "sa_s_log": "Journal (200 derniers)", "tab_sup": "Support"});
 Object.assign(T.en,{"sa_dash": "Central dashboard", "sa_schools": "Schools & institutions", "sa_admins": "School directors", "sa_subs": "Subscriptions & plans", "sa_rev": "Revenue & accounts", "sa_rep": "Reports & statistics", "sa_mon": "Activity monitoring", "sa_sup": "Support center", "sa_ann": "Announcements", "sa_team": "Team & permissions", "sa_sec": "Security & audit log", "sa_set": "Platform settings", "sa_central": "Central administration", "sa_logout": "Log out", "sa_owner": "Platform owner", "sa_search": "Search a school, director, code…", "sa_notifs": "Notifications", "sa_dark": "Dark mode", "sa_full": "Full screen", "sa_refresh": "Refresh", "sa_need": "Run schema33.sql in Supabase to enable this section.", "sa_n_tk": "New ticket", "sa_n_exp": "Subscription expired: {n}", "sa_n_soon": "{n} expires in {d} d", "sa_n_due": "Unpaid invoice {no} — {a}", "sa_n_none": "No notifications", "sa_expired": "Expired", "sa_tk_open": "Open", "sa_tk_prog": "In progress", "sa_tk_closed": "Closed", "sa_pr_low": "Low", "sa_pr_norm": "Normal", "sa_pr_high": "Urgent", "sa_school_s": "schools", "sa_other_city": "Other cities", "sa_tagline": "Management platform for Arabic & Islamic schools in Côte d’Ivoire", "sa_civ": "Côte d’Ivoire", "sa_k_stu": "Total students", "sa_k_tch": "Total teachers", "sa_k_staff": "Total staff", "sa_k_sch": "Total schools", "sa_k_act": "Active schools", "sa_k_trial": "On trial", "sa_k_exp": "Expired", "sa_p_subs": "Subscription stats", "sa_more": "View all", "sa_p_rev": "Revenue", "sa_r_m": "This month", "sa_r_y": "This year", "sa_r_t": "Total revenue", "sa_r_e": "Total expenses", "sa_r_net": "Net profit", "sa_p_map": "Schools across Côte d’Ivoire", "sa_p_grow": "Schools growth", "sa_p_latest": "Latest schools", "sa_p_tk": "Latest support requests", "sa_tk_none": "No requests", "sa_a_add": "Add a school", "sa_a_plans": "Plans & pricing", "sa_a_renew": "Renewals", "sa_a_inv": "Invoices", "sa_a_rep": "Reports", "sa_a_ann": "Send announcement", "sa_a_mon": "Monitoring", "sa_a_bak": "Backups", "sa_inv_msg": "Hello, register your school on Al-Madaris CI and try it free for 14 days: {u}", "sa_inv_ok": "Registration link copied:\n{u}\n\nSend it via WhatsApp?", "sa_c_admin": "Director", "sa_c_school": "School", "sa_c_contact": "Contact", "sa_c_state": "Status", "sa_soon14": "Expiring ≤14 d", "sa_plan": "Plan & pricing", "sa_trial_len": "Trial length", "sa_edit_price": "Edit pricing", "sa_c_end": "End date", "sa_c_left": "Remaining", "sa_ago": "{n} d ago", "sa_1y": "1 yr", "sa_rev12": "Revenue & expenses (12 months)", "sa_rev_in": "Revenue", "sa_rev_out": "Expenses", "sa_bymeth": "By payment method", "sa_exp_ttl": "Platform expenses", "sa_exp_lbl": "Label", "sa_exp_ph": "e.g. hosting", "sa_exp_cat": "Category", "sa_date": "Date", "sa_exp_add": "Add expense", "sa_ec_hosting": "Hosting", "sa_ec_marketing": "Marketing", "sa_ec_salary": "Salaries", "sa_ec_transport": "Transport", "sa_ec_equipment": "Equipment", "sa_ec_other": "Other", "sa_exp_none": "No expenses", "sa_total": "Total", "sa_sure_del": "Delete permanently?", "sa_rp_sch": "Schools report", "sa_rp_sch_h": "All schools with counts, status and director", "sa_rp_rev": "Financial report", "sa_rp_rev_h": "Monthly revenue, expenses and net", "sa_rp_inv": "Invoices report", "sa_rp_inv_h": "All invoices with payment status", "sa_rp_pdf": "Printable summary", "sa_rp_pdf_h": "Official FR/AR page", "sa_print": "Print / PDF", "sa_top10": "Top 10 schools (students)", "sa_m_on": "Active", "sa_m_idle": "Idle", "sa_m_dead": "Dormant", "sa_m_ops7": "Ops 7 d", "sa_m_ops30": "Ops 30 d", "sa_m_chart": "Daily operations (14 d)", "sa_back": "Back", "sa_tc_bug": "Technical issue", "sa_tc_question": "Question", "sa_tc_feature": "Feature request", "sa_tc_billing": "Billing", "sa_tc_data": "Data", "sa_tc_other": "Other", "sa_you": "You", "sa_tk_reopen": "Reopen", "sa_tk_close": "Close", "sa_tk_reply_ph": "Your reply…", "sa_send": "Send", "sa_tk_subj": "Subject", "sa_tk_cat": "Type", "sa_tk_pr": "Priority", "sa_sup_h": "Tell us any issue or question; the reply will appear here.", "sa_tk_body": "Details", "sa_tk_send": "Send request", "sa_since": "Since", "sa_lastlog": "Last login", "sa_revoke": "Revoke", "sa_team_add": "Add an administrator", "sa_team_h": "The person must already have an account.", "sa_grant": "Grant SUPER ADMIN", "sa_team_warn": "An administrator sees all schools and revenue. Grant only to trusted people.", "sa_no_user": "No account with this email.", "sa_not_self": "You cannot revoke yourself.", "sa_sure_grant": "Grant admin access to {e}?", "sa_sure_rev": "Revoke access from {e}?", "sa_s_rls": "RLS coverage", "sa_s_users": "Accounts", "sa_s_unconf": "Unconfirmed emails", "sa_s_admins": "Platform admins", "sa_s_pfail": "Parent login failures (24 h)", "sa_s_del": "Deletions (7 d)", "sa_s_unconf_h": "Some accounts are unconfirmed: enable “Confirm email” in Supabase → Authentication.", "sa_s_measures": "Security measures", "sa_m1": "Per-school data isolation (RLS)", "sa_m2": "Private photos via signed links", "sa_m3": "Audit log of every change", "sa_m4": "Weekly automatic backup", "sa_m5": "QR-verifiable documents", "sa_m6": "Role-based permissions", "sa_s_log": "Audit log (last 200)", "tab_sup": "Support"});
+Object.assign(T.ar,{"ct_h_smart": "بطاقة 2026 بهوية المنصة: شريط أخضر وذهبي، الصورة، المرحلة والفصل، فصيلة الدم ورمز QR؛ في الخلف: ولي الأمر والقوانين والتوقيع.", "sc_g_main": "الرئيسية", "sc_g_ped": "الشؤون التعليمية", "sc_g_adm": "الإدارة والمالية", "sc_g_sys": "النظام", "sc_role_admin": "مدير المؤسسة", "sc_role_superadmin": "مدير المؤسسة", "sc_role_staff": "موظف", "sc_search": "بحث عن تلميذ، أو رقم تسجيل، أو هاتف ولي…", "sc_n_exp": "انتهى اشتراك المؤسسة", "sc_n_sub": "ينتهي الاشتراك خلال {n} يوم", "sc_n_msg": "رسائل غير مقروءة: {n}", "sc_chk_t": "نظام متكامل لإدارة مؤسستك التعليمية", "sc_c1": "تسجيل التلاميذ وإدارة بياناتهم", "sc_c2": "الامتحانات والنتائج", "sc_c3": "الرسوم والمصاريف", "sc_c4": "الشهادات والوثائق", "sc_c5": "تقارير وإحصائيات دقيقة", "sc_k_cyc": "المراحل", "sc_k_cls": "الفصول", "sc_k_stu": "التلاميذ", "sc_k_tch": "المدرسون", "sc_k_stf": "الموظفون", "sc_k_year": "السنة الدراسية الحالية", "sc_p_card": "البطاقة المدرسية الذكية", "sc_p_trk": "المسارات الدراسية", "sc_p_stat": "إحصائيات سريعة", "sc_print_cards": "طباعة البطاقات", "sc_no_stu": "أضف تلاميذ لتظهر الإحصائيات والبطاقة هنا", "sc_info": "معلومات المؤسسة", "sc_student_s": "تلميذاً", "sc_nocls": "بلا فصل", "ct_smart": "البطاقة الذكية 2026", "h_nav_home": "الرئيسية", "h_nav_feat": "المميزات", "h_nav_price": "الأسعار", "h_nav_sup": "الدعم", "h_nav_faq": "أسئلة شائعة", "h_k_sch": "مدرسة تستخدم المنصة", "h_k_stu": "تلميذ مسجّل", "h_k_cls": "فصل دراسي", "h_k_stf": "معلّم وموظف", "h_sp": "فضاءات المنصة", "h_yr": "السنة الدراسية الحالية", "h_p4": "التحقق من الوثائق", "h_p4d": "تحقّق من صحة شهادة أو كشف أو بطاقة برمز QR.", "h_card_t": "🪪 البطاقة المدرسية الذكية", "h_cf1": "تصميم احترافي بهوية المؤسسة وشعارها", "h_cf2": "رمز QR للتحقق السريع ولتسجيل الحضور", "h_cf3": "طباعة جماعية سريعة على ورق A4 أو طابعة بطاقات", "h_cf4": "صورة التلميذ وفصيلة الدم ومعلومات ولي الأمر", "h_cf5": "خمسة نماذج قابلة للاختيار، منها البطاقة الذكية 2026", "h_help1": "الأسئلة الشائعة", "h_help2": "الدعم الفني", "h_help3": "التحقق من وثيقة", "h_help4": "سجّل مؤسستك"});
+Object.assign(T.fr,{"ct_h_smart": "Carte 2026 aux couleurs de la plateforme : bandeau vert et or, photo, cycle, classe, groupe sanguin et QR ; au dos : parent, règles et signature.", "sc_g_main": "Principal", "sc_g_ped": "Pédagogie", "sc_g_adm": "Administration et finances", "sc_g_sys": "Système", "sc_role_admin": "Directeur de l’établissement", "sc_role_superadmin": "Directeur de l’établissement", "sc_role_staff": "Personnel", "sc_search": "Rechercher un élève, un matricule, un téléphone…", "sc_n_exp": "L’abonnement a expiré", "sc_n_sub": "L’abonnement expire dans {n} j", "sc_n_msg": "Messages non lus : {n}", "sc_chk_t": "Un système complet pour votre établissement", "sc_c1": "Inscription et dossiers des élèves", "sc_c2": "Examens et résultats", "sc_c3": "Frais et dépenses", "sc_c4": "Certificats et documents", "sc_c5": "Rapports et statistiques", "sc_k_cyc": "Cycles", "sc_k_cls": "Classes", "sc_k_stu": "Élèves", "sc_k_tch": "Enseignants", "sc_k_stf": "Personnel", "sc_k_year": "Année scolaire", "sc_p_card": "Carte scolaire intelligente", "sc_p_trk": "Parcours", "sc_p_stat": "Statistiques rapides", "sc_print_cards": "Imprimer les cartes", "sc_no_stu": "Ajoutez des élèves pour voir les statistiques et la carte", "sc_info": "Informations de l’établissement", "sc_student_s": "élèves", "sc_nocls": "Sans classe", "ct_smart": "Carte intelligente 2026", "h_nav_home": "Accueil", "h_nav_feat": "Fonctionnalités", "h_nav_price": "Tarifs", "h_nav_sup": "Support", "h_nav_faq": "FAQ", "h_k_sch": "écoles utilisatrices", "h_k_stu": "élèves inscrits", "h_k_cls": "classes", "h_k_stf": "enseignants et personnel", "h_sp": "Les espaces", "h_yr": "Année scolaire en cours", "h_p4": "Vérifier un document", "h_p4d": "Vérifiez un certificat, un bulletin ou une carte par QR.", "h_card_t": "🪪 La carte scolaire intelligente", "h_cf1": "Design professionnel aux couleurs de l’école", "h_cf2": "QR code pour vérifier et pointer la présence", "h_cf3": "Impression groupée sur A4 ou imprimante à cartes", "h_cf4": "Photo, groupe sanguin et contact du parent", "h_cf5": "Cinq modèles au choix, dont la carte intelligente 2026", "h_help1": "Questions fréquentes", "h_help2": "Support technique", "h_help3": "Vérifier un document", "h_help4": "Inscrire mon école"});
+Object.assign(T.en,{"ct_h_smart": "2026 card in the platform colours: green and gold band, photo, cycle, class, blood group and QR; back: parent, rules and signature.", "sc_g_main": "Main", "sc_g_ped": "Teaching", "sc_g_adm": "Admin & finance", "sc_g_sys": "System", "sc_role_admin": "School director", "sc_role_superadmin": "School director", "sc_role_staff": "Staff", "sc_search": "Search a student, ID or phone…", "sc_n_exp": "Subscription expired", "sc_n_sub": "Subscription ends in {n} d", "sc_n_msg": "Unread messages: {n}", "sc_chk_t": "A complete system for your school", "sc_c1": "Student enrolment & records", "sc_c2": "Exams & results", "sc_c3": "Fees & expenses", "sc_c4": "Certificates & documents", "sc_c5": "Reports & statistics", "sc_k_cyc": "Cycles", "sc_k_cls": "Classes", "sc_k_stu": "Students", "sc_k_tch": "Teachers", "sc_k_stf": "Staff", "sc_k_year": "School year", "sc_p_card": "Smart school card", "sc_p_trk": "Tracks", "sc_p_stat": "Quick stats", "sc_print_cards": "Print cards", "sc_no_stu": "Add students to see stats and the card", "sc_info": "School information", "sc_student_s": "students", "sc_nocls": "No class", "ct_smart": "Smart card 2026", "h_nav_home": "Home", "h_nav_feat": "Features", "h_nav_price": "Pricing", "h_nav_sup": "Support", "h_nav_faq": "FAQ", "h_k_sch": "schools on the platform", "h_k_stu": "enrolled students", "h_k_cls": "classes", "h_k_stf": "teachers & staff", "h_sp": "Platform spaces", "h_yr": "Current school year", "h_p4": "Verify a document", "h_p4d": "Check a certificate, report or card by QR.", "h_card_t": "🪪 The smart school card", "h_cf1": "Professional design with the school’s branding", "h_cf2": "QR code for verification and attendance", "h_cf3": "Batch printing on A4 or card printers", "h_cf4": "Photo, blood group and parent contact", "h_cf5": "Five templates, including the 2026 smart card", "h_help1": "FAQ", "h_help2": "Support", "h_help3": "Verify a document", "h_help4": "Register my school"});
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -999,6 +1163,7 @@ function applyLang(){
   if(location.hash==='#dash'&&D.p)renderDash();
   if(location.hash==='#parent'&&typeof renderParent==='function')renderParent();
   if(location.hash==='#admin'&&typeof renderAdmin==='function'&&D.p)renderAdmin();
+  if(typeof homeFx==='function')homeFx();
 }
 document.getElementById('langBtn').onchange=e=>{L=e.target.value;try{localStorage.setItem('amc_lang',L)}catch(x){}applyLang()};
 
@@ -1007,7 +1172,7 @@ const C=window.AMC_CONFIG||{};
 const LIVE=!!(window.supabase&&C.SUPABASE_URL&&!/XXXX/.test(C.SUPABASE_URL));
 const sb=LIVE?window.supabase.createClient(C.SUPABASE_URL,C.SUPABASE_ANON_KEY):null;
 const views=['home','register','login','verify','dash','activate','forgot','newpw','parent','card','privacy','admin'];
-function route(){const h=location.hash.slice(1);document.body.classList.toggle('sa-on',h==='admin');if(h!=='verify'&&typeof vStop==='function')vStop();if(h!=='dash'&&typeof stopScan==='function')stopScan();views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash();if(h==='admin')loadAdmin();if(h==='parent'&&LIVE)loadParent();if(h==='card')loadCardCheck()}
+function route(){const h=location.hash.slice(1);document.body.classList.toggle('sa-on',h==='admin'||(h==='dash'&&!!document.getElementById('scRoot')));if(!views.includes(h)||h==='home')setTimeout(homeFx,0);if(h!=='verify'&&typeof vStop==='function')vStop();if(h!=='dash'&&typeof stopScan==='function')stopScan();views.forEach(v=>document.getElementById(v).classList.toggle('on',v===(views.includes(h)?h:'home')));window.scrollTo(0,0);if(h==='dash')loadDash();if(h==='admin')loadAdmin();if(h==='parent'&&LIVE)loadParent();if(h==='card')loadCardCheck()}
 addEventListener('hashchange',route);
 
 // login tabs
@@ -1046,7 +1211,7 @@ const can=k=>!(k==='registry'&&past())&&hasPerm(k);
 const SF=()=>canEdit()?D.staff:(D.ostaff||D.staff),TC=()=>canEdit()?D.teaching:(D.oteach||D.teaching);
 const opts=(arr,sel)=>arr.map(([v,l])=>`<option value="${esc(v)}"${v===sel?' selected':''}>${esc(l)}</option>`).join('');
 
-async function loadDash(){const box=document.getElementById('dashBox');
+async function loadDash(){const box=document.getElementById('dashBox');if(!document.getElementById('scRoot'))document.getElementById('dash').classList.remove('scx');
   if(!LIVE){location.hash='login';return}
   box.innerHTML=t('wait');OFF.cache=false;
   let user=null,uerr=null;try{const r=await sb.auth.getUser();user=r.data&&r.data.user;uerr=r.error}catch(e){uerr=e}
@@ -1084,7 +1249,7 @@ async function reloadData(){
   if(c.error&&isNetErr(c.error))throw c.error;await loadHealth();offSave()}
 
 const TABIC={ov:'🏠',plat:'🛡',cls:'🏫',stu:'🎓',att:'📷',grd:'📝',tt:'🗓',exm:'📋',rep:'📊',doc:'📄',crd:'🪪',msg:'💬',bk:'📚',fee:'💰',pay:'💵',dis:'⚖️',log:'🕵',sup:'🎧',ct:'📒',cal:'📅',staff:'👥',subj:'📘',set:'⚙️'};
-function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
+function renderDashOld(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
   const tabs=[['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['ct','tab_ct'],['dis','tab_dis']]:[]).concat([['cal','tab_cal']]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set'],['log','tab_log'],['sup','tab_sup']]:[]);
   const yl=yearsList();
   box.innerHTML=`<div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
@@ -1111,7 +1276,7 @@ function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i;
   if(MS.unread)updMsgBadge();
   ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup}[D.tab]||tabOverview)()}
 
-function tabOverview(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
+function tabOverviewOld(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
   const act=D.students.filter(s=>s.status==='active');
   const lab=(arr,map)=>(arr||[]).map(x=>`<span class="badge" style="margin:2px">${t(map[x])||esc(x)}</span>`).join(' ');
@@ -2735,8 +2900,8 @@ function bindBalance(){const B=F.bal,fr=k=>T.fr['xc_'+k],ar=k=>T.ar['xc_'+k],mf=
     <p style="margin-top:4mm"><b>Reste à recouvrer auprès des parents / المتبقي على الأولياء : ${money(B.recv)}</b></p>${officialSign('')}</section>`)}
 
 // ===== ID cards: 4 designs, dedicated tab =====
-let CARD_TPL='classic';try{CARD_TPL=localStorage.getItem('amc_cardtpl')||'classic'}catch(e){}
-const CTPLS=[['classic','ct_classic'],['modern','ct_modern'],['official','ct_official'],['badge','ct_badge']];
+let CARD_TPL='smart';try{CARD_TPL=localStorage.getItem('amc_cardtpl')||'smart'}catch(e){}
+const CTPLS=[['smart','ct_smart'],['classic','ct_classic'],['modern','ct_modern'],['official','ct_official'],['badge','ct_badge']];
 const CRD={kind:'stu',cls:'',sel:null,q:''};
 function cardData(kind,s){const i=D.i,y=curYear(),a=parseInt(y)||new Date().getFullYear(),valid='31/07/'+(a+1);
   if(kind==='stu'){const c=(D.allClasses||D.classes).find(x=>x.id===s.class_id),f=s.gender==='F',rel={father:'الأب',mother:'الأم',other:''};
@@ -2784,6 +2949,7 @@ function badgeBack(d){return `<div class="xc xv k4 xback"><div class="xh xh2"><b
   <div class="xf g"><span>${schoolLine()}</span></div></div>`}
 function cardFns(kind,tpl){tpl=tpl||CARD_TPL;
   if(tpl==='classic')return kind==='stu'?[studentCardFront,studentCardBack]:[staffCardFront,staffCardBack];
+  if(tpl==='smart')return [s=>smartFront(kind,s),s=>smartBack(cardData(kind,s))];
   const M={modern:[modernFront,modernBack],official:[officialFront,officialBack],badge:[badgeFront,badgeBack]}[tpl]||[modernFront,modernBack];
   return [s=>M[0](cardData(kind,s)),s=>M[1](cardData(kind,s))]}
 async function printCards(kind,list,tpl){tpl=tpl||CARD_TPL;const [f,b]=cardFns(kind,tpl);await printIdCards(list,f,b,tpl==='badge')}
@@ -3073,7 +3239,7 @@ function bindMsg(){const el=document.getElementById('dtab');
   const wx=document.getElementById('msWaX');if(wx)wx.onclick=()=>{MS.sent=null;renderMsg()};
   el.querySelectorAll('.msw').forEach(a=>a.addEventListener('click',()=>{a.textContent='✓';a.classList.remove('btn-g');a.classList.add('btn-l')}));
   el.querySelectorAll('[data-mdel]').forEach(b=>b.onclick=async()=>{if(!confirm(t('ms_sure_del')))return;const {error}=await sb.from('messages').delete().eq('id',b.dataset.mdel);if(error){alert(em(error));return}tabMsg()})}
-function updMsgBadge(){const tb=document.querySelector('[data-dt=msg]');if(tb)tb.innerHTML=t('tab_msg')+(MS.unread?` <b class="badge bad" style="padding:0 6px;font-size:11px">${MS.unread}</b>`:'')}
+function updMsgBadgeOld(){const tb=document.querySelector('[data-dt=msg]');if(tb)tb.innerHTML=t('tab_msg')+(MS.unread?` <b class="badge bad" style="padding:0 6px;font-size:11px">${MS.unread}</b>`:'')}
 // ---- parent side
 async function ppLoadMsgs(k){try{const {data}=await sb.rpc('parent_messages',{p_code:k.c,p_pin:k.p});return data&&data.ok?data.messages:null}catch(e){return null}}
 const ppSeenKey=c=>'amc_seen_'+c;
@@ -4319,6 +4485,140 @@ async function annBanner(){const b=document.getElementById('annBox');if(!b)retur
   const L2=ANN.list.filter(a=>!hid.includes(a.id)&&(!a.until||a.until>=todayISO()));if(!document.getElementById('annBox'))return;
   b.innerHTML=L2.map(a=>`<div class="note ann-${a.level}" style="margin-top:10px;display:flex;gap:8px;align-items:flex-start"><span style="flex:1">${a.level==='warn'?'⚠️':a.level==='ok'?'✅':'📣'} ${esc(L==='ar'||!a.body_fr?a.body_ar:a.body_fr)}</span><button class="btn btn-t sm" data-annx="${a.id}">✕</button></div>`).join('');
   b.querySelectorAll('[data-annx]').forEach(x=>x.onclick=()=>{hid.push(x.dataset.annx);try{localStorage.setItem('amc_annx',JSON.stringify(hid))}catch(e){}annBanner()})}
+
+// ===== Phase 2 (2026): smart card, school shell, home =====
+// -- smart school card (k5)
+function k5Wave(){return `<svg class="k5w" viewBox="0 0 856 540" preserveAspectRatio="none" aria-hidden="true"><path d="M0 0H300C230 40 150 60 0 150Z" fill="#1B7F3B"/><path d="M0 150C150 60 230 40 300 0H340C250 55 160 90 0 190Z" fill="#E9A81C"/><path d="M856 540H560C640 500 740 470 856 400Z" fill="#1B7F3B" opacity=".12"/><path d="M856 0V120C780 70 700 40 600 0Z" fill="#E9A81C" opacity=".18"/></svg>`}
+function k5Row(ar,fr,v,ltr){return v?`<div class="k5r"><span>${ar} <i>${fr}</i></span><b${ltr?' dir="ltr"':''}>${esc(v)}</b></div>`:''}
+function smartFrontRaw(d,sch,logo){const pick=k=>(d.main.find(r=>r[1]===k)||[])[2];
+  const rows=d.kind==='stu'?[['المرحلة','Cycle',d.cyc],['الفصل','Classe',pick('Classe')],['رقم التسجيل','Matricule',d.code,1],['فصيلة الدم','Gr. sang.',pick('Gr. sanguin'),1]]
+    :[['الوظيفة','Fonction',pick('Fonction')],['رقم التسجيل','Matricule',d.code,1],['الهاتف','Tél.',pick('Tél.'),1],['فصيلة الدم','Gr. sang.',pick('Gr. sanguin'),1]];
+  return `<div class="xc k5">${k5Wave()}<div class="k5h"><img src="${esc(logo)}" alt=""><div style="min-width:0"><b>${esc(sch.name_ar||'')}</b><small dir="ltr">${esc(sch.name_fr||'')}</small></div></div>
+   <div class="k5t"><b>${d.kind==='stu'?'البطاقة المدرسية':'البطاقة المهنية'}</b><small>${d.kind==='stu'?'CARTE SCOLAIRE':'CARTE PROFESSIONNELLE'}</small></div>
+   <div class="k5b">${xPhoto(d.photo)}<div class="k5i"><div class="xn${fitN(d.ar,15,20)}">${esc(d.ar)}</div>${d.fr?`<div class="xnf${fitN(d.fr,18,24)}" dir="ltr">${esc(d.fr)}</div>`:''}${rows.map(r=>k5Row(...r)).join('')}</div>${d.qr?`<div class="k5q">${kQR(d)}</div>`:''}</div>
+   <div class="k5f"><span class="yr" dir="ltr">${esc(d.year)}</span><span class="bc"></span><span dir="ltr">${esc(d.code||'')}</span></div></div>`}
+function smartBackRaw(d,sch,logo){return `<div class="xc k5 xback">${xWm()}<div class="k5bk"><div class="k5p">${kvs(d.more)}<div class="xr">${d.rule}<br><span dir="ltr">${d.ruleFr}</span></div></div>
+   <div class="k5qb">${d.qr?kQR(d)+`<small dir="ltr">${esc(d.token)}</small>`:`<img src="${esc(logo)}" alt="" style="width:15mm;height:15mm;object-fit:contain">`}${xSign()}</div></div>
+   <div class="k5f"><span>${esc(sch.name_ar||'')}</span><span dir="ltr">${esc(d.valid?'Valable au '+d.valid:'')}</span></div></div>`}
+function smartFront(kind,s){const d=cardData(kind,s);if(kind==='stu'){const c=(D.allClasses||D.classes).find(x=>x.id===s.class_id);if(c)d.cyc=t(CYC[c.cycle])}return smartFrontRaw(d,D.i,schoolLogo())}
+function smartBack(d){return smartBackRaw(d,D.i,schoolLogo())}
+function k5QR(scope){if(window.QRCode)scope.querySelectorAll('.qrc').forEach(d=>{if(!d.firstChild)new QRCode(d,{text:d.dataset.url,width:96,height:96})})}
+
+// -- school space shell
+const SC_G=[['sc_g_main',['ov','cal','msg','sup']],['sc_g_ped',['cls','stu','att','grd','tt','exm','rep','ct','dis']],['sc_g_adm',['doc','crd','bk','fee','pay','staff','subj']],['sc_g_sys',['set','log']]];
+function scTabs(){return [['ov','tab_ov'],['cls','tab_cls'],['stu','tab_stu'],['att','tab_att'],['grd','tab_grd'],['tt','tab_tt'],['exm','tab_exm']].concat(hasPerm('registry')?[['rep','tab_rep'],['doc','tab_doc'],['crd','tab_crd'],['msg','tab_msg'],['bk','tab_bk']]:[]).concat(hasPerm('fees')?[['fee','tab_fee']]:[]).concat(hasPerm('payroll')||myStaff()?[['pay','tab_pay']]:[]).concat(hasPerm('registry')||myStaff()?[['ct','tab_ct'],['dis','tab_dis']]:[]).concat([['cal','tab_cal']]).concat(canEdit()?[['staff','tab_staff'],['subj','tab_subj'],['set','tab_set'],['log','tab_log'],['sup','tab_sup']]:[])}
+function hijriY(d){try{return new Intl.DateTimeFormat('en-u-ca-islamic-umalqura',{year:'numeric'}).format(d).replace(/\D/g,'')}catch(e){return ''}}
+function yearHijri(y){const a=parseInt(y)||new Date().getFullYear(),h1=hijriY(new Date(Date.UTC(a,8,1))),h2=hijriY(new Date(Date.UTC(a+1,5,30)));return h1&&h2?(h1===h2?h1:h1+' - '+h2)+(L==='ar'?' هـ':' H'):''}
+function scNotifs(){const i=D.i,out=[];if(!i)return out;const sl=subLeft(i),td=todayISO();
+  if(i.status==='suspended'||(sl&&sl.n<0))out.push({ic:'⛔',tx:t('sc_n_exp'),go:()=>{D.tab='ov'}});else if(sl&&sl.n<=14)out.push({ic:'⏳',tx:t('sc_n_sub').replace('{n}',sl.n),go:()=>{D.tab='ov'}});
+  if(MS.unread)out.push({ic:'💬',tx:t('sc_n_msg').replace('{n}',MS.unread),go:()=>{D.tab='msg'}});
+  (ANN.list||[]).filter(a=>!a.until||a.until>=td).forEach(a=>out.push({ic:a.level==='warn'?'⚠️':'📣',tx:esc(L==='ar'||!a.body_fr?a.body_ar:a.body_fr),go:()=>{D.tab='ov'}}));
+  return out}
+function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i,tabs=scTabs(),has=new Set(tabs.map(x=>x[0]));if(!has.has(D.tab))D.tab='ov';
+  const yl=yearsList(),nm=(p&&p.full_name)||(D.user&&D.user.email)||'',[gd,hd]=saDates(),cur=tabs.find(x=>x[0]===D.tab)||tabs[0];
+  document.getElementById('dash').classList.add('scx');if(location.hash==='#dash')document.body.classList.add('sa-on');
+  const used=new Set(SC_G.flatMap(g=>g[1])),groups=SC_G.map(([g,ks],gi)=>[g,ks.filter(k=>has.has(k)).concat(gi===SC_G.length-1?tabs.map(x=>x[0]).filter(k=>!used.has(k)):[])]).filter(g=>g[1].length);
+  const lbl=k=>{const x=t((tabs.find(y=>y[0]===k)||[])[1]);return String(x||'').replace(/^\p{Extended_Pictographic}️?\s*/u,'')};
+  const nb=scNotifs().length,sl=i&&subLeft(i);
+  box.innerHTML=`<div class="sa sc${saDark()?' dark':''}" id="scRoot" style="--sa-dir:${RTL()?1:-1}">
+   <aside class="sa-side">
+    <div class="sa-brand">${i?`<div class="lg"><img src="${esc(schoolLogo())}" alt=""></div><span class="sn">${esc(i.name_ar)}</span>${i.name_fr?`<span class="sf">${esc(i.name_fr)}</span>`:''}<code dir="ltr">${esc(i.code)}</code>`:`<div class="lg"><img src="logo.png" alt=""></div><b><i>AL-</i>MADARIS <i>CI</i></b>`}</div>
+    <nav class="sa-nav">${groups.map(([g,ks])=>`<div class="sa-gl">${t(g)}</div>${ks.map(k=>`<a data-dt="${k}" class="${D.tab===k?'on':''}" href="javascript:void 0"><i>${TABIC[k]||'•'}</i><span>${esc(lbl(k))}</span>${k==='msg'&&MS.unread?`<em class="n">${MS.unread}</em>`:''}</a>`).join('')}`).join('')}</nav>
+    <div class="sa-out">${p&&p.role==='superadmin'?`<a class="ms" href="#admin">🛡 ${t('adm_btn')}</a>`:''}<button class="ms" id="chpw">🔑 ${t('ch_pw')}</button><button class="lo" id="logout">⏻ ${t('d_logout')}</button></div>
+   </aside>
+   <section class="sa-main">
+    <div class="sa-top">
+     <button class="sa-ib sa-burger" id="scBurger" aria-label="menu">☰</button>
+     <div class="who"><div class="sa-av">${esc(String(nm).trim().charAt(0)||'?')}</div><div><b>${esc(nm)}</b><small>${esc((p&&p.role_title)||t('sc_role_'+((p&&p.role)||'admin'))||'')}</small></div></div>
+     <div class="sa-srch"><input id="scQ" placeholder="${esc(t('sc_search'))}" value="${esc(D.tab==='stu'?D.q:'')}"><span>🔍</span></div>
+     <div class="sa-date"><span style="font-size:20px">📅</span><div><b>${esc(gd)}</b>${esc(hd)}</div></div>
+     ${has.has('msg')?`<button class="sa-ib" id="scMail" title="${esc(t('tab_msg'))}">✉️${MS.unread?`<span class="n">${MS.unread}</span>`:''}</button>`:''}
+     <button class="sa-ib" id="scBell" title="${esc(t('sa_notifs'))}">🔔${nb?`<span class="n">${nb}</span>`:''}</button>
+     <div class="sa-lang">${['ar','fr','en','nqo'].map(l=>`<button data-sal="${l}" class="${L===l?'on':''}">${{ar:'AR',fr:'FR',en:'EN',nqo:'ߒߞߏ'}[l]}</button>`).join('')}</div>
+     <button class="sa-ib" id="scDark" title="${esc(t('sa_dark'))}">${saDark()?'☀️':'🌙'}</button>
+     <button class="sa-ib" id="saFull" title="${esc(t('sa_full'))}">⛶</button>
+     <div id="saPop"></div>
+    </div>
+    <div id="pwBox" class="cert" style="display:none;margin-top:14px;padding:14px"><b>${t('ch_pw')}</b><div class="two" style="margin-top:8px"><input id="cp1" type="password" dir="ltr" placeholder="${t('pw')}"><input id="cp2" type="password" dir="ltr" placeholder="${t('pw2')}"></div>
+     <button class="btn btn-g sm" id="cpGo" style="margin-top:8px">${t('save')}</button><span class="err" id="cpErr" style="margin-inline-start:8px"></span></div>
+    ${i&&(i.status==='suspended'||(i.status==='trial'&&i.trial_end<todayISO())||(i.status==='active'&&i.paid_until&&i.paid_until<todayISO()))?`<div class="sa-note" style="background:#fdecea;border-color:#f3c1bb;color:#b03a2e">⛔ <b>${t(i.status==='suspended'?'ban_susp':i.status==='active'?'ban_paid':'ban_trial')}</b><br>${t('ban_help')} <b dir="ltr">07 47 42 34 04</b> — konemamoud@gmail.com</div>`:''}
+    ${i&&canEdit()&&sl&&sl.n>=0&&sl.n<=14?`<div class="sa-note">⏳ ${t('sub_soon').replace('{k}',t('sub_k_'+sl.k)).replace('{n}',sl.n).replace('{d}',fdate(sl.end))} <a class="sa-btn gd sm" target="_blank" rel="noopener" href="https://wa.me/2250747423404?text=${encodeURIComponent(t('sub_wa').replace('{n}',i.name_ar).replace('{c}',i.code))}">${t('sub_renew')}</a></div>`:''}
+    <div id="annBox"></div>
+    ${D.tab==='ov'?'':`<div class="sa-h1 sa-in"><h2><i>${TABIC[D.tab]||'•'}</i>${esc(lbl(D.tab))}</h2></div>`}
+    ${yl.length>1||past()?`<div class="sc-tools">${yl.length>1?`<span class="sub">📅 ${t('vyear')}</span><select id="vYear" dir="ltr">${opts(yl.map(y=>[y,y+(y===(i&&i.current_year)?' ✓':'')]),curYear())}</select>`:''}</div>`:''}
+    ${past()?`<div class="sa-note">🗄 ${t('past_note').replace('{y}',curYear())}</div>`:''}
+    <div id="dtab" class="sc-tab"></div>
+   </section></div>`;
+  const root=document.getElementById('scRoot'),g=id=>document.getElementById(id);
+  {const vy=g('vYear');if(vy)vy.onchange=()=>{D.vy=vy.value===(D.i&&D.i.current_year)?null:vy.value;D.fc='';D.edit=null;G.cls=null;G.loadedFor=null;A.cls=null;applyYear();renderDash()}}
+  annBanner();
+  const go=k=>{stopScan();D.tab=k;D.edit=null;D.asg=null;if(F.view==='stu')F.view='sum';renderDash();window.scrollTo(0,0)};
+  root.querySelectorAll('.sa-nav [data-dt]').forEach(e=>e.onclick=()=>go(e.dataset.dt));
+  root.onclick=e=>{if(e.target===root&&root.classList.contains('nav-open'))root.classList.remove('nav-open')};
+  g('scBurger').onclick=()=>root.classList.toggle('nav-open');
+  g('logout').onclick=async()=>{await sb.auth.signOut();location.hash='login'};
+  g('chpw').onclick=()=>{const b2=g('pwBox');b2.style.display=b2.style.display==='none'?'':'none';root.classList.remove('nav-open')};
+  g('cpGo').onclick=async()=>{const er=g('cpErr'),a=g('cp1').value;er.style.color='';
+    if(a.length<8||a!==g('cp2').value){er.textContent=t('e_pw');return}er.textContent=t('wait');const {error}=await sb.auth.updateUser({password:a});
+    if(error){er.textContent=em(error);return}er.style.color='var(--g2)';er.textContent=t('np_ok')};
+  g('scDark').onclick=()=>{const on=!saDark();try{localStorage.setItem('amc_sa_dark',on?'1':'0')}catch(e){}root.classList.toggle('dark',on);g('scDark').textContent=on?'☀️':'🌙'};
+  g('saFull').onclick=()=>{try{document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}catch(e){}};
+  root.querySelectorAll('[data-sal]').forEach(b=>b.onclick=()=>{L=b.dataset.sal;try{localStorage.setItem('amc_lang',L)}catch(x){}applyLang()});
+  if(g('scMail'))g('scMail').onclick=()=>go('msg');
+  g('scBell').onclick=e=>{e.stopPropagation();const pp=g('saPop');if(pp.innerHTML){pp.innerHTML='';return}const N=scNotifs();
+    pp.innerHTML=`<div class="sa-pop">${N.length?N.map((n,k)=>`<a data-nt="${k}"><span style="font-size:20px">${n.ic}</span><span><b>${n.tx}</b></span></a>`).join(''):`<div class="sa-empty"><span>🔕</span>${t('sa_n_none')}</div>`}</div>`;
+    pp.querySelectorAll('[data-nt]').forEach(a=>a.onclick=()=>{N[+a.dataset.nt].go();renderDash()})};
+  document.addEventListener('click',saPopClose);
+  const q=g('scQ');q.onkeydown=e=>{if(e.key==='Enter'){D.q=q.value.trim();D.fc='';go('stu')}};
+  if(MS.unread)updMsgBadge();
+  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup}[D.tab]||tabOverview)();
+  saFx(root)}
+function updMsgBadge(){document.querySelectorAll('.sa-nav [data-dt=msg]').forEach(tb=>{let n=tb.querySelector('.n');if(!MS.unread){if(n)n.remove();return}if(!n){n=document.createElement('em');n.className='n';tb.appendChild(n)}n.textContent=MS.unread});
+  const m=document.getElementById('scMail');if(m)m.innerHTML='✉️'+(MS.unread?`<span class="n">${MS.unread}</span>`:'')}
+// -- overview (new top block + the existing institution info below)
+function tabOverview(){const el=document.getElementById('dtab');tabOverviewOld();const i=D.i;if(!i||!el)return;
+  const act=D.students.filter(s=>s.status==='active'),cmap=Object.fromEntries((D.allClasses||D.classes).map(c=>[c.id,c])),tabs=new Set(scTabs().map(x=>x[0]));
+  const stf=D.staff.filter(x=>x.status==='active'),y=curYear(),sample=act.find(s=>s.class_id&&cmap[s.class_id])||act[0];
+  const byCyc={};act.forEach(s=>{const c=cmap[s.class_id];const k=c?c.cycle:'_';byCyc[k]=(byCyc[k]||0)+1});
+  const cols=['#a855f7','#16a34a','#2563eb','#f97316','#ec4899','#94a3b8'];
+  const parts=Object.entries(byCyc).map(([k,v],n)=>[k==='_'?t('sc_nocls'):t(CYC[k])||k,v,cols[n%cols.length]]);
+  const trkIc={ar:'📗',fr:'📘',arfr:'📙',quran:'📖'},trkN=k=>D.classes.filter(c=>c.track===k).length;
+  let card='';if(sample&&tabs.has('crd')){const d=cardData('stu',sample),c=cmap[sample.class_id];if(c)d.cyc=t(CYC[c.cycle]);card=smartFrontRaw(d,i,schoolLogo())}
+  const tiles=[['stu','🎓','#86efac','#16a34a'],['att','📷','#93c5fd','#2563eb'],['exm','📋','#fdba74','#ea580c'],['tt','🗓','#c4b5fd','#7c3aed'],['fee','💰','#fde047','#ca8a04'],['rep','📊','#f9a8d4','#db2777'],['crd','🪪','#5eead4','#0d9488'],['doc','📄','#fca5a5','#dc2626']].filter(x=>tabs.has(x[0]));
+  const kp=[['🏫','#4ade80','#15803d',t('sc_k_cyc'),(i.cycles||[]).length],['📚','#60a5fa','#1d4ed8',t('sc_k_cls'),D.classes.length],['🎓','#fcd34d','#d97706',t('sc_k_stu'),act.length]]
+    .concat(canEdit()?[['👨‍🏫','#fdba74','#ea580c',t('sc_k_tch'),stf.filter(x=>x.staff_type==='teacher').length],['👥','#c4b5fd','#7c3aed',t('sc_k_stf'),stf.length]]:[]);
+  el.insertAdjacentHTML('afterbegin',`<div class="sa-hero sc-hero sa-in">
+     <div class="sa-dev" aria-hidden="true"><div class="sa-lap"><div class="scr"><div><img src="${esc(schoolLogo())}" alt=""></div></div><div class="base"></div></div><div class="sa-ph"><div><img src="${esc(schoolLogo())}" alt=""></div></div></div>
+     <div class="mid"><img src="${esc(schoolLogo())}" alt=""><h1>${esc(L==='ar'||!i.name_fr?i.name_ar:i.name_fr)}</h1>${L==='ar'&&i.name_fr?`<span class="sf">${esc(i.name_fr)}</span>`:''}<p>${t('sa_tagline')}</p><span class="pill" dir="ltr">${esc(y)}</span></div>
+     <div class="sc-chk"><h4>${t('sc_chk_t')}</h4>${[1,2,3,4,5].map(n=>`<div>${t('sc_c'+n)}</div>`).join('')}</div></div>
+   <div class="sa-kpis${kp.length===5?' k6':''}">${kp.map((k,n)=>saKpi(...k,n)).join('')}<div class="sa-card sa-kpi tl sa-in sc-year" style="--d:${kp.length}"><i class="sa-ic" style="--c1:#ffe28a;--c2:#d9900c"><span>📅</span></i><div class="tx"><small>${t('sc_k_year')}</small><b dir="ltr">${esc(y)}</b><em>${esc(yearHijri(y))}</em></div></div></div>
+   <div class="sa-grid sa-g3">
+    ${tabs.has('crd')?saPan('🪪',t('sc_p_card'),card?`<div class="sc-cardbox"><div class="zoom">${card}</div></div><div style="text-align:center;margin-top:8px"><button class="sa-btn gd" data-go="crd">🖨 ${t('sc_print_cards')}</button></div>`:`<div class="sa-empty"><span>🪪</span>${t('sc_no_stu')}</div>`,1):''}
+    ${saPan('🎓',t('sc_p_trk')+` (${(i.tracks||[]).length})`,`<div class="sc-trk">${(i.tracks||[]).map(k=>`<div><span>${trkIc[k]||'📗'}</span><b>${esc(t(TRK[k])||k)}</b><small>${trkN(k)} ${t('tab_cls')}</small></div>`).join('')||'<div class="sa-empty">—</div>'}</div>`,2)}
+    ${saPan('📊',t('sc_p_stat'),parts.length?saDonut(parts,act.length,t('sc_student_s')):`<div class="sa-empty"><span>🎓</span>${t('sc_no_stu')}</div>`,3)}
+   </div>
+   ${tiles.length?`<div class="sa-acts">${tiles.map((x,n)=>`<button class="sa-act sa-in" style="--d:${4+n};--c1:${x[2]};--c2:${x[3]}" data-go="${x[0]}"><span>${x[1]}</span>${esc(String(t('tab_'+x[0])).replace(/^\p{Extended_Pictographic}️?\s*/u,''))}</button>`).join('')}</div>`:''}
+   <div class="sa-h1 sc-info"><h2><i>ℹ️</i>${t('sc_info')}</h2></div>`);
+  el.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{stopScan();D.tab=b.dataset.go;D.edit=null;renderDash();window.scrollTo(0,0)});
+  saDonutGo();saCount(el);k5QR(el);scFitCard()}
+function scFitCard(){document.querySelectorAll('.sc-cardbox').forEach(b=>{const z=b.querySelector('.zoom'),c=z&&z.querySelector('.xc');if(!c)return;const w=c.offsetWidth||323;z.style.setProperty('--z',Math.max(.6,Math.min(1.25,(b.clientWidth-16)/w)).toFixed(3))})}
+window.addEventListener('resize',()=>{if(document.getElementById('scRoot'))scFitCard()});
+
+// -- home page 2026
+const HOME={done:false};
+function hScroll(id){const go=()=>{const e=document.getElementById(id);if(e)e.scrollIntoView({behavior:'smooth',block:'start'})};if(location.hash&&location.hash!=='#home'){location.hash='home';setTimeout(go,150)}else go()}
+function homeYear(){const d=new Date(),a=d.getUTCMonth()>=7?d.getUTCFullYear():d.getUTCFullYear()-1;return a+' - '+(a+1)}
+async function homeFx(){const yr=document.getElementById('hYr');if(yr){yr.textContent=homeYear();const h=document.getElementById('hYrH');if(h)h.textContent=yearHijri(homeYear())}
+  const cb=document.getElementById('hCard');if(cb&&!cb.firstChild){const d={kind:'stu',ar:'إبراهيم محمد كوني',fr:'Ibrahim Mohamed Koné',code:'AMC-1001-0001',qr:location.origin+location.pathname+'#verify',token:'AMC-1001-0001',year:homeYear().replace(/ /g,''),valid:'',cyc:'الابتدائية',
+      main:[['الفصل','Classe','الصف الرابع'],['فصيلة الدم','Gr. sanguin','O+']],more:[],rule:'',ruleFr:''};
+    cb.innerHTML=`<div class="lan">${smartFrontRaw(d,{name_ar:'مدرسة صلاح الدين الأيوبي',name_fr:'École Salah Al-Din Al-Ayoubi'},'logo.png')}</div>`;
+    const ph=cb.querySelector('.xph');if(ph)ph.innerHTML='<div style="width:100%;height:100%;display:grid;place-items:center;font-size:11mm;background:#f3ead8">👦🏾</div>';k5QR(cb)
+    const c2=document.getElementById('hCard2');if(c2){c2.innerHTML=`<div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;justify-content:center"><span style="font-size:84px;filter:drop-shadow(0 18px 20px rgba(0,0,0,.25))">🖨️</span>${cb.querySelector('.xc').outerHTML}</div>`}}
+  if(!('IntersectionObserver' in window))document.querySelectorAll('.hin').forEach(e=>e.classList.add('on'));
+  else{const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add('on');io.unobserve(x.target)}}),{threshold:.12});document.querySelectorAll('.hin:not(.on)').forEach(e=>io.observe(e))}
+  if(HOME.done||!LIVE)return;HOME.done=true;
+  try{const {data,error}=await sb.rpc('public_stats');const k=document.getElementById('hKpi');if(!error&&data&&k&&+data.schools>0){
+    [['hkS',data.schools],['hkU',data.students],['hkC',data.classes],['hkF',data.staff]].forEach(([id,v])=>{const e=document.getElementById(id);if(e)e.dataset.cnt=+v||0});k.style.display='';saCount(k)}}catch(e){}}
 
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

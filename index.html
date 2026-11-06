@@ -735,6 +735,73 @@ body:not(.sa-on)>footer{background:linear-gradient(120deg,#0a4f2b,#0f7a43)!impor
 @media (max-width:560px){.hcard .xc{animation:none;transform:none;zoom:.78}.hcard .lan:before{top:-24px;height:50px}#hCard2 .xc{zoom:.8}}
 #home .hx .hcard{min-width:0}
 .sa .sa-h1 h2{color:var(--sa-text)}
+/* ===== Phase 3 — unified inner components & public pages (2026) ===== */
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn{border-radius:13px;padding:9px 16px;font-weight:800;box-shadow:0 8px 16px -10px rgba(6,58,30,.55),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .15s,box-shadow .15s}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn:hover{transform:translateY(-2px);box-shadow:0 12px 20px -10px rgba(6,58,30,.6),inset 0 1px 0 rgba(255,255,255,.3)}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn.sm{padding:6px 11px;border-radius:11px;font-size:13px}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn-g{background:linear-gradient(180deg,#22a45a,#0f6b37);color:#fff}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn-o{background:linear-gradient(180deg,#ffe28a,#f6c445 45%,#d9900c);color:#2b1a00}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn-l{background:var(--sa-card,#fff);color:#0f6b37;border:1.5px solid #18a85c}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn-t{box-shadow:none;background:var(--sa-card2,#f6faf7);border:1px solid var(--sa-line,rgba(11,93,51,.11));color:var(--sa-text,#10261b)}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .btn-t.red,:is(.sa #dtab,.sa #admBody) .btn.red{color:#dc2626}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stat{position:relative;overflow:hidden;text-align:start;padding:14px 16px 14px;border-radius:18px!important;transition:transform .25s}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stat:before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:5px;background:var(--acc,#18a85c)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stat:after{content:"";position:absolute;inset-inline-end:-26px;bottom:-26px;width:90px;height:90px;border-radius:50%;background:var(--acc,#18a85c);opacity:.08}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stat:nth-child(5n+2){--acc:#2563eb}:is(.sa #dtab,.sa #admBody,#parentBox) .stat:nth-child(5n+3){--acc:#d9900c}:is(.sa #dtab,.sa #admBody,#parentBox) .stat:nth-child(5n+4){--acc:#7c3aed}:is(.sa #dtab,.sa #admBody,#parentBox) .stat:nth-child(5n){--acc:#dc2626}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stat:hover{transform:translateY(-3px)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stat b{font:900 24px/1.2 'Inter','Cairo',sans-serif;color:var(--sa-text,#10261b);letter-spacing:-.3px}
+:is(.sa #dtab,.sa #admBody,#parentBox) .stat span{display:block;color:var(--sa-mut,#5f7268);font-weight:700;font-size:13px;margin-top:2px}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tblw{border-radius:18px;border:1px solid var(--sa-line,rgba(11,93,51,.11));background:var(--sa-card,#fff);box-shadow:0 16px 30px -24px rgba(6,58,30,.5)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tbl{border-radius:0}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tbl th{background:linear-gradient(180deg,#eaf6ee,#dff0e5);color:#0a4f2b;font-weight:800;font-size:13px;border-bottom:2px solid #f6c44588}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tbl td{border-color:var(--sa-line,rgba(11,93,51,.08))}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tbl tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--sa-card2,#f6faf7) 70%,transparent)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tbl tbody tr:hover td{background:color-mix(in srgb,#18a85c 8%,transparent)}
+.sa.dark :is(#dtab,#admBody) .tbl th{background:linear-gradient(180deg,#143326,#10291e)!important;color:#bfe9cf!important}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tabs{background:var(--sa-card2,#eef5f0);border:1px solid var(--sa-line,rgba(11,93,51,.1));border-radius:16px;padding:5px;gap:4px;box-shadow:inset 0 2px 6px rgba(0,0,0,.05)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tab{border-radius:12px;color:var(--sa-mut,#5f7268)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .tab.on{background:linear-gradient(180deg,#22a45a,#0a4f2b);color:#fff;box-shadow:0 8px 16px -8px #0a4f2b,inset 0 1px 0 rgba(255,255,255,.3)}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) :is(input,select,textarea){border-radius:12px;border:1.5px solid var(--sa-line,rgba(11,93,51,.15));transition:border-color .15s,box-shadow .15s}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) :is(input,select,textarea):focus{outline:0;border-color:#18a85c;box-shadow:0 0 0 4px rgba(24,168,92,.15)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .fld label{color:var(--sa-mut,#5f7268);font-size:13px;font-weight:800}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .badge{background:linear-gradient(180deg,#dcf5e4,#c3ebd1);color:#0a4f2b;box-shadow:inset 0 1px 0 rgba(255,255,255,.6)}
+:is(.sa #dtab,.sa #admBody,#parentBox,#cardBox) .badge.bad{background:linear-gradient(180deg,#fde2e0,#f9c9c4);color:#b42318}
+:is(.sa #dtab,.sa #admBody,#parentBox) .note{border-radius:14px;border-inline-start:5px solid #2563eb}
+:is(.sa #dtab,.sa #admBody,#parentBox) .chip{background:var(--sa-card,#fff);border-color:var(--sa-line,rgba(11,93,51,.15));font-weight:700;box-shadow:0 4px 10px -8px rgba(0,0,0,.3)}
+:is(.sa #dtab,.sa #admBody,#parentBox) .chip.on{background:linear-gradient(180deg,#22a45a,#0a4f2b);color:#fff;border-color:transparent}
+:is(.sa #dtab,.sa #admBody,#parentBox) .cert>b:first-child{display:inline-flex;align-items:center;gap:6px;font-size:16px;color:#0a4f2b}
+.sa.dark :is(#dtab,#admBody) .cert>b:first-child{color:#bfe9cf}
+:is(.sa #dtab,.sa #admBody,#parentBox) .cert{padding:16px 18px}
+:is(.sa #dtab,.sa #admBody,#parentBox) .toolbar{gap:10px;align-items:center}
+.sa.dark :is(#dtab,#admBody) .stat[style*="background"],.sa.dark :is(#dtab,#admBody) .note[style*="background"],.sa.dark :is(#dtab,#admBody) .cert[style*="background"]{filter:brightness(.82) saturate(1.1);color:#10261b}
+.sa.dark :is(#dtab,#admBody) .stat[style*="background"] b,.sa.dark :is(#dtab,#admBody) .stat[style*="background"] span{color:#10261b}
+.sa.dark :is(#dtab,#admBody) .btn-l{background:transparent;color:#7ee2a8;border-color:#2f8f5a}
+.sa.dark :is(#dtab,#admBody) .badge{background:#1c4a33;color:#bfe9cf}
+.sa.dark :is(#dtab,#admBody) .chip{background:var(--sa-card2);color:var(--sa-text)}
+.sa.dark :is(#dtab,#admBody) .tabs{background:#0b1d15}
+/* public pages */
+body:not(.sa-on) :is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw).view.on{position:relative;padding-bottom:30px}
+body:not(.sa-on) :is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw).view.on:before{content:"";position:absolute;inset:0 0 auto 0;height:240px;z-index:0;
+  background:radial-gradient(60% 120% at 50% 0%,rgba(246,196,69,.3),transparent 60%),linear-gradient(120deg,#0a4f2b,#0f7a43 55%,#0a4f2b);border-bottom:4px solid #f6c445}
+body:not(.sa-on) :is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw).view.on:after{content:"";position:absolute;inset:0 0 auto 0;height:240px;z-index:0;opacity:.1;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='90' height='90' viewBox='0 0 120 120'%3E%3Cg fill='none' stroke='%23fff' stroke-width='2'%3E%3Cpath d='M60 8 L74 46 L112 60 L74 74 L60 112 L46 74 L8 60 L46 46 Z'/%3E%3Ccircle cx='60' cy='60' r='9'/%3E%3C/g%3E%3C/svg%3E");background-size:90px}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw)>.wrap{position:relative;z-index:1;padding-top:70px}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .panel{position:relative;border-radius:26px!important;border:1px solid rgba(11,93,51,.1)!important;border-top:4px solid #f6c445!important;
+  box-shadow:0 34px 60px -30px rgba(6,58,30,.55),0 6px 16px -8px rgba(6,58,30,.2)!important;padding:30px 26px 26px!important;animation:saRise .6s cubic-bezier(.2,.8,.2,1) both}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .panel:before{content:"";display:block;width:86px;height:86px;margin:-74px auto 12px;border-radius:26px;
+  background:#fff url(logo.png) center/74px no-repeat;box-shadow:0 16px 30px -12px rgba(0,0,0,.45),0 0 0 4px #f6c445}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .panel h2{text-align:center;color:#0a4f2b}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .btn-g{background:linear-gradient(180deg,#22a45a,#0f6b37);box-shadow:0 12px 22px -12px #0f6b37,inset 0 1px 0 rgba(255,255,255,.3);border-radius:14px}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .btn-o{background:linear-gradient(180deg,#ffe28a,#f6c445 45%,#d9900c);color:#2b1a00;border-radius:14px}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) :is(input,select,textarea){border-radius:13px;background:#f8fbf9}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) :is(input,select,textarea):focus{outline:0;border-color:#18a85c;box-shadow:0 0 0 4px rgba(24,168,92,.15);background:#fff}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .tabs{border-radius:16px;padding:5px;background:#eef5f0}
+:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .tab.on{background:linear-gradient(180deg,#22a45a,#0a4f2b);color:#fff;box-shadow:0 8px 16px -8px #0a4f2b}
+#parentBox{max-width:900px!important}
+#parentBox .cert{border-radius:18px;box-shadow:0 16px 30px -24px rgba(6,58,30,.5)}
+@media (max-width:560px){:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw)>.wrap{padding-top:60px}:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .panel{padding:26px 16px 18px!important}}
+@media print{:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw).view.on:before,:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw).view.on:after,:is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#parent,#newpw) .panel:before{display:none}}
 </style>
 </head>
 <body>

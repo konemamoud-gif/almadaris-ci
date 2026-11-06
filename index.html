@@ -1237,6 +1237,16 @@ Object.assign(T.ar,{tab_dd:'لوحة القسم',dd_note:'أنت مدير قسم
 Object.assign(T.fr,{tab_dd:'Tableau du département',dd_note:'Vous êtes directeur de département : vous ne voyez que les données de votre département ; toute modification hors de celui-ci est bloquée par le serveur.'});
 Object.assign(T.en,{tab_dd:'Department dashboard',dd_note:'You are a department director: you only see your department’s data; changes outside it are blocked by the server.'});
 
+Object.assign(T.ar,{emer_name:'جهة الاتصال للطوارئ (الاسم)',emer_phone:'هاتف الطوارئ',xe_ttl:'التسجيل في الأقسام',xe_help:'ملف شخصي واحد للتلميذ، ويمكن تسجيله تربوياً في فصل من قسم آخر (فصل واحد لكل قسم).',xe_add:'تسجيل في هذا الفصل',xe_none:'لا يوجد تسجيل إضافي.',xe_del_q:'إلغاء تسجيل التلميذ في هذا الفصل؟ (لا يُحذف ملفه ولا علاماته الأخرى)',
+ xe_e_MULTI_ENROL_OFF:'المدرسة لا تسمح بالتسجيل في أكثر من قسم (فعّله من تبويب الأقسام).',xe_e_DEPT_TAKEN:'التلميذ مسجَّل مسبقاً في فصل من هذا القسم.',xe_e_SAME_DEPT:'هذا الفصل من قسم فصله الأساسي نفسه.',xe_e_SAME_CLASS:'هذا هو فصله الأساسي.',xe_e_BAD_YEAR:'الفصل من سنة دراسية أخرى.',xe_e_NEED_DEPT_CLASS:'الفصل غير مرتبط بقسم.',
+ need_schema39:'نفّذ ملف schema39.sql في Supabase أولاً.',dp_multi:'تسجيل التلميذ في أكثر من قسم',dp_multi_off:'غير مسموح',dp_multi_on:'مسموح',dp_hours:'حصة/أسبوع'});
+Object.assign(T.fr,{emer_name:"Contact d'urgence (nom)",emer_phone:"Téléphone d'urgence",xe_ttl:'Inscriptions par département',xe_help:"Une seule fiche personnelle par élève ; il peut être inscrit pédagogiquement dans une classe d'un autre département (une classe par département).",xe_add:'Inscrire dans cette classe',xe_none:'Aucune inscription supplémentaire.',xe_del_q:"Annuler l'inscription de l'élève dans cette classe ? (sa fiche et ses autres notes sont conservées)",
+ xe_e_MULTI_ENROL_OFF:"L'établissement n'autorise pas l'inscription dans plusieurs départements (à activer dans l'onglet Départements).",xe_e_DEPT_TAKEN:'Élève déjà inscrit dans une classe de ce département.',xe_e_SAME_DEPT:'Cette classe appartient au département de sa classe principale.',xe_e_SAME_CLASS:"C'est déjà sa classe principale.",xe_e_BAD_YEAR:'Classe d’une autre année scolaire.',xe_e_NEED_DEPT_CLASS:'Classe non rattachée à un département.',
+ need_schema39:"Exécutez d'abord schema39.sql dans Supabase.",dp_multi:'Inscription dans plusieurs départements',dp_multi_off:'Non autorisée',dp_multi_on:'Autorisée',dp_hours:'h/semaine'});
+Object.assign(T.en,{emer_name:'Emergency contact (name)',emer_phone:'Emergency phone',xe_ttl:'Department enrolments',xe_help:'One personal record per student; they can also be enrolled in a class of another department (one class per department).',xe_add:'Enrol in this class',xe_none:'No additional enrolment.',xe_del_q:'Remove the student from this class? (record and other grades are kept)',
+ xe_e_MULTI_ENROL_OFF:'The school does not allow multi-department enrolment (enable it in Departments).',xe_e_DEPT_TAKEN:'Already enrolled in a class of this department.',xe_e_SAME_DEPT:'This class belongs to the department of the main class.',xe_e_SAME_CLASS:'This is already the main class.',xe_e_BAD_YEAR:'Class from another school year.',xe_e_NEED_DEPT_CLASS:'Class not linked to a department.',
+ need_schema39:'Run schema39.sql in Supabase first.',dp_multi:'Multi-department enrolment',dp_multi_off:'Not allowed',dp_multi_on:'Allowed',dp_hours:'periods/week'});
+
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -1325,7 +1335,7 @@ async function reloadData(){
   const [c,s,j,f,tc]=await Promise.all([q('classes').order('created_at'),q('students').order('seq'),q('subjects').order('created_at'),q('staff').order('created_at'),q('teaching').order('created_at')]);
   D.allClasses=c.data||[];D.allStudents=s.data||[];D.subjects=j.data||[];D.staff=f.data||[];D.teaching=tc.data||[];
   try{const r=await q('enrollments');D.enr=r.error?[]:(r.data||[])}catch(e){D.enr=[]}applyYear();
-  await ddLoad();D.ostaff=null;D.oteach=null;if(!canEdit()&&!isDD()&&can('registry')){const r=await sb.rpc('office_staff');if(!r.error&&r.data){D.ostaff=r.data.staff||[];D.oteach=r.data.teaching||[]}}
+  await ddLoad();await p6Load();D.ostaff=null;D.oteach=null;if(!canEdit()&&!isDD()&&can('registry')){const r=await sb.rpc('office_staff');if(!r.error&&r.data){D.ostaff=r.data.staff||[];D.oteach=r.data.teaching||[]}}
   await signPaths(D.students.map(x=>x.photo_path).concat(D.staff.map(x=>x.photo_path),[D.i.logo_path,D.i.signature_path,D.i.stamp_path]));
   loadMsgCount().then(()=>{if(MS.unread)updMsgBadge()});
   const ord={mat:0,pri:1,col:2,lyc:3,uni:4};
@@ -1390,7 +1400,7 @@ async function subBox(){const b=document.getElementById('subBox'),i=D.i;if(!b||!
 function tabClasses(){const el=document.getElementById('dtab'),i=D.i||{};
   if(D.roll){el.innerHTML=rollPanel();bindRoll();return}
   const cyc=(i.cycles&&i.cycles.length?i.cycles:Object.keys(LEVELS)),trk=(i.tracks&&i.tracks.length?i.tracks:Object.keys(TRK));
-  const cnt=id=>D.students.filter(s=>s.class_id===id&&s.status==='active').length;
+  const cnt=id=>D.students.filter(s=>inCls(s,id)&&s.status==='active').length;
   el.innerHTML=(isDD()?`<div class="note" style="margin-top:0">🏛 ${t('dd_note')}</div>`:'')+(clsEd()&&!past()?`<div class="cert" style="margin-top:0"><b>${t('add_cls')}</b>
     <div class="two" style="margin-top:10px"><div class="fld"><label>${t('cycle')}</label><select id="cCyc">${opts(cyc.map(c=>[c,t(CYC[c])]))}</select></div>
       <div class="fld"><label>${t('level')}</label><select id="cLvl"></select></div></div>
@@ -1434,7 +1444,7 @@ function stuForm(s){s=s||{};const rel=[['father',t('rel_f')],['mother',t('rel_m'
     <div class="fld"><label>${t('s_ln_ar')} <span class="r">*</span></label><input name="last_name_ar" dir="rtl" value="${esc(s.last_name_ar||'')}"></div></div>
   <div class="fld"><label>${t('s_nm_fr')}</label><input name="full_name_fr" dir="ltr" value="${esc(s.full_name_fr||'')}"></div>
   <div class="two"><div class="fld"><label>${t('gender')}</label><select name="gender">${opts([['',''],['M',t('male')],['F',t('female')]],s.gender||'')}</select></div>
-    <div class="fld"><label>${t('class')}</label><select name="class_id">${opts([['',t('no_class')]].concat(D.classes.map(c=>[c.id,clsName(c)])),s.class_id||D.fc||'')}</select></div></div>
+    <div class="fld"><label>${t('class')}</label><select name="class_id">${opts(stuClsOpts(s),s.class_id||D.fc||'')}</select></div></div>
   <div class="two"><div class="fld"><label>${t('nation')}</label><select name="nationality" id="sNat">${opts(Object.keys(GEO).map(k=>[k,geoName(k)]),s.nationality||'CI')}</select></div>
     <div class="fld"><label>${t('bplace')}</label><div id="sBpBox">${cityPicker('sBp',s.nationality||'CI',s.birth_place||'','birth_place')}</div></div></div>
   <div class="two"><div class="fld"><label>${t('bdate')}</label><input name="birth_date" type="date" dir="ltr" value="${esc(s.birth_date||'')}"></div><div class="fld"><label>${t('prev_school')}</label><input name="prev_school" value="${esc(s.prev_school||'')}"></div></div>
@@ -1444,14 +1454,15 @@ function stuForm(s){s=s||{};const rel=[['father',t('rel_f')],['mother',t('rel_m'
     <div class="fld"><label>${t('g_rel')}</label><select name="guardian_relation">${opts([['','']].concat(rel),s.guardian_relation||'')}</select></div></div>
   <div class="two"><div class="fld"><label>${t('g_phone')}</label><input name="guardian_phone" dir="ltr" list="dl_phone" value="${esc(s.guardian_phone||'')}"></div>
     <div class="fld"><label>${t('address')}</label>${addrPicker(s.address)}</div></div>
+  <div class="two"><div class="fld"><label>🚨 ${t('emer_name')}</label><input name="emergency_name" value="${esc(s.emergency_name||'')}"></div><div class="fld"><label>📞 ${t('emer_phone')}</label><input name="emergency_phone" dir="ltr" list="dl_phone" value="${esc(s.emergency_phone||'')}"></div></div>
   ${s.id?`<div class="fld"><label>${t('d_status')}</label><select name="status">${opts([['active',t('st_active')],['left',t('st_left')]],s.status)}</select></div>`:''}
-  ${healthFields(s)}
+  ${xEnrolBox(s)}${healthFields(s)}
   <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="sSave">${t('save')}</button><button class="btn btn-t" id="sCancel">${t('cancel')}</button></div>
   <div class="err" id="sErr"></div></div>`}
 
 function tabStudents(){const el=document.getElementById('dtab');
   const q=D.q.trim().toLowerCase();
-  const list=D.students.filter(s=>(!D.fc||(D.fc==='none'?!s.class_id:s.class_id===D.fc))&&(!q||[s.code,s.first_name_ar,s.last_name_ar,s.full_name_fr,s.guardian_phone].join(' ').toLowerCase().includes(q)));
+  const list=D.students.filter(s=>(!D.fc||(D.fc==='none'?!s.class_id:inCls(s,D.fc)))&&(!q||[s.code,s.first_name_ar,s.last_name_ar,s.full_name_fr,s.guardian_phone].join(' ').toLowerCase().includes(q)));
   const cmap=Object.fromEntries(D.classes.map(c=>[c.id,c]));
   el.innerHTML=(D.edit!==null?stuForm(D.edit===true?null:D.students.find(s=>s.id===D.edit)):'')+
   `<div class="toolbar"><input id="sQ" placeholder="${t('search')}" value="${esc(D.q)}">
@@ -1462,7 +1473,7 @@ function tabStudents(){const el=document.getElementById('dtab');
   ${list.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('s_code')}</th><th>${t('s_name')}</th><th>${t('class')}</th><th>${t('g_phone')}</th>${can('registry')||can('fees')?'<th></th>':''}</tr></thead><tbody>
   ${list.map(s=>`<tr${s.status==='left'?' class="left"':''}><td dir="ltr" style="white-space:nowrap"><b>${esc(s.code)}</b></td>
     <td><div class="nm">${thumb(s.photo_path,s.first_name_ar)}<div><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${hIcon(s.id)}${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}</div></div>${s.status==='left'?` <span class="badge bad">${t('st_left')}</span>`:''}</td>
-    <td>${esc(s.class_id?clsName(cmap[s.class_id]):t('no_class'))}</td><td dir="ltr">${esc(s.guardian_phone||'')}</td>
+    <td>${esc(s.class_id?clsName(cmap[s.class_id]):t('no_class'))}${xBadges(s)}</td><td dir="ltr">${esc(s.guardian_phone||'')}</td>
     ${can('registry')||can('fees')?`<td style="white-space:nowrap">${can('fees')?`<button class="btn btn-t sm" data-fee="${s.id}" title="${t('tab_fee')}">💰</button>`:''}${can('registry')?`<button class="btn btn-t sm" data-pin="${s.id}" title="${t('pp_codes')}">🔑</button><button class="btn btn-t sm" data-eds="${s.id}">${t('edit')}</button>`:''}${canEdit()&&!past()?`<button class="btn btn-t sm red" data-dels="${s.id}">${t('del')}</button>`:''}</td>`:''}</tr>`).join('')}
   </tbody></table></div>`:`<div class="note">${t('no_stu')}</div>`}`;
   const sq=document.getElementById('sQ');sq.oninput=()=>{D.q=sq.value;const pos=sq.selectionStart;tabStudents();const n=document.getElementById('sQ');n.focus();n.setSelectionRange(pos,pos)};
@@ -1478,7 +1489,7 @@ function tabStudents(){const el=document.getElementById('dtab');
     const {error}=await sb.from('students').delete().eq('id',b.dataset.dels);if(error){alert(error.code==='23503'?t('has_pay'):error.message);return}await reloadData();tabStudents()});
   el.querySelectorAll('[data-fee]').forEach(b=>b.onclick=()=>openStudentFee(b.dataset.fee));
   const sf=document.getElementById('sForm');if(!sf)return;
-  bindAddr();bindCityPicker('sBp');bindPhoto();
+  bindAddr();bindCityPicker('sBp');bindPhoto();bindXEnrol();
   document.getElementById('sNat').onchange=e=>{document.getElementById('sBpBox').innerHTML=cityPicker('sBp',e.target.value,'','birth_place');bindCityPicker('sBp')};
   {const fa=sf.querySelector('[name=first_name_ar]'),la=sf.querySelector('[name=last_name_ar]'),fr=sf.querySelector('[name=full_name_fr]'),gn=document.getElementById('dl_gname');
    let auto=!fr.value;fr.addEventListener('input',()=>{auto=!fr.value});
@@ -1492,8 +1503,10 @@ function tabStudents(){const el=document.getElementById('dtab');
     if(!row.first_name_ar||!row.last_name_ar){er.textContent=t('e_req');return}
     er.textContent=t('wait');
     if(row.blood_group===null&&!('blood_group' in (D.students.find(x=>x.id===D.edit)||{})))delete row.blood_group;
+    ['emergency_name','emergency_phone'].forEach(k=>{if(row[k]===null&&!(k in (D.students.find(x=>x.id===D.edit)||{})))delete row[k]});
     const r=D.edit===true?await sb.from('students').insert(row).select().single():await sb.from('students').update(row).eq('id',D.edit).select().single();
     if(r.error&&/blood_group/.test(r.error.message||'')){er.textContent=t('need_schema28');return}
+    if(r.error&&/emergency_/.test(r.error.message||'')){er.textContent=t('need_schema39');return}
     if(r.error){er.textContent=em(r.error);return}
     try{await savePhoto('students',r.data)}catch(e){alert(t('ph_fail')+' '+(e.message||e))}
     try{await saveHealth(r.data.id)}catch(e){}
@@ -1568,7 +1581,7 @@ function tabStaff(){const el=document.getElementById('dtab');
   <div class="note">${t('invite_help')}</div>
   ${D.staff.length?`<div class="tblw"><table class="tbl"><thead><tr><th>${t('s_name')}</th><th>${t('f_type')}</th><th>${t('account')}</th><th>${t('n_asg')}</th><th></th></tr></thead><tbody>
   ${D.staff.map(s=>`<tr${s.status==='left'?' class="left"':''}><td><div class="nm">${thumb(s.photo_path,s.full_name_ar)}<b>${esc(s.full_name_ar)}</b></div>${s.full_name_fr?`<br><small dir="ltr">${esc(s.full_name_fr)}</small>`:''}${s.phone?`<br><small dir="ltr">${esc(s.phone)}</small>`:''}</td>
-    <td>${t(STYPE[s.staff_type])}${s.position?`<br><small>${esc(s.position)}</small>`:''}${(s.perms||[]).map(k=>` <span class="badge" style="background:#fff4e0;color:#a35c00">${t(k==='fees'?'perm_fees':k==='payroll'?'perm_pay':'perm_reg')}</span>`).join('')}${s.status==='left'?` <span class="badge bad">${t('st_left2')}</span>`:''}</td>
+    <td>${t(STYPE[s.staff_type])}${s.position?`<br><small>${esc(s.position)}</small>`:''}${(s.perms||[]).map(k=>` <span class="badge" style="background:#fff4e0;color:#a35c00">${t(k==='fees'?'perm_fees':k==='payroll'?'perm_pay':'perm_reg')}</span>`).join('')}${s.status==='left'?` <span class="badge bad">${t('st_left2')}</span>`:''}${stfDeps(s)}</td>
     <td>${s.user_id?`<span class="badge">✓ ${t('acc_on')}</span>`:`<div class="code" style="font-size:15px;padding:4px 10px">${esc(s.invite_code||'—')}</div><br><button class="btn btn-t sm" data-copy="${s.id}">📋 ${t('copy_inv')}</button>`}<br><button class="btn btn-t sm" data-regen="${s.id}" title="${t('regen_t')}">🔄 ${t(s.user_id?'regen_unlink':'regen')}</button></td>
     <td>${D.teaching.filter(x=>x.staff_id===s.id).length}</td>
     <td style="white-space:nowrap"><button class="btn btn-t sm" data-att="${s.id}" title="${t('st_attest')}">📄</button><button class="btn btn-t sm" data-asg="${s.id}">${t('asg')}</button><button class="btn btn-t sm" data-edf="${s.id}">${t('edit')}</button><button class="btn btn-t sm red" data-delf="${s.id}">${t('del')}</button></td></tr>`).join('')}
@@ -1660,7 +1673,7 @@ const CONDUCT={en:['Very good','Good','Fair','Poor'],ar:['ممتاز','حسن','
 const apprOf=f=>f==null?'':LX(APPR)[f>=.9?0:f>=.8?1:f>=.7?2:f>=.6?3:f>=.5?4:5];
 const decOf=f=>f==null?'':f>=.8?LX(DECS)[0]:f>=.7?LX(DECS)[1]:f>=.6?LX(DECS)[2]:f<.5?LX(DECS)[3]:'';
 function computeClass(cls){
-  const studs=D.students.filter(s=>s.class_id===cls.id&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar'));
+  const studs=D.students.filter(s=>inCls(s,cls.id)&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar'));
   const scale=scaleOf(cls),subjIds=[...new Set(G.evals.map(e=>e.subject_id))];
   const subs=D.subjects.filter(j=>subjIds.includes(j.id));
   const gmap={};G.grades.forEach(g=>gmap[g.evaluation_id+'|'+g.student_id]=g);
@@ -1692,7 +1705,7 @@ async function tabGrades(){const el=document.getElementById('dtab');
   el.innerHTML=t('wait');await loadEvals();
   const cls=D.classes.find(c=>c.id===G.cls),scale=scaleOf(cls);
   const evs=G.evals.filter(e=>e.subject_id===G.subj),ev=evs.find(e=>e.id===G.ev);
-  const studs=cls?D.students.filter(s=>s.class_id===cls.id&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar')):[];
+  const studs=cls?D.students.filter(s=>inCls(s,cls.id)&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar')):[];
   let h=pickers(true);
   if(!D.classes.length)h+=`<div class="note">${t('need_cls')}</div>`;
   else if(cls&&!gradeSubjects(cls.id).length)h+=`<div class="note">${canEdit()?t('need_cs'):t('no_asg')}</div>`;
@@ -1798,7 +1811,7 @@ async function computeAnnual(cls){const {data:ev,error}=await sb.from('evaluatio
   finally{[G.evals,G.grades]=save}
   const scale=scaleOf(cls),pm=Number(D.i.pass_mark)||.5,mean=a=>{a=a.filter(v=>v!=null);return a.length?a.reduce((x,y)=>x+y,0)/a.length:null},TT=Array.from({length:T},(_,k)=>k+1);
   const subs=D.subjects.filter(j=>subsSet.has(j.id));
-  const studs=D.students.filter(s=>s.class_id===cls.id&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar'));
+  const studs=D.students.filter(s=>inCls(s,cls.id)&&s.status==='active').sort((a,b)=>(a.last_name_ar+a.first_name_ar).localeCompare(b.last_name_ar+b.first_name_ar,'ar'));
   const rows=studs.map(s=>{const ta=tavg[s.id]||{},ps=per[s.id]||{},terms=TT.map(k=>ta[k]==null?null:ta[k]),subj={};
     subs.forEach(j=>{const o=ps[j.id]||{},tv=TT.map(k=>o[k]==null?null:o[k]);subj[j.id]={t:tv,ann:mean(tv)}});
     const avg=mean(terms);return {s,terms,subj,avg,ok:avg!=null&&avg>=pm*scale}});
@@ -1829,7 +1842,7 @@ async function printReports(cls,r,rows,certified){const i=D.i,er=document.getEle
   await printGo(pa)}
 function printBox(){let pa=document.getElementById('printArea');if(!pa){pa=document.createElement('div');pa.id='printArea';document.body.appendChild(pa)}return pa}
 function bulTop(s,cls,title){const i=D.i;return `<section class="bul" dir="${RTL()?'rtl':'ltr'}">${bulRep()}
-    <header><img src="${esc(schoolLogo())}" alt=""><div><h1>${esc(i.name_ar)}</h1><h2>${esc(i.name_fr)}</h2><small>${esc([i.address,i.city,i.phone].filter(Boolean).join(' — '))}</small></div>${murl(s.photo_path)?`<img src="${esc(murl(s.photo_path))}" alt="" style="height:70px;border-radius:6px">`:`<img src="emblem.png" alt="" style="opacity:.35">`}</header>
+    <header><img src="${esc(schoolLogo())}" alt=""><div><h1>${esc(i.name_ar)}</h1><h2>${esc(i.name_fr)}</h2>${depLine(clsDep(cls))}<small>${esc([i.address,i.city,i.phone].filter(Boolean).join(' — '))}</small></div>${murl(s.photo_path)?`<img src="${esc(murl(s.photo_path))}" alt="" style="height:70px;border-radius:6px">`:`<img src="emblem.png" alt="" style="opacity:.35">`}</header>
     <h3>${title} — <span dir="ltr">${esc(cls.school_year||'')}</span></h3>
     <table class="info"><tr><td>${t('s_name')}</td><td><b>${esc(s.last_name_ar+' '+s.first_name_ar)}</b>${s.full_name_fr?` — <span dir="ltr">${esc(s.full_name_fr)}</span>`:''}</td><td>${t('s_code')}</td><td dir="ltr"><b>${esc(s.code)}</b></td></tr>
       <tr><td>${t('class')}</td><td>${esc(clsName(cls))}${s.is_repeater?` <small>(${t('repeater')})</small>`:''}</td><td>${t('bdate')}</td><td dir="ltr">${esc(s.birth_date||'')}</td></tr></table>`}
@@ -1946,7 +1959,7 @@ async function tabFees(){const el=document.getElementById('dtab');el.innerHTML=t
   const fy=document.getElementById('fYear');fy.onchange=async()=>{F.year=fy.value.trim()||'2026-2027';await loadFees(true);tabFees()};
   ({sum:bindSummary,pay:bindJournal,items:bindItems,disc:bindDiscounts,stu:bindStudentFee,exp:bindExpenses,bal:bindBalance}[F.view]||(()=>{}))()}
 
-function feeSummary(){const studs=D.students.filter(s=>s.status==='active'&&(!F.fcls||s.class_id===F.fcls));
+function feeSummary(){const studs=D.students.filter(s=>s.status==='active'&&(!F.fcls||inCls(s,F.fcls)));
   const rows=studs.map(s=>({s,st:statement(s)}));
   const due=rows.reduce((a,r)=>a+r.st.due,0),paid=rows.reduce((a,r)=>a+Math.min(r.st.paid,r.st.due),0),rest=rows.reduce((a,r)=>a+r.st.rest,0),over=rows.reduce((a,r)=>a+Math.max(0,r.st.overdue),0);
   const debt=rows.filter(r=>r.st.rest>0).sort((a,b)=>b.st.overdue-a.st.overdue||b.st.rest-a.st.rest);
@@ -2167,7 +2180,7 @@ async function loadAttDay(){const k='att_'+D.i.id+'_'+A.date;let data=null;
   OFF.q.filter(x=>x.op==='scan'||x.op==='roll').forEach(x=>x.rows.filter(r=>r.att_date===A.date).forEach(r=>{const i=data.findIndex(y=>y.student_id===r.student_id);
     if(i<0)data.push({...r,id:'q-'+r.student_id,_q:1});else if(x.op==='roll')data[i]={...data[i],status:r.status,_q:1}}));A.rows=data}
 async function attRoll(box){if(!A.cls&&D.classes.length)A.cls=D.classes[0].id;await loadAttDay();
-  const studs=D.students.filter(s=>s.class_id===A.cls&&s.status==='active').sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
+  const studs=D.students.filter(s=>inCls(s,A.cls)&&s.status==='active').sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
   const rec=Object.fromEntries(A.rows.map(r=>[r.student_id,r]));
   const cnt=k=>studs.filter(s=>rec[s.id]&&rec[s.id].status===k).length;
   box.innerHTML=`<div class="toolbar" style="margin-top:0"><input type="date" id="aDate" dir="ltr" value="${A.date}" style="flex:0;width:170px"><select id="aCls">${opts(D.classes.map(c=>[c.id,clsName(c)]),A.cls)}</select></div>
@@ -2208,7 +2221,7 @@ async function attNotify(box){await loadAttDay();const cmap=Object.fromEntries(D
 async function attReport(box){if(!A.cls&&D.classes.length)A.cls=D.classes[0].id;
   const [y,m]=A.month.split('-').map(Number),from=A.month+'-01',to=new Date(Date.UTC(y,m,0)).toISOString().slice(0,10);
   const {data}=await sb.from('attendance').select('*').eq('institution_id',D.i.id).gte('att_date',from).lte('att_date',to);const rows=data||[];
-  const studs=D.students.filter(s=>(!A.cls||s.class_id===A.cls)&&s.status==='active').sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
+  const studs=D.students.filter(s=>(!A.cls||inCls(s,A.cls))&&s.status==='active').sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
   const days=[...new Set(rows.filter(r=>studs.some(s=>s.id===r.student_id)).map(r=>r.att_date))].length;
   box.innerHTML=`<div class="toolbar" style="margin-top:0"><input type="month" id="aMonth" dir="ltr" value="${A.month}" style="flex:0;width:170px"><select id="aCls">${opts([['',t('all_cls')]].concat(D.classes.map(c=>[c.id,clsName(c)])),A.cls)}</select></div>
   <p class="sub">${t('rep_days')}: <b>${days}</b></p>
@@ -2229,7 +2242,7 @@ function attSettings(box){const v=String(D.i.att_start||'07:30').slice(0,5);
 
 // ---- student ID cards
 function attCards(box){if(!A.cls&&D.classes.length)A.cls=D.classes[0].id;
-  const studs=D.students.filter(s=>s.class_id===A.cls&&s.status==='active');
+  const studs=D.students.filter(s=>inCls(s,A.cls)&&s.status==='active');
   box.innerHTML=`<div class="toolbar" style="margin-top:0"><select id="aCls">${opts(D.classes.map(c=>[c.id,clsName(c)]),A.cls)}</select>${cardModeSel('cMode')}<button class="btn btn-g" id="cPrint">🖨 ${t('print_cards')} (${studs.length})</button></div>
   <p class="sub">${t('cards_help')}</p>${cardHelp('cMode')}<div class="err" id="cErr2"></div>`;
   const ac=document.getElementById('aCls');if(ac)ac.onchange=e=>{A.cls=e.target.value;tabAtt()};
@@ -2430,10 +2443,10 @@ const clsAr=c=>c?lvlRow(c)[1]+(c.section?' ('+c.section+')':''):'';
 const nameFr=s=>s.full_name_fr||'';
 const fem=s=>s.gender==='F';
 const curYear=()=>D.vy||(D.i&&D.i.current_year)||'2026-2027';
-function officialHead(titleFr,titleAr){const i=D.i,ci=(i.country||'CI')==='CI',c=dconf(),rep=c.rep!==false,ex=String(c.extra||'').split('\n').map(x=>x.trim()).filter(Boolean),rt=c.right||'year';
+function officialHead(titleFr,titleAr){const OD=OHD;OHD=null;const i=D.i,ci=(i.country||'CI')==='CI',c=dconf(),rep=c.rep!==false,ex=String(c.extra||'').split('\n').map(x=>x.trim()).filter(Boolean),rt=c.right||'year';
   return `<div class="ofh"><div class="ofl">${rep&&(ci||c.rep1)?`<b>${esc(c.rep1||"RÉPUBLIQUE DE CÔTE D'IVOIRE")}</b>${c.rep2||ci?`<small>${esc(c.rep2||'Union – Discipline – Travail')}</small>`:''}<i class="ofsep"></i>`:''}
     ${ci||i.ministry?`<b class="ofmin">${esc(i.ministry||"MINISTÈRE DE L'ÉDUCATION NATIONALE, DE L'ALPHABÉTISATION ET DE L'ENSEIGNEMENT TECHNIQUE")}</b>`:''}${i.drena?`<span>${esc(i.drena)}</span>`:''}${i.iep?`<span>IEP : ${esc(i.iep)}</span>`:''}${ex.map(x=>`<span>${esc(x)}</span>`).join('')}</div>
-    <div class="ofc"><img src="${esc(schoolLogo())}" alt=""><b>${esc(i.name_fr)}</b><b dir="rtl">${esc(i.name_ar)}</b>
+    <div class="ofc"><img src="${esc(schoolLogo())}" alt=""><b>${esc(i.name_fr)}</b><b dir="rtl">${esc(i.name_ar)}</b>${depLine(OD)}
       ${c.codes!==false?`<small>${esc([i.official_code?'Code : '+i.official_code:'',i.authorization_no?'Autorisation N° '+i.authorization_no:''].filter(Boolean).join(' — '))}</small>`:''}
       <small>${esc([i.address,half(i.city,false),i.phone].filter(Boolean).join(' — '))}</small></div>
     <div class="ofr">${rt==='year'?`<span>Année scolaire</span><b dir="ltr">${esc(curYear())}</b><span dir="rtl">السنة الدراسية</span>`:rt==='text'?`<b>${esc(c.right_text||'')}</b>`:''}</div></div>
@@ -2472,7 +2485,7 @@ async function tabDocs(){const el=document.getElementById('dtab');
 
 // ---- student documents
 async function docsStudent(box){if(!DOC.cls&&D.classes.length)DOC.cls=D.classes[0].id;
-  const studs=D.students.filter(s=>s.class_id===DOC.cls||(DOC.cls==='left'&&s.status==='left')).sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
+  const studs=D.students.filter(s=>inCls(s,DOC.cls)||(DOC.cls==='left'&&s.status==='left')).sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
   if(!studs.some(s=>s.id===DOC.sid))DOC.sid=studs[0]?studs[0].id:'';
   const s=D.students.find(x=>x.id===DOC.sid),c=s&&D.classes.find(x=>x.id===s.class_id);
   let warn='';if(s){try{await loadFees();const st=statement(s);if(st.rest>0)warn=`<div class="note" style="background:#fff4e5;border-color:#ffd9a8;color:#8a4b00">⚠ ${t('doc_debt')} ${money(st.rest)}</div>`}catch(e){}}
@@ -2524,7 +2537,7 @@ async function makeDoc(kind,s,ex){const er=document.getElementById('dErr');er.st
     fr=`Je soussigné(e), ${dir}Directeur de l'établissement ${sch}, certifie que l'élève ${who}, ${born}, matricule <b>${esc(s.code)}</b>, ${f?'inscrite':'inscrit'} en classe de <b>${esc(clsFr(c))}</b>, a quitté l'établissement le <b>${fdate(ex.date)}</b> pour le motif suivant : <b>${esc(ex.reason)}</b>.${ex.to?` ${f?'Elle':'Il'} est ${f?'autorisée':'autorisé'} à poursuivre sa scolarité à <b>${esc(ex.to)}</b>.`:` ${f?'Elle':'Il'} est ${f?'autorisée':'autorisé'} à poursuivre sa scolarité dans tout autre établissement.`}`;
     ar=`يشهد مدير ${schAr} بأن ${f?'التلميذة':'التلميذ'} ${whoAr}، ${bornAr}، ذا الرقم التعريفي <b dir="ltr">${esc(s.code)}</b>، ${f?'المسجَّلة':'المسجَّل'} في <b>${esc(clsAr(c))}</b>، قد ${f?'غادرت':'غادر'} المدرسة بتاريخ <b>${fdate(ex.date)}</b>، والسبب: <b>${esc(RA[ex.reason]||ex.reason)}</b>، و${f?'يُسمح لها':'يُسمح له'} بمواصلة الدراسة ${ex.to?`في <b>${esc(ex.to)}</b>`:'في أي مدرسة أخرى'}.`}
   const close='En foi de quoi, le présent document lui est délivré pour servir et valoir ce que de droit.',closeAr='وقد سُلِّمت هذه الشهادة للمعني بالأمر بطلب منه للإدلاء بها عند الحاجة.';
-  await printPages(`<section class="ofdoc">${officialHead(T[0],T[1])}
+  await printPages(`<section class="ofdoc">${(OHD=clsDep(c),'')}${officialHead(T[0],T[1])}
     <div class="ofbody">${docPhoto(s.photo_path)}<p class="offr">${fr}</p><p class="offr">${close}</p>
     <p class="ofar" dir="rtl">${ar}</p><p class="ofar" dir="rtl">${closeAr}</p></div>${officialSign(code)}
     <footer class="off">Al-Madaris CI — ${t('foot')} · Document vérifiable : ${esc(code)}</footer></section>`)}
@@ -2540,7 +2553,7 @@ function docsLists(box){if(!DOC.cls||DOC.cls==='left')DOC.cls=D.classes[0]?D.cla
   document.getElementById('lPrint').onclick=()=>printClassLists(cl(),DOC.ltype);
   document.getElementById('lXls').onclick=()=>xlsExport('Listes_de_classe',cl().map(c=>[clsFr(c).slice(0,28)||'Classe',listRows(c)]))}
 function sortedClasses(){return D.classes.filter(c=>c.school_year===curYear()||!D.classes.some(x=>x.school_year===curYear()))}
-const classStuds=c=>D.students.filter(s=>s.class_id===c.id&&s.status==='active').sort((a,b)=>(nameFr(a)||sName(a)).localeCompare(nameFr(b)||sName(b),'fr'));
+const classStuds=c=>D.students.filter(s=>inCls(s,c.id)&&s.status==='active').sort((a,b)=>(nameFr(a)||sName(a)).localeCompare(nameFr(b)||sName(b),'fr'));
 function listRows(c){const st=classStuds(c);
   return [[(D.i.name_fr||'')+' — '+clsFr(c)+' ('+clsAr(c)+') — '+curYear()],[],['N°','Matricule','Nom et prénoms','الاسم واللقب','Sexe','Date de naissance','Lieu de naissance','Nationalité','Redoublant','Parent / Tuteur','Contact']]
     .concat(st.map((s,k)=>[k+1,s.code,nameFr(s),sName(s),s.gender==='F'?'F':s.gender==='M'?'M':'',fdate(s.birth_date),half(s.birth_place,false),natFr(s.nationality,fem(s)),s.is_repeater?'Oui':'Non',s.guardian_name||'',s.guardian_phone||'']))
@@ -2548,7 +2561,7 @@ function listRows(c){const st=classStuds(c);
 function printClassLists(classes,type){if(!classes.length)return;
   const pages=classes.map(c=>{const st=classStuds(c),appel=type==='appel',notes=type==='notes',ph=type==='photo';
     const blank=n=>Array.from({length:n},()=>'<td></td>').join(''),bh=(n,lbl)=>Array.from({length:n},(_,k)=>`<th class="bl">${lbl?lbl(k):''}</th>`).join('');
-    return `<section class="ofdoc oflist">${officialHead('LISTE DE CLASSE — '+esc(clsFr(c)),'قائمة '+esc(clsAr(c)))}
+    return `<section class="ofdoc oflist">${(OHD=clsDep(c),'')}${officialHead('LISTE DE CLASSE — '+esc(clsFr(c)),'قائمة '+esc(clsAr(c)))}
     <table class="oftab"><thead><tr><th>N°</th>${ph?'<th>Photo</th>':''}<th>Matricule</th><th>Nom et prénoms</th><th dir="rtl">الاسم</th><th>S</th><th>Né(e) le</th>${appel?bh(12):notes?bh(6,k=>k<5?'N'+(k+1):'Moy.'):'<th>Lieu</th><th>Red.</th><th>Contact</th>'}</tr></thead><tbody>
     ${st.map((s,k)=>`<tr><td>${k+1}</td>${ph?`<td class="tdph">${murl(s.photo_path)?`<img src="${esc(murl(s.photo_path))}">`:''}</td>`:''}<td dir="ltr">${esc(s.code)}</td><td>${esc(nameFr(s))}</td><td dir="rtl">${esc(sName(s))}</td><td>${s.gender||''}</td><td dir="ltr">${fdate(s.birth_date)}</td>
       ${appel?blank(12):notes?blank(6):`<td>${esc(half(s.birth_place,false))}</td><td>${s.is_repeater?'R':''}</td><td dir="ltr">${esc(s.guardian_phone||'')}</td>`}</tr>`).join('')}</tbody></table>
@@ -2653,7 +2666,7 @@ const durTxt=(a,b)=>{const d=mins(b)-mins(a),h=Math.floor(d/60),m=d%60;return h+
 const addDay=(d,n)=>{const x=new Date(d+'T00:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10)};
 const exOf=()=>X.exams.find(e=>e.id===X.ex);
 const exStaff=()=>(canEdit()?D.staff:(D.ostaff||D.staff)).filter(s=>s.status==='active');
-function slotClasses(){const me=myStaff();return X.slots.filter(s=>(D.classes.some(c=>c.id===s.class_id)||(me&&s.supervisor_id===me.id))&&(!X.cls||(X.cls==='mine'?me&&s.supervisor_id===me.id:s.class_id===X.cls)))}
+function slotClasses(){const me=myStaff();return X.slots.filter(s=>(D.classes.some(c=>c.id===s.class_id)||(me&&s.supervisor_id===me.id))&&(!X.cls||(X.cls==='mine'?me&&s.supervisor_id===me.id:inCls(s,X.cls))))}
 function exConflicts(list){const out={},add=(s,k)=>{(out[s.id]=out[s.id]||new Set()).add(k)},e=exOf()||{};
   list.forEach(s=>{if((e.start_date&&s.exam_date<e.start_date)||(e.end_date&&s.exam_date>e.end_date))add(s,'out')});
   for(let a=0;a<list.length;a++)for(let b=a+1;b<list.length;b++){const x=list[a],y=list[b];
@@ -2774,7 +2787,7 @@ function bindGenEx(){const e=exOf();
     const onlyNew=document.getElementById('gxNew').checked,autoSup=document.getElementById('gxSup').checked,staff=exStaff(),rows=[];let rr=0;
     const busy=X.slots.slice();
     cls.forEach(cid=>{const c=D.classes.find(x=>x.id===cid);let k=0;
-      subjOfClass(cid).filter(j=>!onlyNew||!X.slots.some(s=>s.class_id===cid&&s.subject_id===j.id&&s.kind===kind)).forEach(j=>{const [dd,a,b]=seq[k++];
+      subjOfClass(cid).filter(j=>!onlyNew||!X.slots.some(s=>inCls(s,cid)&&s.subject_id===j.id&&s.kind===kind)).forEach(j=>{const [dd,a,b]=seq[k++];
         const row={exam_id:X.ex,class_id:cid,subject_id:j.id,kind,exam_date:dd,start_time:a,end_time:b,room:null,supervisor_id:null,supervisor_name:null,max_score:null};
         if(autoSup&&staff.length){const teach=new Set((D.teaching.concat(D.oteach||[])).filter(x=>x.class_id===cid&&x.subject_id===j.id).map(x=>x.staff_id));
           for(let n=0;n<staff.length;n++){const f=staff[(rr+n)%staff.length];if(teach.has(f.id))continue;
@@ -2792,7 +2805,7 @@ const jBoth=j=>j?`${esc(j.name_fr||'')}${j.name_fr?' — ':''}<span dir="rtl">${
 async function printExCls(){const {e,cmap,jmap,list}=exPrintBase();const ids=[...new Set(list.map(s=>s.class_id))].filter(id=>cmap[id]);
   if(!ids.length){alert(t('ex_no_slot'));return}
   const ord=sortedClasses().map(c=>c.id);ids.sort((a,b)=>ord.indexOf(a)-ord.indexOf(b));
-  await printPages(ids.map(cid=>{const c=cmap[cid],rows=list.filter(s=>s.class_id===cid);
+  await printPages(ids.map(cid=>{const c=cmap[cid],rows=list.filter(s=>inCls(s,cid));
     return `<section class="ofdoc">${officialHead('CALENDRIER DES EXAMENS','جدول الامتحانات')}
     <p style="text-align:center;margin:0 0 3mm"><b>${esc(e.title)}</b> — ${esc(termName(e.term))}<br><b>Classe : ${esc(clsFr(c))}</b> — <b dir="rtl">الفصل: ${esc(clsAr(c))}</b></p>
     <table class="oftab"><thead><tr><th>Date</th><th>Jour / اليوم</th><th>Horaire</th><th>Durée</th><th>Matière / المادة</th><th>Type</th><th>Salle</th></tr></thead><tbody>
@@ -3048,7 +3061,7 @@ function cardFns(kind,tpl){tpl=tpl||CARD_TPL;
 async function printCards(kind,list,tpl){tpl=tpl||CARD_TPL;const [f,b]=cardFns(kind,tpl);await printIdCards(list,f,b,tpl==='badge')}
 function tabCards(){const el=document.getElementById('dtab'),stu=CRD.kind==='stu';
   if(stu&&CRD.cls&&!D.classes.some(c=>c.id===CRD.cls))CRD.cls='';
-  const q=nz(CRD.q),pool=(stu?D.students.filter(s=>s.status==='active'&&(!CRD.cls||s.class_id===CRD.cls)):(canEdit()?D.staff:(D.ostaff||[])).filter(s=>s.status==='active'))
+  const q=nz(CRD.q),pool=(stu?D.students.filter(s=>s.status==='active'&&(!CRD.cls||inCls(s,CRD.cls))):(canEdit()?D.staff:(D.ostaff||[])).filter(s=>s.status==='active'))
     .filter(s=>!q||nz([stu?sName(s):s.full_name_ar,s.full_name_fr,s.code,s.staff_number].join(' ')).includes(q));
   if(!CRD.sel)CRD.sel=new Set(pool.map(s=>s.id));
   const sel=pool.filter(s=>CRD.sel.has(s.id)),noPh=sel.filter(s=>!s.photo_path).length,first=sel[0]||pool[0];
@@ -3302,7 +3315,7 @@ function renderMsg(){const el=document.getElementById('dtab');
 function msTarget(to){if(to==='class')return `<label>${t('class')}</label><select id="msTg">${opts(D.classes.map(c=>[c.id,clsName(c)]))}</select>`;
   if(to==='student')return `<label>${t('cv_stu')}</label><input id="msTgQ" list="dl_msstu" placeholder="${esc(t('search'))}"><datalist id="dl_msstu">${D.students.filter(s=>s.status==='active').map(s=>`<option value="${esc(s.code+' — '+sName(s))}">`).join('')}</datalist>`;
   return `<label>&nbsp;</label><div class="sub" style="padding:10px 0">${t('ms_all_h')}</div>`}
-function msRecipients(m){const st=D.students.filter(s=>s.status==='active'&&(m.scope==='all'||(m.scope==='class'&&s.class_id===m.class_id)||(m.scope==='student'&&s.id===m.student_id)));
+function msRecipients(m){const st=D.students.filter(s=>s.status==='active'&&(m.scope==='all'||(m.scope==='class'&&inCls(s,m.class_id))||(m.scope==='student'&&s.id===m.student_id)));
   const seen=new Set();return st.filter(s=>{const p=waNum(s.guardian_phone);if(!p||seen.has(p))return false;seen.add(p);return true})}
 function msWaList(m){const rc=msRecipients(m),txt=`${m.title?m.title+'\n':''}${m.body}\n— ${L==='ar'?D.i.name_ar:D.i.name_fr}\n${location.origin+location.pathname}#parent`;
   return `<div class="cert"><b>💬 ${t('ms_wa_ttl').replace('{n}',rc.length)}</b><p class="sub" style="margin:4px 0 8px">${t('ms_wa_h')}</p>
@@ -3381,7 +3394,7 @@ function renderBooks(){const el=document.getElementById('dtab'),W=can('registry'
           return `<tr><td dir="ltr">${fdate(x.move_date)}</td><td>${t('bk_'+({in:'in',out:'out',return:'ret',adjust:'adj'}[x.kind]))}${x.mode?' · '+t('bk_m_'+x.mode):''}</td><td dir="ltr"><b>${x.kind==='out'?'-':(x.qty>0&&x.kind!=='in'?'+':'')}${x.qty}</b></td><td><small>${esc(st?sName(st):(x.note||''))}</small></td></tr>`}).join('')}</tbody></table></div>`:''}</div>`}).join('')||`<div class="note">${t('bk_none')}</div>`}`}
   if(BK.view==='dist'){if(!BK.cls||!D.classes.some(c=>c.id===BK.cls))BK.cls=(D.classes[0]||{}).id||'';const c=D.classes.find(x=>x.id===BK.cls),bs=c?bkFor(c):[];
     if(!bs.some(b=>b.id===BK.book))BK.book=(bs[0]||{}).id||'';const b=BK.books.find(x=>x.id===BK.book);
-    const studs=c?D.students.filter(s=>s.class_id===c.id&&s.status==='active').sort((x,y)=>sName(x).localeCompare(sName(y),'ar')):[];
+    const studs=c?D.students.filter(s=>inCls(s,c.id)&&s.status==='active').sort((x,y)=>sName(x).localeCompare(sName(y),'ar')):[];
     const got=sid=>{const m=BK.moves.filter(x=>x.book_id===BK.book&&x.student_id===sid);const o=m.filter(x=>x.kind==='out'),r=m.filter(x=>x.kind==='return').reduce((a,x)=>a+(+x.qty),0);return o.length&&o.reduce((a,x)=>a+(+x.qty),0)>r?o[o.length-1]:null};
     h+=`<div class="toolbar" style="margin-top:0;flex-wrap:wrap"><select id="bdC">${opts(D.classes.map(x=>[x.id,clsName(x)]),BK.cls)}</select><select id="bdB">${opts(bs.map(x=>[x.id,bkName(x)]),BK.book)}</select></div>
     ${!b?`<div class="note">${t('bk_none_cls')}</div>`:`<p class="sub" style="margin:4px 0">${t('bk_stock')}: <b>${bkStock(b.id).cur}</b> · ${t('bk_price')}: <b>${money(b.price)}</b> · ${studs.filter(s=>got(s.id)).length}/${studs.length} ${t('bk_received')}</p>
@@ -3453,7 +3466,7 @@ function bindBooks(){const el=document.getElementById('dtab'),v=id=>{const x=doc
   const xl=document.getElementById('bkXl');if(xl)xl.onclick=()=>xlsExport('stock_livres',[['Stock',[['Titre','العنوان','Niveau','Éditeur','ISBN','Prix','Entrées','Sorties','Retours','Ajust.','Stock','Seuil']].concat(BK.books.map(b=>{const s=bkStock(b.id);return [b.title_fr||'',b.title_ar,b.level||b.cycle||'',b.publisher||'',b.isbn||'',+b.price,s.inn,s.out,s.ret,s.adj,s.cur,b.min_stock]}))],
     ['Mouvements',[['Date','Livre','Type','Mode','Qté','Élève','Prix','Payé','Note']].concat(BK.moves.map(x=>{const b=BK.books.find(y=>y.id===x.book_id),s=D.students.find(y=>y.id===x.student_id);return [fdate(x.move_date),b?b.title_ar:'',x.kind,x.mode||'',x.qty,s?sName(s):'',x.unit_price||'',x.paid?'Oui':'',x.note||'']}))]]).catch(e=>alert(em(e)));
   const dp=document.getElementById('bdPr');if(dp)dp.onclick=()=>{const c=D.classes.find(x=>x.id===BK.cls),b=BK.books.find(x=>x.id===BK.book);if(!c||!b)return;
-    const studs=D.students.filter(s=>s.class_id===c.id&&s.status==='active').sort((x,y)=>sName(x).localeCompare(sName(y),'ar'));
+    const studs=D.students.filter(s=>inCls(s,c.id)&&s.status==='active').sort((x,y)=>sName(x).localeCompare(sName(y),'ar'));
     printPages(`<section class="ofdoc">${officialHead('FICHE DE DISTRIBUTION DES LIVRES','كشف توزيع الكتب')}
     <p style="text-align:center;margin:0 0 3mm"><b>${esc(fr(b))}</b> — <span dir="rtl">${esc(b.title_ar)}</span><br>Classe : <b>${esc(clsFr(c))}</b> — <span dir="rtl">${esc(clsAr(c))}</span></p>
     <table class="oftab"><thead><tr><th>N°</th><th>Matricule</th><th>Nom / الاسم</th><th>Mode</th><th>Date</th><th style="width:35mm">Signature parent</th></tr></thead><tbody>
@@ -3760,7 +3773,7 @@ const DP={type:'pri',style:'doc',cls:'',sel:{},men:{},avg:{},o:{}};
 try{const x=JSON.parse(localStorage.getItem('amc_dip')||'{}');if(x.o){DP.o=x.o;['sub_fr','sub_ar','pfx','pfxa','num','fcol'].forEach(k=>delete DP.o[k])}}catch(e){}
 const dpMen=r=>r==null?'':r>=.9?'ex':r>=.8?'tb':r>=.7?'b':r>=.6?'ab':r>=.5?'p':'';
 async function docsDip(box){if(!DP.cls&&D.classes.length)DP.cls=D.classes[0].id;const o=DP.o;
-  const studs=D.students.filter(s=>s.class_id===DP.cls&&s.status==='active').sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
+  const studs=D.students.filter(s=>inCls(s,DP.cls)&&s.status==='active').sort((a,b)=>sName(a).localeCompare(sName(b),'ar'));
   const acad=['pri','col','lyc','uni'].includes(DP.type);
   if(acad&&DP.avgFor!==DP.cls){DP.avg={};DP.avgFor=DP.cls;try{const c=D.classes.find(x=>x.id===DP.cls);if(c){const A=await computeAnnual(c);A.rows.forEach(r=>{DP.avg[r.s.id]=r.avg==null?null:{v:r.avg,sc:A.scale}})}}catch(e){}}
   studs.forEach(s=>{if(DP.men[s.id]==null){const a=DP.avg[s.id];DP.men[s.id]=acad&&a?dpMen(a.v/a.sc):(acad?'':'ex')}});
@@ -3937,12 +3950,12 @@ async function tabDis(){const el=document.getElementById('dtab');el.innerHTML=t(
   const r=await sb.from('incidents').select('*').eq('institution_id',D.i.id).order('inc_date',{ascending:false}).order('created_at',{ascending:false});
   if(r.error){el.innerHTML=`<div class="note">${esc(/incidents/.test(r.error.message||'')?t('ds_need'):em(r.error))}</div>`;return}
   DS.rows=r.data||[];renderDis()}
-function disStudents(){return D.students.filter(s=>s.status==='active'&&(!DS.cls||s.class_id===DS.cls))}
+function disStudents(){return D.students.filter(s=>s.status==='active'&&(!DS.cls||inCls(s,DS.cls)))}
 function renderDis(){const el=document.getElementById('dtab'),W=!past();const views=[['list','ds_v_list'],['new','ds_v_new'],['sum','ds_v_sum']];
   let h=`<div class="chips" style="margin-bottom:10px">${views.map(([k,l])=>`<span class="chip${DS.view===k?' on':''}" data-dsv="${k}">${t(l)}</span>`).join('')}</div>
    <div class="toolbar" style="margin-top:0"><select id="dsC">${opts([['',t('all_cls')]].concat(D.classes.map(c=>[c.id,clsName(c)])),DS.cls)}</select>${DS.view!=='new'?`<input id="dsQ" placeholder="${t('search')}" value="${esc(DS.q)}">`:''}</div>`;
   const sMap=Object.fromEntries((D.allStudents||D.students).map(s=>[s.id,s])),q=nz(DS.q);
-  const rows=DS.rows.filter(x=>{const s=sMap[x.student_id];return s&&(!DS.cls||s.class_id===DS.cls)&&(!q||nz(sName(s)+' '+(s.full_name_fr||'')+' '+s.code).includes(q))});
+  const rows=DS.rows.filter(x=>{const s=sMap[x.student_id];return s&&(!DS.cls||inCls(s,DS.cls))&&(!q||nz(sName(s)+' '+(s.full_name_fr||'')+' '+s.code).includes(q))});
   if(DS.view==='list'){h+=rows.length?`<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${rows.map(x=>{const s=sMap[x.student_id],c=D.classes.find(y=>y.id===s.class_id);
       return `<tr><td><b>${esc(sName(s))}</b><br><small class="sub">${esc(c?clsName(c):'')} · <span dir="ltr">${fdate(x.inc_date)}</span></small></td>
       <td><b>${esc(IL(IKIND[x.kind]||IKIND.other))}</b>${x.description?`<br><small>${esc(x.description)}</small>`:''}<br><span class="badge${['exclusion','expulsion'].includes(x.sanction)?' bad':''}">${esc(IL(ISANC[x.sanction]||ISANC.none))}${x.sanction_days?' · '+x.sanction_days+' '+t('ds_days'):''}</span>${x.notify_parent?' <small>👪</small>':''}${x.reporter_name?`<br><small class="sub">✍ ${esc(x.reporter_name)}</small>`:''}</td>
@@ -4858,6 +4871,7 @@ async function tabDepts(){const el=document.getElementById('dtab');if(DEP.list==
      <label class="chip${on?' on':''}" style="cursor:pointer;font-weight:800"><input type="checkbox" id="dpOn"${on?' checked':''} hidden> ${on?'✅ '+t('dp_on'):'⏸ '+t('dp_off')}</label></div>
     <div class="two" style="margin-top:12px"><div class="fld"><label>${t('dp_clsmode')}</label><select id="dpCm">${opts([['both',t('dp_cm_both')],['sep',t('dp_cm_sep')],['shared',t('dp_cm_shared')]],c.class_mode||'both')}</select></div>
      <div class="fld"><label>${t('dp_fees')}</label><select id="dpFs">${opts([['school',t('dp_fs_school')],['dept',t('dp_fs_dept')],['both',t('dp_fs_both')]],c.fees||'school')}</select></div></div>
+    <div class="fld"><label>🔀 ${t('dp_multi')}</label><select id="dpMe">${opts([['0',t('dp_multi_off')],['1',t('dp_multi_on')]],c.multi_enrol?'1':'0')}</select><small class="sub">${t('xe_help')}</small></div>
     <button class="btn btn-g sm" id="dpCfGo">💾 ${t('save')}</button><span class="err" id="dpCfErr"></span></div>
    <div class="stats">${DEP.list.map(d=>{const s=DEP.stats[d.id]||{};return `<div class="stat" style="--acc:${esc(d.color)};cursor:pointer${d.active?'':';opacity:.55'}" data-dpo="${d.id}">
       <b style="display:flex;align-items:center;gap:8px"><span style="font-size:26px">${esc(d.icon||'🏛')}</span>${esc(depName(d))}</b>
@@ -4870,7 +4884,7 @@ async function tabDepts(){const el=document.getElementById('dtab');if(DEP.list==
     <button class="btn btn-g" id="dnGo">➕ ${t('dp_add')}</button><span class="err" id="dnErr"></span></div>`;
   const g=id=>document.getElementById(id);
   g('dpOn').onchange=e=>{e.target.parentNode.classList.toggle('on',e.target.checked)};
-  g('dpCfGo').onclick=async()=>{const cf={...dconfD(),enabled:g('dpOn').checked,class_mode:g('dpCm').value,fees:g('dpFs').value};if(await setSave({dept_conf:cf},'dpCfErr'))setTimeout(()=>{if(D.tab==='dept')renderDash()},500)};
+  g('dpCfGo').onclick=async()=>{const cf={...dconfD(),enabled:g('dpOn').checked,class_mode:g('dpCm').value,fees:g('dpFs').value,multi_enrol:g('dpMe').value==='1'};if(await setSave({dept_conf:cf},'dpCfErr'))setTimeout(()=>{if(D.tab==='dept')renderDash()},500)};
   el.querySelectorAll('[name=dnK]').forEach(r=>r.onchange=()=>el.querySelectorAll('[name=dnK]').forEach(x=>x.parentNode.classList.toggle('on',x.checked)));
   el.querySelectorAll('[data-dpo]').forEach(b=>b.onclick=()=>{DEP.open=DEP.open===b.dataset.dpo?null:b.dataset.dpo;DEP.view=DEP.view||'edit';tabDepts();setTimeout(()=>{const p=g('dpPanel');if(p)p.scrollIntoView({behavior:'smooth',block:'start'})},50)});
   g('dnGo').onclick=async()=>{const er=g('dnErr'),a=g('dnA').value.trim(),code=g('dnC').value.trim().toLowerCase();if(!a||!/^[a-z0-9_]{1,20}$/.test(code)){er.textContent=t('dp_bad');return}er.textContent=t('wait');
@@ -4995,6 +5009,47 @@ function ddPerm(k){if(k==='registry')return ddHas('students.edit')||ddHas('stude
 const ddMine=c=>!!(c&&isDD()&&D.dd.some(d=>d.id===c.department_id&&(d.perms||[]).includes('classes.manage')));
 const clsEd=()=>canEdit()||ddHas('classes.manage');
 function ddFix(){if(!isDD())return;if(!D.dd.some(d=>d.id===GD.dep)){GD.dep=D.dd[0].id;GD.cls='';GD.data=null;GD.err=''}}
+
+// ===== Multi-department phase 6: central student fiche + per-department enrolments, teachers ↔ departments =====
+// الحماية الفعلية في الخادم (schema39). هنا: عرض وإدارة فقط.
+async function p6Load(){const iid=D.i&&D.i.id;D.xc=[];D.depts=[];D.dmAll=[];D.ttH={};if(!iid)return;
+  const q=tb=>sb.from(tb).select('*').eq('institution_id',iid);
+  try{const [x,d,m,tt]=await Promise.all([q('student_classes'),q('departments'),q('department_members'),sb.from('timetable').select('staff_id,school_year').eq('institution_id',iid)]);
+    D.xc=x&&!x.error?(x.data||[]):[];D.depts=d&&!d.error?(d.data||[]):[];D.dmAll=m&&!m.error?(m.data||[]):[];
+    const y=(D.i&&D.i.current_year)||curYear();((tt&&!tt.error&&tt.data)||[]).forEach(r=>{if(r.staff_id&&(!r.school_year||r.school_year===y))D.ttH[r.staff_id]=(D.ttH[r.staff_id]||0)+1})}catch(e){}
+  const by={};D.xc.forEach(r=>{(by[r.student_id]=by[r.student_id]||[]).push(r.class_id)});(D.allStudents||[]).forEach(s=>{s._xc=by[s.id]||[]})}
+const inCls=(s,c)=>!!s&&(s.class_id===c||(!!c&&(s._xc||[]).includes(c)));
+const depOf=id=>(D.depts||[]).find(d=>d.id===id)||((D.dd||[]).find(d=>d.id===id))||null;
+const clsDep=c=>c&&c.department_id?depOf(c.department_id):null;
+const multiOn=()=>!!(D.i&&D.i.dept_conf&&D.i.dept_conf.multi_enrol);
+function depBadge(d){return d?`<span class="badge" style="background:${esc(d.color||'#64748b')}1a;color:${esc(d.color||'#334155')};border:1px solid ${esc(d.color||'#94a3b8')}55">${esc(d.icon||'🏛')} ${esc(depName(d))}</span>`:''}
+function xBadges(s){const cm=Object.fromEntries((D.allClasses||D.classes).map(c=>[c.id,c]));const pc=cm[s.class_id];
+  const out=[];if(pc&&clsDep(pc))out.push(depBadge(clsDep(pc)));(s._xc||[]).forEach(id=>{const c=cm[id];if(c)out.push(`<br><small>➕ ${esc(clsName(c))}</small> `+depBadge(clsDep(c)))});return out.length?' '+out.join(' '):''}
+// خيارات الفصل في استمارة التلميذ (مدير القسم: فصول قسمه فقط)
+function stuClsOpts(s){if(!isDD())return [['',t('no_class')]].concat(D.classes.map(c=>[c.id,clsName(c)]));
+  const ok=D.classes.filter(c=>D.dd.some(d=>d.id===c.department_id&&((d.perms||[]).includes('students.create')||(d.perms||[]).includes('students.edit'))));
+  if(s&&s.class_id&&!ok.some(c=>c.id===s.class_id)){const c=D.classes.find(x=>x.id===s.class_id);if(c)ok.unshift(c)}return ok.map(c=>[c.id,clsName(c)])}
+// التسجيل في فصل قسم آخر
+function xEnrolBox(s){if(!s||!s.id||!multiOn())return '';const pc=D.classes.find(c=>c.id===s.class_id);
+  const mine=D.xc.filter(r=>r.student_id===s.id),taken=new Set(mine.map(r=>r.department_id).concat(pc&&pc.department_id?[pc.department_id]:[]));
+  const canW=c=>canEdit()||(!isDD()&&hasPerm('registry'))||(isDD()&&D.dd.some(d=>d.id===c.department_id&&(d.perms||[]).includes('students.create')));
+  const cand=D.classes.filter(c=>c.department_id&&!taken.has(c.department_id)&&c.id!==s.class_id&&(!pc||c.school_year===pc.school_year)&&canW(c));
+  return `<div class="cert" style="margin:10px 0;background:#f6faf7"><b>🏛 ${t('xe_ttl')}</b><p class="sub" style="margin:4px 0 8px">${t('xe_help')}</p>
+    ${pc?`<div style="margin-bottom:6px">⭐ ${esc(clsName(pc))} ${depBadge(clsDep(pc))}</div>`:''}
+    ${mine.map(r=>{const c=D.classes.find(x=>x.id===r.class_id)||(D.allClasses||[]).find(x=>x.id===r.class_id);return `<div style="display:flex;align-items:center;gap:8px;margin:4px 0">➕ ${esc(c?clsName(c):'—')} ${depBadge(depOf(r.department_id))}${c&&canW(c)?` <button type="button" class="btn btn-t sm red" data-xdel="${r.id}">✕</button>`:''}</div>`}).join('')||`<div class="sub">${t('xe_none')}</div>`}
+    ${cand.length?`<div class="toolbar" style="margin:8px 0 0"><select id="xeC">${opts(cand.map(c=>[c.id,clsName(c)+' — '+depName(clsDep(c))]))}</select><button type="button" class="btn btn-o sm" id="xeGo">➕ ${t('xe_add')}</button></div>`:''}
+    <div class="err" id="xeErr"></div></div>`}
+function bindXEnrol(){const g=id=>document.getElementById(id),sid=D.edit,er=()=>g('xeErr');
+  const msg=e=>{const m=(e&&e.message)||'';const k=['MULTI_ENROL_OFF','DEPT_TAKEN','SAME_DEPT','SAME_CLASS','BAD_YEAR','NEED_DEPT_CLASS'].find(x=>m.includes(x));return k?t('xe_e_'+k):/student_classes/.test(m)?t('need_schema39'):em(e)};
+  const redraw=async()=>{await reloadData();D.edit=sid;tabStudents()};
+  if(g('xeGo'))g('xeGo').onclick=async()=>{er().textContent=t('wait');const {error}=await sb.from('student_classes').insert({student_id:sid,class_id:g('xeC').value,department_id:(D.classes.find(c=>c.id===g('xeC').value)||{}).department_id||null});if(error){er().textContent=msg(error);return}redraw()};
+  document.querySelectorAll('[data-xdel]').forEach(b=>b.onclick=async()=>{if(!confirm(t('xe_del_q')))return;const {error}=await sb.from('student_classes').delete().eq('id',b.dataset.xdel);if(error){er().textContent=msg(error);return}redraw()})}
+// المعلم: أقسامه وعدد حصصه الأسبوعية
+function stfDeps(s){const ds=(D.dmAll||[]).filter(m=>m.staff_id===s.id&&m.active!==false).map(m=>depOf(m.department_id)).filter(Boolean);
+  const h=(D.ttH||{})[s.id]||0;return (ds.length?'<br>'+ds.map(depBadge).join(' '):'')+(h?`<br><small>🕒 ${h} ${t('dp_hours')}</small>`:'')}
+// القسم على رأس الوثائق الرسمية والكشوف
+let OHD=null;
+function depLine(d){return d?`<small class="ofdep" style="display:block;font-weight:800;color:${esc(d.color||'#0a4f2b')}">${esc(d.icon||'🏛')} ${esc(d.name_fr||'')}${d.name_fr?' — ':''}<span dir="rtl">${esc(d.name_ar)}</span></small>`:''}
 
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

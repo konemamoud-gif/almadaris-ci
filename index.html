@@ -1281,6 +1281,10 @@ Object.assign(T.ar,{sd_off_h:'الوزارة وDRENA وIEP والرمز الرس
 Object.assign(T.fr,{sd_off_h:'Ministère, DRENA, IEP, code officiel, autorisation et nom du directeur : Paramètres → Général.',sg_bul:'Réussite, classement et bulletin',set_from_gen:'Se modifie dans Paramètres → Général',cv_set_card:"Afficher la photo de l'élève lors de la vérification de la carte (QR)"});
 Object.assign(T.en,{sd_off_h:'Ministry, DRENA, IEP, official code, licence and director name: Settings → General.',sg_bul:'Pass mark, ranking and report card',set_from_gen:'Edit it in Settings → General',cv_set_card:'Show the student photo when the card is verified (QR)'});
 
+Object.assign(T.ar,{sg_cyc:'نظام مختلف لكل مرحلة',sg_cyc_h:'مثلاً: الابتدائي بالثلاثيات والإعدادي بالسداسيات والقرآن بالفترات. اترك «نفس نظام المدرسة» للمراحل التي تتبع النظام العام.',sg_cyc_same:'نفس نظام المدرسة',sg_td_for:'تواريخ',sg_td_default:'النظام العام للمدرسة'});
+Object.assign(T.fr,{sg_cyc:'Système différent par cycle',sg_cyc_h:'Ex. : primaire en trimestres, collège en semestres, coranique en périodes. Laissez « Comme l’établissement » pour les cycles qui suivent le système général.',sg_cyc_same:'Comme l’établissement',sg_td_for:'Dates pour',sg_td_default:'Système général'});
+Object.assign(T.en,{sg_cyc:'Different system per cycle',sg_cyc_h:'E.g. primary in terms, middle school in semesters, Quran in periods. Leave “Same as school” for cycles that follow the general system.',sg_cyc_same:'Same as school',sg_td_for:'Dates for',sg_td_default:'General system'});
+
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -1402,7 +1406,7 @@ function renderDashOld(){const box=document.getElementById('dashBox'),p=D.p,i=D.
     if(a.length<8||a!==document.getElementById('cp2').value){er.textContent=t('e_pw');return}er.textContent=t('wait');const {error}=await sb.auth.updateUser({password:a});
     if(error){er.textContent=em(error);return}er.style.color='var(--g2)';er.textContent=t('np_ok')};
   if(MS.unread)updMsgBadge();
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup}[D.tab]||tabOverview)()}
+  TCX.cy=null;({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup}[D.tab]||tabOverview)()}
 
 function tabOverviewOld(){const i=D.i,el=document.getElementById('dtab');if(!i){el.innerHTML='';return}
   const left=Math.max(0,Math.ceil((new Date(i.trial_end)-new Date())/864e5));
@@ -1672,8 +1676,8 @@ async function doActivate(e){e.preventDefault();const f=e.target,er=document.get
 // ===== grades & report cards =====
 const KIND={devoir:'k_devoir',exam:'k_exam',oral:'k_oral',other:'k_other'};
 const G={term:1,cls:'',subj:'',ev:null,evals:[],grades:[],loadedFor:''};
-const nTerms=()=>{const k=D.i&&D.i.term_system;return k==='sem'?2:(k==='eval'||k==='per')?Math.min(6,Math.max(1,+D.i.term_count||3)):3};
-const termName=n=>termLabel(n,D.i&&D.i.term_system);
+const nTerms=cy=>termCfg(cy===undefined?TCX.cy:cy).n;
+const termName=(n,cy)=>termLabel(n,termCfg(cy===undefined?TCX.cy:cy).k);
 const scaleOf=c=>{const dsc=deptScale(c);if(dsc)return dsc;const gs=(D.i&&D.i.grade_scale)||{};return Number(gs[c&&c.cycle])||(c&&['mat','pri'].includes(c.cycle)?10:20)};
 const fmt=x=>x==null||isNaN(x)?'—':(Math.round(x*100)/100).toString();
 const mention=f=>f==null?'':f>=.9?t('m_exc'):f>=.8?t('m_tb'):f>=.7?t('m_b'):f>=.6?t('m_ab'):f>=.5?t('m_p'):t('m_ins');
@@ -1694,7 +1698,7 @@ async function loadEvals(force){const key=G.cls+'|'+G.term;if(!G.cls){G.evals=[]
   G.evals=ev||[];const ids=G.evals.map(e=>e.id);
   try{G.grades=ids.length?await fetchIn('grades','evaluation_id',ids):[];G.rem=await loadRemarks(G.cls,G.term)}catch(e){if(isNetErr(e)){OFF.cache=OFF.cache||new Date().toISOString();offBar();return loadEvals(force)}throw e}
   lcSet('ev_'+key,{e:G.evals,g:G.grades,r:G.rem});G.loadedFor=key}
-function termRanges(y){y=y||curYear();const a=parseInt(y),n=nTerms(),td=D.i&&D.i.term_dates&&D.i.term_dates[y];
+function termRanges(y){y=y||curYear();const a=parseInt(y),cy=TCX.cy,n=nTerms(),tds=(D.i&&D.i.term_dates)||{},td=cy&&tcOv(cy)?tds[y+'@'+cy]:tds[y];
   const def=termRangesN(a,n);
   return def.map((d,k)=>td&&td[k]&&td[k][0]&&td[k][1]?td[k]:d)}
 async function absCounts(ids,from,to){const out={};if(!ids.length)return out;
@@ -1721,7 +1725,7 @@ function computeClass(cls){
   const all=sorted.map(r=>r.avg);
   return {rows,subs,scale,classAvg,ranked:sorted.length,gen:all.length?all.reduce((a,b)=>a+b,0)/all.length:null}}
 
-function pickers(withSubj){const cls=D.classes.find(c=>c.id===G.cls);
+function pickers(withSubj){const cls=D.classes.find(c=>c.id===G.cls);TCX.cy=cls?cls.cycle:null;if(+G.term>nTerms())G.term=1;
   const subs=G.cls?gradeSubjects(G.cls):[];
   if(withSubj&&G.subj&&!subs.some(j=>j.id===G.subj))G.subj='';
   return `<div class="toolbar" style="margin-top:0">
@@ -1838,7 +1842,7 @@ function bindGen(cls){const el=document.getElementById('dtab');
 
 async function computeAnnual(cls){const {data:ev,error}=await sb.from('evaluations').select('*').eq('class_id',cls.id);if(error)throw error;const evs=ev||[];
   const gr=evs.length?await fetchIn('grades','evaluation_id',evs.map(e=>e.id)):[];
-  const T=nTerms(),per={},tavg={},subsSet=new Set(),save=[G.evals,G.grades];
+  TCX.cy=cls.cycle;const T=nTerms(),per={},tavg={},subsSet=new Set(),save=[G.evals,G.grades];
   try{for(let tm=1;tm<=T;tm++){const te=evs.filter(e=>e.term===tm);if(!te.length)continue;G.evals=te;const ids=new Set(te.map(e=>e.id));G.grades=gr.filter(g=>ids.has(g.evaluation_id));
     const r=computeClass(cls);r.subs.forEach(j=>subsSet.add(j.id));
     r.rows.forEach(x=>{(tavg[x.s.id]=tavg[x.s.id]||{})[tm]=x.avg;const ps=per[x.s.id]=per[x.s.id]||{};Object.entries(x.per).forEach(([j,v])=>{(ps[j]=ps[j]||{})[tm]=v})})}}
@@ -2674,10 +2678,10 @@ async function sheetOf(k){const head=[[D.i.ministry||''],[D.i.drena||''],[D.i.na
     return ['Résultats',head.concat([['Niveau','المستوى','Inscrits','Évalués','Admis G','Admis F','Non admis','Taux %']],A.map(o=>[o.g.fr,o.g.ar,o.ins,o.ev,o.adG,o.adF,o.ko,o.ev?Math.round((o.adG+o.adF)/o.ev*1000)/10:'']),[[]],
       R.flatMap(x=>[[clsFr(x.c)+' — '+clsAr(x.c)],['N°','Nom','الاسم','Moyenne /'+x.scale,'Décision']].concat(x.st.map((r,n)=>[n+1,nameFr(r.s),sName(r.s),r.avg==null?'':Math.round(r.avg*100)/100,r.avg==null?'Non évalué':r.ok?'Admis':'Redouble']),[[]])))]}}
 
-async function saveTerms(btn){const er=document.getElementById('tdErr'),rs=termRanges().map(r=>r.slice());er.style.color='';
+async function saveTerms(btn){TCX.cy=TDC.cy||null;const er=document.getElementById('tdErr'),rs=termRanges().map(r=>r.slice());er.style.color='';
   document.querySelectorAll('.tdIn').forEach(i=>{rs[+i.dataset.k][+i.dataset.e]=i.value});
   if(rs.some(r=>!r[0]||!r[1]||r[0]>r[1])){er.textContent=t('td_bad');return}
-  const td=Object.assign({},D.i.term_dates||{},{[curYear()]:rs});er.textContent=t('wait');
+  const td=Object.assign({},D.i.term_dates||{},{[curYear()+(TCX.cy&&tcOv(TCX.cy)?'@'+TCX.cy:'')]:rs});TCX.cy=null;er.textContent=t('wait');
   const {error}=await sb.from('institutions').update({term_dates:td}).eq('id',D.i.id);if(error){er.textContent=em(error);return}
   D.i.term_dates=td;er.style.color='var(--g2)';er.textContent=t('saved')}
 // ===== exam timetable =====
@@ -2875,7 +2879,7 @@ function renderParent(){const box=document.getElementById('parentBox');if(!box||
     <div style="display:flex;gap:6px"><button class="btn btn-l sm" id="ppAdd">+ ${t('pp_add')}</button><button class="btn btn-t sm" id="ppOut">${t('d_logout')}</button></div></div>
     ${PP.kids.length>1?`<div class="chips" style="margin:12px 0">${PP.kids.map(k=>`<span class="chip${k.c===PP.cur?' on':''}" data-pk="${esc(k.c)}">${esc(kidName(k))}</span>`).join('')}</div>`:''}`;
   if(!d.ok){h+=`<div class="note" style="background:#fdecea;border-color:#f3c1bb;color:#b03a2e;margin-top:12px">${esc(PP.cur)} — ${esc(d.err&&d.err.length>12?d.err:ppErr(d.err))}</div><button class="btn btn-t sm red" id="ppRm">${t('pp_remove')}</button>`}
-  else{const S=d.school,st=d.student,c=d.class,sc=S.scale,ts=S.term_system;
+  else{const S=d.school,st=d.student,c=d.class,sc=S.scale,ts=(((S.grade_conf||{}).cycles||{})[(c||{}).cycle]||{}).k||S.term_system;
     const ab=d.attendance||{},last=(d.grades||[]).slice(-1)[0];
     // fees through the dashboard statement() logic
     const sv=[F.items,F.disc,F.pays,D.classes,F.bms];let stmt=null;
@@ -2942,7 +2946,7 @@ async function showPin(s,regen){const el=document.getElementById('pinBox');if(!e
 function portalCard(){const i=D.i,y=curYear(),pub=(i.portal_pub&&i.portal_pub[y])||[];
   return `<div class="cert"><b>👨‍👩‍👧 ${t('pp_ttl')}</b><p class="sub" style="margin:4px 0 8px">${t('pp_set_help')}</p>
     <label class="opt"><input type="checkbox" id="ppOn"${i.portal_on!==false?' checked':''}>${t('pp_on')}</label>
-    <div class="fld"><label>${t('pp_pub')} — <span dir="ltr">${esc(y)}</span></label><div class="chips">${Array.from({length:nTerms()},(_,k)=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="ppPub" value="${k+1}"${pub.includes(k+1)?' checked':''}> ${termName(k+1)}</label>`).join('')}</div></div>
+    <div class="fld"><label>${t('pp_pub')} — <span dir="ltr">${esc(y)}</span></label><div class="chips">${Array.from({length:maxTerms()},(_,k)=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="ppPub" value="${k+1}"${pub.includes(k+1)?' checked':''}> ${k<nTerms(null)?termName(k+1,null):'#'+(k+1)}</label>`).join('')}</div></div>
     <button class="btn btn-g sm" onclick="savePortal(this)">${t('save')}</button><span class="err" id="ppErr" style="margin-inline-start:8px"></span></div>`}
 async function savePortal(){const er=document.getElementById('ppErr'),y=curYear();er.style.color='';
   const pp=Object.assign({},D.i.portal_pub||{},{[y]:[...document.querySelectorAll('.ppPub:checked')].map(x=>+x.value)}),on=document.getElementById('ppOn').checked;
@@ -4703,7 +4707,7 @@ function renderDash(){const box=document.getElementById('dashBox'),p=D.p,i=D.i,t
   document.addEventListener('click',saPopClose);
   const q=g('scQ');q.onkeydown=e=>{if(e.key==='Enter'){D.q=q.value.trim();D.fc='';go('stu')}};
   if(MS.unread)updMsgBadge();
-  ({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup,dept:tabDepts,gd:tabGd,ntf:tabNtf,rpt:tabRpt}[D.tab]||tabOverview)();
+  TCX.cy=null;({ov:tabOverview,cls:tabClasses,stu:tabStudents,staff:tabStaff,subj:tabSubjects,grd:tabGrades,rep:tabReports,fee:tabFees,att:tabAtt,set:tabSettings,doc:tabDocs,plat:tabPlatform,exm:tabExams,crd:tabCards,tt:tabTT,msg:tabMsg,bk:tabBooks,pay:tabPay,dis:tabDis,log:tabLog,ct:tabCT,cal:tabCal,sup:tabSup,dept:tabDepts,gd:tabGd,ntf:tabNtf,rpt:tabRpt}[D.tab]||tabOverview)();
   saFx(root)}
 function updMsgBadge(){document.querySelectorAll('.sa-nav [data-dt=msg]').forEach(tb=>{let n=tb.querySelector('.n');if(!MS.unread){if(n)n.remove();return}if(!n){n=document.createElement('em');n.className='n';tb.appendChild(n)}n.textContent=MS.unread});
   const m=document.getElementById('scMail');if(m)m.innerHTML='✉️'+(MS.unread?`<span class="n">${MS.unread}</span>`:'')}
@@ -4856,7 +4860,7 @@ function setGrade(){const b=document.getElementById('setBody'),i=D.i,g=gconf(),k
   b.innerHTML=`<div class="cert" style="margin-top:0"><b>🗓 ${t('sg_terms')}</b><p class="sub" style="margin:4px 0 10px">${t('sg_terms_h')}</p>
     <div class="two"><div class="fld"><label>${t('sg_kind')}</label><select id="sgK">${opts([['tri',t('sg_k_tri')],['sem',t('sg_k_sem')],['eval',t('sg_k_eval')],['per',t('sg_k_per')]],kind)}</select></div>
       <div class="fld"><label>${t('sg_count')}</label><select id="sgN">${opts([1,2,3,4,5,6].map(x=>[String(x),String(x)]),String(n))}</select></div></div>
-    <div class="chips" id="sgNames"></div></div>
+    <div class="chips" id="sgNames"></div></div>${sgCycHtml()}
    <div class="cert"><b>📊 ${t('sg_avg')}</b><p class="sub" style="margin:4px 0 10px">${t('sg_avg_h')}</p>
     <div class="chips">${[['avg','sg_m_avg'],['frac','sg_m_frac'],['pct','sg_m_pct']].map(([k,l])=>chk('sgM_'+k,g.show.includes(k),t(l))).join('')}</div>
     <div class="two" style="margin-top:10px"><div class="fld"><label>${t('sg_dec')}</label><select id="sgD">${opts([['0','0 — 15'],['1','1 — 14,6'],['2','2 — 14,57']],String(g.dec))}</select></div>
@@ -4865,11 +4869,11 @@ function setGrade(){const b=document.getElementById('setBody'),i=D.i,g=gconf(),k
    <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="sgGo">💾 ${t('save')}</button><span class="err" id="sgErr"></span></div>${tdCardHtml()}${bulSetHtml()}`;
   chipSync(b);
   const g2=id=>document.getElementById(id),rd=()=>({k:g2('sgK').value,n:g2('sgK').value==='tri'?3:g2('sgK').value==='sem'?2:+g2('sgN').value,
-    conf:{show:['avg','frac','pct'].filter(k=>g2('sgM_'+k).checked),dec:+g2('sgD').value,sep:g2('sgS').value,mode:g2('sgR').value,dept_allow:!!(g2('sgDA')&&g2('sgDA').checked)}});
+    conf:{show:['avg','frac','pct'].filter(k=>g2('sgM_'+k).checked),dec:+g2('sgD').value,sep:g2('sgS').value,mode:g2('sgR').value,cycles:sgCycRead(),dept_allow:!!(g2('sgDA')&&g2('sgDA').checked)}});
   const upd=()=>{const r=rd(),fixed=r.k==='tri'||r.k==='sem';g2('sgN').disabled=fixed;if(fixed)g2('sgN').value=String(r.n);
     g2('sgNames').innerHTML=Array.from({length:r.n},(_,k)=>`<span class="chip">${esc(termLabel(k+1,r.k))}</span>`).join('');
     const sc=20;g2('sgEx').innerHTML=`${t('sg_ex')}: <b dir="ltr">${esc(avgFmt(14.5678,sc,r.conf.show.length?r.conf:{show:['frac']}))}</b> · <b dir="ltr">${esc(avgFmt(7.25,10,r.conf.show.length?r.conf:{show:['frac']}))}</b>`};
-  b.querySelectorAll('select,input').forEach(x=>x.addEventListener('change',upd));upd();sgHistLoad();bindBulSet();
+  b.querySelectorAll('select,input').forEach(x=>x.addEventListener('change',upd));upd();sgHistLoad();bindBulSet();sgCycBind();tdBind();
   g2('sgGo').onclick=async()=>{const r=rd(),er=g2('sgErr');if(!r.conf.show.length){er.textContent=t('sg_need1');return}
     const used=Math.max(0,...(G.evals||[]).map(e=>+e.term||0));if(used>r.n&&!confirm(t('sg_warn').replace('{n}',used)))return;
     if(await setSave({term_system:r.k,term_count:(r.k==='eval'||r.k==='per')?r.n:null,grade_conf:r.conf},'sgErr')){G.term=Math.min(G.term||1,r.n);if(await sgDeptSave()&&await sgScaleSave())setTimeout(sgHistLoad,400)}}}
@@ -4976,7 +4980,7 @@ async function saRoles(){const el=document.getElementById('admBody');el.innerHTM
 
 // ===== Multi-department phase 3: General Director dashboard =====
 const GD={y:null,dep:'',cls:'',lv:'',term:'',data:null,err:'',busy:false};
-async function gdLoad(){GD.busy=true;GD.err='';const y=GD.y||curYear();let from=null,to=null;
+async function gdLoad(){TCX.cy=gdCy();GD.busy=true;GD.err='';const y=GD.y||curYear();let from=null,to=null;
   if(GD.term){const r=termRanges(y)[+GD.term-1];if(r){from=r[0];to=r[1]}}
   const a={p_year:y,p_dept:GD.dep&&GD.dep!=='shared'?GD.dep:null,p_class:GD.cls||null,p_level:GD.lv||null,p_term:GD.term?+GD.term:null,p_from:from,p_to:to};
   GD.at=Date.now();try{const {data,error}=await sb.rpc('dg_dashboard',a);if(error)GD.err=/dg_dashboard/.test(error.message||'')?t('gd_need'):em(error);else GD.data=data}catch(e){GD.err=t('gd_need')}GD.busy=false}
@@ -4984,7 +4988,7 @@ const gdPct=v=>v==null?'—':(Math.round(v*10)/10).toLocaleString('fr-FR')+' %';
 function gdHBars(rows,fmt,click){const mx=Math.max(1,...rows.map(r=>+r.v||0));
   return rows.map(r=>`<div style="margin:9px 0;cursor:${click?'pointer':'default'}"${click&&r.id!==undefined?` data-gdd="${esc(r.id||'shared')}"`:''} title="${esc(r.l)}: ${esc(fmt(r.v))}"><div style="display:flex;justify-content:space-between;font-size:13.5px;font-weight:700"><span>${r.l}</span><b>${fmt(r.v)}</b></div>
     <div class="sa-bar" style="height:13px"><i style="width:${Math.round((+r.v||0)/mx*100)}%;background:linear-gradient(90deg,${r.c},${r.c}aa)"></i></div></div>`).join('')||'<div class="sa-empty">—</div>'}
-async function tabGdBase(){const el=document.getElementById('dtab');ddFix();if(GD.at&&Date.now()-GD.at>30000){GD.data=null;GD.err=''}if(!GD.data&&!GD.err){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;await gdLoad();if(D.tab!=='gd')return}
+async function tabGdBase(){const el=document.getElementById('dtab');ddFix();TCX.cy=gdCy();if(GD.at&&Date.now()-GD.at>30000){GD.data=null;GD.err=''}if(!GD.data&&!GD.err){el.innerHTML=`<div class="sa-empty"><span>⏳</span>${t('wait')}</div>`;await gdLoad();if(D.tab!=='gd')return}
   if(GD.err){el.innerHTML=`<div class="note">⚙️ ${esc(GD.err)}</div>`;return}
   const d=GD.data,k=d.kpi||{},BD=(d.by_dept||[]).filter(x=>(x.id||x.students||x.classes)&&(!isDD()||D.dd.some(y=>y.id===x.id))),dn=x=>esc(x.id?((L==='ar'||L==='nqo'||!x.name_fr)?x.name_ar:x.name_fr):t('dp_shared')),sc=20;
   const yrs=(d.years||[]).length?d.years:[curYear()],clsList=(D.allClasses||D.classes).filter(c=>c.school_year===(GD.y||curYear())&&(!GD.dep||(GD.dep==='shared'?!c.department_id:c.department_id===GD.dep))&&(!GD.lv||c.level===GD.lv));
@@ -5236,9 +5240,6 @@ async function tabGd(){await tabGdBase();await gdReports()}
 // Général: identité, données officielles, logo/signature/cachet, portail, présences, sauvegarde
 // Évaluation: périodes + dates, barèmes (cycle + département), moyenne, seuil, classement, note du bulletin
 // Documents: en-tête, signataire (titre), apparence — Cartes: modèle, textes, champs, photo sur la carte
-function tdCardHtml(){return `<div class="cert"><b>📆 ${t('td_ttl')} — <span dir="ltr">${esc(curYear())}</span></b><p class="sub" style="margin:4px 0 8px">${t('td_help')}</p>
-    ${termRanges().map((r,k)=>`<div class="two"><div class="fld"><label>${termName(k+1)} — ${t('td_from')}</label><input class="tdIn" data-k="${k}" data-e="0" type="date" dir="ltr" value="${r[0]}"></div><div class="fld"><label>${t('td_to')}</label><input class="tdIn" data-k="${k}" data-e="1" type="date" dir="ltr" value="${r[1]}"></div></div>`).join('')}
-    <button class="btn btn-g sm" onclick="saveTerms(this)">${t('save')}</button><span class="err" id="tdErr" style="margin-inline-start:8px"></span></div>`}
 function bulSetHtml(){const i=D.i;return `<div class="cert"><b>🏆 ${t('sg_bul')}</b>
     <div class="two" style="margin-top:8px"><div class="fld"><label>${t('pass_mark')}</label><select id="gbPass">${opts([['0.4','40 %'],['0.45','45 %'],['0.5','50 % (5/10 — 10/20)'],['0.55','55 %'],['0.6','60 %']],String(i.pass_mark||0.5))}</select></div>
      <div class="fld"><label>${t('bul_note')}</label><input id="gbNote" value="${esc(i.bulletin_note||'')}" list="dl_bnote"><datalist id="dl_bnote"><option value="${esc(t('bn1'))}"><option value="${esc(t('bn2'))}"><option value="${esc(t('bn3'))}"></datalist></div></div>
@@ -5247,6 +5248,37 @@ function bulSetHtml(){const i=D.i;return `<div class="cert"><b>🏆 ${t('sg_bul'
 function bindBulSet(){const g=document.getElementById('gbGo');if(!g)return;g.onclick=()=>setSave({pass_mark:parseFloat(document.getElementById('gbPass').value)||0.5,show_rank:document.getElementById('gbRank').checked,bulletin_note:document.getElementById('gbNote').value.trim()||null},'gbErr')}
 async function sgScaleSave(){const ins=[...document.querySelectorAll('.scIn')];if(!ins.length)return true;const gs=Object.assign({},D.i.grade_scale||{});let ch=false;
   ins.forEach(x=>{const v=parseFloat(x.value);if(v>0&&gs[x.dataset.cy]!==v){gs[x.dataset.cy]=v;ch=true}});if(!ch)return true;return setSave({grade_scale:gs},'sgErr')}
+
+// ===== Per-cycle term systems (e.g. primary = trimesters, collège = semesters, Quran = periods) =====
+// Stored in institutions.grade_conf.cycles = {pri:{k:'tri'}, col:{k:'sem'}, ...}; absent cycle = school default.
+const TCX={cy:null},TDC={cy:''};
+const tcOv=cy=>{const gc=(D.i&&D.i.grade_conf)||{};return cy&&gc.cycles&&gc.cycles[cy]&&gc.cycles[cy].k?gc.cycles[cy]:null};
+function termCfg(cy){const o=tcOv(cy),k=(o&&o.k)||(D.i&&D.i.term_system)||'tri',cnt=o?o.n:(D.i&&D.i.term_count);
+  return {k,n:k==='sem'?2:k==='tri'?3:Math.min(6,Math.max(1,+cnt||3))}}
+function maxTerms(){const cs=(D.i&&D.i.cycles&&D.i.cycles.length?D.i.cycles:Object.keys(LEVELS));return Math.max(termCfg(null).n,...cs.map(c=>termCfg(c).n))}
+function gdCy(){if(GD.cls){const c=(D.allClasses||D.classes).find(x=>x.id===GD.cls);if(c)return c.cycle}
+  if(GD.lv){const e=Object.entries(LEVELS).find(([cy,a])=>a.some(x=>x[0]===GD.lv));if(e)return e[0]}return null}
+const TK_OPTS=()=>[['tri',t('sg_k_tri')],['sem',t('sg_k_sem')],['eval',t('sg_k_eval')],['per',t('sg_k_per')]];
+function sgCycHtml(){const i=D.i,cs=i.cycles&&i.cycles.length?i.cycles:Object.keys(LEVELS),gc=i.grade_conf||{},C=gc.cycles||{};
+  return `<div class="cert"><b>🏫 ${t('sg_cyc')}</b><p class="sub" style="margin:4px 0 8px">${t('sg_cyc_h')}</p>
+   <div class="tblw"><table class="tbl" style="min-width:0"><tbody>${cs.map(c=>{const o=C[c]||{};return `<tr><td><b>${t(CYC[c])}</b></td>
+    <td><select class="sgCk" data-cy="${c}">${opts([['',t('sg_cyc_same')]].concat(TK_OPTS()),o.k||'')}</select></td>
+    <td><select class="sgCn" data-cy="${c}"${o.k==='eval'||o.k==='per'?'':' style="display:none"'}>${opts([1,2,3,4,5,6].map(x=>[String(x),String(x)]),String(o.n||3))}</select></td>
+    <td><small class="sub sgCl" data-cy="${c}"></small></td></tr>`}).join('')}</tbody></table></div></div>`}
+function sgCycRead(){const out={};document.querySelectorAll('.sgCk').forEach(s=>{const k=s.value;if(!k)return;const o={k};if(k==='eval'||k==='per')o.n=+document.querySelector(`.sgCn[data-cy="${s.dataset.cy}"]`).value||3;out[s.dataset.cy]=o});return out}
+function sgCycBind(){const up=()=>document.querySelectorAll('.sgCk').forEach(s=>{const cy=s.dataset.cy,n=document.querySelector(`.sgCn[data-cy="${cy}"]`),l=document.querySelector(`.sgCl[data-cy="${cy}"]`);
+    const k=s.value||document.getElementById('sgK').value,cnt=k==='sem'?2:k==='tri'?3:+(s.value?n.value:document.getElementById('sgN').value)||3;
+    n.style.display=s.value==='eval'||s.value==='per'?'':'none';l.textContent=Array.from({length:cnt},(_,x)=>termLabel(x+1,k)).join(' · ')});
+  document.querySelectorAll('.sgCk,.sgCn,#sgK,#sgN').forEach(x=>x.addEventListener('change',up));up()}
+// تواريخ الفترات: لكل مرحلة نظامها الخاص تواريخ مستقلة
+function tdCardHtml(){const cs=((D.i.cycles&&D.i.cycles.length)?D.i.cycles:Object.keys(LEVELS)).filter(c=>tcOv(c));if(TDC.cy&&!cs.includes(TDC.cy))TDC.cy='';
+  const keep=TCX.cy;TCX.cy=TDC.cy||null;let h;
+  try{h=`<div class="cert" id="tdBox"><b>📆 ${t('td_ttl')} — <span dir="ltr">${esc(curYear())}</span></b><p class="sub" style="margin:4px 0 8px">${t('td_help')}</p>
+    ${cs.length?`<div class="fld" style="max-width:320px"><label>${t('sg_td_for')}</label><select id="tdCy">${opts([['',t('sg_td_default')]].concat(cs.map(c=>[c,t(CYC[c])])),TDC.cy)}</select></div>`:''}
+    ${termRanges().map((r,k)=>`<div class="two"><div class="fld"><label>${termName(k+1)} — ${t('td_from')}</label><input class="tdIn" data-k="${k}" data-e="0" type="date" dir="ltr" value="${r[0]}"></div><div class="fld"><label>${t('td_to')}</label><input class="tdIn" data-k="${k}" data-e="1" type="date" dir="ltr" value="${r[1]}"></div></div>`).join('')}
+    <button class="btn btn-g sm" onclick="saveTerms(this)">${t('save')}</button><span class="err" id="tdErr" style="margin-inline-start:8px"></span></div>`}finally{TCX.cy=keep}
+  return h}
+function tdBind(){const s=document.getElementById('tdCy');if(s)s.onchange=()=>{TDC.cy=s.value;document.getElementById('tdBox').outerHTML=tdCardHtml();tdBind()}}
 
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

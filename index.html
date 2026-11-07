@@ -1277,6 +1277,10 @@ Object.assign(T.en,{rp_print:'Print',tab_ntf:'Notifications & messages',tab_rpt:
  sg_mode:'Rounding or truncation',sg_round:'Round (14.567 → 14.57)',sg_trunc:'Truncate (14.567 → 14.56)',sg_dept:'Department-specific scales',sg_dept_h:'E.g. Arabic department out of 10, French out of 20. Used only if allowed; empty cells use the cycle scale.',sg_dept_allow:'Allow department scales',sg_dept_empty:'Usual scales: 6, 10, 20, 100.',
  sg_hist:'Grading system history',sg_h_field:'Setting',sg_h_old:'Before',sg_h_new:'After',sg_h_none:'No changes recorded yet.',sg_l_conf:'Display & rounding',sg_l_scale:'Scale',sg_l_terms:'Periods',sg_l_count:'Number of periods',sg_l_pass:'Pass mark',sg_l_rank:'Ranking'});
 
+Object.assign(T.ar,{sd_off_h:'الوزارة وDRENA وIEP والرمز الرسمي ورقم الترخيص واسم المدير: من الإعدادات ← عام.',sg_bul:'النجاح والترتيب والكشف',set_from_gen:'يُعدَّل من الإعدادات ← عام',cv_set_card:'إظهار صورة التلميذ عند التحقق من البطاقة برمز QR'});
+Object.assign(T.fr,{sd_off_h:'Ministère, DRENA, IEP, code officiel, autorisation et nom du directeur : Paramètres → Général.',sg_bul:'Réussite, classement et bulletin',set_from_gen:'Se modifie dans Paramètres → Général',cv_set_card:"Afficher la photo de l'élève lors de la vérification de la carte (QR)"});
+Object.assign(T.en,{sd_off_h:'Ministry, DRENA, IEP, official code, licence and director name: Settings → General.',sg_bul:'Pass mark, ranking and report card',set_from_gen:'Edit it in Settings → General',cv_set_card:'Show the student photo when the card is verified (QR)'});
+
 const t=k=>(T[L]||{})[k]??(L!=='ar'?T.fr[k]:undefined)??T.ar[k];
 const RTL=()=>L==='ar'||L==='nqo';const LX=o=>o[L]||o.fr;
 function applyLang(){
@@ -1903,7 +1907,7 @@ async function printAnnual(cls,A,rows,certified){const i=D.i,er=document.getElem
 function scaleCard(){if(!canEdit()||!D.i)return '';const cy=D.i.cycles&&D.i.cycles.length?D.i.cycles:Object.keys(CYC);
   return `<div class="cert"><b>${t('grading')}</b><p class="sub" style="margin:4px 0 8px">${t('grading_help')}</p>
   <div class="chips">${cy.map(c=>`<label style="display:flex;align-items:center;gap:6px">${t(CYC[c])} /<input class="scIn" data-cy="${c}" type="number" min="1" style="width:80px" dir="ltr" list="dl_scale" value="${scaleOf({cycle:c})}"></label>`).join('')}</div>
-  <button class="btn btn-g sm" id="scSave" style="margin-top:10px">${t('save')}</button><span class="err" id="scErr" style="margin-inline-start:8px"></span></div>`}
+</div>`}
 function bindScale(){const b=document.getElementById('scSave');if(!b)return;b.onclick=async()=>{const gs=Object.assign({},D.i.grade_scale||{});
   document.querySelectorAll('.scIn').forEach(i=>{const v=parseFloat(i.value);if(v>0)gs[i.dataset.cy]=v});
   const er=document.getElementById('scErr');er.textContent=t('wait');
@@ -2322,16 +2326,9 @@ function tabSettingsOld(){const el=document.getElementById('dtab'),i=D.i;
     <div class="two"><div class="fld"><label>${t('dir_name')}</label><input id="xDir" value="${esc(i.director_name||'')}"></div><div class="fld"><label>${t('city')}</label><input id="xCity" value="${esc(i.city||'')}"></div></div>
     <div class="two"><div class="fld"><label>${t('phone')}</label><input id="xPhone" dir="ltr" list="dl_phone" value="${esc(i.phone||'')}"></div><div class="fld"><label>${t('email')}</label><input id="xEmail" type="email" dir="ltr" value="${esc(i.email||'')}"></div></div>
     <div class="fld"><label>${t('address')}</label><input id="xAddr" value="${esc(i.address||'')}" placeholder="${esc(t('addr_ph'))}"></div>
-    <div class="two"><div class="fld"><label>${t('cur_year')}</label><select id="xYear" dir="ltr">${opts(YEARS.map(y=>[y,y]),i.current_year||'2026-2027')}</select></div>
-      <div class="fld"><label>${t('term')}</label><select id="xTerm">${opts([['tri',t('tri')],['sem',t('sem')],['eval',t('sg_k_eval')],['per',t('sg_k_per')]],i.term_system)}</select></div></div>
-    <label class="opt" style="margin-top:4px"><input type="checkbox" id="xRank"${i.show_rank!==false?' checked':''}>${t('show_rank')}</label>
-    <div class="fld"><label>${t('bul_note')}</label><input id="xNote" value="${esc(i.bulletin_note||'')}" list="dl_bnote"></div>
-    <datalist id="dl_bnote"><option value="${esc(t('bn1'))}"><option value="${esc(t('bn2'))}"><option value="${esc(t('bn3'))}"></datalist>
+    <div class="two"><div class="fld"><label>${t('cur_year')}</label><select id="xYear" dir="ltr">${opts(YEARS.map(y=>[y,y]),i.current_year||'2026-2027')}</select></div><div></div></div>
     <button class="btn btn-g" id="xSave">${t('save')}</button><div class="err" id="xErr"></div></div>
   ${portalCard()}
-  <div class="cert"><b>📆 ${t('td_ttl')} — <span dir="ltr">${esc(curYear())}</span></b><p class="sub" style="margin:4px 0 8px">${t('td_help')}</p>
-    ${termRanges().map((r,k)=>`<div class="two"><div class="fld"><label>${termName(k+1)} — ${t('td_from')}</label><input class="tdIn" data-k="${k}" data-e="0" type="date" dir="ltr" value="${r[0]}"></div><div class="fld"><label>${t('td_to')}</label><input class="tdIn" data-k="${k}" data-e="1" type="date" dir="ltr" value="${r[1]}"></div></div>`).join('')}
-    <button class="btn btn-g sm" onclick="saveTerms(this)">${t('save')}</button><span class="err" id="tdErr" style="margin-inline-start:8px"></span></div>
   <div class="cert"><b>💾 ${t('bk_ttl')}</b><p class="sub" style="margin:4px 0 8px">${t('bk_help')}</p>
     <div class="acts" style="justify-content:flex-start;flex-wrap:wrap"><button class="btn btn-g" onclick="doBackup(this)">💾 ${t('bk_btn')}</button>
     <label class="btn btn-o" style="cursor:pointer">♻ ${t('rs_btn')}<input type="file" accept=".json,application/json" hidden onchange="doRestore(this)"></label></div>
@@ -2344,19 +2341,18 @@ function tabSettingsOld(){const el=document.getElementById('dtab'),i=D.i;
     <div class="fld"><label>${t('ministry')}</label><input id="yMin" dir="ltr" value="${esc(i.ministry||'')}"></div>
     <div class="two"><div class="fld"><label>DRENA</label><input id="yDrena" dir="ltr" list="dl_drena" value="${esc(i.drena||'')}" placeholder="DRENA de Bouaké 1"></div><div class="fld"><label>IEP</label><input id="yIep" dir="ltr" value="${esc(i.iep||'')}" placeholder="Bouaké …"></div></div>
     <div class="two"><div class="fld"><label>${t('off_code')}</label><input id="yCode" dir="ltr" value="${esc(i.official_code||'')}"></div><div class="fld"><label>${t('auth_no')}</label><input id="yAuth" dir="ltr" value="${esc(i.authorization_no||'')}"></div></div>
-    <div class="two"><div class="fld"><label>${t('rooms')}</label><input id="yRooms" type="number" min="0" dir="ltr" value="${esc(i.rooms||'')}"></div>
-      <div class="fld"><label>${t('pass_mark')}</label><select id="yPass">${opts([['0.4','40 %'],['0.45','45 %'],['0.5','50 % (5/10 — 10/20)'],['0.55','55 %'],['0.6','60 %']],String(i.pass_mark||0.5))}</select></div></div>
+    <div class="two"><div class="fld"><label>${t('rooms')}</label><input id="yRooms" type="number" min="0" dir="ltr" value="${esc(i.rooms||'')}"></div><div></div></div>
     <button class="btn btn-g" id="ySave">${t('save')}</button><div class="err" id="yErr"></div></div>
-  ${scaleCard()}<div class="cert"><div id="attSetBox"></div></div>`;
+  <div class="cert"><div id="attSetBox"></div></div>`;
   document.getElementById('ySave').onclick=async()=>{const er=document.getElementById('yErr');er.style.color='';er.textContent=t('wait');
     const row={ministry:document.getElementById('yMin').value.trim()||null,drena:document.getElementById('yDrena').value.trim()||null,iep:document.getElementById('yIep').value.trim()||null,
-      official_code:document.getElementById('yCode').value.trim()||null,authorization_no:document.getElementById('yAuth').value.trim()||null,rooms:parseInt(document.getElementById('yRooms').value)||null,pass_mark:parseFloat(document.getElementById('yPass').value)||0.5};
+      official_code:document.getElementById('yCode').value.trim()||null,authorization_no:document.getElementById('yAuth').value.trim()||null,rooms:parseInt(document.getElementById('yRooms').value)||null};
     const {error}=await sb.from('institutions').update(row).eq('id',i.id);if(error){er.textContent=em(error);return}Object.assign(i,row);er.style.color='var(--g2)';er.textContent=t('saved')};
-  bindScale();attSettings(document.getElementById('attSetBox'));
+  attSettings(document.getElementById('attSetBox'));
   document.getElementById('xSave').onclick=async()=>{const er=document.getElementById('xErr');er.style.color='';er.textContent=t('wait');
     const row={name_ar:document.getElementById('xNameAr').value.trim()||i.name_ar,name_fr:document.getElementById('xNameFr').value.trim()||i.name_fr,director_name:document.getElementById('xDir').value.trim()||null,
       city:document.getElementById('xCity').value.trim()||i.city,phone:document.getElementById('xPhone').value.trim()||null,email:document.getElementById('xEmail').value.trim()||null,address:document.getElementById('xAddr').value.trim()||null,
-      current_year:document.getElementById('xYear').value,term_system:document.getElementById('xTerm').value,show_rank:document.getElementById('xRank').checked,bulletin_note:document.getElementById('xNote').value.trim()||null};
+      current_year:document.getElementById('xYear').value};
     const {error}=await sb.from('institutions').update(row).eq('id',i.id);if(error){er.textContent=em(error);return}
     Object.assign(D.i,row);F.year=D.i.current_year;F.loaded='';renderDash();setTimeout(()=>{const e2=document.getElementById('xErr');if(e2){e2.style.color='var(--g2)';e2.textContent=t('saved')}},0)};
   const saveBrand=async(k,blob)=>{const er=document.getElementById('bErr');er.style.color='';er.textContent=t('wait');
@@ -2947,7 +2943,6 @@ function portalCard(){const i=D.i,y=curYear(),pub=(i.portal_pub&&i.portal_pub[y]
   return `<div class="cert"><b>👨‍👩‍👧 ${t('pp_ttl')}</b><p class="sub" style="margin:4px 0 8px">${t('pp_set_help')}</p>
     <label class="opt"><input type="checkbox" id="ppOn"${i.portal_on!==false?' checked':''}>${t('pp_on')}</label>
     <div class="fld"><label>${t('pp_pub')} — <span dir="ltr">${esc(y)}</span></label><div class="chips">${Array.from({length:nTerms()},(_,k)=>`<label class="chip" style="cursor:pointer"><input type="checkbox" class="ppPub" value="${k+1}"${pub.includes(k+1)?' checked':''}> ${termName(k+1)}</label>`).join('')}</div></div>
-    <label class="opt" style="margin-top:8px"><input type="checkbox" id="cpOn"${i.card_photo!==false?' checked':''}>${t('cv_set')}</label>
     <button class="btn btn-g sm" onclick="savePortal(this)">${t('save')}</button><span class="err" id="ppErr" style="margin-inline-start:8px"></span></div>`}
 async function savePortal(){const er=document.getElementById('ppErr'),y=curYear();er.style.color='';
   const pp=Object.assign({},D.i.portal_pub||{},{[y]:[...document.querySelectorAll('.ppPub:checked')].map(x=>+x.value)}),on=document.getElementById('ppOn').checked;
@@ -4810,7 +4805,7 @@ async function setSave(patch,errId){const er=document.getElementById(errId);er.s
 function chipSync(b){b.querySelectorAll('label.chip input[type=checkbox]').forEach(x=>{const u=()=>x.parentNode.classList.toggle('on',x.checked);u();x.addEventListener('change',u)})}
 const chk=(id,on,lbl)=>`<label class="chip" style="cursor:pointer"><input type="checkbox" id="${id}"${on?' checked':''}> ${lbl}</label>`;
 function setDocs(){const b=document.getElementById('setBody'),c=dconf(),i=D.i,ci=(i.country||'CI')==='CI';
-  b.innerHTML=`<div class="cert" style="margin-top:0"><b>🏛 ${t('sd_head')}</b>
+  b.innerHTML=`<div class="cert" style="margin-top:0"><b>🏛 ${t('sd_head')}</b><p class="sub" style="margin:4px 0 0">${t('sd_off_h')}</p>
     <div class="chips" style="margin:10px 0">${chk('sdRep',c.rep!==false,t('sd_rep'))}${chk('sdCodes',c.codes!==false,t('sd_codes'))}${chk('sdBul',!!c.bul_head,t('sd_bul'))}</div>
     <div class="two"><div class="fld"><label>${t('sd_rep1')}</label><input id="sdR1" dir="ltr" value="${esc(c.rep1||'')}" placeholder="${ci?"RÉPUBLIQUE DE CÔTE D'IVOIRE":''}"></div>
       <div class="fld"><label>${t('sd_rep2')}</label><input id="sdR2" dir="ltr" value="${esc(c.rep2||'')}" placeholder="${ci?'Union – Discipline – Travail':''}"></div></div>
@@ -4821,7 +4816,7 @@ function setDocs(){const b=document.getElementById('setBody'),c=dconf(),i=D.i,ci
     <div class="two" style="margin-top:8px"><div class="fld"><label>${t('sd_sfr')}</label><input id="sdSf" dir="ltr" value="${esc(c.sign_fr||'')}" placeholder="Le Directeur"></div>
       <div class="fld"><label>${t('sd_sar')}</label><input id="sdSa" dir="rtl" value="${esc(c.sign_ar||'')}" placeholder="المدير"></div></div>
     <div class="two"><div class="fld"><label>${t('sd_place')}</label><input id="sdPl" dir="ltr" value="${esc(c.place||'')}" placeholder="${esc(half(i.city,false)||'')}"></div>
-      <div class="fld"><label>${t('sd_dname')}</label><input id="sdDn" value="${esc(i.director_name||'')}"></div></div>
+      <div class="fld"><label>${t('sd_dname')}</label><div class="note" style="margin:0"><b>${esc(i.director_name||'—')}</b> · <small>${t('set_from_gen')}</small></div></div></div>
     <small class="sub">${t('sd_sign_h')}</small></div>
    <div class="cert"><b>🎨 ${t('sd_look')}</b>
     <div class="fld" style="margin-top:8px"><label>${t('sd_color')}</label><div class="chips">${Object.keys(DOC_COL).map(k=>`<label class="chip${(c.color||'green')===k?' on':''}" style="cursor:pointer"><input type="radio" name="sdCol" value="${k}"${(c.color||'green')===k?' checked':''} hidden><span style="display:inline-block;width:14px;height:14px;border-radius:50%;background:${DOC_COL[k][0]};vertical-align:middle"></span> ${t('col_'+k)}</label>`).join('')}</div></div>
@@ -4834,8 +4829,8 @@ function setDocs(){const b=document.getElementById('setBody'),c=dconf(),i=D.i,ci
   const v=id=>document.getElementById(id).value.trim(),k=id=>document.getElementById(id).checked;
   const read=()=>({rep:k('sdRep'),codes:k('sdCodes'),bul_head:k('sdBul'),rep1:v('sdR1'),rep2:v('sdR2'),extra:v('sdEx'),right:v('sdRt'),right_text:v('sdRx'),sign_fr:v('sdSf'),sign_ar:v('sdSa'),place:v('sdPl'),
     color:(b.querySelector('[name=sdCol]:checked')||{}).value||'green',frame:v('sdFr'),footer:v('sdFt'),credit:k('sdCr')});
-  document.getElementById('sdGo').onclick=()=>setSave({doc_conf:read(),director_name:v('sdDn')||null},'sdErr');
-  document.getElementById('sdPv').onclick=()=>{const old=D.i.doc_conf,od=D.i.director_name;D.i.doc_conf=read();D.i.director_name=v('sdDn')||od;docTheme();
+  document.getElementById('sdGo').onclick=()=>setSave({doc_conf:read()},'sdErr');
+  document.getElementById('sdPv').onclick=()=>{const old=D.i.doc_conf,od=D.i.director_name;D.i.doc_conf=read();docTheme();
     printPages(`<section class="ofdoc">${officialHead('CERTIFICAT DE SCOLARITÉ','شهادة مدرسية')}<p style="margin:10mm 0;line-height:2">${esc(t('sd_sample'))}</p><div style="flex:1"></div>${officialSign('AMC-0000-PREVIEW')}<footer class="off">Al-Madaris CI — ${t('foot')}</footer></section>`).finally(()=>{D.i.doc_conf=old;D.i.director_name=od;docTheme()})}}
 function setCards(){const b=document.getElementById('setBody'),c=cconf(),hide=c.hide||[];
   const sample=D.students.find(s=>s.status==='active'&&s.class_id)||D.students[0];
@@ -4847,7 +4842,7 @@ function setCards(){const b=document.getElementById('setBody'),c=cconf(),hide=c.
     <div class="two" style="margin-top:8px"><div class="fld"><label>${t('scd_tar')}</label><input id="scTa" dir="rtl" value="${esc(c.t_ar||'')}" placeholder="بطاقة مدرسية"></div><div class="fld"><label>${t('scd_tfr')}</label><input id="scTf" dir="ltr" value="${esc(c.t_fr||'')}" placeholder="CARTE SCOLAIRE"></div></div>
     <div class="two"><div class="fld"><label>${t('scd_rar')}</label><textarea id="scRa" dir="rtl" rows="2">${esc(c.rule_ar||'')}</textarea></div><div class="fld"><label>${t('scd_rfr')}</label><textarea id="scRf" dir="ltr" rows="2">${esc(c.rule_fr||'')}</textarea></div></div>
     <div class="fld" style="max-width:260px"><label>${t('scd_valid')}</label><input id="scV" type="date" dir="ltr" value="${esc(c.valid||'')}"><small class="sub">${t('scd_valid_h')}</small></div></div>
-   <div class="cert"><b>👁 ${t('scd_show')}</b><div class="chips" style="margin-top:8px">${H.map(([k,l])=>chk('scH_'+k,!hide.includes(k),t(l))).join('')}</div></div>
+   <div class="cert"><b>👁 ${t('scd_show')}</b><div class="chips" style="margin-top:8px">${H.map(([k,l])=>chk('scH_'+k,!hide.includes(k),t(l))).join('')}</div>${'card_photo' in D.i?`<label class="opt" style="margin-top:8px"><input type="checkbox" id="scPh"${D.i.card_photo!==false?' checked':''}>${t('cv_set_card')}</label>`:''}</div>
    <div class="acts" style="justify-content:flex-start;flex-wrap:wrap"><button class="btn btn-g" id="scGo">💾 ${t('save')}</button><span class="err" id="scErr"></span></div>
    <div class="cert"><b>👀 ${t('scd_prev')}</b><div id="scPv" class="crprev" style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:10px"></div></div>`;
   chipSync(b);
@@ -4856,7 +4851,7 @@ function setCards(){const b=document.getElementById('setBody'),c=cconf(),hide=c.
   const pv=()=>{const box=document.getElementById('scPv');if(!sample){box.innerHTML=`<div class="sub">${t('sc_no_stu')}</div>`;return}const old=D.i.card_conf;D.i.card_conf=read();
     try{const [f,bk]=cardFns('stu',D.i.card_conf.tpl);box.innerHTML=`<div>${f(sample)}</div><div>${bk(sample)}</div>`;k5QR(box)}finally{D.i.card_conf=old}};
   b.querySelectorAll('input,textarea').forEach(x=>x.addEventListener('change',()=>{b.querySelectorAll('[type=radio]').forEach(r=>r.parentNode.classList.toggle('on',r.checked));pv()}));pv();
-  document.getElementById('scGo').onclick=async()=>{const cf=read();if(await setSave({card_conf:cf},'scErr')){CARD_TPL=cf.tpl;try{localStorage.setItem('amc_cardtpl',CARD_TPL)}catch(e){}}}}
+  document.getElementById('scGo').onclick=async()=>{const cf=read(),ph=document.getElementById('scPh'),pt={card_conf:cf};if(ph)pt.card_photo=ph.checked;if(await setSave(pt,'scErr')){CARD_TPL=cf.tpl;try{localStorage.setItem('amc_cardtpl',CARD_TPL)}catch(e){}}}}
 function setGrade(){const b=document.getElementById('setBody'),i=D.i,g=gconf(),kind=i.term_system||'tri',n=nTerms();
   b.innerHTML=`<div class="cert" style="margin-top:0"><b>🗓 ${t('sg_terms')}</b><p class="sub" style="margin:4px 0 10px">${t('sg_terms_h')}</p>
     <div class="two"><div class="fld"><label>${t('sg_kind')}</label><select id="sgK">${opts([['tri',t('sg_k_tri')],['sem',t('sg_k_sem')],['eval',t('sg_k_eval')],['per',t('sg_k_per')]],kind)}</select></div>
@@ -4866,18 +4861,18 @@ function setGrade(){const b=document.getElementById('setBody'),i=D.i,g=gconf(),k
     <div class="chips">${[['avg','sg_m_avg'],['frac','sg_m_frac'],['pct','sg_m_pct']].map(([k,l])=>chk('sgM_'+k,g.show.includes(k),t(l))).join('')}</div>
     <div class="two" style="margin-top:10px"><div class="fld"><label>${t('sg_dec')}</label><select id="sgD">${opts([['0','0 — 15'],['1','1 — 14,6'],['2','2 — 14,57']],String(g.dec))}</select></div>
       <div class="fld"><label>${t('sg_sep')}</label><select id="sgS">${opts([['.','14.57'],[',','14,57']],g.sep)}</select></div></div>
-    <div class="fld" style="margin-top:6px"><label>✂️ ${t('sg_mode')}</label><select id="sgR">${opts([['round',t('sg_round')],['trunc',t('sg_trunc')]],g.mode)}</select></div><div class="note" id="sgEx"></div></div>${sgDeptHtml()}
-   <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="sgGo">💾 ${t('save')}</button><span class="err" id="sgErr"></span></div>`;
+    <div class="fld" style="margin-top:6px"><label>✂️ ${t('sg_mode')}</label><select id="sgR">${opts([['round',t('sg_round')],['trunc',t('sg_trunc')]],g.mode)}</select></div><div class="note" id="sgEx"></div></div>${scaleCard()}${sgDeptHtml()}
+   <div class="acts" style="justify-content:flex-start"><button class="btn btn-g" id="sgGo">💾 ${t('save')}</button><span class="err" id="sgErr"></span></div>${tdCardHtml()}${bulSetHtml()}`;
   chipSync(b);
   const g2=id=>document.getElementById(id),rd=()=>({k:g2('sgK').value,n:g2('sgK').value==='tri'?3:g2('sgK').value==='sem'?2:+g2('sgN').value,
     conf:{show:['avg','frac','pct'].filter(k=>g2('sgM_'+k).checked),dec:+g2('sgD').value,sep:g2('sgS').value,mode:g2('sgR').value,dept_allow:!!(g2('sgDA')&&g2('sgDA').checked)}});
   const upd=()=>{const r=rd(),fixed=r.k==='tri'||r.k==='sem';g2('sgN').disabled=fixed;if(fixed)g2('sgN').value=String(r.n);
     g2('sgNames').innerHTML=Array.from({length:r.n},(_,k)=>`<span class="chip">${esc(termLabel(k+1,r.k))}</span>`).join('');
     const sc=20;g2('sgEx').innerHTML=`${t('sg_ex')}: <b dir="ltr">${esc(avgFmt(14.5678,sc,r.conf.show.length?r.conf:{show:['frac']}))}</b> · <b dir="ltr">${esc(avgFmt(7.25,10,r.conf.show.length?r.conf:{show:['frac']}))}</b>`};
-  b.querySelectorAll('select,input').forEach(x=>x.addEventListener('change',upd));upd();sgHistLoad();
+  b.querySelectorAll('select,input').forEach(x=>x.addEventListener('change',upd));upd();sgHistLoad();bindBulSet();
   g2('sgGo').onclick=async()=>{const r=rd(),er=g2('sgErr');if(!r.conf.show.length){er.textContent=t('sg_need1');return}
     const used=Math.max(0,...(G.evals||[]).map(e=>+e.term||0));if(used>r.n&&!confirm(t('sg_warn').replace('{n}',used)))return;
-    if(await setSave({term_system:r.k,term_count:(r.k==='eval'||r.k==='per')?r.n:null,grade_conf:r.conf},'sgErr')){G.term=Math.min(G.term||1,r.n);if(await sgDeptSave())setTimeout(sgHistLoad,400)}}}
+    if(await setSave({term_system:r.k,term_count:(r.k==='eval'||r.k==='per')?r.n:null,grade_conf:r.conf},'sgErr')){G.term=Math.min(G.term||1,r.n);if(await sgDeptSave()&&await sgScaleSave())setTimeout(sgHistLoad,400)}}}
 
 // ===== Multi-department phase 2: departments & roles =====
 const PERM_CAT=[['students.view','pm_stu_view'],['students.create','pm_stu_create'],['students.edit','pm_stu_edit'],['students.delete','pm_stu_delete'],
@@ -5236,6 +5231,22 @@ async function sgHistLoad(){const b=document.getElementById('setBody');if(!b)ret
    ${r.data.map(x=>`<tr><td><bdi dir="ltr">${esc(ntTime(x.at))}</bdi></td><td>${esc(x.user_name||'')}</td><td>${t(GLF[x.field]||'')||esc(x.field)}${x.department_id?' '+depBadge(depOf(x.department_id)):''}</td><td dir="ltr"><small>${esc(v(x.old_value))}</small></td><td dir="ltr"><small><b>${esc(v(x.new_value))}</b></small></td></tr>`).join('')}</tbody></table></div>`:`<div class="sub">${t('sg_h_none')}</div>`}</div>`}
 
 async function tabGd(){await tabGdBase();await gdReports()}
+
+// ===== Settings de-duplication: each setting lives in exactly one place =====
+// Général: identité, données officielles, logo/signature/cachet, portail, présences, sauvegarde
+// Évaluation: périodes + dates, barèmes (cycle + département), moyenne, seuil, classement, note du bulletin
+// Documents: en-tête, signataire (titre), apparence — Cartes: modèle, textes, champs, photo sur la carte
+function tdCardHtml(){return `<div class="cert"><b>📆 ${t('td_ttl')} — <span dir="ltr">${esc(curYear())}</span></b><p class="sub" style="margin:4px 0 8px">${t('td_help')}</p>
+    ${termRanges().map((r,k)=>`<div class="two"><div class="fld"><label>${termName(k+1)} — ${t('td_from')}</label><input class="tdIn" data-k="${k}" data-e="0" type="date" dir="ltr" value="${r[0]}"></div><div class="fld"><label>${t('td_to')}</label><input class="tdIn" data-k="${k}" data-e="1" type="date" dir="ltr" value="${r[1]}"></div></div>`).join('')}
+    <button class="btn btn-g sm" onclick="saveTerms(this)">${t('save')}</button><span class="err" id="tdErr" style="margin-inline-start:8px"></span></div>`}
+function bulSetHtml(){const i=D.i;return `<div class="cert"><b>🏆 ${t('sg_bul')}</b>
+    <div class="two" style="margin-top:8px"><div class="fld"><label>${t('pass_mark')}</label><select id="gbPass">${opts([['0.4','40 %'],['0.45','45 %'],['0.5','50 % (5/10 — 10/20)'],['0.55','55 %'],['0.6','60 %']],String(i.pass_mark||0.5))}</select></div>
+     <div class="fld"><label>${t('bul_note')}</label><input id="gbNote" value="${esc(i.bulletin_note||'')}" list="dl_bnote"><datalist id="dl_bnote"><option value="${esc(t('bn1'))}"><option value="${esc(t('bn2'))}"><option value="${esc(t('bn3'))}"></datalist></div></div>
+    <label class="opt"><input type="checkbox" id="gbRank"${i.show_rank!==false?' checked':''}>${t('show_rank')}</label>
+    <button class="btn btn-g sm" id="gbGo" style="margin-top:6px">${t('save')}</button><span class="err" id="gbErr" style="margin-inline-start:8px"></span></div>`}
+function bindBulSet(){const g=document.getElementById('gbGo');if(!g)return;g.onclick=()=>setSave({pass_mark:parseFloat(document.getElementById('gbPass').value)||0.5,show_rank:document.getElementById('gbRank').checked,bulletin_note:document.getElementById('gbNote').value.trim()||null},'gbErr')}
+async function sgScaleSave(){const ins=[...document.querySelectorAll('.scIn')];if(!ins.length)return true;const gs=Object.assign({},D.i.grade_scale||{});let ch=false;
+  ins.forEach(x=>{const v=parseFloat(x.value);if(v>0&&gs[x.dataset.cy]!==v){gs[x.dataset.cy]=v;ch=true}});if(!ch)return true;return setSave({grade_scale:gs},'sgErr')}
 
 function nextLevel(c){const lv=LEVELS[c.cycle]||[],k=lv.findIndex(x=>x[0]===c.level);if(k>=0&&k<lv.length-1)return {cycle:c.cycle,level:lv[k+1][0]};
   const ord=['mat','pri','col','lyc','uni'],nc=ord[ord.indexOf(c.cycle)+1];if(nc&&nc!=='uni'&&((D.i.cycles||[]).includes(nc)||D.allClasses.some(x=>x.cycle===nc)))return {cycle:nc,level:LEVELS[nc][0][0]};return null}

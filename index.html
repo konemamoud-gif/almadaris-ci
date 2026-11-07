@@ -807,7 +807,7 @@ body:not(.sa-on) :is(#register,#login,#card,#verify,#privacy,#activate,#forgot,#
 
 .sa-kpis.gdk{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.sa-kpis.gdk .sa-kpi{flex-direction:column;align-items:flex-start;gap:8px}.sa-kpis.gdk .sa-kpi .tx b{font-size:clamp(18px,1.6vw,24px)}
 </style>
-</head>
+<style id="p9fix">@media(max-width:760px){.sa-grid[style*="grid-template-columns"]{grid-template-columns:minmax(0,1fr)!important}}</style></head>
 <body>
 <header><div class="wrap nav">
   <a class="brand" href="#home"><img src="emblem.png" alt=""><span>AL-MADARIS <b>CI</b></span></a>

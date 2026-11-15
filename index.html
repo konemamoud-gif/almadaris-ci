@@ -4300,7 +4300,7 @@ async function ovEvents(){const b=document.getElementById('ovEv');if(!b)return;a
 
 // ===== SUPER ADMIN space 2026 / فضاء صاحب المنصة =====
 const ADM={sec:'dash',ann:[],bak:[],ierr:'',nav:false};
-const SA_NAV=[['dash','🏠','sa_dash'],['schools','🏫','sa_schools'],['admins','👤','sa_admins'],['subs','💳','sa_subs'],['rev','💰','sa_rev'],['inv','🧾','adm_inv'],['rep','📊','sa_rep'],['mon','📈','sa_mon'],['sup','🎧','sa_sup'],['ann','📣','sa_ann'],['hol','📜','sa_hol'],['team','🛡️','sa_team'],['roles','🧩','sa_roles'],['bak','💾','adm_bak'],['sec','🔐','sa_sec'],['set','⚙️','sa_set']];
+const SA_NAV=[['dash','🏠','sa_dash'],['schools','🏫','sa_schools'],['admins','👤','sa_admins'],['subs','💳','sa_subs'],['rev','💰','sa_rev'],['inv','🧾','adm_inv'],['rep','📊','sa_rep'],['mon','📈','sa_mon'],['sup','🎧','sa_sup'],['ann','📣','sa_ann'],['hol','📜','sa_hol'],['cards','🪪','sa_cards'],['team','🛡️','sa_team'],['roles','🧩','sa_roles'],['bak','💾','adm_bak'],['sec','🔐','sa_sec'],['set','⚙️','sa_set']];
 const SAD={exp:[],tk:[],need:'',act:null,secd:null,team:null,tq:'',tf:'open',topen:null,rep:[],sf:'',aq:'',ef:''};
 const saN=n=>Math.round(+n||0).toLocaleString('fr-FR').replace(/[  ]/g,' ');
 const saDays=d=>d?Math.ceil((new Date(String(d).slice(0,10)+'T00:00:00Z')-new Date(todayISO()+'T00:00:00Z'))/864e5):null;
@@ -4346,7 +4346,7 @@ function renderAdmin(){const box=document.getElementById('admBox');if(!box||!D.p
   box.innerHTML=`<div class="sa${saDark()?' dark':''}" id="saRoot" style="--sa-dir:${RTL()?1:-1}">
    <aside class="sa-side">
     <div class="sa-brand"><div class="lg"><img src="logo.png" alt=""></div><b><i>AL-</i>MADARIS <i>CI</i></b><small>${t('sa_central')}</small><span class="sa-badge">👑 SUPER ADMIN</span></div>
-    <nav class="sa-nav">${SA_NAV.map(([k,ic,l],i)=>`${[1,6,9,12].includes(i)?'<div class="sep"></div>':''}<a data-sa="${k}" class="${ADM.sec===k?'on':''}" href="javascript:void 0"><i>${ic}</i><span>${t(l)}</span>${k==='sup'&&openT?`<em class="n">${openT}</em>`:''}${k==='inv'&&P.inv.some(v=>v.status==='due')?`<em class="n">${P.inv.filter(v=>v.status==='due').length}</em>`:''}</a>`).join('')}</nav>
+    <nav class="sa-nav">${SA_NAV.map(([k,ic,l],i)=>`${[1,6,9,13].includes(i)?'<div class="sep"></div>':''}<a data-sa="${k}" class="${ADM.sec===k?'on':''}" href="javascript:void 0"><i>${ic}</i><span>${t(l)}</span>${k==='sup'&&openT?`<em class="n">${openT}</em>`:''}${k==='inv'&&P.inv.some(v=>v.status==='due')?`<em class="n">${P.inv.filter(v=>v.status==='due').length}</em>`:''}</a>`).join('')}</nav>
     <div class="sa-out">${D.p.institution_id?`<a class="ms" href="#dash">🏫 ${t('my_dash')}</a>`:''}<button class="lo" id="saOut">⏻ ${t('sa_logout')}</button></div>
    </aside>
    <section class="sa-main">
@@ -4381,7 +4381,7 @@ function renderAdmin(){const box=document.getElementById('admBox');if(!box||!D.p
   document.addEventListener('click',saPopClose);
   const q=g('saQ');q.onkeydown=e=>{if(e.key==='Enter'){P.q=q.value.trim();P.f='';ADM.sec='schools';renderAdmin()}};
   const rf=g('saRef');if(rf)rf.onclick=()=>{SAD.act=null;SAD.secd=null;SAD.team=null;loadAdmin()};
-  ({dash:saDash,schools:renderPlatform,set:renderPlatform,inv:admInvoices,ann:admAnn,hol:saHol,bak:admBackups,admins:saAdmins,subs:saSubs,rev:saRev,rep:saRep,mon:saMon,sup:saSup,team:saTeam,roles:saRoles,sec:saSec}[ADM.sec]||saDash)();
+  ({dash:saDash,schools:renderPlatform,set:renderPlatform,inv:admInvoices,ann:admAnn,hol:saHol,cards:saCards,bak:admBackups,admins:saAdmins,subs:saSubs,rev:saRev,rep:saRep,mon:saMon,sup:saSup,team:saTeam,roles:saRoles,sec:saSec}[ADM.sec]||saDash)();
   saFx(root)}
 function saPopClose(e){const p=document.getElementById('saPop');if(p&&p.innerHTML&&!e.target.closest('.sa-pop'))p.innerHTML=''}
 function saFx(root){if(!root)return;saCount(root);
@@ -4688,6 +4688,56 @@ async function saHol(){const el=document.getElementById('admBody');el.innerHTML=
   g('ohGo').onclick=async()=>{const er=g('ohErr'),v=id=>g(id).value.trim();if(!v('ohA')||!v('ohS')){er.textContent=t('e_req');return}if(v('ohE')&&v('ohE')<v('ohS')){er.textContent=t('ev_bad');return}er.textContent=t('wait');
     const row={title_ar:v('ohA'),title_fr:v('ohF')||null,start_date:v('ohS'),end_date:v('ohE')||null,resume_date:v('ohR')||null,decree_ref:v('ohD')||null,occ_key:v('ohK')||null,country:(v('ohC')||'CI').toUpperCase(),note_ar:v('ohNA')||null,note_fr:v('ohNF')||null};
     const r=OHS.edit&&OHS.edit!==true?await sb.from('official_holidays').update(row).eq('id',OHS.edit):await sb.from('official_holidays').insert(row);if(r.error){er.textContent=em(r.error);return}OHS.edit=null;OHS.pre=null;saHol()}}
+// ===== Super Admin: print student & staff cards for any school / طباعة البطاقات للمدارس =====
+Object.assign(T.ar,{sa_cards:'طباعة البطاقات'});Object.assign(T.fr,{sa_cards:'Impression des cartes'});if(T.en)Object.assign(T.en,{sa_cards:'Print ID cards'});
+const SACL=()=>LX({ar:{h:'اختر مدرسة لتطبع بطاقات تلاميذها وموظفيها بنماذج البطاقات نفسها الموجودة في المنصة (الشعار، الصور، رمز QR، التوقيع). البيانات تُقرأ فقط ولا يتغير شيء في حساب المدرسة.',pick:'— اختر مدرسة —',sch:'المدرسة',n:'{s} تلميذ نشط · {f} موظف نشط',cnt:'مدرسة'},
+  fr:{h:"Choisissez une école pour imprimer les cartes de ses élèves et de son personnel avec les mêmes modèles que la plateforme (logo, photos, QR, signature). Les données sont seulement lues : rien n'est modifié dans le compte de l'école.",pick:'— Choisir une école —',sch:'École',n:'{s} élèves actifs · {f} membres du personnel actifs',cnt:'école'},
+  en:{h:"Pick a school to print its students' and staff ID cards with the platform's card designs (logo, photos, QR, signature). Data is only read: nothing changes in the school's account.",pick:'— Pick a school —',sch:'School',n:'{s} active students · {f} active staff',cnt:'school'}});
+const SAC={iid:'',data:null,kind:'stu',cls:'',q:'',sel:null,err:'',busy:false};
+const SAC_K=['i','classes','allClasses','students','allStudents','staff','vy','ostaff'];let SAC_BAK=null;
+function sacIn(){SAC_BAK={};SAC_K.forEach(k=>SAC_BAK[k]=D[k]);SAC_K.forEach(k=>D[k]=SAC.data[k])}
+function sacOut(){if(SAC_BAK){SAC_K.forEach(k=>D[k]=SAC_BAK[k]);SAC_BAK=null}}
+async function sacLoad(iid){const r0=await sb.from('institutions').select('*').eq('id',iid).maybeSingle();if(r0.error)throw r0.error;if(!r0.data)throw new Error('—');
+  const i=r0.data,q=tb=>sb.from(tb).select('*').eq('institution_id',iid);
+  const [c,st,sf]=await Promise.all([q('classes').order('created_at'),q('students').order('seq'),q('staff').order('created_at')]);[c,st,sf].forEach(r=>{if(r.error)throw r.error});
+  const y=i.current_year||'2026-2027',all=c.data||[];let cls=all.filter(x=>x.school_year===y);if(!cls.length)cls=all.filter(x=>x.school_year<=y);
+  const stu=(st.data||[]).filter(x=>x.status==='active'),stf=(sf.data||[]).filter(x=>x.status==='active');
+  try{await signPaths(stu.map(x=>x.photo_path).concat(stf.map(x=>x.photo_path),[i.logo_path,i.signature_path,i.stamp_path]))}catch(e){}
+  return {i,classes:cls,allClasses:all,students:stu,allStudents:st.data||[],staff:stf,vy:null,ostaff:null}}
+async function saCards(){const el=document.getElementById('admBody');if(!el)return;const N=SACL(),list=(P.list||[]).slice().sort((a,b)=>saSName(a).localeCompare(saSName(b)));
+  let h=`<p class="sub" style="margin-top:0">${N.h}</p><div class="toolbar" style="margin-top:0"><select id="sacSch" style="flex:1 1 320px"><option value="">${N.pick}</option>${list.map(x=>`<option value="${x.id}"${SAC.iid===x.id?' selected':''}>${saSName(x)}</option>`).join('')}</select></div>`;
+  let pool=[],sel=[],ff=null,bb=null;
+  if(SAC.busy)h+=`<div class="note">${t('wait')}</div>`;
+  else if(SAC.err)h+=`<div class="note" style="color:#b03a2e">${esc(SAC.err)}</div>`;
+  else if(SAC.data){sacIn();try{const stu=SAC.kind==='stu',q=nz(SAC.q);if(stu&&SAC.cls&&!D.classes.some(c=>c.id===SAC.cls))SAC.cls='';
+    pool=(stu?D.students.filter(x=>!SAC.cls||inCls(x,SAC.cls)):D.staff).filter(x=>!q||nz([stu?sName(x):x.full_name_ar,x.full_name_fr,x.code,x.staff_number].join(' ')).includes(q));
+    if(!SAC.sel)SAC.sel=new Set(pool.map(x=>x.id));sel=pool.filter(x=>SAC.sel.has(x.id));const first=sel[0]||pool[0],noPh=sel.filter(x=>!x.photo_path).length;[ff,bb]=cardFns(SAC.kind);
+    h+=`<div class="cert" style="margin-top:0;display:flex;gap:12px;align-items:center"><img src="${esc(schoolLogo())}" alt="" style="width:52px;height:52px;object-fit:contain;border-radius:10px;background:#fff"><div><b>${esc(D.i.name_ar||'')}</b>${D.i.name_fr?`<br><small dir="ltr">${esc(D.i.name_fr)}</small>`:''}<br><small class="sub">${N.n.replace('{s}',D.students.length).replace('{f}',D.staff.length)} · <span dir="ltr">${esc(curYear())}</span></small></div></div>
+     <div class="chips" style="margin:10px 0"><span class="chip${stu?' on':''}" data-sck="stu">🎓 ${t('cr_stu')}</span><span class="chip${!stu?' on':''}" data-sck="stf">👨‍🏫 ${t('cr_stf')}</span></div>
+     <div class="cert" style="margin-top:0"><b>🎨 ${t('cr_design')}</b><div class="chips" style="margin-top:8px">${CTPLS.map(([k,l])=>`<span class="chip${CARD_TPL===k?' on':''}" data-sct="${k}">${t(l)}</span>`).join('')}</div><p class="sub" style="margin:6px 0 0">${t('ct_h_'+CARD_TPL)}</p></div>
+     ${first?`<div class="crprev${CARD_TPL==='badge'?' v':''}"><div><small class="sub">${t('cr_front')}</small>${ff(first)}</div><div><small class="sub">${t('cr_back')}</small>${bb(first)}</div></div>`:''}
+     <div class="toolbar">${stu?`<select id="sacCls">${opts([['',t('all_cls')]].concat(D.classes.map(c=>[c.id,clsName(c)])),SAC.cls)}</select>`:''}<input id="sacQ" placeholder="${t('search')}" value="${esc(SAC.q)}">${cardModeSel('sacMode')}</div>${cardHelp('sacMode')}
+     ${layPicker(CARD_TPL==='badge',sel.length)}
+     <div class="toolbar" style="align-items:center"><button class="btn btn-g" id="sacPrint"${sel.length?'':' disabled'}>🖨 ${t('print_cards')} (${sel.length})</button><button class="btn btn-t sm" id="sacAll">${t('cr_all')}</button><button class="btn btn-t sm" id="sacNone">${t('cr_none')}</button></div>
+     ${noPh?`<div class="note" style="background:#fff4e0;border-color:#f3d9a8;color:#7a4a00">📷 ${t('cr_noph').replace('{n}',noPh)}</div>`:''}<div class="err" id="sacErr"></div>
+     ${pool.length?`<div class="tblw"><table class="tbl" style="min-width:0"><tbody>${pool.map(x=>`<tr><td style="width:30px"><input type="checkbox" class="sacS" value="${x.id}" style="width:auto"${SAC.sel.has(x.id)?' checked':''}></td>
+      <td><div class="nm">${thumb(x.photo_path,stu?x.first_name_ar:x.full_name_ar)}<div><b>${esc(stu?sName(x):x.full_name_ar)}</b><br><small class="sub" dir="ltr">${esc(stu?x.code:(x.staff_number||''))}</small></div></div></td>
+      <td>${stu?esc((D.classes.find(c=>inCls(x,c.id))&&clsName(D.classes.find(c=>inCls(x,c.id))))||''):esc(x.position||'')}</td><td>${x.photo_path?'':`<span class="badge" style="background:#fff4e0;color:#a35c00">📷 ${t('cr_nophoto')}</span>`}</td><td><button class="btn btn-t sm" data-scp="${x.id}">👁</button></td></tr>`).join('')}</tbody></table></div>`:`<div class="note">${t(stu?'no_stu':'no_staff')}</div>`}`}finally{sacOut()}}
+  el.innerHTML=h;const g=id=>document.getElementById(id);
+  g('sacSch').onchange=async e=>{SAC.iid=e.target.value;SAC.data=null;SAC.sel=null;SAC.cls='';SAC.q='';SAC.err='';if(!SAC.iid){saCards();return}SAC.busy=true;saCards();
+    try{const d=await sacLoad(SAC.iid);if(SAC.iid===e.target.value)SAC.data=d}catch(x){SAC.err=em(x)}SAC.busy=false;if(ADM.sec==='cards')saCards()};
+  if(!SAC.data||SAC.busy||SAC.err)return;
+  const qr=()=>el.querySelectorAll('.crprev .qrc').forEach(d=>{if(!d.firstChild&&window.QRCode)new QRCode(d,{text:d.dataset.url,width:96,height:96})});if(window.QRCode)qr();else loadQR().then(qr);
+  el.querySelectorAll('[data-sck]').forEach(c=>c.onclick=()=>{SAC.kind=c.dataset.sck;SAC.sel=null;SAC.q='';saCards()});
+  el.querySelectorAll('[data-sct]').forEach(c=>c.onclick=()=>{CARD_TPL=c.dataset.sct;try{localStorage.setItem('amc_cardtpl',CARD_TPL)}catch(e){}saCards()});
+  const cc=g('sacCls');if(cc)cc.onchange=e=>{SAC.cls=e.target.value;SAC.sel=null;saCards()};
+  const cq=g('sacQ');cq.oninput=()=>{SAC.q=cq.value;const pos=cq.selectionStart;saCards();const n=g('sacQ');if(n){n.focus();n.setSelectionRange(pos,pos)}};
+  bindCardMode('sacMode');{const m=g('sacMode');if(m){const o=m.onchange;m.onchange=()=>{o&&o();saCards()}}}bindLay(CARD_TPL==='badge',saCards);
+  el.querySelectorAll('.sacS').forEach(x=>x.onchange=()=>{x.checked?SAC.sel.add(x.value):SAC.sel.delete(x.value);const y=window.scrollY;saCards();window.scrollTo(0,y)});
+  el.querySelectorAll('[data-scp]').forEach(b=>b.onclick=()=>{const x=pool.find(y=>y.id===b.dataset.scp),pv=el.querySelector('.crprev');if(!x||!pv)return;sacIn();try{pv.innerHTML=`<div><small class="sub">${t('cr_front')}</small>${ff(x)}</div><div><small class="sub">${t('cr_back')}</small>${bb(x)}</div>`}finally{sacOut()}qr();pv.scrollIntoView({block:'center'})});
+  g('sacAll').onclick=()=>{pool.forEach(x=>SAC.sel.add(x.id));saCards()};g('sacNone').onclick=()=>{pool.forEach(x=>SAC.sel.delete(x.id));saCards()};
+  g('sacPrint').onclick=async()=>{if(!sel.length)return;if(SAC.kind==='stu'&&sel.some(x=>!x.card_token)){g('sacErr').textContent=t('need_schema7');return}
+    sacIn();try{await printCards(SAC.kind,sel)}catch(e){g('sacErr').textContent=em(e)}finally{sacOut()}}}
 async function admAnn(){const el=document.getElementById('admBody');el.innerHTML=t('wait');
   const r=await sb.from('platform_announcements').select('*').order('created_at',{ascending:false});if(ADM.sec!=='ann'||!document.getElementById('admBody'))return;
   if(r.error){el.innerHTML=`<div class="note">${esc(/platform_announcements/.test(r.error.message||'')?t('adm_need'):em(r.error))}</div>`;return}

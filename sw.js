@@ -1,8 +1,8 @@
 // Al-Madaris CI — Service worker : تشغيل التطبيق دون إنترنت
-const V = 'amc-v1';
+const V = 'amc-v2';
 const SHELL = ['./', './index.html', './config.js', './logo.png', './emblem.png', './manifest.webmanifest',
                './icon-192.png', './icon-512.png', './apple-touch-icon.png'];
-const CDN = ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2',
+const CDN = ['https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.110.0',
              'https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js',
              'https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js',
              'https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js'];
